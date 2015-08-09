@@ -1,0 +1,7 @@
+/build
+/dist
+/assets/videos
+/node_modules
+.DS_Store
+*.sublime-*
+.idea

@@ -1,0 +1,56 @@
+/******************************************************************
+Stylesheet: Variables
+
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
+
+******************************************************************/
+// font stacks
+$sans-serif:        "KlavikaWebBasicLight", Helvetica, Arial, sans-serif;
+$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+
+/**************************
+Text Colors
+***************************/		
+$link-color: #575859;
+$text-color: #414141;
+$dark-grey: #6E6E6E;
+$text-light-grey: #868686;
+$text-dark: #383838;
+$gold: #D8CA53;
+
+/**************************
+Generi
+***************************/		
+$teal: #86B1AA;
+
+/**************************
+Background/Button colors
+***************************/	
+$ml-red: #ef4330;
+$ml-dark-red: #EA321D;
+$light-grey: #f7f7f7;
+$page-bg-grey: #F9F9F9;
+$page-bg-drk-grey: #313131;
+
+// timeline math stuff
+$box-width: 300;
+$box-width-px: $box-width + px;
+$ab-sq: $box-width * $box-width;
+$a2-plus-b2: $ab-sq + $ab-sq;
+$sq-root: sqrt($a2-plus-b2);
+$sq-root-half: $sq-root/2;
+
+$top-start: 70;
+
+$bottom-row: $sq-root-half + $top-start + px;
+$top-row: $top-start + px;
+
+// data dot 
+$date-size: 24;
+$date-pos: - ($date-size/2) + px;
+
+$hover-date-size: 60;
+$hover-date-size-pos: - ($hover-date-size/2) + px;

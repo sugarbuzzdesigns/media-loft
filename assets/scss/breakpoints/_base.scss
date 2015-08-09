@@ -1,0 +1,1209 @@
+html, 
+body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	font-family: $sans-serif;
+}
+
+body * {
+	transition: all 0.5s ease; 
+	-webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+	height: 100%;
+
+}
+
+section {
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+	position: relative;
+}
+
+.home .blur-overlay {
+	height: 100%;
+	opacity: 1;
+	z-index: -1;
+}
+
+.blur-overlay {
+	position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(239, 67, 48, 0.7);
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease; 
+
+
+    &.show {
+    	height: 100%;
+    	display: block;
+    	opacity: 1;
+    }
+}
+
+a  {
+	color: #575859;
+}
+
+/**************************
+SVG Styles
+***************************/		
+.svg-bg {
+    width: 100%;
+    opacity: 0.2;
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+
+    &.home {
+    	opacity: 1;
+    	left: 0;
+    }
+}
+
+.blur-overlay .svg-bg {
+	opacity: 0.1;
+}
+
+/**************************
+Page Specific Styles
+***************************/		
+/**************************
+Homepage
+***************************/	
+body.home {
+	background-image: url(../images/mobile/backgrounds/mobile-home-bg.png);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}	
+
+#home-landing {
+	overflow: hidden;
+	position: relative;
+}
+
+/**************************
+About Page
+***************************/	
+.page-about {
+	
+}
+
+.tile-container {
+	height: auto;
+	overflow: hidden;
+}
+
+.tile {
+	width: calc(100%/6);
+    padding-bottom: calc(100%/6);
+	float: left;
+	position: relative;
+	background: #F5F5F5;
+
+	&.white {
+		background: #fff;
+	}
+
+	img {
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%,-50%);
+		        transform: translate(-50%,-50%);
+		width: 130%;
+
+		& + img {
+			opacity: 0;
+		}
+	}
+
+	&:nth-child(2n){
+
+	}
+
+	&.blank {
+		background: none;
+	}
+}
+
+#about-landing {
+	background-image: url(../images/mobile/backgrounds/mobile-about-bg.jpg);
+}
+
+#timeline {
+	min-height: 660px;
+	background-color: $page-bg-drk-grey;
+	overflow-x: scroll;
+
+	.full-bleed {
+		z-index: 1;
+		opacity: 0.4;
+
+		.cover {
+			height: 100%;
+			width: 100%;
+			background: rgba(0,0,0,0.5);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}	
+
+	.timeline-container {
+		height: 680px;
+		position: absolute;
+		top: 50%;
+		z-index: 3;
+		overflow-y: hidden;
+    	width: 100%;
+		-webkit-transform: translateY(-50%);
+		        transform: translateY(-50%);
+
+		.timeline-block {
+			border: solid 1px #ccc;
+			height: $box-width-px;
+			width: $box-width-px;
+			position: absolute;
+			top: $top-row;
+			left: 0;
+			-webkit-transform: rotate(45deg);
+			        transform: rotate(45deg);
+			        z-index: 9;
+
+			&.top {
+				top: $top-row;
+			}
+			
+			&.bottom {
+				top: $bottom-row;
+				z-index: 8;
+			}	
+
+			&:nth-child(2) {
+				left: $sq-root + px;
+				z-index: 7;
+			}		
+
+			&:nth-child(3) {
+				left: $sq-root + $sq-root-half + px;
+				z-index: 6;
+			}			
+			
+			&:nth-child(4) {
+				left: $sq-root * 2 - 1 + px;
+				z-index: 5;
+			}		
+
+			&:nth-child(5) {
+				left: ($sq-root*3) - 2 + px;
+				z-index: 4;
+			}		
+
+			&:nth-child(6) {
+				left: $sq-root + $sq-root-half + px;
+				z-index: 3;
+			}			
+			
+			&:nth-child(7) {
+				top: $top-row - 2;
+				left: $sq-root*2 - 2 + px;
+				z-index: 2;
+			}
+
+			.info {
+			    background-color: #F2F2F2;
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: 0%;
+			    height: 100%;			    
+			    z-index: -1;		    
+
+			    .inner {
+			    	width: 70%;
+			    	height: 50%;
+			    	-webkit-transform: rotate(-45deg) translate(-50%, -50%);
+			    	        transform: rotate(-45deg) translate(-50%, -50%);
+			    	-webkit-transform-origin: 0% 0%;
+			    	        transform-origin: 0% 0%;				    	        
+			    	opacity: 0;
+				    position: absolute;
+				    top: 50%;
+				    left: 50%;	
+
+			    	h5 {
+			    		color: #D8CA53;
+			    		font-size: 20px;
+			    	}	        
+
+			    	p {
+			    		color: #444444;
+			    	}				    		    	
+			    }
+
+			    &.show-me {
+					width: 100%;
+			    	height: 100%;
+
+				    .inner {
+				    	opacity: 1;
+				    }			    	
+			    }													
+			}
+		}		
+
+	}
+
+	.date {
+		position: absolute;
+		height: $date-size + px;
+		width: $date-size + px;
+		background-color: #E0E0E0;
+		border-radius: 50%;
+		-webkit-transform: rotate(-45deg);
+		        transform: rotate(-45deg);	
+
+        .close {
+        	opacity: 0;
+			background-image: url(../images/icons/menu-close-white.png);
+			background-repeat: no-repeat;
+			background-size: 100%;	
+			height: 30px;
+			width: 30px;
+			@include center-me;        	
+        }
+
+		.num {
+			@include center-me;
+			color: #fff;
+			opacity: 0;
+			display: block;
+			font-family: 'futura_ltlight';
+    		-webkit-transform: translate(-50%, -50%);;
+    		        transform: translate(-50%, -50%);;			
+		}
+	
+		&.left-top {
+			top: $date-pos;
+			left: $date-pos;
+		}
+		
+		&.right-top {
+			right: $date-pos;
+			top: $date-pos;
+		}	
+
+		&.right-bottom {
+			right: $date-pos;
+			bottom: $date-pos;
+		}	
+
+		&.left-bottom {
+			left: $date-pos;
+			bottom: $date-pos;
+		}	
+
+		&:hover {
+			.num {
+				opacity: 1;
+			}
+
+			background-color: #FF5543;
+
+			height: $hover-date-size + px;
+			width: $hover-date-size + px;
+
+			&.left-top {
+				top: $hover-date-size-pos;
+				left: $hover-date-size-pos;
+			}
+			
+			&.right-top {
+				right: $hover-date-size-pos;
+				top: $hover-date-size-pos;
+			}	
+
+			&.right-bottom {
+				right: $hover-date-size-pos;
+				bottom: $hover-date-size-pos;
+			}	
+
+			&.left-bottom {
+				left: $hover-date-size-pos;
+				bottom: $hover-date-size-pos;
+			}				
+		}
+
+
+		&.selected {
+
+			background-color: #FF5543;
+
+			.num {
+				opacity: 0;
+			}
+
+			.close {
+				opacity: 1;			
+			}
+
+			height: $hover-date-size + px;
+			width: $hover-date-size + px;
+
+			&.left-top {
+				top: $hover-date-size-pos;
+				left: $hover-date-size-pos;
+			}
+			
+			&.right-top {
+				right: $hover-date-size-pos;
+				top: $hover-date-size-pos;
+			}	
+
+			&.right-bottom {
+				right: $hover-date-size-pos;
+				bottom: $hover-date-size-pos;
+			}	
+
+			&.left-bottom {
+				left: $hover-date-size-pos;
+				bottom: $hover-date-size-pos;
+			}			
+		}
+	}
+}
+
+#clients {
+	background-color: #E5E5E5;
+}
+
+#people {
+	background-color: #DEDEDE;
+
+	.tile {
+		z-index: 1;
+
+		img {
+			width: 100%;
+		}
+
+		&:hover {
+			img {
+				opacity: 0;
+
+				& + img {
+					opacity: 1;
+				}
+			}
+		}		
+	}
+}
+
+#culture {
+	h2 {
+
+	}
+}
+
+#join-us {
+	.cta {
+		position: static;
+		transition: none;
+		-webkit-transition: none;
+		-webkit-transform: none;
+    	transform: none;
+	}
+	.contact-us {
+		position: absolute;
+		top: 50%;
+		left: 10%;
+		-webkit-transform: translate(0, -50%);
+		        transform: translate(0, -50%);
+		z-index: 2;
+	}
+}
+
+/**************************
+Contact page
+***************************/		
+.page-contact {
+	background: $page-bg-grey;
+
+	.hero,
+	.info,
+	.content {
+		width: 100%;
+	}
+
+	.hero {
+		background-image: url(../images/mobile/backgrounds/contact/contact-map-header.jpg);
+		background-size: cover;
+		height: 38%;
+		position: relative;
+
+		p {
+		    margin: 0;
+		    color: #fff;
+		    font-size: 24px;
+		    position: absolute;
+		    top: 50%;
+		    left: 38px;
+
+			em {
+				font-style: normal;
+				border-bottom: solid #676767 2px;
+			}
+		}
+	}
+
+	.general-info {
+		background-image: url(../images/mobile/backgrounds/contact/contact-info-bg.jpg);
+		background-size: cover;
+		background-position: top left;
+		height: 12%;
+		color: #fff;
+		overflow: auto;
+		padding-top: 23px;
+
+		.name-abbrev,
+		.clock, 
+		.weather {
+			display: block;
+			float: left;
+		}
+
+		.name-abbrev {
+			text-transform: uppercase;
+			font-family: 'ProximaNova-Extra-Bold', helvetica, arial;
+			font-size: 30px;
+    		letter-spacing: 3px;
+    		width: 70%;
+    		padding-left: 20px;
+		}
+
+		.clock,
+		.weather {
+			width: 15%;
+			text-align: right;
+			font-size: 22px;
+		}
+
+		.clock {
+			i {
+				height: 30px;
+				width: 30px;
+				background-image: url(../images/icons/clock.png);
+				display: inline-block;
+    			background-size: cover;
+			}	
+		}
+
+		.weather {
+			font-family: 'futura_ltlight';
+			padding-right: 20px;
+			sup {
+				top: -0.2em;
+			}
+		}
+	}
+
+	.contact-info {
+		padding: 20px;
+		color: $text-light-grey;
+		line-height: 25px;
+
+		h3 {
+			color: $text-dark;
+			font-weight: normal;
+			text-transform: uppercase;
+		}
+
+		.tel,
+		.email {
+			display: block;
+		}
+	
+		.directions {
+			display: block;
+		}
+
+		.address {
+			span {
+				display: block;
+			}
+		}
+
+		.directions {
+			color: $teal;
+			text-transform: uppercase;
+			font-size: 14px;
+		}
+	}
+
+	.social {
+	    position: absolute;
+	    bottom: 10px;
+	    right: 20px;
+	    text-align: right;
+	    font-size: 20px;
+	    width: 50%;
+
+		a {
+			color: $teal;
+			margin-left: 30px;
+		}
+	}
+
+	// Add chat tail to main 
+	// logo on Contact page
+	#main-logo {
+		&:after {
+		    content: "";
+		    height: 0;
+		    width: 0;
+		    position: absolute;
+		    bottom: -12px;
+		    right: 0px;
+		    border: solid 15px #fff;
+		    border-bottom: solid 15px transparent;
+		    border-left: solid 15px transparent;
+		}
+	}
+}
+
+/**************************
+Services Page
+***************************/
+#services-landing {
+	background-color: #2A2C2A;
+	color: #fff;
+}
+
+#services-container {
+	background-color: #2A2CB3;
+}
+
+.service-section {
+	height: 100%;
+	width: 100%;
+	background-color: $ml-red;
+	background-size: cover;
+
+	.summary {
+		color: #fff;
+		padding: 0 20px;
+	    position: absolute;
+	    top: 50%;
+	    -webkit-transform: translateY(-50%);
+	            transform: translateY(-50%);		
+
+		p {
+			opacity: 0;
+			-webkit-transform: translateY(40px);
+			        transform: translateY(40px);
+		}
+	}	
+
+	.number {
+		padding-bottom: 10px;
+		border-bottom: solid 1px #fff;
+		display: inline-block;
+		font-size: 50px;
+	}
+
+	.service {
+		text-transform: lowercase;
+		font-size: 25px;
+		margin-top: 20px;
+	}
+
+	display: none;
+
+	&.active {
+		display: block;
+	}
+
+	&.show-summary {
+		.summary {
+			p {
+				opacity: 1;
+				-webkit-transform: translateY(0px);
+				        transform: translateY(0px);
+			}
+		}
+	}
+}
+
+.landing blockquote {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 100%;
+    margin: 0;	
+	font-size: 25px;
+	padding: 0 20px;
+	-webkit-animation: down 1s ease forwards;
+
+	.quote + .quote {
+		display: none;
+	}
+
+	small {
+		display: block;
+		font-size: 11px;
+		margin-top: 50px;		
+	}
+}
+
+.right-menu {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+
+    &.go-away {
+    	bottom: -50px;
+    }
+}    
+
+/**************************
+Work Page
+***************************/	
+.work-item {
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	position: relative;
+
+	.work-summary {
+		height: 100%;
+		width: 100%;	
+		position: absolute;
+		top: 0;
+		left: 0;	
+
+		.tagline {
+			background: transparent;
+		}
+	}
+
+	.work-details {
+		height: 100%;
+	    width: 100%;
+	    background: $ml-red;
+	    position: absolute;
+	    left: -100%;
+	    z-index: 2;
+    	padding: 80px 20px 0;
+    	color: #fff;
+
+    	.label {
+    		background: $ml-dark-red;
+		    display: inline-block;
+		    padding: 10px;    		
+    	}
+
+    	.work-title {
+    		font-size: 25px;
+    	}
+
+    	.work-content {
+		    font-size: 14px;
+		    line-height: 20px;    		
+    	}
+	}
+}
+
+.show-details {
+	.work-details {
+		left: 0;
+	}
+}
+
+.work-carousel .close {
+	background-color: #fff;
+	width: 0;
+	height: 0;
+	padding-top: 9px;
+	position: absolute;
+	top: 0;
+	right: 0;	
+	font-size: 30px;	
+
+	i {
+		display: block;
+		height: 25px;
+		width: 25px;
+		background: url(../images/icons/menu-close.png) no-repeat;
+		background-size: cover;
+		@include center-me;
+	}		
+}
+
+.show-details {
+	.work-carousel .close {
+		height: 50px;
+		width: 50px;
+	}
+}
+
+/**************************
+Media Loft buttons/icons
+***************************/		
+.ml-play {
+	background-image: url(../images/mobile/icons/Play_reel_btn_@2x.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	display: inline-block;
+	vertical-align: middle;
+	height: 31px;
+	width: 25px;
+}
+
+.ml-play.black {
+	background-image: url(../images/mobile/icons/Play_reel_btn_blk@2x.png);
+}
+
+/**************************
+Logo
+***************************/
+.logo {
+	width: 150px;
+	height: 21px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	margin: 0;
+	display: block;
+	z-index: 5;
+
+	img {
+		width: 100%;
+	}
+
+	h1 {
+		margin: 0;
+	}
+
+	&.interior {
+		width: 75px;
+		height: 75px; 
+		background-color: #fff;
+		padding: 20px 10px;
+		top: 0;
+		left: 0;		
+	}
+}
+
+#main-logo {
+	position: fixed;
+}
+
+/**************************
+Cta & Tagline
+***************************/		
+.cta {
+	width: 270px;
+	position: absolute;
+	z-index: 2;
+	top: 55%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+
+	&.centered {
+		top: 50%;
+		left: 50%;		
+		-webkit-transform: translate(-50%, -50%);
+		        transform: translate(-50%, -50%);	
+    	text-align: center;		        
+	}
+
+	.tagline {
+		font-weight: normal;
+		-webkit-animation: down 1s ease forwards;
+
+		span {
+			display: inline-block;
+			background: rgba(255, 255, 255, 0.8);
+			font-size: 26px;
+			padding: 5px 15px;
+		}
+
+		.category {
+		    background: transparent;
+		    color: #6E6E6E;
+		    font-size: 14px;
+		    padding: 0;
+		    display: block;
+		    margin: 10px 0 0 0;
+		}
+
+	    &.one-liner {
+	    	padding: 5px 15px;
+
+	    	span {
+	    		background-color: transparent;
+	    		padding: 0;
+	    	}
+	    }	
+
+	    &.alternate-red {
+	    	background-color: rgba(239, 67, 48, 0.8);
+	    	color: #fff;
+	    }
+	}
+	
+	&.alternate {
+		width: 320px;
+
+		.tagline {
+			span {
+				background-color: #fff;
+				letter-spacing: 1px;
+			}
+
+			span:first-child {
+				color: #989898;
+			}
+		}	
+	}
+
+	&.single {
+		.tagline {
+			h2 {
+				background-color: rgba(239, 67, 48, 1);
+			}
+
+			span {
+				background-color: transparent;
+				letter-spacing: 1px;
+			}
+		}			
+	}	
+}
+
+.nav-arrow-down {
+	width: 35px;
+
+	img {
+		width: 100%;
+	   	-webkit-animation: flickerAnimation 1s infinite;
+	    animation: flickerAnimation 1s infinite;	
+
+	    &:last-child {
+		   	-webkit-animation: flickerAnimationTwo 1s infinite;
+		    animation: flickerAnimationTwo 1s infinite;	
+	    }		
+	}
+}
+
+@keyframes down {
+    from { 
+    	margin-top: -150px; 
+    	opacity: 0;
+    }
+    to { 
+    	margin-top: 0; 
+    	opacity: 1;
+    }
+}
+
+// work-items slide in
+@-webkit-keyframes slideInLeft {
+  0%   { margin-left:20%; }
+  100% { margin-left:0; }
+}
+
+@-webkit-keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0.7; }
+  100% { opacity:1; }
+}
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0.7; }
+  100% { opacity:1; }
+}
+
+@-webkit-keyframes flickerAnimationTwo {
+  0%   { opacity:0.7; }
+  50%  { opacity:1; }
+  100% { opacity:0.7; }
+}
+
+@keyframes flickerAnimationTwo {
+  0%   { opacity:0.7; }
+  50%  { opacity:1; }
+  100% { opacity:0.7; }
+}
+
+.play-reel {
+	span {
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 10px;
+		text-transform: uppercase;
+		font-size: 10px;
+	}
+}
+
+/**************************
+Main Menu Styles
+***************************/
+#main-menu-btn,
+.right-menu-btn {
+	background: #fff;
+	width: 80px;
+	height: 50px;
+	display: inline-block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	font-size: 15px;
+	text-align: center;
+	z-index: 6;	
+
+	.close-menu {
+		background-color: #fff;
+		width: 50px;
+		height: 50px;
+		padding-top: 9px;
+		position: absolute;
+		bottom: 0;
+		left: -50px;	
+		font-size: 30px;	
+
+		i {
+			display: block;
+			height: 25px;
+			width: 25px;
+			background: url(../images/icons/menu-close.png) no-repeat;
+			background-size: cover;
+			@include center-me;
+		}		
+	}
+
+	.open-menu {
+		display: block;
+		padding-top: 15px;
+		height: 100%;
+		width: 100%;		
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}	
+}
+
+.right-menu-btn {
+	left: auto;
+	right: 0;
+	width: 120px;
+	background: $ml-dark-red;
+	color: #fff;
+
+	.close-menu {
+		left: auto;	
+		right: -50px;
+		background: $ml-dark-red;
+
+		i {
+			display: block;
+			height: 25px;
+			width: 25px;
+			background: url(../images/icons/menu-close-white.png) no-repeat;
+			background-size: cover;
+		}
+	}	
+}
+
+#main-menu, 
+.right-menu {
+	position: fixed;
+	bottom: 0;
+	left: -130%;
+	width: 100%;
+	height: 100%;
+	background: $ml-red;
+	font-size: 30px;
+	padding-top: 100px;
+	z-index: 5;
+
+	ul {
+		margin-left: 30px;
+
+		li {
+			margin-bottom: 10px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	a {
+		color: #fff;
+		text-transform: uppercase;
+	}
+
+	.logo {
+		z-index: 3;
+	}
+
+	&.open {
+		display: block;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+.right-menu {
+	position: fixed;
+	left: auto;
+	right: -130%;
+	background: #fff;
+
+	ul {
+		text-align: right;
+		margin-right: 30px;
+		margin-left: 0;
+	}
+
+	li {
+		a {
+			color: #2E2E2E;
+		}		
+		&.active {
+			a { color: $gold; } 
+		}		
+	}
+}
+
+.main-menu-open {
+	#main-menu {
+		left: 0%;
+	}
+
+	#main-menu-btn {
+		width: 50px;
+		z-index: 6;
+
+		.open-menu {
+			bottom: -50px;
+		}
+
+		.close-menu {
+			left: 0;
+		}
+	}
+}
+
+.right-menu-open {
+	.right-menu {
+		right: 0%;
+	}
+
+	.right-menu-btn {
+		width: 50px;
+		z-index: 6;
+
+		.open-menu {
+			bottom: -50px;
+		}
+
+		.close-menu {
+			right: 0;
+			background: $ml-dark-red;
+			color: #fff;
+		}
+	}
+}
+
+/* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
+
+/* Invisible left hotspot */
+div.scrollingHotSpotLeft
+{
+	/* The hotspots have a minimum width of 100 pixels and if there is room the will grow
+    and occupy 15% of the scrollable area (30% combined). Adjust it to your own taste. */
+	min-width: 75px;
+	width: 10%;
+	height: 100%;
+	background-repeat: repeat;
+	background-position: center center;
+	position: absolute;
+	z-index: 200;
+	left: 0;
+}
+
+/* Visible left hotspot */
+div.scrollingHotSpotLeftVisible
+{
+	background-image: url(../images/arrow_left.gif);				
+	background-color: #fff;
+	background-repeat: no-repeat;
+	opacity: 0.35; /* Standard CSS3 opacity setting */
+	-moz-opacity: 0.35; /* Opacity for really old versions of Mozilla Firefox (0.9 or older) */
+	filter: alpha(opacity = 35); /* Opacity for Internet Explorer. */
+	zoom: 1; /* Trigger "hasLayout" in Internet Explorer 6 or older versions */
+}
+
+/* Invisible right hotspot */
+div.scrollingHotSpotRight
+{
+	min-width: 75px;
+	width: 10%;
+	height: 100%;
+	background-image: url(../images/big_transparent.gif);
+	background-repeat: repeat;
+	background-position: center center;
+	position: absolute;
+	z-index: 200;
+	right: 0;
+	cursor: url(../images/cursors/cursor_arrow_right.png), url(../images/cursors/cursor_arrow_right.cur),e-resize;
+}
+
+/* Visible right hotspot */
+div.scrollingHotSpotRightVisible
+{
+	background-image: url(../images/arrow_right.gif);
+	background-color: #fff;
+	background-repeat: no-repeat;
+	opacity: 0.35;
+	filter: alpha(opacity = 35);
+	-moz-opacity: 0.35;
+	zoom: 1;
+}
+
+/* The scroll wrapper is always the same width and height as the containing element (div).
+   Overflow is hidden because you don't want to show all of the scrollable area.
+*/
+div.scrollWrapper
+{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+div.scrollableArea
+{
+	position: relative;
+	width: auto;
+	height: 100%;
+}
