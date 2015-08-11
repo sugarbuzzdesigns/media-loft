@@ -521,22 +521,38 @@ Work Page
 
 	.work-carousel {
 		display: none;
-	    width: 75%;
+	    width: 100%;
 	    height: 100%;
-	    float: right;
-		background: grey;
 
 		.carousel-items {
 			height: 100%;
     		width: 100%;
 		}
-
+		
 		.carousel-item {
+		    height: 100%;
+		    width: 100%;			
+		}
+
+		.carousel-image {
 		    height: 100%;
 		    width: 100%;
 		    background-size: cover;
 		    background-repeat: no-repeat;
 		    background-position: center;			
+		}
+
+		.work-copy {
+			padding: 100px 20px 0;
+			width: 25%;
+    		height: 100%;
+    		float: left;
+		}
+
+		.work-media {
+			width: 75%;
+    		height: 100%;
+    		float: left;
 		}
 
 		.carousel-nav {
@@ -582,13 +598,13 @@ Work Page
 			display: block;
 		}		
 
-		.work-title {
+		.company {
 			span:first-child {
 				background-color: $ml-red;	
 			}
 		}
 
-		.work-title,
+		.company,
 		.category {
 			color: #fff;
 		}		
@@ -603,19 +619,19 @@ Work Page
 	}
 
 	.work-details {
-		padding: 100px 20px 0;
+		padding: 0;
 
     	.label {
  		
     	}
 
-    	.work-title {
+    	.company {
     		span {
     			transition: none;
     		}
     	}
 
-    	.work-content {
+    	.description {
 		    font-size: 14px;
 		    line-height: 20px;    		
     	}
@@ -627,6 +643,8 @@ Work Page
 }
 
 .show-details {
+	width: 100%;
+
 	.work-item-bg {
 		display: none;
 	}
@@ -639,7 +657,6 @@ Work Page
 
 	.work-details {
 		left: 0;
-		width: 25%;
 	}
 
 	.work-carousel {

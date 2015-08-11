@@ -5,7 +5,7 @@ body {
 }
 
 body {
-	font-family: $sans-serif;
+	font-family: arial;
 }
 
 body * {
@@ -683,6 +683,12 @@ Services Page
 /**************************
 Work Page
 ***************************/	
+#work-items-window {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
 .work-item {
 	overflow: hidden;
 	height: 100%;

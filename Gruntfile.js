@@ -13,8 +13,8 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			task: {
-				src: ['source'], 
-				dest: 'destination'
+				src: ['assets/css/css-dependencies.css', 'assets/css/breakpoints.css'], 
+				dest: 'assets/css/style.css'
 			},
 			options: {
 				'separator': grunt.util.linefeed,
@@ -28,24 +28,8 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			task: {
-				src: ['source'], 
-				dest: 'destination'
-			},
-			options: {
-				'spawn': true,
-				'interrupt': false,
-				'debounceDelay': 500,
-				'interval': 100,
-				'event': 'all',
-				'reload': false,
-				'forever': true,
-				'dateFormat': null,
-				'atBegin': false,
-				'livereload': false,
-				'cwd': process.cwd(),
-				'livereloadOnError': true
-			}
+			files: ['assets/scss/**/*.scss'], 
+			tasks: ['build']
 		},
 		jshint: {
 			task: {
@@ -110,29 +94,16 @@ module.exports = function(grunt) {
 			}
 		},
 		sass: {
-			task: {
-				src: ['source'], 
-				dest: 'destination'
-			},
-			options: {
-				'sourcemap': 'auto',
-				'trace': false,
-				'unixNewlines': false,
-				'check': false,
-				'style': 'nested',
-				'precision': 3,
-				'quiet': false,
-				'compass': false,
-				'debugInfo': false,
-				'lineNumbers': false,
-				'loadPath': [],
-				'require': [],
-				'cacheLocation': '.sass-cache',
-				'noCache': false,
-				'bundleExec': false,
-				'banner': '',
-				'update': false
+			dist: {                            // Target
+				options: {                       // Target options
+					style: 'expanded'
+				},
+				files: {                         // Dictionary of files
+					'assets/css/breakpoints.css': 'assets/scss/breakpoints.scss',
+					'assets/css/css-dependencies.css': 'assets/scss/partials/css-dependencies.scss'       // 'destination': 'source'
+				}
 			}
+
 		},
 		compass: {
 			task: {
@@ -153,7 +124,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-compass');
+	// grunt.loadNpmTasks('grunt-contrib-compass');	
 
-	grunt.registerTask('default', ['clean', 'concat', 'watch', 'jshint', 'cssmin', 'uglify', 'autoprefixer', 'sass', 'compass']);
+	// grunt.registerTask('default', ['clean', 'concat', 'watch', 'jshint', 'cssmin', 'uglify', 'autoprefixer', 'sass', 'compass']);
+	grunt.registerTask('build', ['sass', 'concat']);
+
+
+
+
 };

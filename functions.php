@@ -97,11 +97,16 @@ add_action( 'wp_head', 'medialoft_javascript_detection', 0 );
 function medialoft_scripts() {
 	// Load our main stylesheet.
 	wp_enqueue_style( 'medialoft-style', get_stylesheet_uri() );
+	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-ui-.js', get_template_directory_uri() . '/assets/js/vendor/jquery-ui.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-mousewheel', get_template_directory_uri() . '/assets/js/vendor/jquery-mousewheel.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-kinetic', get_template_directory_uri() . '/assets/js/vendor/jquery-kinetic.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-smoothscroll', get_template_directory_uri() . '/assets/js/vendor/jquery-smoothscroll.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'medialoft-script', get_template_directory_uri() . '/assets/js/ml.js', array( 'jquery' ), true );
+
+	if(is_page('work')){
+		wp_enqueue_script( 'work', get_template_directory_uri() . '/assets/js/modules/work.js', array( 'jquery' ), true );		
+	}
 }
 add_action( 'wp_enqueue_scripts', 'medialoft_scripts' );
 
@@ -115,10 +120,16 @@ function remove_admin_login_header() {
 
 //Page Slug Body Class
 function add_slug_body_class( $classes ) {
-global $post;
-if ( isset( $post ) ) {
-$classes[] = $post->post_type . '-' . $post->post_name;
-}
-return $classes;
+	global $post;
+	
+	if ( isset( $post ) ) {
+		$classes[] = $post->post_type . '-' . $post->post_name;
+	}
+	return $classes;
 }
 add_filter( 'body_class', 'add_slug_body_class' );
+
+function replace_spaces($string) {
+    $string = str_replace(" ", "-", $string);
+    return $string;
+}

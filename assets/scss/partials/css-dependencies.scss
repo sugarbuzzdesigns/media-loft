@@ -1,0 +1,24 @@
+/*********************
+IMPORTING PARTIALS
+These files are needed at the beginning so that we establish all
+our mixins, functions, and variables that we'll be using across
+the whole project.
+*********************/
+
+// normalize: http://necolas.github.io/normalize.css/
+@import "normalize";
+
+// fa
+@import "fa";
+
+// typography
+@import "typography";
+
+// the grid
+@import "grid";
+
+// animate
+// @import "partials/animations";
+
+// svg styles
+// @import "partials/svg";
