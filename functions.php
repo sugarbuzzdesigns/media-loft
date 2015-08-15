@@ -107,6 +107,14 @@ function medialoft_scripts() {
 	if(is_page('work')){
 		wp_enqueue_script( 'work', get_template_directory_uri() . '/assets/js/modules/work.js', array( 'jquery' ), true );		
 	}
+
+	if(is_page('about')){
+		wp_enqueue_script( 'about', get_template_directory_uri() . '/assets/js/modules/about.js', array( 'jquery' ), true );		
+	}	
+
+	if(is_page('contact')){
+		wp_enqueue_script( 'contact', get_template_directory_uri() . '/assets/js/modules/contact.js', array( 'jquery' ), true );		
+	}	
 }
 add_action( 'wp_enqueue_scripts', 'medialoft_scripts' );
 

@@ -3599,7 +3599,7 @@ body {
 }
 
 body {
-  font-family: arial;
+  font-family: "KlavikaWebBasicLight", Helvetica, Arial, sans-serif;
 }
 
 body * {
@@ -3642,6 +3642,50 @@ section {
 
 a {
   color: #575859;
+}
+
+/**************************
+Global Buttons
+***************************/
+.video-start {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  cursor: pointer;
+}
+.video-start div {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+}
+.video-start div:first-child {
+  background: #EF4330;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 1;
+}
+.video-start div:first-child:after {
+  content: "";
+  height: 0;
+  width: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  display: block;
+  position: absolute;
+  top: 46%;
+  left: 55%;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.video-start div:nth-child(2) {
+  border: solid 1px #fff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 10px;
 }
 
 /**************************
@@ -3715,6 +3759,9 @@ About Page
 }
 .tile.blank {
   background: none;
+}
+.tile.blank img {
+  display: none;
 }
 
 #about-landing {
@@ -3845,12 +3892,14 @@ About Page
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 #timeline .date .num {
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   color: #fff;
   opacity: 0;
@@ -3974,6 +4023,9 @@ Contact page
 .page-contact .content {
   width: 100%;
 }
+.page-contact .svg-container {
+  display: none;
+}
 .page-contact .hero {
   background-image: url(../images/mobile/backgrounds/contact/contact-map-header.jpg);
   background-size: cover;
@@ -3996,10 +4048,10 @@ Contact page
   background-image: url(../images/mobile/backgrounds/contact/contact-info-bg.jpg);
   background-size: cover;
   background-position: top left;
-  height: 12%;
+  height: 60px;
   color: #fff;
   overflow: auto;
-  padding-top: 23px;
+  padding-top: 13px;
 }
 .page-contact .general-info .name-abbrev,
 .page-contact .general-info .clock,
@@ -4024,9 +4076,18 @@ Contact page
 .page-contact .general-info .clock i {
   height: 30px;
   width: 30px;
-  background-image: url(../images/icons/clock.png);
   display: inline-block;
   background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.page-contact .general-info .clock .hours {
+  background-image: url(../images/icons/clock-hours.png);
+}
+.page-contact .general-info .clock .minutes {
+  background-image: url(../images/icons/clock-minutes.png);
+  transition: all 1s ease;
 }
 .page-contact .general-info .weather {
   font-family: 'futura_ltlight';
@@ -4066,7 +4127,7 @@ Contact page
   right: 20px;
   text-align: right;
   font-size: 20px;
-  width: 50%;
+  width: 100%;
 }
 .page-contact .social a {
   color: #86B1AA;
@@ -4172,7 +4233,7 @@ Work Page
 #work-items-window {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .work-item {
@@ -4237,7 +4298,11 @@ Work Page
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+.work-carousel .close.show-video {
+  opacity: 0;
 }
 
 .show-details .work-carousel .close {
@@ -4373,6 +4438,16 @@ Cta & Tagline
   animation: flickerAnimationTwo 1s infinite;
 }
 
+@-webkit-keyframes down {
+  from {
+    margin-top: -150px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
 @keyframes down {
   from {
     margin-top: -150px;
@@ -4480,6 +4555,7 @@ Main Menu Styles
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 #main-menu-btn .open-menu,
@@ -4900,6 +4976,7 @@ you can add resource intensive styles.
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     margin: 0;
     z-index: 2;
@@ -4918,6 +4995,7 @@ you can add resource intensive styles.
     text-transform: uppercase;
   }
   #blog .articles article .article-content {
+    -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
     display: none;
     margin: 0 auto;
@@ -4975,6 +5053,7 @@ you can add resource intensive styles.
     display: block;
   }
   #blog .articles article.show-article .article-content {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
     display: block;
   }
@@ -4995,12 +5074,21 @@ you can add resource intensive styles.
   /**************************
   Contact page
   ***************************/
+  #contact-video {
+    min-width: 100%;
+    opacity: 0;
+  }
+
   #contact-landing .hero {
     background-image: url(../images/768up/backgrounds/contact/contact-map-header.jpg);
   }
   #contact-landing .hero p {
     font-size: 34px;
     left: 75px;
+  }
+  #contact-landing .blur-overlay {
+    height: 100%;
+    opacity: 1;
   }
   #contact-landing .content {
     height: 62%;
@@ -5012,6 +5100,7 @@ you can add resource intensive styles.
     min-height: 100%;
     position: relative;
     overflow: hidden;
+    background: transparent;
   }
   #contact-landing .content .general-info .name-abbrev {
     position: absolute;
@@ -5029,7 +5118,6 @@ you can add resource intensive styles.
     width: auto;
   }
   #contact-landing .content .general-info .clock i {
-    background-image: url(../images/768up/backgrounds/contact/clock.png);
     height: 50px;
     width: 50px;
   }
@@ -5073,7 +5161,8 @@ you can add resource intensive styles.
     z-index: -2;
   }
 
-  .video-bg-container {
+  .video-bg-container,
+  .full-screen-video {
     position: absolute;
     top: 0;
     left: 0;
@@ -5081,7 +5170,8 @@ you can add resource intensive styles.
     width: 100%;
     overflow: hidden;
   }
-  .video-bg-container video {
+  .video-bg-container video,
+  .full-screen-video video {
     position: absolute;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -5092,6 +5182,14 @@ you can add resource intensive styles.
     width: auto;
     height: auto;
     background-size: cover;
+  }
+
+  .full-screen-video {
+    top: 0;
+    left: 0;
+    display: none;
+    position: fixed;
+    z-index: 10;
   }
 
   .full-bleed {
@@ -5129,6 +5227,7 @@ you can add resource intensive styles.
   .work-items {
     height: 100%;
     overflow: hidden;
+    background-color: #313131;
   }
 
   .work-item {
@@ -5170,6 +5269,12 @@ you can add resource intensive styles.
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  .work-item .work-carousel .carousel-image.hovered {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
   }
   .work-item .work-carousel .work-copy {
     padding: 100px 20px 0;
@@ -5181,6 +5286,41 @@ you can add resource intensive styles.
     width: 75%;
     height: 100%;
     float: left;
+    position: relative;
+  }
+  .work-item .work-carousel .work-media .video-bg-container {
+    background-color: #333;
+  }
+  .work-item .work-carousel .work-media .video-bg-container video.work-loop-video {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  .work-item .work-carousel .work-media .video-bg-container video.work-loop-video.hovered {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
+  .work-item .work-carousel .work-media .video-bg-container .close-video {
+    opacity: 0;
+    background-color: #A0A0A0;
+    width: 50px;
+    height: 50px;
+    padding-top: 9px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 30px;
+  }
+  .work-item .work-carousel .work-media .video-bg-container .close-video i {
+    display: block;
+    height: 25px;
+    width: 25px;
+    background: url(../images/icons/menu-close-white.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
   .work-item .work-carousel .carousel-nav {
     height: 50px;
@@ -5201,6 +5341,7 @@ you can add resource intensive styles.
     display: block;
     float: left;
     cursor: pointer;
+    -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     margin: 0 40px 0 0;
   }
@@ -5209,6 +5350,10 @@ you can add resource intensive styles.
   }
   .work-item .work-carousel .carousel-nav ul li.active {
     background: #EA321D;
+  }
+  .work-item .work-carousel .carousel-nav.show-video {
+    bottom: -50px;
+    right: -100%;
   }
   .work-item:hover .work-item-bg {
     display: none;
@@ -5239,6 +5384,31 @@ you can add resource intensive styles.
   .work-item .work-details .description {
     font-size: 14px;
     line-height: 20px;
+  }
+  .work-item .work-details.show-video .work-copy {
+    margin-left: -25%;
+  }
+  .work-item .work-details.show-video .work-media {
+    width: 100%;
+  }
+  .work-item .work-details.show-video .video-start {
+    opacity: 0;
+  }
+  .work-item .work-details.show-video .close-video {
+    opacity: 1 !important;
+  }
+  .work-item .work-details .work-full-video {
+    opacity: 0;
+  }
+
+  #main-logo.show-video {
+    top: -50%;
+    left: -50%;
+  }
+
+  #main-menu-btn.show-video {
+    bottom: -50%;
+    left: -50%;
   }
 
   .show-details {

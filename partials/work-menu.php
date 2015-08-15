@@ -9,12 +9,12 @@
 
 <nav class="right-menu" id="work-menu">
 	<ul>
-		<li><a href="#" class="active">All</a></li>
-		<li><a href="#">Staging</a></li>
-		<li><a href="#">Interactive</a></li>
-		<li><a href="#">Video</a></li>
-		<li><a href="#">Motion</a></li>
-		<li><a href="#">Support</a></li>
+		<li><a href="#" data-filter-cat="all" class="active">All</a></li>
+		<li><a href="#" data-filter-cat="staging">Staging</a></li>
+		<li><a href="#" data-filter-cat="interactive">Interactive</a></li>
+		<li><a href="#" data-filter-cat="video">Video</a></li>
+		<li><a href="#" data-filter-cat="motion-graphics">Motion</a></li>
+		<li><a href="#" data-filter-cat="speaker-support">Support</a></li>
 	</ul>
 </nav>
 

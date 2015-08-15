@@ -1,4 +1,28 @@
 <?php get_header(); ?>
+<?php 
+
+$clientFiles = scandir(__DIR__ . '/assets/images/clients');
+$clientFiles = array_diff($clientFiles, array('.', '..', '.DS_Store'));
+
+$employeeFiles = scandir(__DIR__ . '/assets/images/employees');
+$employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store'));
+
+?>
+
+<script>
+	var clients = [];
+	var employee = [];
+
+	<?php foreach ($clientFiles as $file) { ?>
+		clients.push('<?php echo $file; ?>');
+	<?php } ?>
+
+	<?php foreach ($employeeFiles as $employeeFile) { ?>
+		<?php $arr = explode('_', $employeeFile); ?>
+		console.log('<?php echo $arr[0]; ?>');
+	<?php } ?>	
+
+</script>
 	<section id="about-landing">
 	<div class="sqr"></div>
 		<div class="cta alternate">
@@ -81,28 +105,31 @@
 		<div class="large-date"></div>	
 		<div class="full-bleed" data-img-dir="<?php echo IMG_DIR ?>/about/timeline/desktop/"><div class="cover"></div></div>
 	</section>
+	<script>
+		var imgDir = '<?php echo IMG_DIR; ?>';
+	</script>
 	<section class="tile-container" id="clients">
-		<div class="tile white"><img src="<?php echo IMG_DIR ?>/clients/ally.png" alt=""></div>
-		<div class="tile blank"></div>
-		<div class="tile white"><img src="<?php echo IMG_DIR ?>/clients/best_buy.png" alt=""></div>
-		<div class="tile"><img src="<?php echo IMG_DIR ?>/clients/dell.png" alt=""></div>
-		<div class="tile blank"></div>
-		<div class="tile white"><img src="<?php echo IMG_DIR ?>/clients/google.png" alt=""></div>
+		<div data-img="ally.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/ally.png" alt=""></div>
+		<div data-img="" class="tile blank"></div>
+		<div data-img="best_buy.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/best_buy.png" alt=""></div>
+		<div data-img="dell.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/dell.png" alt=""></div>
+		<div data-img="" class="tile blank"></div>
+		<div data-img="google.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/google.png" alt=""></div>
 
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div class="tile"><img src="<?php echo IMG_DIR ?>/clients/optum.png" alt=""></div>
-		<div class="tile white"><img src="<?php echo IMG_DIR ?>/clients/indian.png" alt=""></div>
-		<div class="tile blank"></div>
+		<div data-img="" class="tile blank"></div>
+		<div data-img="" class="tile blank"></div>
+		<div data-img="" class="tile blank"></div>
+		<div data-img="optum.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/optum.png" alt=""></div>
+		<div data-img="indian.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/indian.png" alt=""></div>
+		<div data-img="" class="tile blank"></div>
 
-		<div class="tile blank"></div>
-		<div class="tile"><img src="<?php echo IMG_DIR ?>/clients/pizza_hut.png" alt=""></div>		
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div class="tile white"><img src="<?php echo IMG_DIR ?>/clients/staples.png" alt=""></div>
-		<img class="svg-bg" id="services-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/services/services-landing-bg-vector.svg">		
+		<div data-img="" class="tile blank"></div>
+		<div data-img="pizza_hut.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/pizza_hut.png" alt=""></div>		
+		<div data-img="" class="tile blank"></div>
+		<div data-img="" class="tile blank"></div>
+		<div data-img="" class="tile blank"></div>
+		<div data-img="staples.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/staples.png" alt=""></div>
+		<img data-img="" class="svg-bg" id="services-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/services/services-landing-bg-vector.svg">		
 	</section>
 	<section class="tile-container" id="people">
 		<div class="tile">

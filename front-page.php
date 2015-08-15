@@ -17,8 +17,8 @@
 			</a>
 		</div>
 		<?php if(!wp_is_mobile()){ ?>
-			<img class="svg-bg home" id="home-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/home-bg.svg">
 			<div class="blur-overlay"></div>
+			<img class="svg-bg home" id="home-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/home-bg.svg">
 			<div class="video-bg-container">
 				<video id="staging-video" autoplay loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
 					<source src="<?php bloginfo('template_directory'); ?>/assets/videos/home/What_We_Do_loopBW.mp4">
