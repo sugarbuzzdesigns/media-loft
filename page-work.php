@@ -6,8 +6,10 @@
 			<?php foreach ($workItems as $workItem) { ?>
 			<?php $companyName = $workItem['company name']; ?>
 			<div class="work-item" id="<?php echo replace_spaces(strtolower($companyName)); ?>" data-category="<?php echo replace_spaces($workItem['category']); ?>">
-				<div class="work-item-bg" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/thumbs/<?php echo $workItem['thumb resting']; ?>)"></div>
-				<div class="work-item-bg-hover" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/thumbs/<?php echo $workItem['thumb hover']; ?>)"></div>
+				<div class="work-item-bgs">
+					<div class="work-item-bg" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/thumbs/<?php echo $workItem['thumb resting']; ?>)"></div>
+					<div class="work-item-bg-hover" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/thumbs/<?php echo $workItem['thumb hover']; ?>)"></div>
+				</div>		
 				<article class="work-summary">
 					<div class="cta">
 						<h2 class="tagline work-title">
@@ -38,12 +40,12 @@
 												<div></div>
 												<div></div>
 											</div>
-											<video loop class="work-video work-full-video" id="<?php echo replace_spaces(strtolower($companyName)); ?>-video-<?php echo $index; ?>" class="work-video">
+											<video loop preload="none" class="work-video work-full-video" id="<?php echo replace_spaces(strtolower($companyName)); ?>-video-<?php echo $index; ?>" class="work-video">
 												<source data-src="<?php bloginfo('template_directory'); ?>/assets/videos/work/<?php echo $slide['media'][2]; ?>">
 											</video>											
 
 											<!-- first frame must match  -->
-											<video loop class="work-video work-loop-video" id="<?php echo replace_spaces(strtolower($companyName)); ?>-video-loop-<?php echo $index; ?>" class="work-video">
+											<video loop preload="none" class="work-video work-loop-video" id="<?php echo replace_spaces(strtolower($companyName)); ?>-video-loop-<?php echo $index; ?>" class="work-video">
 												<source src="<?php bloginfo('template_directory'); ?>/assets/videos/work/<?php echo $slide['media'][1]; ?>">
 											</video>
 																						
@@ -54,6 +56,12 @@
 								</div>
 							</div>
 							<?php } ?>
+							<div class="carousel-item related-content">
+								<div class="work-copy">
+									<p class="similar">similar projects</p>
+								</div>	
+								<div class="work-related"></div>							
+							</div>
 						</div>	
 						
 						<div class="carousel-nav">

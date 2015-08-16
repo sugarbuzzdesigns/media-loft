@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			files: ['assets/scss/**/*.scss'], 
-			tasks: ['build']
+			tasks: ['dev']
 		},
 		jshint: {
 			task: {
@@ -94,6 +94,14 @@ module.exports = function(grunt) {
 			}
 		},
 		sass: {
+			dev: {                            // Target
+				options: {                       // Target options
+					style: 'expanded'
+				},
+				files: {                         // Dictionary of files
+					'assets/css/breakpoints.css': 'assets/scss/breakpoints.scss'
+				}
+			},		
 			dist: {                            // Target
 				options: {                       // Target options
 					style: 'expanded'
@@ -127,7 +135,8 @@ module.exports = function(grunt) {
 	// grunt.loadNpmTasks('grunt-contrib-compass');	
 
 	// grunt.registerTask('default', ['clean', 'concat', 'watch', 'jshint', 'cssmin', 'uglify', 'autoprefixer', 'sass', 'compass']);
-	grunt.registerTask('build', ['sass', 'concat']);
+	grunt.registerTask('build', ['sass:dist', 'concat']);
+	grunt.registerTask('dev', ['sass:dev', 'concat']);
 
 
 

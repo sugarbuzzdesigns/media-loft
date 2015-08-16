@@ -3,7 +3,7 @@
 		array(
 			'company name' => 'Target', 
 			'category' => 'video',
-			'thumb resting' => 'target_resting_thumbnail.jpg',
+			'thumb resting' => 'target_active_thumbnail.jpg',
 			'thumb hover' => 'target_hover_thumbnail.jpg',
 			'slides' => array(
 					array(
@@ -16,7 +16,7 @@
 		array(
 			'company name' => 'RZR', 
 			'category' => 'video',
-			'thumb resting' => 'rzr_resting_thumbnail.jpg',
+			'thumb resting' => 'rzr_active_thumbnail.jpg',
 			'thumb hover' => 'rzr_hover_thumbnail.jpg',
 			'slides' => array(
 					array(
@@ -44,7 +44,7 @@
 		array(
 			'company name' => 'Mayo Clinic', 
 			'category' => 'video',
-			'thumb resting' => 'mayo_resting_thumbnail.jpg',
+			'thumb resting' => 'mayo_active_thumbnail.jpg',
 			'thumb hover' => 'mayo_hover_thumbnail.jpg',
 			'slides' => array(
 					array(
@@ -57,9 +57,14 @@
 		array(
 			'company name' => 'Indian Motorcycle', 
 			'category' => 'staging',
-			'thumb resting' => 'indian_resting_thumbnail.jpg',
+			'thumb resting' => 'indian_active_thumbnail.jpg',
 			'thumb hover' => 'indian_hover_thumbnail.jpg',
 			'slides' => array(
+					array(
+						'label'=>'Press Event',
+						'description'=> "The legendary, annual motorcycle rally in Sturgis, South Dakota, served as the backdrop for reintroducing one of the most iconic motorcycles ever made – Indian Scout. The VIP launch event used a combination of high-end video fromion and old-school carnival attraction to capture the attention and accolades of 150 influential members of the press. Megastar Mark Wahlberg and American Picker Mike Wolfe added a layer of celebrity buzz and helped narrate the video compilation that bought the story to consumers online.",
+						'media'=> array('video','Indian_loop_01.mp4','Indian_01.mp4')
+					),				
 					array(
 						'label'=>'Press Event',
 						'description'=> "The legendary, annual motorcycle rally in Sturgis, South Dakota, served as the backdrop for reintroducing one of the most iconic motorcycles ever made – Indian Scout. The VIP launch event used a combination of high-end video fromion and old-school carnival attraction to capture the attention and accolades of 150 influential members of the press. Megastar Mark Wahlberg and American Picker Mike Wolfe added a layer of celebrity buzz and helped narrate the video compilation that bought the story to consumers online.",
@@ -75,7 +80,7 @@
 		array(
 			'company name' => 'Dell', 
 			'category' => 'staging',
-			'thumb resting' => 'dell_resting_thumbnail.jpg',
+			'thumb resting' => 'dell_active_thumbnail.jpg',
 			'thumb hover' => 'dell_hover_thumbnail.jpg',
 			'slides' => array(
 					array(
@@ -103,7 +108,7 @@
 		array(
 			'company name' => 'United Stationers', 
 			'category' => 'staging',
-			'thumb resting' => 'united_resting_thumbnail.jpg',
+			'thumb resting' => 'united_active_thumbnail.jpg',
 			'thumb hover' => 'united_hover_thumbnail.jpg',
 			'slides' => array(
 					array(
@@ -131,7 +136,7 @@
 		array(
 			'company name' => 'Polaris', 
 			'category' => 'staging',
-			'thumb resting' => 'polaris_resting_thumbnail.jpg',
+			'thumb resting' => 'polaris_active_thumbnail.jpg',
 			'thumb hover' => 'polaris_hover_thumbnail.jpg',
 			'slides' => array(
 					array(
@@ -159,7 +164,7 @@
 		array(
 			'company name' => 'Optum', 
 			'category' => 'interactive',
-			'thumb resting' => 'optum_resting_thumbnail.jpg',
+			'thumb resting' => 'optum_active_thumbnail.jpg',
 			'thumb hover' => 'optum_hover_thumbnail.jpg',
 			'slides' => array(
 					array(
@@ -172,7 +177,7 @@
 		array(
 			'company name' => 'Motion GFX', 
 			'category' => 'motion graphics',
-			'thumb resting' => 'gfx_resting_thumbnail.jpg',
+			'thumb resting' => 'gfx_active_thumbnail.jpg',
 			'thumb hover' => 'gfx_hover_thumbnail.jpg',
 			'slides' => array(
 					array(
@@ -185,7 +190,7 @@
 		array(
 			'company name' => 'Show GFX', 
 			'category' => 'speaker support',
-			'thumb resting' => 'sfx_resting_thumbnail.jpg',
+			'thumb resting' => 'sfx_active_thumbnail.jpg',
 			'thumb hover' => 'sfx_hover_thumbnail.jpg',
 			'slides' => array(
 					array(
@@ -198,7 +203,7 @@
 		array(
 			'company name' => 'Staples', 
 			'category' => 'motion graphics',
-			'thumb resting' => 'staples_resting_thumbnail.jpg',
+			'thumb resting' => 'staples_active_thumbnail.jpg',
 			'thumb hover' => 'staples_hover_thumbnail.jpg',
 			'slides' => array(
 					array(

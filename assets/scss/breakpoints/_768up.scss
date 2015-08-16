@@ -522,6 +522,15 @@ Work Page
 	-webkit-animation: slideInLeft 1s;
 			animation: slideInLeft 1s;	
 
+	.work-item-bgs {
+		background: #fff;
+		height: 100%;
+		width: 100%;
+	    position: absolute;
+	    top: 0;
+	    left: 0;		
+	}
+
 	.work-item-bg,
 	.work-item-bg-hover {
 		position: absolute;
@@ -531,6 +540,10 @@ Work Page
 		width: 100%;
 		background-size: cover;
 		background-position: center;
+	}
+
+	.work-item-bg {
+		opacity: 0.3;
 	}
 
 	.work-item-bg-hover {
@@ -553,7 +566,18 @@ Work Page
 		
 		.carousel-item {
 		    height: 100%;
-		    width: 100%;			
+		    width: 100%;	
+
+		    .similar {
+				@include center-me;
+		    }		
+
+		    .work-related {
+			    width: 75%;
+			    height: 100%;
+			    float: left;
+			    position: relative;
+		    }
 		}
 
 		.carousel-image {
@@ -575,6 +599,7 @@ Work Page
 			padding: 100px 20px 0;
 			width: 25%;
     		height: 100%;
+    		position: relative;
     		float: left;
 		}
 
@@ -679,6 +704,17 @@ Work Page
 		.category {
 			color: #fff;
 		}		
+	}
+
+	&:active {
+		.work-item-bg {
+			display: block;
+			opacity: 1;
+		}
+
+		.work-item-bg-hover {
+			display: none;
+		}
 	}
 
 	.work-summary {
