@@ -242,15 +242,15 @@ var $ = jQuery;
 
             ml.scaleSvgHeight();
         });      
-		// $.event.special.scrollstop.latency = 650;
+		$.event.special.scrollstop.latency = 650;
 
-		// ml.selections.$win.on("scrollstop", function() {
-		//     // Paint it all green when scrolling stops.
-		//     console.log('stop');
-		//     $(this).trigger('stop');
-		//     ml.Utils.getClosestSection();
-		//     ml.Utils.scrollToClosestSection();
-		// });
+		ml.selections.$win.on("scrollstop", function() {
+		    // Paint it all green when scrolling stops.
+		    console.log('stop');
+		    $(this).trigger('stop');
+		    ml.Utils.getClosestSection();
+		    ml.Utils.scrollToClosestSection();
+		});
 	});
 
 })(jQuery);

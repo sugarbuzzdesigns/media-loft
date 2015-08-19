@@ -1,6 +1,7 @@
 /build
 /dist
 /assets/videos
+/assets/images
 /node_modules
 .DS_Store
 *.sublime-*
