@@ -44,6 +44,15 @@
 				$('.email-link a').attr('href', $(this).data('mailto'));
 			});
 
+			// $(".timeline-container").mousewheel(function(event, delta) {
+			// 	if (event.deltaX != 0){
+			// 	    // Anything that makes vertical wheelscroll keeps normal
+			// 	} else {
+			// 	    // Only prevent if scroll is not vertical
+			// 	    event.preventDefault();
+			// 	}
+			// });				
+
 			// $(window).on("scrollstop", function() {
 			// 	console.log('scroll stop');
 
@@ -151,14 +160,9 @@
 		},
 		scrollToSection: function(menuItem){
 			var $menuItem = $(menuItem),
-				$link = $('a', $(menuItem)),
-				href = $link.attr('href'),
-				$section = $(href),
-				offsetTop = $section.offset().top + 'px';
+				dataSection = $menuItem.data('section-name');
 
-			// this.updateUrl($section.attr('id'));
-
-			$("html, body").animate({ scrollTop: $section.offset().top + "px" });
+				$.scrollify.move(dataSection);
 		},
 		checkUrl: function(event){
 			var _this = this,

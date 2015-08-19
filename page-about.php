@@ -50,6 +50,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 	</section>
 	<section data-section-name="section-timeline" id="timeline">
 		<div class="timeline-container">
+		
 			<div class="timeline-block bottom">
 				<a href="#" data-info-id="1974" data-bg-image="1974_Media_Loft_FirstLogo2.jpg" class="date left-bottom">
 					<span class="num"></span>

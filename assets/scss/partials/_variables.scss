@@ -36,25 +36,25 @@ $page-bg-grey: #F9F9F9;
 $page-bg-drk-grey: #313131;
 
 // timeline math stuff
-// $box-width: 300;
-// $box-width-px: $box-width + px;
-// $ab-sq: $box-width * $box-width;
-// $a2-plus-b2: $ab-sq + $ab-sq;
-// $sq-root: sqrt($a2-plus-b2);
-// $sq-root-half: $sq-root/2;
-// $offset: ($sq-root - $box-width)/2 + 30;
+$box-width: 300;
+$box-width-px: $box-width + px;
+$ab-sq: $box-width * $box-width;
+$a2-plus-b2: $ab-sq + $ab-sq;
+$sq-root: sqrt($a2-plus-b2);
+$sq-root-half: $sq-root/2;
+$offset: ($sq-root - $box-width)/2 + 30;
 
-// $top-start: $offset;
-// $left-start: 100;
+$top-start: $offset;
+$left-start: 100;
 
-// $bottom-row: $sq-root-half + $top-start + px;
-// $top-row: $top-start;
+$bottom-row: $sq-root-half + $top-start + px;
+$top-row: $top-start;
 
-// // data dot 
-// $date-size: 24;
-// $date-pos: - ($date-size/2) + px;
+// data dot 
+$date-size: 24;
+$date-pos: - ($date-size/2) + px;
 
-// $hover-date-size: 60;
-// $hover-date-size-pos: - ($hover-date-size/2) + px;
+$hover-date-size: 60;
+$hover-date-size-pos: - ($hover-date-size/2) + px;
 
-// $timeline-min-height: ($sq-root/2)*3 + 60;
+$timeline-min-height: ($sq-root/2)*3 + 60;

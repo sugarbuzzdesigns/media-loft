@@ -263,12 +263,7 @@ var $ = jQuery;
             }, 200);
 
             ml.scaleSvgHeight();
-        });
-		$.scrollify({
-			section : "section",
-			easing: "easeOutExpo",
-			scrollSpeed: 1100,
-		});        
+        });      
 		// $.event.special.scrollstop.latency = 650;
 
 		// ml.selections.$win.on("scrollstop", function() {
