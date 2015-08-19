@@ -23,7 +23,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		employees.push('<?php echo $arr[0]; ?>');
 	<?php } ?>	
 
-	console.log(employees);
+	// console.log(employees);
 
 </script>
 	<section data-section-name="section-about-landing" id="about-landing">
@@ -48,9 +48,9 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<?php } ?>
 		<div class="blur-overlay show"></div>
 	</section>
-	<section data-section-name="section-timeline" id="timeline">
-		<div class="timeline-container">
-		
+	<section class="nano" data-section-name="section-timeline" id="timeline">
+		<span class="large-date">99</span>
+		<div class="timeline-container nano-content">
 			<div class="timeline-block bottom">
 				<a href="#" data-info-id="1974" data-bg-image="1974_Media_Loft_FirstLogo2.jpg" class="date left-bottom">
 					<span class="num"></span>

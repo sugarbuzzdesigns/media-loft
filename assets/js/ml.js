@@ -57,28 +57,6 @@ var $ = jQuery;
 			$('.related-articles').on('click', function(){
 				_this.showRelatedBlogArticle();
 			});
-
-			$('.date').on('mouseover', function(){
-				var year = $(this).data('year'),
-					yearAbrev = $(this).data('year-abrev');
-
-					$('.large-date').text(yearAbrev);
-			});
-
-			$('.date').on('click', function(e){
-				e.preventDefault();
-				var infoid = '#' + $(this).data('info-id'),
-					bgImg = $(this).data('bg-image'),
-					imgDir = $('#timeline .full-bleed').data('img-dir');
-
-				$('#timeline .full-bleed').attr('style', 'background-image:url(' + imgDir + bgImg + ');');
-						
-				$(infoid).addClass('show-me');
-				$('.info').not(infoid).removeClass('show-me');			
-				
-				$('.date').addClass('selected');
-				$('.date').not(this).removeClass('selected');
-			});		
 		},
 		openNavMenu: function($menuBtn){
 			if($menuBtn.is('#main-menu-btn')){

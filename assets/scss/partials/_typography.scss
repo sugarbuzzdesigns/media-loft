@@ -23,6 +23,18 @@ FONT FACE (IN YOUR FACE)
 }
 
 @font-face {
+    font-family: 'futura_ltregular';
+    src: url('../fonts/futuralt-webfont.eot');
+    src: url('../fonts/futuralt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/futuralt-webfont.woff2') format('woff2'),
+         url('../fonts/futuralt-webfont.woff') format('woff'),
+         url('../fonts/futuralt-webfont.ttf') format('truetype'),
+         url('../fonts/futuralt-webfont.svg#futura_ltregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'ProximaNova-Thin';
     src: url('../fonts/ProximaNova-Thin.eot?#iefix') format('embedded-opentype'),  url('../fonts/ProximaNova-Thin.otf')  format('opentype'),
         url('../fonts/ProximaNova-Thin.woff') format('woff'), url('../fonts/ProximaNova-Thin.ttf')  format('truetype'), url('../fonts/ProximaNova-Thin.svg#ProximaNova-Thin') format('svg');

@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			task: {
-				src: ['assets/css/css-dependencies.css', 'assets/css/breakpoints.css'], 
+				src: ['assets/css/css-dependencies.css', 'assets/css/timeline.css', 'assets/css/breakpoints.css'], 
 				dest: 'assets/css/style.css'
 			},
 			options: {
@@ -108,6 +108,7 @@ module.exports = function(grunt) {
 				},
 				files: {                         // Dictionary of files
 					'assets/css/breakpoints.css': 'assets/scss/breakpoints.scss',
+					'assets/css/timeline.css': 'assets/scss/timeline.scss',
 					'assets/css/css-dependencies.css': 'assets/scss/partials/css-dependencies.scss'       // 'destination': 'source'
 				}
 			}
