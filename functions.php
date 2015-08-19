@@ -102,6 +102,7 @@ function medialoft_scripts() {
 	wp_enqueue_script( 'jquery-mousewheel', get_template_directory_uri() . '/assets/js/vendor/jquery-mousewheel.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-kinetic', get_template_directory_uri() . '/assets/js/vendor/jquery-kinetic.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-smoothscroll', get_template_directory_uri() . '/assets/js/vendor/jquery-smoothscroll.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'ml-libraries', get_template_directory_uri() . '/assets/js/libs/libraries.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'medialoft-script', get_template_directory_uri() . '/assets/js/ml.js', array( 'jquery' ), true );
 
 	if(is_page('work')){

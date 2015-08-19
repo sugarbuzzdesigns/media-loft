@@ -26,7 +26,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 	console.log(employees);
 
 </script>
-	<section id="about-landing">
+	<section data-section-name="section-about-landing" id="about-landing">
 		<div class="sqr"></div>
 		<div class="cta alternate">
 			<h2 class="tagline">
@@ -48,7 +48,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<?php } ?>
 		<div class="blur-overlay show"></div>
 	</section>
-	<section id="timeline">
+	<section data-section-name="section-timeline" id="timeline">
 		<div class="timeline-container">
 			<div class="timeline-block bottom">
 				<a href="#" data-info-id="1974" data-bg-image="1974_Media_Loft_FirstLogo2.jpg" class="date left-bottom">
@@ -281,7 +281,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 			<div class="cover"></div>
 		</div>
 	</section>
-	<section class="tile-container" id="clients">
+	<section data-section-name="section-clients" class="tile-container" id="clients">
 		<div data-img="ally.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/ally.png" alt=""></div>
 		<div data-img="" class="tile blank"></div>
 		<div data-img="best_buy.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/best_buy.png" alt=""></div>
@@ -322,7 +322,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		</div>
 		<!-- <img data-img="" class="svg-bg" id="services-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/services/services-landing-bg-vector.svg">		 -->
 	</section>
-	<section class="tile-container" id="people">
+	<section data-section-name="section-people" class="tile-container" id="people">
 
 		<div id="card"> 
 			<div class="front"> 
@@ -395,7 +395,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		</div>	 -->
 		<!-- <img class="svg-bg" id="services-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/services/services-landing-bg-vector.svg">	 -->
 	</section>
-	<section id="culture">
+	<section data-section-name="section-culture" id="culture">
 		<div class="cta centered">
 			<h2 class="tagline one-liner alternate-red">
 				<span>Fun is always in the equation</span>
@@ -421,7 +421,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<?php } ?>	
 		<div class="blur-overlay show"></div>	
 	</section>
-	<section id="join-us">
+	<section data-section-name="section-join-us" id="join-us">
 		<div class="contact-us">
 			<div class="cta">
 				<h2 class="tagline one-liner alternate">
