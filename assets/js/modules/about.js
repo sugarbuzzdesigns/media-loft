@@ -1,9 +1,8 @@
-(function($){
-	ml.About = {
-		init: function(){
-			this.timeLineImageDir = $('#timeline .full-bleed').data('img-dir');
+ml.About = {};
 
-			this.setUpTimeLine();
+(function($){
+	ml.About.Global = {
+		init: function(){
 			this.bindEvents();
 		},
 		bindEvents: function(){
@@ -15,16 +14,6 @@
 
 				_this.scrollToSection(this);
 			});
-
-			$('.date').on('mouseover', function(){
-				_this.expandDateBtn(this);
-			});
-
-			$('.date').on('click', function(e){
-				e.preventDefault();
-
-				_this.toggleDateInfo(this);
-			});	
 
 			$('#culture .play-reel').on('click', function(e){
 				e.preventDefault();
@@ -44,35 +33,63 @@
 				$('.email-link a').attr('href', $(this).data('mailto'));
 			});
 
-			// $(".timeline-container").mousewheel(function(event, delta) {
-			// 	if (event.deltaX != 0){
-			// 	    // Anything that makes vertical wheelscroll keeps normal
-			// 	} else {
-			// 	    // Only prevent if scroll is not vertical
-			// 	    event.preventDefault();
-			// 	}
-			// });				
-
-			// $(window).on("scrollstop", function() {
-			// 	console.log('scroll stop');
-
-			// 	var offsetTop = $('#timeline').offset().top;
-			// 	var winHeight = $(window).height();
-			// 	var scrollTop = $(window).scrollTop();
-
-			// 	if(offsetTop - winHeight/2 > scrollTop){
-			// 		console.log('dont go anywhere');
-			// 	} else {
-			// 		setTimeout(function(){
-			// 			$("html, body").animate({ scrollTop: offsetTop + "px" });
-			// 		}, 100)	;
-			// 	}
-			// });			
-
-			// $('#people .tile').waypoint(function() {
-			// 	console.log('in people');
-			// });										
 		},
+		scrollToSection: function(menuItem){
+			var $menuItem = $(menuItem),
+				dataSection = $menuItem.data('section-name');
+
+				$.scrollify.move(dataSection);
+		},
+		checkUrl: function(event){
+			var _this = this,
+				workId = '';
+
+			if(_this.currentPath === '/'){
+				if (_this.currentWorkItem != '') {
+					// reset the work page
+					_this.closeWorkItem(_this.currentWorkItem);
+				};
+
+				return;
+			} else {
+				workId = _this.currentPath.replace('/', '');
+				_this.openWorkItem(workId);
+			}
+		},
+		updateUrl: function(workItemId){
+			window.location.hash = '#!/' + workItemId;
+		},	
+		playCultureVideo: function(){
+			$('#culture').addClass('play-full-video');
+			$('#about-culture-video-loop').fadeOut();
+			$('#about-culture-video-full').css('opacity', 1);
+			$('#culture .blur-overlay').css('opacity', 0);
+			$('#about-culture-video-full')[0].play();
+		},			
+	};
+
+	ml.About.Timeline = {
+		init: function(){
+			this.timeLineImageDir = $('#timeline .full-bleed').data('img-dir');
+
+			this.setUpTimeLine();
+			this.bindEvents();
+		},
+
+		bindEvents: function(){
+			var _this = this;
+
+			$('.date').on('mouseover', function(){
+				_this.expandDateBtn(this);
+			});
+
+			$('.date').on('click', function(e){
+				e.preventDefault();
+
+				_this.toggleDateInfo(this);
+			});	
+		},
+
 		setUpTimeLine: function(){
 			var _this = this;
 
@@ -111,12 +128,13 @@
 				createInfoBox(dateInfo, container);
 			});
 		},
+		
 		expandDateBtn: function(dateBtn){
 			var year = $(dateBtn).data('year'),
 				yearAbrev = $(dateBtn).data('year-abrev');
 
 				$('.large-date').text(yearAbrev);			
-		},
+		},	
 		toggleDateInfo: function(dateBtn){
 			if($(dateBtn).is('.selected')){
 				this.closeDateInfo(dateBtn);
@@ -128,11 +146,14 @@
 			var _this = this;
 
 			var $dateBtn = $(dateBtn),
+				date = $dateBtn.find('.num').text(),
 				infoid = $dateBtn.data('info-id'),
 				bgImg = $dateBtn.data('bg-image'),
 				$timelineBgImage = $('#timeline .full-bleed'),
 				$imgPlaceholder = $('img', $timelineBgImage),
 				$infoItem = $('#item-' + infoid);
+
+			$('.large-date').text(date.slice(-2));
 
 			$imgPlaceholder.attr('src', _this.timeLineImageDir + bgImg);	
 
@@ -157,40 +178,8 @@
 					
 			$(infoid).removeClass('show-me');
 			$dateBtn.removeClass('selected');
-		},
-		scrollToSection: function(menuItem){
-			var $menuItem = $(menuItem),
-				dataSection = $menuItem.data('section-name');
-
-				$.scrollify.move(dataSection);
-		},
-		checkUrl: function(event){
-			var _this = this,
-				workId = '';
-
-			if(_this.currentPath === '/'){
-				if (_this.currentWorkItem != '') {
-					// reset the work page
-					_this.closeWorkItem(_this.currentWorkItem);
-				};
-
-				return;
-			} else {
-				workId = _this.currentPath.replace('/', '');
-				_this.openWorkItem(workId);
-			}
-		},
-		updateUrl: function(workItemId){
-			window.location.hash = '#!/' + workItemId;
-		},	
-		playCultureVideo: function(){
-			$('#culture').addClass('play-full-video');
-			$('#about-culture-video-loop').fadeOut();
-			$('#about-culture-video-full').css('opacity', 1);
-			$('#culture .blur-overlay').css('opacity', 0);
-			$('#about-culture-video-full')[0].play();
-		},			
-	};
+		}			
+	}
 
 	ml.About.clientTileSwap = {
 		init: function(){
@@ -205,7 +194,8 @@
 	}
 	
 	$(function(){
-		ml.About.init();
+		ml.About.Global.init();
+		ml.About.Timeline.init();
 		ml.About.clientTileSwap.init();
 
 	var changeEmpTiles,

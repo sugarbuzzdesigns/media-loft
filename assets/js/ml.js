@@ -251,6 +251,13 @@ var $ = jQuery;
 		    ml.Utils.getClosestSection();
 		    ml.Utils.scrollToClosestSection();
 		});
+
+		ml.selections.$win.on("resizeEnd", function() {
+		    // Paint it all green when scrolling stops.
+		    console.log('resize done');
+		    ml.Utils.getClosestSection();
+		    ml.Utils.scrollToClosestSection();
+		});		
 	});
 
 })(jQuery);
