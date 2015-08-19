@@ -98,7 +98,7 @@ function medialoft_scripts() {
 	// Load our main stylesheet.
 	wp_enqueue_style( 'medialoft-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'jquery-ui-.js', get_template_directory_uri() . '/assets/js/vendor/jquery-ui.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'jquery-ui.js', get_template_directory_uri() . '/assets/js/vendor/jquery-ui.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-mousewheel', get_template_directory_uri() . '/assets/js/vendor/jquery-mousewheel.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-kinetic', get_template_directory_uri() . '/assets/js/vendor/jquery-kinetic.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-smoothscroll', get_template_directory_uri() . '/assets/js/vendor/jquery-smoothscroll.js', array( 'jquery' ), true );
@@ -115,6 +115,14 @@ function medialoft_scripts() {
 	if(is_page('contact')){
 		wp_enqueue_script( 'contact', get_template_directory_uri() . '/assets/js/modules/contact.js', array( 'jquery' ), true );		
 	}	
+
+	if(is_page('services')){
+		wp_enqueue_script( 'services', get_template_directory_uri() . '/assets/js/modules/services.js', array( 'jquery' ), true );		
+	}		
+
+	if(is_page('test')){
+		wp_enqueue_script( 'test', get_template_directory_uri() . '/assets/js/modules/test.js', array( 'jquery' ), true );		
+	}		
 }
 add_action( 'wp_enqueue_scripts', 'medialoft_scripts' );
 

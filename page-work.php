@@ -13,7 +13,7 @@
 				<article class="work-summary">
 					<div class="cta">
 						<h2 class="tagline work-title">
-							<span><?php echo $companyName; ?></span>
+							<span class="company"><?php echo $companyName; ?></span>
 							<span class="category"><?php echo $workItem['category']; ?></span>
 						</h2>				
 					</div>
@@ -26,42 +26,79 @@
 							<?php $index++; ?>
 							<div class="carousel-item">
 								<div class="work-copy">
-									<p class="label"><?php echo $slide['label']; ?></p>
-									<p class="company"><?php echo $companyName; ?></p>
-									<p class="description"><?php echo $slide['description']; ?></p>
+									<p class="category"><?php echo $workItem['category']; ?></p>
+									<!-- <p class="company"><?php echo $companyName; ?></p> -->
+									<p class="title"><?php echo $companyName; ?> - <?php echo $workItem['label']; ?></p>
+									<div class="description">
+										<p><?php echo $slide['description']; ?></p>
+									</div>
+
+									<nav class="carousel-arrow-nav">
+										<a class="prev" href="#"></a><a class="next" href="#"></a>
+									</nav>
 								</div>
 								<div class="work-media">
 									<?php if($slide['media'][0] == 'image'){ ?>
 										<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $slide['media'][1]; ?>)"></div>
 									<?php } else { ?>
-									<?php if(!wp_is_mobile()){ ?>
 										<div class="video-bg-container">
 											<div class="video-start play-full-screen" data-video="<?php echo replace_spaces(strtolower($companyName)); ?>-video-<?php echo $index; ?>">
 												<div></div>
 												<div></div>
 											</div>
-											<video loop preload="none" class="work-video work-full-video" id="<?php echo replace_spaces(strtolower($companyName)); ?>-video-<?php echo $index; ?>" class="work-video">
+											
+											<video loop class="work-video work-full-video" id="<?php echo replace_spaces(strtolower($companyName)); ?>-video-<?php echo $index; ?>" class="work-video">
 												<source data-src="<?php bloginfo('template_directory'); ?>/assets/videos/work/<?php echo $slide['media'][2]; ?>">
-											</video>											
+											</video>					
+
 
 											<!-- first frame must match  -->
+											<?php if(!wp_is_mobile()) { ?>
 											<video loop preload="none" class="work-video work-loop-video" id="<?php echo replace_spaces(strtolower($companyName)); ?>-video-loop-<?php echo $index; ?>" class="work-video">
 												<source src="<?php bloginfo('template_directory'); ?>/assets/videos/work/<?php echo $slide['media'][1]; ?>">
 											</video>
+											<?php } ?>	
 																						
 											<a href="#" class="close-video"><i></i></a>
 										</div>
-									<?php } ?>	
 									<?php } ?>
 								</div>
 							</div>
 							<?php } ?>
 							<div class="carousel-item related-content">
 								<div class="work-copy">
-									<p class="similar">similar projects</p>
+									<div class="related-slide">
+										<p class="similar">similar projects</p>
+										<nav class="carousel-arrow-nav">
+											<a class="prev disabled" href="#"></a><a class="next" href="#"></a>
+										</nav>
+									</div>	
 								</div>	
-								<div class="work-related"></div>							
-							</div>
+								<div class="related-works">
+									<?php if (isset($workItem['related'][0])) { ?>
+									<div data-href="<?php echo $workItem['related'][0]['url']; ?>" class="related-work">
+										<div class="full-bleed hover" style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $workItem['related'][0]['background']; ?>_Hover_Similar.jpg);"></div>
+										<div class="full-bleed resting" style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $workItem['related'][0]['background']; ?>_Active_Similar.jpg);"></div>
+										
+										<div class="info">
+											<p class="company"><?php echo $workItem['related'][0]['company']; ?></p>
+											<p class="category"><?php echo $workItem['related'][0]['category']; ?></p>
+										</div>	
+									</div>
+									<?php } ?>
+									<?php if (isset($workItem['related'][1])) { ?>
+									<div data-href="<?php echo $workItem['related'][1]['url']; ?>" class="related-work">
+										<div class="full-bleed hover" style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $workItem['related'][1]['background']; ?>_Hover_Similar.jpg);"></div>
+										<div class="full-bleed resting" style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $workItem['related'][1]['background']; ?>_Active_Similar.jpg);"></div>
+										
+										<div class="info">
+											<p class="company"><?php echo $workItem['related'][1]['company']; ?></p>
+											<p class="category"><?php echo $workItem['related'][1]['category']; ?></p>
+										</div>	
+									</div>
+									<?php } ?>
+								</div>							
+							</div>							
 						</div>	
 						
 						<div class="carousel-nav">
@@ -77,5 +114,4 @@
 		</div>		
 	</div>						
 	<?php include('partials/work-menu.php'); ?>
-	<!-- style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/work/posters/<?php echo $slide['media'][3]; ?>);" -->
 <?php get_footer(); ?>

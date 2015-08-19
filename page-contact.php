@@ -8,7 +8,7 @@
 				<?php if(!wp_is_mobile()){ ?>
 					<div class="video-bg-container">
 						<video id="contact-video" loop autoplay>
-							<source src="<?php bloginfo('template_directory'); ?>/assets/videos/contact/Landing_Contact_BW.mp4">
+							<source src="https://player.vimeo.com/external/136555574.hd.mp4?s=b44e0310b68a126f339cae0ae86cb522&profile_id=113">
 						</video>
 					</div>
 					<div class="blur-overlay"></div>

@@ -9,7 +9,7 @@
 
 <nav class="right-menu" id="work-menu">
 	<ul>
-		<li><a href="#" data-filter-cat="all" class="active">All</a></li>
+		<li class="active"><a href="#" data-filter-cat="all">All</a></li>
 		<li><a href="#" data-filter-cat="staging">Staging</a></li>
 		<li><a href="#" data-filter-cat="interactive">Interactive</a></li>
 		<li><a href="#" data-filter-cat="video">Video</a></li>

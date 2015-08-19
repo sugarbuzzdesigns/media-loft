@@ -21,15 +21,14 @@ Main Nav
 	    position: absolute;
 	    margin-left: 0;
 	    top: 50%;
-	    left: 75px;
+	    left: 25px;
 	    -webkit-transform: translateY(-50%);
 	            transform: translateY(-50%);
 	    width: 100%;
 
 		li {
-			margin-right: 6%;
-			display: inline-block;
 			font-size: 21px;
+			margin-bottom: 30px;
 
 			&:last-child {
 				margin-bottom: 0;
@@ -79,26 +78,11 @@ Cta & Tagline
 }
 
 .cta {
-	width: auto;
-	top: 55%;
-	left: 75px;
-	-webkit-transform: translate(0, -50%);
-	        transform: translate(0, -50%);	
-	width: auto;
-
-
 	.tagline {
-		font-weight: normal;
-		transition: none;
-		background: rgba(255, 255, 255, 0.8);
-		-webkit-animation: down 1s ease forwards;
-		padding: 7px 10px;
 
 		span {
-			display: inline-block;
-			font-size: 26px;
-			padding: 5px 15px;
 			transition: none;
+			font-size: 35px;
 		}
 
 		.category {
@@ -132,14 +116,6 @@ Cta & Tagline
 /**************************
 About Page
 ***************************/
-.sqr:after {
-	content: "";
-	width: 20px;
-	height: sqrt(75);
-	background: red;
-	display: block;
-}
-
 .page-about {
 
 }
@@ -164,11 +140,7 @@ About Page
 	img {
 		display: block;
 		position: absolute;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%,-50%);
-		        transform: translate(-50%,-50%);
-		width: 130%;
+		width: 100%;
 
 		& + img {
 			opacity: 0;
@@ -202,6 +174,14 @@ About Page
 	.tile {
 		img {
 			width: 100%;
+		}
+	}
+}
+
+#culture {
+	&.play-full-video {
+		#about-culture-video-loop {
+			left: -100%;
 		}
 	}
 }
@@ -457,37 +437,6 @@ FULL BLEED VIDEO
 	z-index: -2;
 }
 
-.video-bg-container,
-.full-screen-video {	
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	overflow: hidden;	
-
-	video {
-	    position: absolute;
-	    top: 50%;
-	    -webkit-transform: translate(-50%,-50%);
-	            transform: translate(-50%,-50%);
-	    min-width: 100%;
-	    min-height: 100%;
-	    left: 50%;
-	    width: auto;
-	    height: auto;
-	    background-size: cover;
-	} 
-}
-
-.full-screen-video {
-	top: 0;
-	left: 0;
-	display: none;
-    position: fixed;
-    z-index: 10;	
-}
-
 // Cover for when a vid is started with a click
 .full-bleed {
 	@include full-bleed;
@@ -568,24 +517,42 @@ Work Page
 		    height: 100%;
 		    width: 100%;	
 
-		    .similar {
-				@include center-me;
-		    }		
+		    &:first-child {
+		    	height: 100%;
 
-		    .work-related {
+		    	.work-copy {
+		    		height: 100%;
+		    	}
+		    	
+		    	.work-media {
+		    		height: 100%;
+		    		background: transparent;
+		    	}			    	
+		    }
+
+		    .related-slide {
+			    top: 50%;
+			    position: absolute;
+			    -webkit-transform: translate(0,-50%);
+			            transform: translate(0,-50%);		    	
+
+			    .similar {
+					
+			    }	
+		    }	
+
+		    .related-works {
 			    width: 75%;
-			    height: 100%;
 			    float: left;
 			    position: relative;
+
+			    .related-work {
+					display: block;
+			    }
 		    }
 		}
 
 		.carousel-image {
-		    height: 100%;
-		    width: 100%;
-		    background-size: cover;
-		    background-repeat: no-repeat;
-		    background-position: center;	
 			-webkit-filter: grayscale(100%);
 			filter: grayscale(100%);
 
@@ -596,11 +563,19 @@ Work Page
 		}
 
 		.work-copy {
-			padding: 100px 20px 0;
-			width: 25%;
-    		height: 100%;
-    		position: relative;
-    		float: left;
+
+    		nav {
+
+    			a {
+				    &.disabled {
+
+				    }
+    			}
+
+    			.next {
+
+    			}
+    		}
 		}
 
 		.work-media {
@@ -685,6 +660,10 @@ Work Page
 		}
 	}
 
+	.tagline {
+		transition: all 0.2s ease;
+	}
+
 	&:hover {
 		.work-item-bg {
 			display: none;
@@ -694,8 +673,9 @@ Work Page
 			display: block;
 		}		
 
-		.company {
+		.tagline {
 			span:first-child {
+				transition: all 0.2s ease;
 				background-color: $ml-red;	
 			}
 		}
@@ -733,9 +713,7 @@ Work Page
     	}
 
     	.company {
-    		span {
-    			transition: none;
-    		}
+
     	}
 
     	.description {
@@ -767,6 +745,13 @@ Work Page
     	}
 	}
 }
+
+@media screen and ( max-height: 769px ) {
+	
+}
+/**************************
+END WORK PAGE
+***************************/		
 
 #main-logo.show-video {
 	top: -50%;
@@ -850,22 +835,7 @@ Work Page
 
 /**************************
 Services Page
-***************************/	
-#services-container {
-	background-color: #2A2C2A;
-}
-
-.service-section {
-	background: transparent;
-	display: none;
-
-	.summary {
-		z-index: 1;
-	    width: 45%;
-	    left: 15%;
-	}
-}
-
+***************************/
 .landing blockquote {
     position: absolute;
     top: 50%;

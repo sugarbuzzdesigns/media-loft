@@ -82,8 +82,8 @@ module.exports = function(grunt) {
 		},
 		autoprefixer: {
 			task: {
-				src: ['source'], 
-				dest: 'destination'
+				src: ['assets/css/style.css'], 
+				dest: 'assets/css/style.css'
 			},
 			options: {
 				'browsers': ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],
@@ -135,8 +135,8 @@ module.exports = function(grunt) {
 	// grunt.loadNpmTasks('grunt-contrib-compass');	
 
 	// grunt.registerTask('default', ['clean', 'concat', 'watch', 'jshint', 'cssmin', 'uglify', 'autoprefixer', 'sass', 'compass']);
-	grunt.registerTask('build', ['sass:dist', 'concat']);
-	grunt.registerTask('dev', ['sass:dev', 'concat']);
+	grunt.registerTask('build', ['sass:dist', 'concat', 'autoprefixer']);
+	grunt.registerTask('dev', ['sass:dev', 'concat', 'autoprefixer']);
 
 
 

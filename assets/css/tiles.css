@@ -1,0 +1,99 @@
+.tile {
+	overflow: hidden;
+    height: 100%;
+    padding-bottom: 0;
+}
+
+#clients, #people {
+	height: 100%;
+}
+
+@media screen and ( min-height: 150px ) {
+    .tile {
+    	width: calc(100%/8);	
+	}
+}
+
+@media screen and ( min-height: 175px ) {
+    .tile {
+    	width: calc(100%/7);
+	}
+}
+
+@media screen and ( min-height: 200px ) {
+    .tile {
+    	width: calc(100%/6);
+	}
+}
+
+@media screen and ( min-height: 250px ) {
+    .tile {
+    	width: calc(100%/5);
+	}
+}
+
+@media screen and ( min-height: 275px ) {
+    .tile {
+    	width: calc(100%/5);
+	}
+}
+
+@media screen and ( min-height: 275px ) {
+    .tile {
+    	height: 50%;
+    	width: calc(100%/8);
+	}
+}
+
+@media screen and ( min-height: 400px ) {
+    .tile {
+        height: 50%;
+        width: calc(100%/7);
+    }
+}
+
+@media screen and ( min-height: 450px ) {
+    .tile {
+        height: 50%;
+        width: calc(100%/6);
+    }
+}
+
+@media screen and ( min-height: 500px ) {
+    .tile {
+        height: 50%;
+        width: calc(100%/5);
+    }
+}
+
+@media screen and ( min-height: 550px ) {
+    .tile {
+        height: calc(100%/3);
+        width: calc(100%/6);
+    }
+}
+
+@media screen and ( min-height: 600px ) {
+    .tile {
+        height: calc(100%/3);
+        width: calc(100%/5);
+    }
+}
+
+@media screen and ( max-width: 1400px ) {
+    .tile {
+        width: calc(100%/6);
+    }
+}
+
+@media screen and ( max-width: 1225px ) {
+    .tile {
+        width: calc(100%/4);
+    }
+}
+
+@media screen and ( max-width: 900px ) {
+    .tile {
+        width: calc(100%/3);
+    }
+}
