@@ -80,10 +80,6 @@ ml.About = {};
 	$(function(){
 		ml.About.Global.init();
 	
-		$('#people .tile').flip({
-			// trigger: 'manual'
-		});
-
 		$("section").snapPoint({ 
 		    scrollDelay: 200,       // Amount of time the visitor has to scroll before the snap point kicks in (ms)
 		    scrollSpeed: 200,        // Length of smooth scroll's animation (ms)

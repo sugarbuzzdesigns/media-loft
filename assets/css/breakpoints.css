@@ -331,7 +331,6 @@ About Page
   padding-bottom: calc(100%/6);
   float: left;
   position: relative;
-  background: #fff;
 }
 .tile.dark {
   background: #F5F5F5;
@@ -374,13 +373,22 @@ About Page
 #clients {
   background-color: #E5E5E5;
 }
+#clients .tile {
+  background: #fff;
+}
 #clients .cta .tagline {
+  margin: 0;
   background: transparent;
 }
 #clients .cta .tagline span {
-  background-color: #333;
-  display: block;
+  background-color: #373837;
+  padding: 5px 10px;
   color: #fff;
+  display: block;
+  float: left;
+}
+#clients .cta .tagline span:last-child {
+  clear: both;
 }
 
 #people {
@@ -391,6 +399,24 @@ About Page
 }
 #people .tile img {
   width: 100%;
+}
+#people .cta {
+  top: auto;
+  bottom: calc(100%/3);
+  transform: translate(0, calc(100%/3));
+}
+#people .cta .tagline {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+#people .cta .tagline span {
+  background-color: #EF4330;
+  opacity: 0.8;
+  padding: 5px 10px;
+  color: #fff;
+  display: block;
+  float: left;
 }
 
 #culture .blur-overlay {

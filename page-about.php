@@ -62,32 +62,27 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		</div>	
 	</section>
 	<section data-section-name="section-clients" class="tile-container" id="clients">
-		<div class="cta alternate">
-			<h2 class="tagline">
-				<span>relationships measured in decades,</span>
-				<span>not years.</span>
-			</h2>
-		</div>
-		<div data-img="" class="tile dark"></div>
-		<div data-img="" class="tile"></div>
-		<div data-img="" class="tile"></div>
-		<div data-img="" class="tile dark"></div>
-		<div data-img="" class="tile"></div>
-		<div data-img="" class="tile dark"></div>
 
-		<div data-img="" class="tile"></div>
-		<div data-img="" class="tile"></div>
-		<div data-img="" class="tile dark"></div>
-		<div data-img="" class="tile"></div>
-		<div data-img="" class="tile"></div>
-		<div data-img="" class="tile dark"></div>
+		<div data-img="" class="tile client dark"></div>
+		<div data-img="" class="tile client"></div>
+		<div data-img="" class="tile client"></div>
+		<div data-img="" class="tile client dark"></div>
+		<div data-img="" class="tile client"></div>
+		<div data-img="" class="tile client dark"></div>
 
-		<div data-img="" class="tile"></div>
-		<div data-img="" class="tile dark"></div>		
-		<div data-img="" class="tile"></div>
-		<div data-img="" class="tile dark"></div>
-		<div data-img="" class="tile"></div>
-		<div data-img="" class="tile dark"></div>
+		<div data-img="" class="tile client"></div>
+		<div data-img="" class="tile client"></div>
+		<div data-img="" class="tile client dark"></div>
+		<div data-img="" class="tile client"></div>
+		<div data-img="" class="tile client"></div>
+		<div data-img="" class="tile client dark"></div>
+
+		<div data-img="" class="tile client"></div>
+		<div data-img="" class="tile client dark"></div>		
+		<div data-img="" class="tile client"></div>
+		<div data-img="" class="tile client dark"></div>
+		<div data-img="" class="tile client"></div>
+		<div data-img="" class="tile client dark"></div>
 		<div class="scaling-svg-container" style="padding-bottom: 124.6%;">
 			<svg class="scaling-svg" version="1.1" id="shape-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 		 		width="473.25px" height="589.75px" viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">
@@ -109,98 +104,32 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<!-- <img data-img="" class="svg-bg" id="services-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/services/services-landing-bg-vector.svg">		 -->
 	</section>
 	<section data-section-name="section-people" class="tile-container" id="people">
-<!-- 		<div class="tile" id="card"> 
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/camie_rest.jpg" alt="">
-			</div> 
-			<div class="back">
-				<img src="<?php echo IMG_DIR ?>/employees/hover/camie_hover.jpg" alt="">
-			</div> 
+		<div class="cta alternate">
+			<h2 class="tagline">
+				<span>our people make it all possible.</span>
+			</h2>
 		</div>	
-		<div class="tile" id="card"> 
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/camie_rest.jpg" alt="">
-			</div> 
-			<div class="back">
-				<img src="<?php echo IMG_DIR ?>/employees/hover/camie_hover.jpg" alt="">
-			</div> 
-		</div>	 -->		
-		<!-- <div data-img="camie" class="tile">
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/camie_rest.jpg" alt="">
-			</div>
-			<div class="back"> 
-				<img src="<?php echo IMG_DIR ?>/employees/hover/camie_hover.jpg" alt="">
-			</div>
-		</div>
-		<div class="tile blank"></div>
-		<div data-img="bill" class="tile">
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/bill_rest.jpg" alt="">
-			</div>
-			<div class="back"> 
-				<img src="<?php echo IMG_DIR ?>/employees/hover/bill_hover.jpg" alt="">
-			</div>
-		</div>
-		<div data-img="brian" class="tile">
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/brian_rest.jpg" alt="">
-			</div>
-			<div class="back"> 
-				<img src="<?php echo IMG_DIR ?>/employees/hover/brian_hover.jpg" alt="">
-			</div>
-		</div>
-		<div class="tile blank"></div>
-		<div data-img="joe" class="tile">
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/joe_rest.jpg" alt="">
-			</div>
-			<div class="back"> 
-				<img src="<?php echo IMG_DIR ?>/employees/hover/joe_hover.jpg" alt="">
-			</div>
-		</div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
 
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div data-img="justin" class="tile">
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/justin_rest.jpg" alt="">
-			</div>
-			<div class="back"> 
-				<img src="<?php echo IMG_DIR ?>/employees/hover/justin_hover.jpg" alt="">
-			</div>
-		</div>
-		<div data-img="kim" class="tile">
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/kim_rest.jpg" alt="">
-			</div>
-			<div class="back"> 
-				<img src="<?php echo IMG_DIR ?>/employees/hover/kim_hover.jpg" alt="">
-			</div>
-		</div>
-		<div class="tile blank"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
 
-		<div class="tile blank"></div>
-		<div data-img="kay" class="tile">
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/kay_rest.jpg" alt="">
-			</div>
-			<div class="back"> 
-				<img src="<?php echo IMG_DIR ?>/employees/hover/kay_hover.jpg" alt="">
-			</div>
-		</div>
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div data-img="debbi" class="tile">
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/debbi_rest.jpg" alt="">
-			</div>
-			<div class="back"> 
-				<img src="<?php echo IMG_DIR ?>/employees/hover/debbi_hover.jpg" alt="">
-			</div>
-		</div>	 -->
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>
+		<div class="tile employee"></div>				
+
 		<div class="scaling-svg-container">
 			<svg class="scaling-svg" version="1.1" id="shape-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 		 		preserveAspectRatio="xMidYMid slice" height="0" width="0" viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">

@@ -6,11 +6,11 @@
 			
 			this.container = $('#clients');
 			this.tileLimit = 8;
-			this.swapSpeed = 5000;
+			this.swapSpeed = 1000;
 
 			this.swapInterval = null;
 
-			this.allClients = clients;
+			this.allClients = clients.slice(0);
 			this.visibleClients = [];
 			this.hiddenClients = [];
 			this.availableClients = clients.slice(0);
@@ -19,34 +19,34 @@
 			this.$startTiles = this.createStartTiles();
 
 			this.setupTiles();
-			this.startSwapping();
+			// this.startSwapping();
 		},
 
 		createStartTiles: function(){
-			var tiles = $('.tile', this.container);
-
+			var tiles = $('#clients .tile.client');
+			
 			tiles.addClass('blank');
 
 			for (var i = 0; i < this.tileLimit; i++) {
-				var blankTiles = $('.tile.blank');
-				
+				var blankTiles = $('#clients .client.blank');
+
 				var random = this.getRanNum(blankTiles.length);
 
 				$(blankTiles[random]).removeClass('blank');
 			}
-			return $('.tile', this.container).not('.blank');
+			return $('#clients .tile.client').not('.blank');
 		},
 
 		setupTiles: function(){
-			for (var i = 0; i < 8; i++) {
-				this.visibleClients.push(clients[i]);
-				this.usedClients.push(clients[i]);
+			for (var i = 0; i < this.tileLimit; i++) {
+				this.visibleClients.push(this.allClients[i]);
+				this.usedClients.push(this.allClients[i]);
 
-				var ci = $.inArray(clients[i], this.availableClients);
+				var ci = $.inArray(this.allClients[i], this.availableClients);
 
 				this.availableClients.splice(ci, 1);
 
-				this.addImage(this.$startTiles[i], clients[i]);
+				this.addImage(this.$startTiles[i], this.allClients[i]);
 			}
 
 			this.hiddenClients = this.availableClients.slice(0);
@@ -85,7 +85,7 @@
 			var client = this.fetchClient(this.availableClients);
 			var i = $.inArray(client, this.availableClients);
 
-			var tileToFill = $('.blank')[this.getRanNum($('.blank').length)];
+			var tileToFill = $('.client.blank')[this.getRanNum($('.client.blank').length)];
 
 			this.addImage(tileToFill, client);
 			$(tileToFill).removeClass('blank');

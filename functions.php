@@ -111,14 +111,9 @@ function medialoft_scripts() {
 
 	if(is_page('about')){
 		wp_enqueue_script( 'about', get_template_directory_uri() . '/assets/js/modules/about.js', array( 'jquery' ), true );		
-	}	
-
-	if(is_page('about')){
 		wp_enqueue_script( 'timeline', get_template_directory_uri() . '/assets/js/modules/timeline.js', array( 'jquery' ), true );		
-	}	
-
-	if(is_page('about')){
-		wp_enqueue_script( 'tiles', get_template_directory_uri() . '/assets/js/modules/about-tiles.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'tiles-clients', get_template_directory_uri() . '/assets/js/modules/about-tiles-clients.js', array( 'jquery' ), true );
+		wp_enqueue_script( 'tiles-people', get_template_directory_uri() . '/assets/js/modules/about-tiles-people.js', array( 'jquery' ), true );		
 	}	
 
 	if(is_page('contact')){

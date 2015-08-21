@@ -223,7 +223,6 @@ About Page
     padding-bottom: calc(100%/6);
 	float: left;
 	position: relative;
-	background: #fff;
 
 	&.dark {
 		background: #F5F5F5;
@@ -277,14 +276,25 @@ About Page
 #clients {
 	background-color: #E5E5E5;
 
+	.tile {
+		background: #fff;		
+	}
+
 	.cta {
 		.tagline {
+			margin: 0;
 			background: transparent;
 
 			span {
-				background-color: #333;
-				display: block;
+				background-color: #373837;
+				padding: 5px 10px;
 				color: #fff;
+				display: block;
+				float: left;
+
+				&:last-child {
+					clear: both;
+				}
 			}
 		}
 	}
@@ -299,17 +309,27 @@ About Page
 		img {
 			width: 100%;
 		}
-
-		// &:hover {
-		// 	img {
-		// 		opacity: 0;
-
-		// 		& + img {
-		// 			opacity: 1;
-		// 		}
-		// 	}
-		// }		
 	}
+
+	.cta {
+		top: auto;
+		bottom: calc(100%/3);
+		transform: translate(0, calc(100%/3));
+
+		.tagline {
+			background: transparent;
+			margin: 0;
+			padding: 0;
+			span {
+				background-color: #EF4330;
+				opacity: 0.8;
+				padding: 5px 10px;
+				color: #fff;
+				display: block;
+				float: left;
+			}
+		}
+	}	
 }
 
 #culture {
