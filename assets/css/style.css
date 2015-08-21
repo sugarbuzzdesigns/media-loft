@@ -3490,225 +3490,35 @@ them however you see fit.
   }
 }
 
-/******************************************************************
-Stylesheet: Variables
-
-Here is where we declare all our variables like colors, fonts,
-base values, and defaults. We want to make sure this file ONLY
-contains variables that way our files don't get all messy.
-No one likes a mess.
-
-******************************************************************/
-/**************************
-Text Colors
-***************************/
-/**************************
-Generi
-***************************/
-/**************************
-Background/Button colors
-***************************/
-/******************************************************************
-Site Name:
-Author:
-
-Stylesheet: Sass Functions
-
-You can do a lot of really cool things in Sass. Functions help you
-make repeated actions a lot easier. They are really similar to mixins,
-but can be used for so much more.
-
-Anyway, keep them all in here so it's easier to find when you're
-looking for one.
-
-For more info on functions, go here:
-http://sass-lang.com/documentation/Sass/Script/Functions.html
-
-******************************************************************/
-/*********************
-COLOR FUNCTIONS
-These are helpful when you're working
-with shadows and such things. It's essentially
-a quicker way to write RGBA.
-
-Example:
-box-shadow: 0 0 4px black(0.3);
-compiles to:
-box-shadow: 0 0 4px rgba(0,0,0,0.3);
-*********************/
-/*********************
-RESPONSIVE HELPER FUNCTION
-If you're creating a responsive site, then
-you've probably already read
-Responsive Web Design: http://www.abookapart.com/products/responsive-web-design
-
-Here's a nice little helper function for calculating
-target / context
-as mentioned in that book.
-
-Example:
-width: cp(650px, 1000px);
-or
-width: calc-percent(650px, 1000px);
-both compile to:
-width: 65%;
-*********************/
-/******************************************************************
-Site Name:
-Author:
-
-Stylesheet: Mixins Stylesheet
-
-This is where you can take advantage of Sass' great features: Mixins.
-I won't go in-depth on how they work exactly,
-there are a few articles below that will help do that. What I will
-tell you is that this will help speed up simple changes like
-changing a color or adding CSS3 techniques gradients.
-
-A WORD OF WARNING: It's very easy to overdo it here. Be careful and
-remember less is more.
-
-Helpful:
-http://sachagreif.com/useful-sass-mixins/
-http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
-http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
-
-******************************************************************/
-/*********************
-TRANSITION
-*********************/
-/*
-I totally rewrote this to be cleaner and easier to use.
-You'll need to be using Sass 3.2+ for these to work.
-Thanks to @anthonyshort for the inspiration on these.
-USAGE: @include transition(all 0.2s ease-in-out);
-*/
-/*********************
-CSS3 GRADIENTS
-Be careful with these since they can
-really slow down your CSS. Don't overdo it.
-*********************/
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
-/*********************
-BOX SIZING
-*********************/
-/* @include box-sizing(border-box); */
-/* NOTE: value of "padding-box" is only supported in Gecko. So
-probably best not to use it. I mean, were you going to anyway? */
-/*#timeline {
-  min-height: 696.39623px;
+#timeline2 {
   background-color: #313131;
-  overflow: hidden;
 }
-#timeline .full-bleed {
+#timeline2 .full-bleed {
   z-index: 1;
   opacity: 0.4;
 }
-#timeline .full-bleed.shown {
+#timeline2 .full-bleed.shown {
   height: 100%;
 }
-#timeline .full-bleed .cover {
+#timeline2 .full-bleed .cover {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
+  display: none;
   top: 0;
   left: 0;
 }
-#timeline .timeline-container {
-  height: 696.39623px;
-  position: absolute;
-  top: 50%;
-  z-index: 3;
-  overflow-y: hidden;
-  width: 100%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
+#timeline2 .full-bleed.shown .cover {
+  display: block;
 }
-#timeline .timeline-container .timeline-block {
+
+#timeline2 .timeline-block {
   border: solid 1px #ccc;
-  height: 300px;
-  width: 300px;
-  position: absolute;
-  top: 92.13208px;
-  left: 100px;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
       transform: rotate(45deg);
-  z-index: 9;
 }
-#timeline2 .timeline-container .timeline-block {
-  border: solid 1px #ccc;
-}
-
-#timeline .timeline-container .timeline-block.top {
-  top: 92.13208px;
-}
-#timeline .timeline-container .timeline-block.bottom {
-  top: 304.26415px;
-  z-index: 8;
-}
-#timeline .timeline-container .timeline-block:nth-child(2) {
-  left: 524.26415px;
-  z-index: 7;
-}
-#timeline .timeline-container .timeline-block:nth-child(3) {
-  left: 736.39623px;
-  z-index: 6;
-}
-#timeline .timeline-container .timeline-block:nth-child(4) {
-  left: 947.5283px;
-  z-index: 5;
-}
-#timeline .timeline-container .timeline-block:nth-child(5) {
-  left: 1370.79245px;
-  z-index: 4;
-}
-#timeline .timeline-container .timeline-block:nth-child(6) {
-  left: 1795.0566px;
-  z-index: 3;
-}
-#timeline .timeline-container .timeline-block:nth-child(7) {
-  top: 92.13208px;
-  left: 2007.18868px;
-  z-index: 2;
-}
-#timeline .timeline-container .timeline-block:nth-child(8) {
-  left: 2219.32075px;
-  z-index: 2;
-}
-#timeline .timeline-container .timeline-block:nth-child(9) {
-  left: 2643.58491px;
-  z-index: 4;
-}
-#timeline .timeline-container .timeline-block:nth-child(10) {
-  left: 3067.84906px;
-  z-index: 3;
-}
-#timeline .timeline-container .timeline-block:nth-child(11) {
-  top: 92.13208px;
-  left: 3279.98113px;
-  z-index: 2;
-}
-#timeline .timeline-container .timeline-block:nth-child(12) {
-  left: 3492.11321px;
-  z-index: 2;
-}
-#timeline .timeline-container .timeline-block:nth-child(13) {
-  left: 3916.37736px;
-  z-index: 6;
-}
-#timeline .timeline-container .timeline-block:nth-child(14) {
-  top: 93.13208px;
-  left: 4128.50943px;
-  z-index: 6;
-}
-#timeline .timeline-container .timeline-block:nth-child(15) {
-  left: 4340.64151px;
-  z-index: 5;
-}
-#timeline .timeline-container .timeline-block .info,
 #timeline2 .timeline-block .info {
   background-color: #F2F2F2;
   position: absolute;
@@ -3719,7 +3529,7 @@ probably best not to use it. I mean, were you going to anyway? */
   z-index: -1;
   overflow: hidden;
 }
-#timeline .timeline-container .timeline-block .info .inner {
+#timeline2 .timeline-block .info .inner {
   width: 70%;
   height: 50%;
   -webkit-transform: rotate(-45deg) translate(-50%, -50%);
@@ -3733,19 +3543,19 @@ probably best not to use it. I mean, were you going to anyway? */
   top: 50%;
   left: 50%;
 }
-#timeline .timeline-container .timeline-block .info .inner h5 {
+#timeline2 .timeline-block .info .inner h5 {
   color: #D8CA53;
   font-size: 20px;
   margin: 0;
 }
-#timeline .timeline-container .timeline-block .info .inner p {
+#timeline2 .timeline-block .info .inner p {
   color: #444444;
 }
-#timeline .timeline-container .timeline-block .info.show-me {
+#timeline2 .timeline-block .info.show-me {
   width: 100%;
   height: 100%;
 }
-#timeline .timeline-container .timeline-block .info.show-me .inner {
+#timeline2 .timeline-block .info.show-me .inner {
   opacity: 1;
 }
 #timeline .date,
@@ -3790,22 +3600,6 @@ probably best not to use it. I mean, were you going to anyway? */
   -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
 }
-#timeline .date.left-top {
-  top: -12px;
-  left: -12px;
-}
-#timeline .date.right-top {
-  right: -12px;
-  top: -12px;
-}
-#timeline .date.right-bottom {
-  right: -12px;
-  bottom: -12px;
-}
-#timeline .date.left-bottom {
-  left: -12px;
-  bottom: -12px;
-}
 #timeline2 .date.left-top {
   top: -12px;
   left: -12px;
@@ -3823,7 +3617,7 @@ probably best not to use it. I mean, were you going to anyway? */
   bottom: -12px;
 }
 #timeline .date:hover,
-#timeline .date:hover {
+#timeline2 .date:hover {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
@@ -3852,33 +3646,33 @@ probably best not to use it. I mean, were you going to anyway? */
   left: -30px;
   bottom: -30px;
 }
-#timeline .date.selected {
+#timeline2 .date.selected {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
 }
-#timeline .date.selected .num {
+#timeline2 .date.selected .num {
   opacity: 0;
 }
-#timeline .date.selected .close {
+#timeline2 .date.selected .close {
   opacity: 1;
 }
-#timeline .date.selected.left-top {
+#timeline2 .date.selected.left-top {
   top: -30px;
   left: -30px;
 }
-#timeline .date.selected.right-top {
+#timeline2 .date.selected.right-top {
   right: -30px;
   top: -30px;
 }
-#timeline .date.selected.right-bottom {
+#timeline2 .date.selected.right-bottom {
   right: -30px;
   bottom: -30px;
 }
-#timeline .date.selected.left-bottom {
+#timeline2 .date.selected.left-bottom {
   left: -30px;
   bottom: -30px;
-}*/
+}
 
 /******************************************************************
 Stylesheet: Variables
@@ -4239,7 +4033,7 @@ About Page
   background-image: url(../images/mobile/backgrounds/mobile-about-bg.jpg);
 }
 
-#timeline .large-date {
+#timeline2 .large-date {
   font-family: 'futura_ltregular';
   font-size: 880px;
   position: absolute;

@@ -16,9 +16,20 @@
 			this.loopEvents(3, 2);	
 
 			this.addDates();
+			this.numDates = $('#timeline2 .date').length;
 			this.setUpTimeLine();
+			this.timelineWidth = this.getTimelineWidht();
 
 			this.bindEvents();
+		},
+		getTimelineWidht: function(){
+			var width = 0;
+
+			$('#timeline2 article').each(function(i, elm){
+				width += $(elm).width();
+			});
+
+			return width;
 		},
 		bindEvents: function(){
 			var _this = this;
@@ -89,15 +100,20 @@
 			$dateBtn.removeClass('selected');
 		},				
 		loopEvents: function(containerIndex, numBoxes){
-			var tl = $('#timeline2').css('overflow-x', 'scroll'),
+			var tl = $('#timeline2').css('overflow', 'hidden'),
 				container = tl.find('article').eq(containerIndex);
 
 			var aSqbSq = (this.squareSideLength * this.squareSideLength) + (this.squareSideLength * this.squareSideLength);
 			var sqRoot = Math.floor(Math.sqrt(aSqbSq));	
 
 			var cLeft = containerIndex * (sqRoot*3) + 40;
+			var containerWidth = sqRoot*3;
 
 			numBoxes = numBoxes || 4;
+
+			if(numBoxes === 2){
+				containerWidth = sqRoot*2;
+			}
 
 			container.css({
 				position: 'absolute',
@@ -105,7 +121,7 @@
 				top: '50%',
 				transform: 'translate(0,-50%)',
 				height: sqRoot*2 - sqRoot/2,
-				width: sqRoot*3,
+				width: containerWidth,
 				zIndex: this.containerIndex--
 			});
 
@@ -138,7 +154,7 @@
 
 				if(i === 3){
 					boxZIndex = 1;
-				}												
+				}					
 
 				// add div for each event
 				$('<div/>', {
@@ -192,7 +208,7 @@
 				}	
 
 				$('.num', $elm).text(date);
-				createInfoBox(dateInfo, container);
+				createInfoBox(dateInfo, container);				
 			});
 		},		
 
@@ -200,7 +216,7 @@
 			var timeline = $('currentLeft')
 				currentLeft = $('#timeline2').scrollLeft(),
 				boxLeft = $box.offset().left,
-				newLeft = currentLeft + boxLeft;
+				newLeft = currentLeft + boxLeft - 40;
 
 			this.timeline.animate({
 				scrollLeft: newLeft
@@ -210,5 +226,22 @@
 
 	$(function(){
 		ml.Timeline.init();
+
+		var winWidth = $(window).width();
+
+		$('#timeline2 .left-top').each(function(){ 
+			// console.log($(this).offset().left);
+		});
+
+		$('#timeline2 .timeline-wrap').scroll(function(e){
+			$('#timeline2 .right-top').each(function(){ 
+				if($(this).offset().left > 10 && $(this).offset().left < 100){
+					var date = $(this).find('.num').text();
+
+					$('.large-date').text(date.slice(-2));
+				}
+			});
+		});
+
 	});
 })(jQuery);

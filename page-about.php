@@ -50,10 +50,16 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div class="blur-overlay show"></div>
 	</section>
 	<section data-section-name="section-timeline2" id="timeline2">
-		<article></article>
-		<article></article>
-		<article></article>
-		<article></article>		
+		<div class="large-date-wrap">
+			<span class="large-date">74</span>
+		</div>	
+
+		<div class="timeline-wrap">
+			<article></article>
+			<article></article>
+			<article></article>
+			<article></article>		
+		</div>	
 	</section>
 	<section data-section-name="section-clients" class="tile-container" id="clients">
 		<div data-img="" class="tile dark"></div>
