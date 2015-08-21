@@ -130,9 +130,9 @@
 						'category' => 'staging'
 					),
 					array(
-						'url' => 'united-stationers',
+						'url' => 'Essendant',
 						'background' => 'United',
-						'company' => 'United Stationers',
+						'company' => 'Essendant',
 						'category' => 'staging'
 					)					
 				)
@@ -173,15 +173,15 @@
 						'category' => 'staging'
 					),
 					array(
-						'url' => 'united-stationers',
+						'url' => 'Essendant',
 						'background' => 'United',
-						'company' => 'United Stationers',
+						'company' => 'Essendant',
 						'category' => 'staging'
 					)				
 				)
 			), 
 		array(
-			'company name' => 'United Stationers', 
+			'company name' => 'Essendant', 
 			'category' => 'staging',
 			'thumb resting' => 'united_active_thumbnail.jpg',
 			'thumb hover' => 'united_hover_thumbnail.jpg',

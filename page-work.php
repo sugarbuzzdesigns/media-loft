@@ -39,7 +39,7 @@
 								</div>
 								<div class="work-media">
 									<?php if($slide['media'][0] == 'image'){ ?>
-										<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $slide['media'][1]; ?>)"></div>
+										<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $slide['media'][1]; ?>).jpg"></div>
 									<?php } else { ?>
 										<div class="video-bg-container">
 											<div class="video-start play-full-screen" data-video="<?php echo replace_spaces(strtolower($companyName)); ?>-video-<?php echo $index; ?>">

@@ -127,6 +127,13 @@ Global Buttons
 }
 
 /**************************
+GLobal BG Styles
+***************************/
+.full-bleed {
+	@include full-bleed;
+}
+
+/**************************
 SVG Styles
 ***************************/		
 .svg-bg {
@@ -269,6 +276,18 @@ About Page
 
 #clients {
 	background-color: #E5E5E5;
+
+	.cta {
+		.tagline {
+			background: transparent;
+
+			span {
+				background-color: #333;
+				display: block;
+				color: #fff;
+			}
+		}
+	}
 }
 
 #people {
@@ -671,6 +690,11 @@ Services Page
 				        transform: translateY(0px);
 			}
 		}
+
+		video {
+			-webkit-filter: blur(10px);
+					filter: blur(10px);
+		}
 	}
 }
 
@@ -1020,7 +1044,8 @@ Work Page
 	padding-top: 9px;
 	position: absolute;
 	top: 0;
-	right: 0;	
+	right: 0;
+	overflow: hidden;	
 	font-size: 30px;	
 
 	i {
@@ -1539,7 +1564,8 @@ div.scrollableArea
 .page-services {
 	.scaling-svg-container {	
 		width: 110%;
-		transform: translate(-60%, -50%);
+		-webkit-transform: translate(-60%, -50%);
+		        transform: translate(-60%, -50%);
 	}
 
 	.svg-animate-services {
@@ -1574,15 +1600,26 @@ div.scrollableArea
     padding-bottom: 100%;
     top: 50%;
     left: 0;
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
  /* override this inline for aspect ratio other than square */
 }
 .scaling-svg {
  position: absolute; 
- height: 100%; 
- width: 100%; 
- left: 0; 
- top: 0;
+ height: 110%;
+ width: 110%;
+ left: 50%; 
+ top: 50%;
+ -webkit-transform: translate(-50%,-50%);
+ 		 transform: translate(-50%,-50%);
+}
+
+.scaling-svg {
+	path, line {
+		fill-opacity: 0;
+		stroke: rgba(255,255,255,0.3);
+		stroke-width: 0.4;		
+	}
 }
 
 // #Layer_2_1_home {
@@ -1610,6 +1647,12 @@ div.scrollableArea
 	path, line {
 		stroke: rgba(255,255,255,0.1);
 	}
+}
+
+@-webkit-keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes draw {
@@ -1693,12 +1736,7 @@ div.scrollableArea
   bottom     : 0;
   visibility : hidden\9; /* Target only IE7 and IE8 with this hack */
   opacity    : .01;
-  -webkit-transition    : .2s;
-  -moz-transition       : .2s;
-  -o-transition         : .2s;
   transition            : .2s;
-  -moz-border-radius    : 5px;
-  -webkit-border-radius : 5px;
   border-radius         : 5px;
 }
 .nano > .nano-pane > .nano-slider {
@@ -1706,8 +1744,6 @@ div.scrollableArea
   background: rgba(0,0,0,.5);
   position              : relative;
   margin                : 0 1px;
-  -moz-border-radius    : 3px;
-  -webkit-border-radius : 3px;
   border-radius         : 3px;
 }
 .nano:hover > .nano-pane, .nano-pane.active, .nano-pane.flashed {

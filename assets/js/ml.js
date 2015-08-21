@@ -28,10 +28,15 @@ var $ = jQuery;
 		bindEvents: function() {
 			var _this = this;
 
-			// $('#main-menu').mouseover(function(){
-			// 	_this.$body.addClass('main-menu-open');
-			// 	console.log('hover');
-			// });
+			$('#main-menu').mouseover(function(){
+				_this.$body.addClass('main-menu-open');
+				console.log('hover');
+			});
+
+			$('#menu-overlay').mouseover(function(){
+				_this.$body.removeClass('main-menu-open');
+				console.log('hover overlay');
+			});			
 
 			// // Main menu binding
 			// $('.menu-btn, .open-menu').on('click', function(e){
@@ -175,8 +180,8 @@ var $ = jQuery;
 		},
 
 		scaleSvgHeight: function(){
-			var svgContainer = $('.responsive-height-svg');
-			var svg = $('.responsive-height-svg svg');
+			var svgContainer = $('.scaling-svg-container');
+			var svg = $('.scaling-svg-container svg');
 
 			var w = $(window).width();
 			var h = $(window).height();
@@ -186,7 +191,9 @@ var $ = jQuery;
 			svgContainer.css('padding-bottom', pb + '%');
 
 			svg.attr({
-				viewbox: [0, 0, w, h].join(' ')
+				'height': h,
+				'width': w,
+				'viewBox': [0, 0, w, h].join(' ')
 			});		
 		}
 	};

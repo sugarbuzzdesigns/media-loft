@@ -24,4 +24,5 @@
 			<li class="<?php if(is_page('contact')){echo 'active';} ?>"><a href="<?php echo get_site_url(); ?>/contact">Contact</a></li>
 		</ul>
 	</div>	
-</nav>	
+</nav>
+<div id="menu-overlay"></div>

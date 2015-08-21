@@ -144,7 +144,7 @@
 		<article class="service-section" id="services-motion" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/mobile/backgrounds/services/motion_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">04</span>
-				<div class="service">Motion</div>
+				<div class="service">Motion Design</div>
 				<p>Motion graphics is like magic in a box. It's where we get to color outside the lines of the imagination, with visual effects that include everything from dynamic text to infographics to 3D animation and beyond.</p>
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
@@ -174,7 +174,7 @@
 		<article class="service-section" id="services-support" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/mobile/backgrounds/services/speak_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">06</span>
-				<div class="service">Support</div>
+				<div class="service">Speaker Support</div>
 				<p>No audience deserves death by bullet point. Especially not yours. Not when we can support your executives with a spot-on script, crackling Prezi presentations and visual support that is definitely not your grandfather's PowerPoint.</p>
 			</div>
 			<?php if(!wp_is_mobile()){ ?>

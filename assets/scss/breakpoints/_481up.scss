@@ -27,15 +27,16 @@ Main Nav
 ***************************/
 #main-menu {
 	min-width: 200px;
-	width: 100%;
+	width: 25%;
 	left: -100%;
-	background: rgba(255,255,255,0.3);
 	padding-top: 0;
+	background: transparent;
 
 	#menu-interior {
 		width: 25%;
 		height: 100%;
 		min-width: 210px;
+		position: relative;
 		background: $ml-red;
 	}
 
@@ -48,7 +49,7 @@ Main Nav
 	    width: 100%;
 
 		li {
-			font-size: 21px;
+			font-size: 28px;
 			margin-bottom: 30px;
 
 			&:last-child {
@@ -98,6 +99,24 @@ Other Misc menu stuff
 ***************************/		
 .mobile-menu-btn {
 	display: none;
+}
+
+#menu-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255,255,255,0.5);
+    top: 0;
+    left: 0;
+    display: none;
+    opacity: 0;	
+    z-index: 1;
+}
+
+.main-menu-open {
+	#menu-overlay {
+		opacity: 1;
+	}
 }
 
 /**************************
@@ -510,16 +529,19 @@ Work Page
 #work-items-window {
 	height: 100%;
 	width: 100%;
+	background: #333;
 	overflow: hidden;
 }
 
 .work-items {
 	height: 100%;
     overflow: hidden;
+    position: relative;
     background-color: $page-bg-drk-grey;
 }
 
 .work-item {
+	display: none;
 	height: 100%;
 	width: 25%;
 	float: left;
@@ -548,10 +570,18 @@ Work Page
 
 	.work-item-bg {
 		opacity: 0.3;
+		-webkit-transition:none !important;
+		-moz-transition:none !important;
+		-o-transition:none !important;
+		transition:none !important;		
 	}
 
 	.work-item-bg-hover {
 		display: none;
+		-webkit-transition:none !important;
+		-moz-transition:none !important;
+		-o-transition:none !important;
+		transition:none !important;
 	}
 
 	&:nth-child(1n+5) {
@@ -748,11 +778,11 @@ Work Page
 
 	&:hover {
 		.work-item-bg {
-			display: none;
+			// display: none;
 		}
 
 		.work-item-bg-hover {
-			display: block;
+			// display: block;
 		}		
 
 		.tagline {

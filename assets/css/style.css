@@ -3493,6 +3493,15 @@ them however you see fit.
 #timeline2 {
   background-color: #313131;
 }
+#timeline2 .timeline-wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-x: scroll;  
+}
+
 #timeline2 .full-bleed {
   z-index: 1;
   opacity: 0.4;
@@ -3918,6 +3927,19 @@ Global Buttons
 }
 
 /**************************
+GLobal BG Styles
+***************************/
+.full-bleed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/**************************
 SVG Styles
 ***************************/
 .svg-bg {
@@ -4047,6 +4069,14 @@ About Page
 
 #clients {
   background-color: #E5E5E5;
+}
+#clients .cta .tagline {
+  background: transparent;
+}
+#clients .cta .tagline span {
+  background-color: #333;
+  display: block;
+  color: #fff;
 }
 
 #people {
@@ -4367,6 +4397,10 @@ Services Page
   -ms-transform: translateY(0px);
       transform: translateY(0px);
 }
+.service-section.show-summary video {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
 
 #service-svg {
   display: none;
@@ -4659,6 +4693,7 @@ Work Page
   position: absolute;
   top: 0;
   right: 0;
+  overflow: hidden;
   font-size: 30px;
 }
 .work-carousel .close i {
@@ -5149,8 +5184,8 @@ div.scrollableArea {
 .page-services .scaling-svg-container {
   width: 110%;
   -webkit-transform: translate(-60%, -50%);
-      -ms-transform: translate(-60%, -50%);
-          transform: translate(-60%, -50%);
+  -ms-transform: translate(-60%, -50%);
+      transform: translate(-60%, -50%);
 }
 .page-services .svg-animate-services {
   width: 120%;
@@ -5182,17 +5217,26 @@ div.scrollableArea {
   top: 50%;
   left: 0;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
   /* override this inline for aspect ratio other than square */
 }
 
 .scaling-svg {
   position: absolute;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
+  height: 110%;
+  width: 110%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+
+.scaling-svg path, .scaling-svg line {
+  fill-opacity: 0;
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 0.4;
 }
 
 .scaling-svg.white-stroke path, .scaling-svg.white-stroke line {
@@ -5204,7 +5248,6 @@ div.scrollableArea {
     stroke-dashoffset: 0;
   }
 }
-
 @keyframes draw {
   to {
     stroke-dashoffset: 0;
@@ -5251,7 +5294,7 @@ div.scrollableArea {
   /* Target only IE7 and IE8 with this hack */
   opacity: .01;
   -webkit-transition: .2s;
-  transition: .2s;
+          transition: .2s;
   border-radius: 5px;
 }
 
@@ -5303,15 +5346,16 @@ tweeners.
   ***************************/
   #main-menu {
     min-width: 200px;
-    width: 100%;
+    width: 25%;
     left: -100%;
-    background: rgba(255, 255, 255, 0.3);
     padding-top: 0;
+    background: transparent;
   }
   #main-menu #menu-interior {
     width: 25%;
     height: 100%;
     min-width: 210px;
+    position: relative;
     background: #ef4330;
   }
   #main-menu ul {
@@ -5324,7 +5368,7 @@ tweeners.
     width: 100%;
   }
   #main-menu ul li {
-    font-size: 21px;
+    font-size: 28px;
     margin-bottom: 30px;
   }
   #main-menu ul li:last-child {
@@ -5366,6 +5410,22 @@ tweeners.
   ***************************/
   .mobile-menu-btn {
     display: none;
+  }
+
+  #menu-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    top: 0;
+    left: 0;
+    display: none;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .main-menu-open #menu-overlay {
+    opacity: 1;
   }
 
   /**************************
@@ -5729,16 +5789,19 @@ tweeners.
   #work-items-window {
     height: 100%;
     width: 100%;
+    background: #333;
     overflow: hidden;
   }
 
   .work-items {
     height: 100%;
     overflow: hidden;
+    position: relative;
     background-color: #313131;
   }
 
   .work-item {
+    display: none;
     height: 100%;
     width: 25%;
     float: left;
@@ -5765,9 +5828,13 @@ tweeners.
   }
   .work-item .work-item-bg {
     opacity: 0.3;
+    -webkit-transition: none !important;
+    transition: none !important;
   }
   .work-item .work-item-bg-hover {
     display: none;
+    -webkit-transition: none !important;
+    transition: none !important;
   }
   .work-item .work-carousel {
     display: none;
@@ -5927,12 +5994,6 @@ tweeners.
   }
   .work-item .tagline.work-title .company {
     font-size: 25px;
-  }
-  .work-item:hover .work-item-bg {
-    display: none;
-  }
-  .work-item:hover .work-item-bg-hover {
-    display: block;
   }
   .work-item:hover .tagline span:first-child {
     -webkit-transition: all 0.2s ease;
@@ -6607,12 +6668,6 @@ you can add resource intensive styles.
   .work-item .tagline {
     -webkit-transition: all 0.2s ease;
             transition: all 0.2s ease;
-  }
-  .work-item:hover .work-item-bg {
-    display: none;
-  }
-  .work-item:hover .work-item-bg-hover {
-    display: block;
   }
   .work-item:hover .tagline span:first-child {
     -webkit-transition: all 0.2s ease;
