@@ -33,6 +33,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				<span>40 great years</span>
 				<span>an ongoing success story</span>
 			</h2>		
+			<p>Media Loft is a 100% employee-owned company that produces corporate events across the globe, with account, technical, creative, design, video production and interactive technology services all under one roof.</p>
 			<div class="nav-arrow-down animate-flicker">
 				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down.png" alt="Media Loft" />
 				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down.png" alt="Media Loft" />
@@ -42,13 +43,205 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<?php if(!wp_is_mobile()){ ?> 
 			<div class="video-bg-container">
 				<video id="landing-video" loop style="background-image:url(<?php echo VID_DIR ?>/about/posters/Roof_Timelapse_02_H264_10K.jpg);">
-					<source src="<?php echo VID_DIR ?>/about/Roof_Timelapse_02_H264_10K.mp4">
+					<source src="https://player.vimeo.com/external/136884073.hd.mp4?s=d28c568b4bdd7b30fc2e1e9693c34fa7&profile_id=113">
 				</video>
 			</div>
 		<?php } ?>
 		<div class="blur-overlay show"></div>
 	</section>
-	<section class="nano" data-section-name="section-timeline" id="timeline">
+	<section data-section-name="section-timeline2" id="timeline2">
+		<article></article>
+		<article></article>
+		<article></article>
+		<article></article>		
+	</section>
+	<section data-section-name="section-clients" class="tile-container" id="clients">
+		<div data-img="" class="tile dark"></div>
+		<div data-img="" class="tile"></div>
+		<div data-img="" class="tile"></div>
+		<div data-img="" class="tile dark"></div>
+		<div data-img="" class="tile"></div>
+		<div data-img="" class="tile dark"></div>
+
+		<div data-img="" class="tile"></div>
+		<div data-img="" class="tile"></div>
+		<div data-img="" class="tile dark"></div>
+		<div data-img="" class="tile"></div>
+		<div data-img="" class="tile"></div>
+		<div data-img="" class="tile dark"></div>
+
+		<div data-img="" class="tile"></div>
+		<div data-img="" class="tile dark"></div>		
+		<div data-img="" class="tile"></div>
+		<div data-img="" class="tile dark"></div>
+		<div data-img="" class="tile"></div>
+		<div data-img="" class="tile dark"></div>
+		<div class="scaling-svg-container" style="padding-bottom: 124.6%;">
+			<svg class="scaling-svg" version="1.1" id="shape-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 		width="473.25px" height="589.75px" viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">
+			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M420.667,288.398l49.592-49.592
+				c1.687-1.687,1.687-4.422,0-6.109L240.479,2.916c-1.688-1.687-4.424-1.687-6.11,0L121.684,115.601c-1.687,1.687-1.687,4.422,0,6.109
+				l166.259,166.26"/>
+			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M115.135,454.645c1.687,1.687,4.422,1.687,6.109,0
+				l229.781-229.782c1.688-1.687,1.688-4.422,0-6.109L238.342,106.069c-1.688-1.687-4.424-1.687-6.11,0L2.45,335.85
+				c-1.687,1.688-1.687,4.422,0,6.109L115.135,454.645z"/>
+			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M65.96,405.469L2.839,468.59
+				c-1.687,1.687-1.687,4.422,0,6.109l112.684,112.685c1.687,1.687,4.423,1.687,6.11,0l299.01-299.01"/>
+			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M301.849,407.168l47.451,47.451
+				c1.687,1.687,4.423,1.687,6.11,0l112.684-112.685c1.688-1.687,1.688-4.423,0-6.11L351.027,218.758"/>
+			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M235.699,473.316l114.066,114.067
+				c1.688,1.688,4.422,1.688,6.109,0l109.818-109.761c1.687-1.688,3.277-4.213,2.865-9.033l0.8-129.685"/>
+			<line fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" x1="1.186" y1="338.904" x2="1.573" y2="471.645"/>
+			</svg>
+		</div>
+		<!-- <img data-img="" class="svg-bg" id="services-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/services/services-landing-bg-vector.svg">		 -->
+	</section>
+	<section data-section-name="section-people" class="tile-container" id="people">
+<!-- 		<div class="tile" id="card"> 
+			<div class="front"> 
+				<img src="<?php echo IMG_DIR ?>/employees/camie_rest.jpg" alt="">
+			</div> 
+			<div class="back">
+				<img src="<?php echo IMG_DIR ?>/employees/hover/camie_hover.jpg" alt="">
+			</div> 
+		</div>	
+		<div class="tile" id="card"> 
+			<div class="front"> 
+				<img src="<?php echo IMG_DIR ?>/employees/camie_rest.jpg" alt="">
+			</div> 
+			<div class="back">
+				<img src="<?php echo IMG_DIR ?>/employees/hover/camie_hover.jpg" alt="">
+			</div> 
+		</div>	 -->		
+		<!-- <div data-img="camie" class="tile">
+			<div class="front"> 
+				<img src="<?php echo IMG_DIR ?>/employees/camie_rest.jpg" alt="">
+			</div>
+			<div class="back"> 
+				<img src="<?php echo IMG_DIR ?>/employees/hover/camie_hover.jpg" alt="">
+			</div>
+		</div>
+		<div class="tile blank"></div>
+		<div data-img="bill" class="tile">
+			<div class="front"> 
+				<img src="<?php echo IMG_DIR ?>/employees/bill_rest.jpg" alt="">
+			</div>
+			<div class="back"> 
+				<img src="<?php echo IMG_DIR ?>/employees/hover/bill_hover.jpg" alt="">
+			</div>
+		</div>
+		<div data-img="brian" class="tile">
+			<div class="front"> 
+				<img src="<?php echo IMG_DIR ?>/employees/brian_rest.jpg" alt="">
+			</div>
+			<div class="back"> 
+				<img src="<?php echo IMG_DIR ?>/employees/hover/brian_hover.jpg" alt="">
+			</div>
+		</div>
+		<div class="tile blank"></div>
+		<div data-img="joe" class="tile">
+			<div class="front"> 
+				<img src="<?php echo IMG_DIR ?>/employees/joe_rest.jpg" alt="">
+			</div>
+			<div class="back"> 
+				<img src="<?php echo IMG_DIR ?>/employees/hover/joe_hover.jpg" alt="">
+			</div>
+		</div>
+
+		<div class="tile blank"></div>
+		<div class="tile blank"></div>
+		<div class="tile blank"></div>
+		<div data-img="justin" class="tile">
+			<div class="front"> 
+				<img src="<?php echo IMG_DIR ?>/employees/justin_rest.jpg" alt="">
+			</div>
+			<div class="back"> 
+				<img src="<?php echo IMG_DIR ?>/employees/hover/justin_hover.jpg" alt="">
+			</div>
+		</div>
+		<div data-img="kim" class="tile">
+			<div class="front"> 
+				<img src="<?php echo IMG_DIR ?>/employees/kim_rest.jpg" alt="">
+			</div>
+			<div class="back"> 
+				<img src="<?php echo IMG_DIR ?>/employees/hover/kim_hover.jpg" alt="">
+			</div>
+		</div>
+		<div class="tile blank"></div>
+
+		<div class="tile blank"></div>
+		<div data-img="kay" class="tile">
+			<div class="front"> 
+				<img src="<?php echo IMG_DIR ?>/employees/kay_rest.jpg" alt="">
+			</div>
+			<div class="back"> 
+				<img src="<?php echo IMG_DIR ?>/employees/hover/kay_hover.jpg" alt="">
+			</div>
+		</div>
+		<div class="tile blank"></div>
+		<div class="tile blank"></div>
+		<div class="tile blank"></div>
+		<div data-img="debbi" class="tile">
+			<div class="front"> 
+				<img src="<?php echo IMG_DIR ?>/employees/debbi_rest.jpg" alt="">
+			</div>
+			<div class="back"> 
+				<img src="<?php echo IMG_DIR ?>/employees/hover/debbi_hover.jpg" alt="">
+			</div>
+		</div>	 -->
+		<!-- <img class="svg-bg" id="services-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/services/services-landing-bg-vector.svg">	 -->
+	</section>
+	<section data-section-name="section-culture" id="culture">
+		<div class="cta centered">
+			<h2 class="tagline one-liner alternate-red">
+				<span>Fun is always in the equation</span>
+			</h2>		
+			<a class="play-reel" href="#">
+				<i class="ml-play black"></i>
+				<span>Look Inside</span>
+			</a>
+		</div>		
+
+		<?php if(!wp_is_mobile()){ ?> 
+			<!-- <div class="video-cover" style="background-image:url(<?php echo IMG_DIR ?>/768up/backgrounds/about/Culture_Vid_Static_BG.jpg);"></div> -->
+			<div class="video-bg-container">
+				<video id="about-culture-video-full">
+					<source src="https://player.vimeo.com/external/136641924.hd.mp4?s=bd657664d75006514d6ad9e03e56a317&profile_id=113">
+				</video>			
+				<video id="about-culture-video-loop" autoplay loop style="background-image:url(<?php echo VID_DIR ?>/about/posters/Who_We_Are_Clicked.jpg);">
+					<source src="https://player.vimeo.com/external/136642425.sd.mp4?s=db0fe3877230369658d8e2e08a7796bc&profile_id=112">
+				</video>
+
+				<a href="" class="close-video"><i></i></a>				
+			</div>
+		<?php } ?>	
+		<div class="blur-overlay show"></div>	
+	</section>
+	<section data-section-name="section-join-us" id="join-us">
+		<div class="contact-us">
+			<div class="cta">
+				<h2 class="tagline one-liner alternate">
+					<span>enough about us.</span>
+					<span>tell us about you.</span>
+				</h2>	
+			</div>	
+			<div class="email">
+				<div>work</div> 
+				<div class="choose">
+					<span class="selected">at</span>
+					<span class="choice" data-mailto="mailto:contact@medialoft.com"><i class="check"></i> with</span>
+					<span class="choice active" data-mailto="mailto:careers@medialoft.com"><i class="check"></i> at</span>
+				</div> 
+				<div>media loft</div><div class="email-link"><a href="mailto:work@medialoft.com">talk to us <i class="fa fa-chevron-right"></i></a></div>
+			</div>			
+		</div>
+		<div class="full-bleed" style="background-image:url(<?php echo IMG_DIR ?>/768up/backgrounds/about/Join_Us_BG_02.jpg);"></div>
+	</section>
+	<script>
+		var imgDir = '<?php echo IMG_DIR; ?>';
+	</script>
+
+	<div id="timeline-data">
 		<span class="large-date">99</span>
 		<div class="timeline-container nano-content">
 			<div class="timeline-block bottom">
@@ -156,30 +349,28 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Media Loft branding reboot: logo 3.0</span>
-				</a>												
-			</div>	
-			<div class="timeline-block bottom">		
-				<a href="#" data-info-id="1993" data-bg-image="1993_Laser_Pointer.jpg" class="date left-top">
+				</a>
+				<a href="#" data-info-id="1993" data-bg-image="1993_Laser_Pointer.jpg" class="date right-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Laser technology becomes affordable and ubiquitous, delighting corporate presenters and cats worldwide</span>
-				</a>			
-								
+				</a>						
+			</div>	
+			<div class="timeline-block bottom">				
 				<a href="#" data-info-id="1995" data-bg-image="BLANK" class="date right-bottom">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Company converts to Employee Stock Option Plan (ESOP)</span>
 				</a>		
-			</div>	
-
-			<!-- Start new part of timeline -->
-			<div class="timeline-block bottom">
-				<a href="#" data-info-id="1996" data-bg-image="1996_TVL.jpg" class="date left-bottom">
+				<a href="#" data-info-id="1996" data-bg-image="1996_TVL.jpg" class="date right-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">TVL ShowStar 6 software unleashes hundreds of real-time effects such as dissolve, zoom, mosaic and pan on unsuspecting attendees everywhere</span>
-				</a>	
+				</a>				
+			</div>	
 
+			<!-- Start new part of timeline -->
+			<div class="timeline-block bottom">	
 				<a href="#" data-info-id="1998" data-bg-image="1998_ESOP_Card03.jpg" class="date left-top">
 					<span class="num"></span>
 					<span class="close"></span>
@@ -220,51 +411,50 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">8-track party invite marks Media Loft’s 30th year</span>
-				</a>												
-			</div>	
-			<div class="timeline-block bottom">
-				<a href="#" data-info-id="2005" data-bg-image="BLANK" class="date left-top">
+				</a>
+				<a href="#" data-info-id="2005" data-bg-image="BLANK" class="date right-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Produce BMW event in South Miami Beach to introduce new 3 Series to North American and Latin American dealers</span>
-				</a>			
+				</a>																
+			</div>	
+			<div class="timeline-block bottom">
 				<a href="#" data-info-id="2006" data-bg-image="2006_Staples20th_ML_Logo.jpg" class="date right-bottom">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Media Loft goes global with sales event for Staples 20th Anniversary</span>
-				</a>										
-			</div>	
-			<div class="timeline-block bottom">
-				<a href="#" data-info-id="2007" data-bg-image="BLANK" class="date left-bottom">
+				</a>							
+				<a href="#" data-info-id="2007" data-bg-image="BLANK" class="date right-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Media Loft launches proprietary software that allows DVD playback of video content from laptop’s internal drive, eliminating the need for outside playback device, switcher and technician to run…oh never mind. FYI, it saved our clients a boatload of money per show.</span>
-				</a>
+				</a>							
+			</div>	
+			<div class="timeline-block bottom">
 				<a href="#" data-info-id="2009" data-bg-image="2009_Target_Modelless_Show_1.jpg" class="date right-bottom">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">World’s first 3-D holographic fashion show created by Media Loft for Target plays in NY’s Grand Central Terminal   </span>
-				</a>															
-			</div>
-			<div class="timeline-block top">
-				<a href="#" data-info-id="2011" data-bg-image="2011_CruiseShip.jpg" class="date left-bottom">
+				</a>	
+				<a href="#" data-info-id="2011" data-bg-image="2011_CruiseShip.jpg" class="date left-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Ships ahoy: Media Loft by now has produced events in four of the seven seas.</span>
-				</a>			
-				<a href="#" data-info-id="2012" data-bg-image="2012_Target_Fifty.jpg" class="date right-bottom">
+				</a>	
+				<a href="#" data-info-id="2012" data-bg-image="2012_Target_Fifty.jpg" class="date right-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Media Loft celebrates Target’s 50th Anniversary at the Spring National Meeting.</span>
-				</a>
-				<a href="#" data-info-id="2013" data-bg-image="2013_Polaris_HOF.jpg" class="date right-top">
+				</a>	
+																								
+			</div>
+			<div class="timeline-block bottom">
+				<a href="#" data-info-id="2013" data-bg-image="2013_Polaris_HOF.jpg" class="date right-bottom">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Following 28-year partnership, Media Loft elected to Polaris Hall of Fame.</span>
-				</a>								
-			</div>			
-			<div class="timeline-block bottom">
-				<a href="#" data-info-id="2014" data-bg-image="2014_InternationalRevenue_option2.jpg" class="date right-bottom">
+				</a>	
+				<a href="#" data-info-id="2014" data-bg-image="2014_InternationalRevenue_option2.jpg" class="date left-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">16% of Media Loft’s revenue generated internationally.</span>
@@ -273,177 +463,18 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">A new day, new branding for Media Loft.</span>
-				</a>
+				</a>								
 			</div>
 		</div>
 		<div class="large-date"></div>	
-		<div class="full-bleed" data-img-dir="<?php echo IMG_DIR ?>/about/timeline/desktop/">
+		<script>
+			var timeLineImageDir = "<?php echo IMG_DIR ?>/about/timeline/desktop/";
+		</script>
+		<div class="full-bleed">
 			<img src="" style="display:none;">
 			<div class="cover"></div>
 		</div>
-	</section>
-	<section data-section-name="section-clients" class="tile-container" id="clients">
-		<div data-img="ally.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/ally.png" alt=""></div>
-		<div data-img="" class="tile blank"></div>
-		<div data-img="best_buy.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/best_buy.png" alt=""></div>
-		<div data-img="dell.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/dell.png" alt=""></div>
-		<div data-img="" class="tile blank"></div>
-		<div data-img="google.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/google.png" alt=""></div>
+	</div>
 
-		<div data-img="" class="tile blank"></div>
-		<div data-img="" class="tile blank"></div>
-		<div data-img="" class="tile blank"></div>
-		<div data-img="optum.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/optum.png" alt=""></div>
-		<div data-img="indian.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/indian.png" alt=""></div>
-		<div data-img="" class="tile blank"></div>
-
-		<div data-img="" class="tile blank"></div>
-		<div data-img="pizza_hut.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/pizza_hut.png" alt=""></div>		
-		<div data-img="" class="tile blank"></div>
-		<div data-img="" class="tile blank"></div>
-		<div data-img="" class="tile blank"></div>
-		<div data-img="staples.png" class="tile"><img src="<?php echo IMG_DIR ?>/clients/staples.png" alt=""></div>
-		<div class="scaling-svg-container" style="padding-bottom: 124.6%;">
-			<svg class="scaling-svg" version="1.1" id="shape-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		 		width="473.25px" height="589.75px" viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">
-			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M420.667,288.398l49.592-49.592
-				c1.687-1.687,1.687-4.422,0-6.109L240.479,2.916c-1.688-1.687-4.424-1.687-6.11,0L121.684,115.601c-1.687,1.687-1.687,4.422,0,6.109
-				l166.259,166.26"/>
-			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M115.135,454.645c1.687,1.687,4.422,1.687,6.109,0
-				l229.781-229.782c1.688-1.687,1.688-4.422,0-6.109L238.342,106.069c-1.688-1.687-4.424-1.687-6.11,0L2.45,335.85
-				c-1.687,1.688-1.687,4.422,0,6.109L115.135,454.645z"/>
-			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M65.96,405.469L2.839,468.59
-				c-1.687,1.687-1.687,4.422,0,6.109l112.684,112.685c1.687,1.687,4.423,1.687,6.11,0l299.01-299.01"/>
-			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M301.849,407.168l47.451,47.451
-				c1.687,1.687,4.423,1.687,6.11,0l112.684-112.685c1.688-1.687,1.688-4.423,0-6.11L351.027,218.758"/>
-			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M235.699,473.316l114.066,114.067
-				c1.688,1.688,4.422,1.688,6.109,0l109.818-109.761c1.687-1.688,3.277-4.213,2.865-9.033l0.8-129.685"/>
-			<line fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" x1="1.186" y1="338.904" x2="1.573" y2="471.645"/>
-			</svg>
-		</div>
-		<!-- <img data-img="" class="svg-bg" id="services-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/services/services-landing-bg-vector.svg">		 -->
-	</section>
-	<section data-section-name="section-people" class="tile-container" id="people">
-
-		<div id="card"> 
-			<div class="front"> 
-				<img src="<?php echo IMG_DIR ?>/employees/camie_rest.jpg" alt="">
-			</div> 
-			<div class="back">
-				<img src="<?php echo IMG_DIR ?>/employees/hover/camie_hover.jpg" alt="">
-			</div> 
-		</div>	
-		<script>
-		$(function(){
-			$("#card").flip({
-				// trigger: 'manual'
-			});
-		});
-		</script>
-		<style>
-		#card {
-		    width: 300px;
-		    height: 300px;
-		}
-
-		#card img {
-			width: 100%;
-		}
-		</style>
-		<!-- <div data-img="camie" class="tile">
-			<img src="<?php echo IMG_DIR ?>/employees/camie_rest.jpg" alt="">
-			<img src="<?php echo IMG_DIR ?>/employees/hover/camie_hover.jpg" alt="">
-		</div>
-		<div class="tile blank"></div>
-		<div data-img="bill" class="tile">
-			<img src="<?php echo IMG_DIR ?>/employees/bill_rest.jpg" alt="">
-			<img src="<?php echo IMG_DIR ?>/employees/hover/bill_hover.jpg" alt="">
-		</div>
-		<div data-img="brian" class="tile">
-			<img src="<?php echo IMG_DIR ?>/employees/brian_rest.jpg" alt="">
-			<img src="<?php echo IMG_DIR ?>/employees/hover/brian_hover.jpg" alt="">
-		</div>
-		<div class="tile blank"></div>
-		<div data-img="joe" class="tile">
-			<img src="<?php echo IMG_DIR ?>/employees/joe_rest.jpg" alt="">
-			<img src="<?php echo IMG_DIR ?>/employees/hover/joe_hover.jpg" alt="">
-		</div>
-
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div data-img="justin" class="tile">
-			<img src="<?php echo IMG_DIR ?>/employees/justin_rest.jpg" alt="">
-			<img src="<?php echo IMG_DIR ?>/employees/hover/justin_hover.jpg" alt="">
-		</div>
-		<div data-img="kim" class="tile">
-			<img src="<?php echo IMG_DIR ?>/employees/kim_rest.jpg" alt="">
-			<img src="<?php echo IMG_DIR ?>/employees/hover/kim_hover.jpg" alt="">
-		</div>
-		<div class="tile blank"></div>
-
-		<div class="tile blank"></div>
-		<div data-img="kay" class="tile">
-			<img src="<?php echo IMG_DIR ?>/employees/kay_rest.jpg" alt="">
-			<img src="<?php echo IMG_DIR ?>/employees/hover/kay_hover.jpg" alt="">
-		</div>
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div class="tile blank"></div>
-		<div data-img="debbi" class="tile">
-			<img src="<?php echo IMG_DIR ?>/employees/debbi_rest.jpg" alt="">
-			<img src="<?php echo IMG_DIR ?>/employees/hover/debbi_hover.jpg" alt="">
-		</div>	 -->
-		<!-- <img class="svg-bg" id="services-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/services/services-landing-bg-vector.svg">	 -->
-	</section>
-	<section data-section-name="section-culture" id="culture">
-		<div class="cta centered">
-			<h2 class="tagline one-liner alternate-red">
-				<span>Fun is always in the equation</span>
-			</h2>		
-			<a class="play-reel" href="#">
-				<i class="ml-play black"></i>
-				<span>Look Inside</span>
-			</a>
-		</div>		
-
-		<?php if(!wp_is_mobile()){ ?> 
-			<!-- <div class="video-cover" style="background-image:url(<?php echo IMG_DIR ?>/768up/backgrounds/about/Culture_Vid_Static_BG.jpg);"></div> -->
-			<div class="video-bg-container">
-				<video id="about-culture-video-full">
-					<source src="https://player.vimeo.com/external/136641924.hd.mp4?s=bd657664d75006514d6ad9e03e56a317&profile_id=113">
-				</video>			
-				<video id="about-culture-video-loop" autoplay loop style="background-image:url(<?php echo VID_DIR ?>/about/posters/Who_We_Are_Clicked.jpg);">
-					<source src="https://player.vimeo.com/external/136642425.sd.mp4?s=db0fe3877230369658d8e2e08a7796bc&profile_id=112">
-				</video>
-
-				<a href="" class="close-video"><i></i></a>				
-			</div>
-		<?php } ?>	
-		<div class="blur-overlay show"></div>	
-	</section>
-	<section data-section-name="section-join-us" id="join-us">
-		<div class="contact-us">
-			<div class="cta">
-				<h2 class="tagline one-liner alternate">
-					<span>enough about us.</span>
-					<span>tell us about you.</span>
-				</h2>	
-			</div>	
-			<div class="email">
-				<div>work</div> 
-				<div class="choose">
-					<span class="selected">at</span>
-					<span class="choice" data-mailto="mailto:contact@medialoft.com"><i class="check"></i> with</span>
-					<span class="choice active" data-mailto="mailto:careers@medialoft.com"><i class="check"></i> at</span>
-				</div> 
-				<div>media loft</div><div class="email-link"><a href="mailto:work@medialoft.com">talk to us <i class="fa fa-chevron-right"></i></a></div>
-			</div>			
-		</div>
-		<div class="full-bleed" style="background-image:url(<?php echo IMG_DIR ?>/768up/backgrounds/about/Join_Us_BG_02.jpg);"></div>
-	</section>
-	<script>
-		var imgDir = '<?php echo IMG_DIR; ?>';
-	</script>
 	<?php include('partials/about-menu.php'); ?>
 <?php get_footer(); ?>

@@ -117,6 +117,10 @@ function medialoft_scripts() {
 		wp_enqueue_script( 'timeline', get_template_directory_uri() . '/assets/js/modules/timeline.js', array( 'jquery' ), true );		
 	}	
 
+	if(is_page('about')){
+		wp_enqueue_script( 'tiles', get_template_directory_uri() . '/assets/js/modules/about-tiles.js', array( 'jquery' ), true );		
+	}	
+
 	if(is_page('contact')){
 		wp_enqueue_script( 'contact', get_template_directory_uri() . '/assets/js/modules/contact.js', array( 'jquery' ), true );		
 	}	

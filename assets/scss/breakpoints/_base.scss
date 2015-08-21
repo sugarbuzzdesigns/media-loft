@@ -216,10 +216,10 @@ About Page
     padding-bottom: calc(100%/6);
 	float: left;
 	position: relative;
-	background: #F5F5F5;
+	background: #fff;
 
-	&.white {
-		background: #fff;
+	&.dark {
+		background: #F5F5F5;
 	}
 
 	img {
@@ -281,15 +281,15 @@ About Page
 			width: 100%;
 		}
 
-		&:hover {
-			img {
-				opacity: 0;
+		// &:hover {
+		// 	img {
+		// 		opacity: 0;
 
-				& + img {
-					opacity: 1;
-				}
-			}
-		}		
+		// 		& + img {
+		// 			opacity: 1;
+		// 		}
+		// 	}
+		// }		
 	}
 }
 
@@ -1119,6 +1119,7 @@ Cta & Tagline
 	.tagline {
 		font-weight: normal;
 		-webkit-animation: down 1s ease forwards;
+		display: inline-block;
 
 		span {
 			display: inline-block;

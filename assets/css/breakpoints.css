@@ -318,10 +318,10 @@ About Page
   padding-bottom: calc(100%/6);
   float: left;
   position: relative;
-  background: #F5F5F5;
-}
-.tile.white {
   background: #fff;
+}
+.tile.dark {
+  background: #F5F5F5;
 }
 .tile img {
   display: block;
@@ -370,12 +370,6 @@ About Page
 }
 #people .tile img {
   width: 100%;
-}
-#people .tile:hover img {
-  opacity: 0;
-}
-#people .tile:hover img + img {
-  opacity: 1;
 }
 
 #culture .blur-overlay {
@@ -1060,6 +1054,7 @@ Cta & Tagline
 .cta .tagline {
   font-weight: normal;
   -webkit-animation: down 1s ease forwards;
+  display: inline-block;
 }
 .cta .tagline span {
   display: inline-block;
@@ -1616,7 +1611,6 @@ tweeners.
     position: absolute;
     margin-left: 0;
     top: 50%;
-    left: 25px;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     width: 100%;
@@ -1725,7 +1719,6 @@ tweeners.
     float: left;
     position: relative;
     z-index: 1;
-    background: #F5F5F5;
   }
   .tile.white {
     background: #fff;
@@ -2413,34 +2406,6 @@ you can add resource intensive styles.
   /**************************
   Main Nav
   ***************************/
-  #main-menu ul {
-    position: absolute;
-    margin-left: 0;
-    top: 50%;
-    left: 25px;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 100%;
-  }
-  #main-menu ul li {
-    font-size: 21px;
-    margin-bottom: 30px;
-  }
-  #main-menu ul li:last-child {
-    margin-bottom: 0;
-  }
-  #main-menu a {
-    color: #fff;
-  }
-  #main-menu .logo {
-    z-index: 3;
-  }
-  #main-menu.open {
-    display: block;
-    bottom: 0;
-    left: 0;
-  }
-
   /**************************
   Other Misc menu stuff
   ***************************/
@@ -2483,34 +2448,6 @@ you can add resource intensive styles.
   /**************************
   About Page
   ***************************/
-  .tile-container {
-    height: auto;
-    overflow: hidden;
-  }
-
-  .tile {
-    width: calc(100%/6);
-    padding-bottom: calc(100%/6);
-    float: left;
-    position: relative;
-    z-index: 1;
-    background: #F5F5F5;
-  }
-  .tile.white {
-    background: #fff;
-  }
-  .tile img {
-    display: block;
-    position: absolute;
-    width: 100%;
-  }
-  .tile img + img {
-    opacity: 0;
-  }
-  .tile.blank {
-    background: none;
-  }
-
   #about-landing {
     background-image: url(../images/mobile/backgrounds/mobile-about-bg.jpg);
   }

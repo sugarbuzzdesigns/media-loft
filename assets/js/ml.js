@@ -28,11 +28,16 @@ var $ = jQuery;
 		bindEvents: function() {
 			var _this = this;
 
-			// Main menu binding
-			$('.menu-btn, .open-menu').on('click', function(e){
-				e.preventDefault();
-				_this.openNavMenu($(this));
-			});
+			// $('#main-menu').mouseover(function(){
+			// 	_this.$body.addClass('main-menu-open');
+			// 	console.log('hover');
+			// });
+
+			// // Main menu binding
+			// $('.menu-btn, .open-menu').on('click', function(e){
+			// 	e.preventDefault();
+			// 	_this.openNavMenu($(this));
+			// });
 		
 			$('#culture .play-reel').on('click', function(e){
 				e.preventDefault();
@@ -242,22 +247,22 @@ var $ = jQuery;
 
             ml.scaleSvgHeight();
         });      
-		$.event.special.scrollstop.latency = 650;
+		// $.event.special.scrollstop.latency = 250;
 
-		ml.selections.$win.on("scrollstop", function() {
-		    // Paint it all green when scrolling stops.
-		    console.log('stop');
-		    $(this).trigger('stop');
-		    ml.Utils.getClosestSection();
-		    ml.Utils.scrollToClosestSection();
-		});
+		// ml.selections.$win.on("scrollstop", function() {
+		//     // Paint it all green when scrolling stops.
+		//     console.log('stop');
+		//     $(this).trigger('stop');
+		//     ml.Utils.getClosestSection();
+		//     ml.Utils.scrollToClosestSection();
+		// });
 
-		ml.selections.$win.on("resizeEnd", function() {
-		    // Paint it all green when scrolling stops.
-		    console.log('resize done');
-		    ml.Utils.getClosestSection();
-		    ml.Utils.scrollToClosestSection();
-		});		
+		// ml.selections.$win.on("resizeEnd", function() {
+		//     // Paint it all green when scrolling stops.
+		//     console.log('resize done');
+		//     ml.Utils.getClosestSection();
+		//     ml.Utils.scrollToClosestSection();
+		// });		
 	});
 
 })(jQuery);

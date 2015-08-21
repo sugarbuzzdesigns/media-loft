@@ -9,12 +9,12 @@
 
 <nav class="right-menu" id="about-menu">
 	<ul>
-		<li class="active"><a href="#about-landing">About</a></li>
-		<li><a href="#timeline">History</a></li>
-		<li><a href="#clients">Clients</a></li>
-		<li><a href="#people">People</a></li>
-		<li><a href="#culture">Culture</a></li>
-		<li><a href="#join-us">Join Us</a></li>
+		<li data-section-name="#about-landing" class="active"><a href="#about-landing">About</a></li>
+		<li data-section-name="#timeline"><a href="#timeline">History</a></li>
+		<li data-section-name="#clients"><a href="#clients">Clients</a></li>
+		<li data-section-name="#people"><a href="#people">People</a></li>
+		<li data-section-name="#culture"><a href="#culture">Culture</a></li>
+		<li data-section-name="#join-us"><a href="#join-us">Join Us</a></li>
 	</ul>
 </nav>
 

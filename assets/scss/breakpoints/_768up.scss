@@ -18,49 +18,20 @@ Main Nav
 #main-menu {
 
 	ul {
-	    position: absolute;
-	    margin-left: 0;
-	    top: 50%;
-	    left: 25px;
-	    -webkit-transform: translateY(-50%);
-	            transform: translateY(-50%);
-	    width: 100%;
-
 		li {
-			font-size: 21px;
-			margin-bottom: 30px;
-
 			&:last-child {
-				margin-bottom: 0;
 			}
 		}
 	}
 
 	a {
-		color: #fff;
 	}
 
 	.logo {
-		z-index: 3;
 	}
 
 	&.open {
-		display: block;
-		bottom: 0;
-		left: 0;
 	}
-
-	// &:after {
-	// 	content: "";
-	// 	background: $ml-red;
-	// 	width: 30%;
-	// 	height: 200%;
-	// 	-webkit-transform: translateY(-50%) rotate(15deg);
-	// 	        transform: translateY(-50%) rotate(15deg);
-	// 	position: absolute;
-	// 	right: -20%;
-	// 	top: 50%;   
-	// }
 }
 
 /**************************
@@ -116,46 +87,6 @@ Cta & Tagline
 /**************************
 About Page
 ***************************/
-.page-about {
-
-}
-
-.tile-container {
-	height: auto;
-	overflow: hidden;
-}
-
-.tile {
-	width: calc(100%/6);
-    padding-bottom: calc(100%/6);
-	float: left;
-	position: relative;
-	z-index: 1;
-	background: #F5F5F5;
-
-	&.white {
-		background: #fff;
-	}
-
-	img {
-		display: block;
-		position: absolute;
-		width: 100%;
-
-		& + img {
-			opacity: 0;
-		}
-	}
-
-	&:nth-child(2n){
-
-	}
-
-	&.blank {
-		background: none;
-	}
-}
-
 #about-landing {
 	background-image: url(../images/mobile/backgrounds/mobile-about-bg.jpg);
 }

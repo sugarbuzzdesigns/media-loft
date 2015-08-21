@@ -3595,7 +3595,7 @@ BOX SIZING
 /* @include box-sizing(border-box); */
 /* NOTE: value of "padding-box" is only supported in Gecko. So
 probably best not to use it. I mean, were you going to anyway? */
-#timeline {
+/*#timeline {
   min-height: 696.39623px;
   background-color: #313131;
   overflow: hidden;
@@ -3638,6 +3638,10 @@ probably best not to use it. I mean, were you going to anyway? */
       transform: rotate(45deg);
   z-index: 9;
 }
+#timeline2 .timeline-container .timeline-block {
+  border: solid 1px #ccc;
+}
+
 #timeline .timeline-container .timeline-block.top {
   top: 92.13208px;
 }
@@ -3704,7 +3708,8 @@ probably best not to use it. I mean, were you going to anyway? */
   left: 4340.64151px;
   z-index: 5;
 }
-#timeline .timeline-container .timeline-block .info {
+#timeline .timeline-container .timeline-block .info,
+#timeline2 .timeline-block .info {
   background-color: #F2F2F2;
   position: absolute;
   top: 0;
@@ -3743,7 +3748,8 @@ probably best not to use it. I mean, were you going to anyway? */
 #timeline .timeline-container .timeline-block .info.show-me .inner {
   opacity: 1;
 }
-#timeline .date {
+#timeline .date,
+#timeline2 .date {
   position: absolute;
   height: 24px;
   width: 24px;
@@ -3753,7 +3759,8 @@ probably best not to use it. I mean, were you going to anyway? */
   -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
 }
-#timeline .date .close {
+#timeline .date .close,
+#timeline2 .date .close  {
   opacity: 0;
   background-image: url(../images/icons/menu-close-white.png);
   background-repeat: no-repeat;
@@ -3767,7 +3774,8 @@ probably best not to use it. I mean, were you going to anyway? */
   -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
 }
-#timeline .date .num {
+#timeline .date .num,
+#timeline2 .date .num {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -3798,27 +3806,49 @@ probably best not to use it. I mean, were you going to anyway? */
   left: -12px;
   bottom: -12px;
 }
+#timeline2 .date.left-top {
+  top: -12px;
+  left: -12px;
+}
+#timeline2 .date.right-top {
+  right: -12px;
+  top: -12px;
+}
+#timeline2 .date.right-bottom {
+  right: -12px;
+  bottom: -12px;
+}
+#timeline2 .date.left-bottom {
+  left: -12px;
+  bottom: -12px;
+}
+#timeline .date:hover,
 #timeline .date:hover {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
 }
-#timeline .date:hover .num {
+#timeline .date:hover .num,
+#timeline2 .date:hover .num {
   opacity: 1;
 }
-#timeline .date:hover.left-top {
+#timeline .date:hover.left-top,
+#timeline2 .date:hover.left-top {
   top: -30px;
   left: -30px;
 }
-#timeline .date:hover.right-top {
+#timeline .date:hover.right-top,
+#timeline2 .date:hover.right-top {
   right: -30px;
   top: -30px;
 }
-#timeline .date:hover.right-bottom {
+#timeline .date:hover.right-bottom,
+#timeline2 .date:hover.right-bottom {
   right: -30px;
   bottom: -30px;
 }
-#timeline .date:hover.left-bottom {
+#timeline .date:hover.left-bottom,
+#timeline2 .date:hover.left-bottom {
   left: -30px;
   bottom: -30px;
 }
@@ -3848,7 +3878,7 @@ probably best not to use it. I mean, were you going to anyway? */
 #timeline .date.selected.left-bottom {
   left: -30px;
   bottom: -30px;
-}
+}*/
 
 /******************************************************************
 Stylesheet: Variables
@@ -4180,10 +4210,10 @@ About Page
   padding-bottom: calc(100%/6);
   float: left;
   position: relative;
-  background: #F5F5F5;
-}
-.tile.white {
   background: #fff;
+}
+.tile.dark {
+  background: #F5F5F5;
 }
 .tile img {
   display: block;
@@ -4233,12 +4263,6 @@ About Page
 }
 #people .tile img {
   width: 100%;
-}
-#people .tile:hover img {
-  opacity: 0;
-}
-#people .tile:hover img + img {
-  opacity: 1;
 }
 
 #culture .blur-overlay {
@@ -4938,6 +4962,7 @@ Cta & Tagline
 .cta .tagline {
   font-weight: normal;
   -webkit-animation: down 1s ease forwards;
+  display: inline-block;
 }
 .cta .tagline span {
   display: inline-block;
@@ -5499,7 +5524,6 @@ tweeners.
     position: absolute;
     margin-left: 0;
     top: 50%;
-    left: 25px;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
         transform: translateY(-50%);
@@ -5615,7 +5639,6 @@ tweeners.
     float: left;
     position: relative;
     z-index: 1;
-    background: #F5F5F5;
   }
   .tile.white {
     background: #fff;
@@ -6313,35 +6336,6 @@ you can add resource intensive styles.
   /**************************
   Main Nav
   ***************************/
-  #main-menu ul {
-    position: absolute;
-    margin-left: 0;
-    top: 50%;
-    left: 25px;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-    width: 100%;
-  }
-  #main-menu ul li {
-    font-size: 21px;
-    margin-bottom: 30px;
-  }
-  #main-menu ul li:last-child {
-    margin-bottom: 0;
-  }
-  #main-menu a {
-    color: #fff;
-  }
-  #main-menu .logo {
-    z-index: 3;
-  }
-  #main-menu.open {
-    display: block;
-    bottom: 0;
-    left: 0;
-  }
-
   /**************************
   Other Misc menu stuff
   ***************************/
@@ -6386,34 +6380,6 @@ you can add resource intensive styles.
   /**************************
   About Page
   ***************************/
-  .tile-container {
-    height: auto;
-    overflow: hidden;
-  }
-
-  .tile {
-    width: calc(100%/6);
-    padding-bottom: calc(100%/6);
-    float: left;
-    position: relative;
-    z-index: 1;
-    background: #F5F5F5;
-  }
-  .tile.white {
-    background: #fff;
-  }
-  .tile img {
-    display: block;
-    position: absolute;
-    width: 100%;
-  }
-  .tile img + img {
-    opacity: 0;
-  }
-  .tile.blank {
-    background: none;
-  }
-
   #about-landing {
     background-image: url(../images/mobile/backgrounds/mobile-about-bg.jpg);
   }

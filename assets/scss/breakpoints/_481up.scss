@@ -43,7 +43,6 @@ Main Nav
 	    position: absolute;
 	    margin-left: 0;
 	    top: 50%;
-	    left: 25px;
 	    -webkit-transform: translateY(-50%);
 	            transform: translateY(-50%);
 	    width: 100%;
@@ -71,18 +70,6 @@ Main Nav
 		bottom: 0;
 		left: 0;
 	}
-
-	// &:after {
-	// 	content: "";
-	// 	background: $ml-red;
-	// 	width: 30%;
-	// 	height: 200%;
-	// 	-webkit-transform: translateY(-50%) rotate(15deg);
-	// 	        transform: translateY(-50%) rotate(15deg);
-	// 	position: absolute;
-	// 	right: -20%;
-	// 	top: 50%;   
-	// }
 }
 
 .logo {
@@ -187,7 +174,6 @@ About Page
 	float: left;
 	position: relative;
 	z-index: 1;
-	background: #F5F5F5;
 
 	&.white {
 		background: #fff;
