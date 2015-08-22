@@ -79,6 +79,33 @@ ml.About = {};
 	
 	$(function(){
 		ml.About.Global.init();
+
+		var clientsWaypoint = $('#clients').waypoint({
+		  handler: function(direction) {
+		  	console.log('made it 50%');
+		  },
+		  offset: '80%'
+		});
+
+		var employeeTiles = $('#people .tile').waypoint({
+		  handler: function(direction) {
+		  	console.log($(this.element).addClass('in-view'));
+		  },
+		  offset: '80%'
+		});		
+
+		var employeeTiles = $('#clients .tile').waypoint({
+		  handler: function(direction) {
+		  	console.log(this.element.offsetParent);
+
+		  	if (direction === 'down') {
+				$(this.element.offsetParent).addClass('in-view');
+		  	} else {
+				$(this.element.offsetParent).removeClass('in-view');
+		  	}
+		  },
+		  offset: '80%'
+		});			
 	
 		$("section").snapPoint({ 
 		    scrollDelay: 200,       // Amount of time the visitor has to scroll before the snap point kicks in (ms)

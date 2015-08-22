@@ -228,6 +228,10 @@ About Page
 		background: #F5F5F5;
 	}
 
+	&.blank {
+		background: transparent;
+	}
+
 	img {
 		display: block;
 		position: absolute;
@@ -274,10 +278,24 @@ About Page
 }
 
 #clients {
+	min-width: 1310px;
 	background-color: #E5E5E5;
 
 	.tile {
-		background: #fff;		
+		background: #FBFBFB;
+		opacity: 0;
+
+		&.blank, &.empty {
+			background: transparent;
+		}
+
+		&.dark {
+			background: #F5F5F5;
+		}
+
+		&.dark.blank {
+			background: transparent;
+		}		
 	}
 
 	.cta {
@@ -298,6 +316,12 @@ About Page
 			}
 		}
 	}
+
+	&.in-view {
+		.tile {
+			opacity: 1;
+		}
+	}
 }
 
 #people {
@@ -305,6 +329,11 @@ About Page
 
 	.tile {
 		z-index: 1;
+		opacity: 0;
+	
+		&.in-view {
+			opacity: 1;
+		}
 
 		img {
 			width: 100%;
@@ -1295,13 +1324,17 @@ Cta & Tagline
 }
 
 .play-reel {
+	display: block;
+
 	span {
 		display: inline-block;
 		vertical-align: middle;
 		margin-left: 10px;
 		text-transform: uppercase;
 		font-size: 14px;
-		font-family: 'KlavikaWebBasicRegular';
+		font-family: 'KlavikaWebBasicMedium';
+		letter-spacing: 3px;
+		color: #575859;
 	}
 }
 
@@ -1636,32 +1669,31 @@ div.scrollableArea
 
 .scaling-svg {
 	path, line {
-		fill-opacity: 0;
 		stroke: rgba(255,255,255,0.3);
 		stroke-width: 0.4;		
 	}
 }
 
-// #Layer_2_1_home {
-// 	path, line {
-// 	fill-opacity: 0;
-// 	stroke: rgba(0,0,0,0.3);
-// 	stroke-width: 0.5;
-// 	// TODO MAKE DYNAMIC
-// 	stroke-dasharray: 2000;
-// 	stroke-dashoffset: 2000;
-// 	-webkit-animation-name: draw;
-// 	    animation-name: draw;
-// 	-webkit-animation-duration: 4s;
-// 	    animation-duration: 4s;
-// 	-webkit-animation-fill-mode: forwards;
-// 	    animation-fill-mode: forwards; // Stay on the last frame
-// 	-webkit-animation-iteration-count: 1; // Stay on the last frame
-// 	    animation-iteration-count: 1; // Run only once
-// 	-webkit-animation-timing-function: linear; // Run only once
-// 	    animation-timing-function: linear;
-// 	}	
-// }
+#Layer_2_1_home {
+	path, line {
+	fill-opacity: 0;
+	stroke: rgba(0,0,0,0.3);
+	stroke-width: 0.5;
+	// TODO MAKE DYNAMIC
+	stroke-dasharray: 2000;
+	stroke-dashoffset: 2000;
+	-webkit-animation-name: draw;
+	    animation-name: draw;
+	-webkit-animation-duration: 4s;
+	    animation-duration: 4s;
+	-webkit-animation-fill-mode: forwards;
+	    animation-fill-mode: forwards; // Stay on the last frame
+	-webkit-animation-iteration-count: 1; // Stay on the last frame
+	    animation-iteration-count: 1; // Run only once
+	-webkit-animation-timing-function: linear; // Run only once
+	    animation-timing-function: linear;
+	}	
+}
 
 .scaling-svg.white-stroke {
 	path, line {
@@ -1721,52 +1753,4 @@ div.scrollableArea
 //   }
 // }
 // 
-// 
-/** initial setup **/
-.nano {
-  position : relative;
-  width    : 100%;
-  height   : 100%;
-  overflow : hidden;
-}
-.nano > .nano-content {
-  position      : absolute;
-  overflow      : scroll;
-  overflow-y    : hidden;
-  top           : 0;
-  right         : 0;
-  bottom        : 0;
-  left          : 0;
-}
-.nano > .nano-content:focus {
-  outline: thin dotted;
-}
-.nano > .nano-content::-webkit-scrollbar {
-  display: none;
-}
-.has-scrollbar > .nano-content::-webkit-scrollbar {
-  display: block;
-}
-.nano > .nano-pane {
-  background : rgba(0,0,0,.25);
-  position   : absolute;
-  width      : 10px;
-  right      : 0;
-  top        : 0;
-  bottom     : 0;
-  visibility : hidden\9; /* Target only IE7 and IE8 with this hack */
-  opacity    : .01;
-  transition            : .2s;
-  border-radius         : 5px;
-}
-.nano > .nano-pane > .nano-slider {
-  background: #444;
-  background: rgba(0,0,0,.5);
-  position              : relative;
-  margin                : 0 1px;
-  border-radius         : 3px;
-}
-.nano:hover > .nano-pane, .nano-pane.active, .nano-pane.flashed {
-  visibility : visible\9; /* Target only IE7 and IE8 with this hack */
-  opacity    : 0.99;
-}
+//

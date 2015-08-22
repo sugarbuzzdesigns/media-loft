@@ -33,7 +33,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				<span>40 great years</span>
 				<span>an ongoing success story</span>
 			</h2>		
-			<p>Media Loft is a 100% employee-owned company that produces corporate events across the globe, with account, technical, creative, design, video production and interactive technology services all under one roof.</p>
+			<!-- <p>Media Loft is a 100% employee-owned company that produces corporate events across the globe, with account, technical, creative, design, video production and interactive technology services all under one roof.</p> -->
 			<div class="nav-arrow-down animate-flicker">
 				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down.png" alt="Media Loft" />
 				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down.png" alt="Media Loft" />
@@ -62,7 +62,12 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		</div>	
 	</section>
 	<section data-section-name="section-clients" class="tile-container" id="clients">
-
+		<div class="cta alternate">
+			<h2 class="tagline">
+				<span>relationships measured in decades,</span>
+				<span>not years</span>
+			</h2>
+		</div>	
 		<div data-img="" class="tile client dark"></div>
 		<div data-img="" class="tile client"></div>
 		<div data-img="" class="tile client"></div>
@@ -70,9 +75,9 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div data-img="" class="tile client"></div>
 		<div data-img="" class="tile client dark"></div>
 
-		<div data-img="" class="tile client"></div>
-		<div data-img="" class="tile client"></div>
-		<div data-img="" class="tile client dark"></div>
+		<div data-img="" class="tile empty"></div>
+		<div data-img="" class="tile empty"></div>
+		<div data-img="" class="tile empty"></div>
 		<div data-img="" class="tile client"></div>
 		<div data-img="" class="tile client"></div>
 		<div data-img="" class="tile client dark"></div>

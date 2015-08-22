@@ -30,12 +30,12 @@ var $ = jQuery;
 
 			$('#main-menu').mouseover(function(){
 				_this.$body.addClass('main-menu-open');
-				console.log('hover');
+				$('#menu-overlay').stop().fadeTo('fast',1);
 			});
 
 			$('#menu-overlay').mouseover(function(){
 				_this.$body.removeClass('main-menu-open');
-				console.log('hover overlay');
+				$('#menu-overlay').stop().fadeTo('fast',0);
 			});			
 
 			// // Main menu binding

@@ -80,13 +80,13 @@
     }
 }
 
-@media screen and ( max-width: 1400px ) {
+@media screen and ( max-width: 1600px ) {
     .tile {
         width: calc(100%/6);
     }
 }
 
-@media screen and ( max-width: 1225px ) {
+/*@media screen and ( max-width: 1225px ) {
     .tile {
         width: calc(100%/4);
     }
@@ -96,4 +96,4 @@
     .tile {
         width: calc(100%/3);
     }
-}
+}*/

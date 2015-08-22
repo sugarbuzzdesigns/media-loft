@@ -335,6 +335,9 @@ About Page
 .tile.dark {
   background: #F5F5F5;
 }
+.tile.blank {
+  background: transparent;
+}
 .tile img {
   display: block;
   position: absolute;
@@ -371,10 +374,21 @@ About Page
 }
 
 #clients {
+  min-width: 1310px;
   background-color: #E5E5E5;
 }
 #clients .tile {
-  background: #fff;
+  background: #FBFBFB;
+  opacity: 0;
+}
+#clients .tile.blank, #clients .tile.empty {
+  background: transparent;
+}
+#clients .tile.dark {
+  background: #F5F5F5;
+}
+#clients .tile.dark.blank {
+  background: transparent;
 }
 #clients .cta .tagline {
   margin: 0;
@@ -390,12 +404,19 @@ About Page
 #clients .cta .tagline span:last-child {
   clear: both;
 }
+#clients.in-view .tile {
+  opacity: 1;
+}
 
 #people {
   background-color: #DEDEDE;
 }
 #people .tile {
   z-index: 1;
+  opacity: 0;
+}
+#people .tile.in-view {
+  opacity: 1;
 }
 #people .tile img {
   width: 100%;
@@ -1237,13 +1258,18 @@ Cta & Tagline
     opacity: 0.7;
   }
 }
+.play-reel {
+  display: block;
+}
 .play-reel span {
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px;
   text-transform: uppercase;
   font-size: 14px;
-  font-family: 'KlavikaWebBasicRegular';
+  font-family: 'KlavikaWebBasicMedium';
+  letter-spacing: 3px;
+  color: #575859;
 }
 
 /**************************
@@ -1545,9 +1571,26 @@ div.scrollableArea {
 }
 
 .scaling-svg path, .scaling-svg line {
-  fill-opacity: 0;
   stroke: rgba(255, 255, 255, 0.3);
   stroke-width: 0.4;
+}
+
+#Layer_2_1_home path, #Layer_2_1_home line {
+  fill-opacity: 0;
+  stroke: rgba(0, 0, 0, 0.3);
+  stroke-width: 0.5;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  -webkit-animation-name: draw;
+  animation-name: draw;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
 }
 
 .scaling-svg.white-stroke path, .scaling-svg.white-stroke line {
@@ -1564,64 +1607,6 @@ div.scrollableArea {
     stroke-dashoffset: 0;
   }
 }
-/** initial setup **/
-.nano {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.nano > .nano-content {
-  position: absolute;
-  overflow: scroll;
-  overflow-y: hidden;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.nano > .nano-content:focus {
-  outline: thin dotted;
-}
-
-.nano > .nano-content::-webkit-scrollbar {
-  display: none;
-}
-
-.has-scrollbar > .nano-content::-webkit-scrollbar {
-  display: block;
-}
-
-.nano > .nano-pane {
-  background: rgba(0, 0, 0, 0.25);
-  position: absolute;
-  width: 10px;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  visibility: hidden\9;
-  /* Target only IE7 and IE8 with this hack */
-  opacity: .01;
-  transition: .2s;
-  border-radius: 5px;
-}
-
-.nano > .nano-pane > .nano-slider {
-  background: #444;
-  background: rgba(0, 0, 0, 0.5);
-  position: relative;
-  margin: 0 1px;
-  border-radius: 3px;
-}
-
-.nano:hover > .nano-pane, .nano-pane.active, .nano-pane.flashed {
-  visibility: visible\9;
-  /* Target only IE7 and IE8 with this hack */
-  opacity: 0.99;
-}
-
 /*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
@@ -1662,7 +1647,7 @@ tweeners.
     background: transparent;
   }
   #main-menu #menu-interior {
-    width: 25%;
+    width: 100%;
     height: 100%;
     min-width: 210px;
     position: relative;
@@ -1728,11 +1713,16 @@ tweeners.
     left: 0;
     display: none;
     opacity: 0;
-    z-index: 1;
+    z-index: -1;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: color 0 ease-in;
+    transition: none;
   }
 
   .main-menu-open #menu-overlay {
     opacity: 1;
+    z-index: 1;
   }
 
   /**************************
@@ -1822,6 +1812,9 @@ tweeners.
 
   #clients {
     background-color: #E5E5E5;
+  }
+  #clients .cta {
+    top: 50%;
   }
 
   #people {
@@ -2419,6 +2412,8 @@ tweeners.
   }
   .service-section .summary p {
     opacity: 0;
+    font-size: 18px;
+    line-height: 24px;
   }
   .service-section .blur-overlay {
     display: block;

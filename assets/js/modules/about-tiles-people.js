@@ -20,7 +20,6 @@
 			this.$startTiles = this.createStartTiles();
 
 			this.setupTiles();
-			this.startSwapping();
 		},
 
 		createStartTiles: function(){
@@ -29,7 +28,9 @@
 			tiles.addClass('blank');
 			tiles.append('<div class="front"></div><div class="back"></div>');
 
-			tiles.flip();
+			tiles.flip({
+				trigger: 'hover'
+			});
 
 			for (var i = 0; i < this.tileLimit; i++) {
 				var blankTiles =  this.container.find('.tile.blank');

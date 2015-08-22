@@ -6,7 +6,7 @@
 			
 			this.container = $('#clients');
 			this.tileLimit = 8;
-			this.swapSpeed = 1000;
+			this.swapSpeed = 3000;
 
 			this.swapInterval = null;
 
@@ -19,7 +19,7 @@
 			this.$startTiles = this.createStartTiles();
 
 			this.setupTiles();
-			// this.startSwapping();
+			this.startSwapping();
 		},
 
 		createStartTiles: function(){
