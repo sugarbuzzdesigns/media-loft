@@ -42,7 +42,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 
 		<?php if(!wp_is_mobile()){ ?> 
 			<div class="video-bg-container">
-				<video id="landing-video" loop style="background-image:url(<?php echo VID_DIR ?>/about/posters/Roof_Timelapse_02_H264_10K.jpg);">
+				<video id="landing-video" loop style="opacity: 0.5; background-image:url(<?php echo VID_DIR ?>/about/posters/Roof_Timelapse_02_H264_10K.jpg);">
 					<source src="https://player.vimeo.com/external/136884073.hd.mp4?s=d28c568b4bdd7b30fc2e1e9693c34fa7&profile_id=113">
 				</video>
 			</div>

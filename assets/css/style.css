@@ -5273,6 +5273,7 @@ Main Menu Styles
 .right-menu a {
   color: #fff;
   text-transform: uppercase;
+  font-family: "KlavikaWebBasicRegular";
 }
 #main-menu .logo,
 .right-menu .logo {
