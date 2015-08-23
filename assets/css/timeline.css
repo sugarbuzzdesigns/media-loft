@@ -107,6 +107,7 @@ probably best not to use it. I mean, were you going to anyway? */
   background-color: #313131;
   overflow-x: scroll;
 }
+
 #timeline2 .timeline-wrap {
   width: 100%;
   height: 100%;
@@ -115,13 +116,27 @@ probably best not to use it. I mean, were you going to anyway? */
   left: 0;
   overflow-x: scroll;
 }
+
+#timeline2 .timeline-wrap article {
+  top: 50%;
+  transform: translate(-100%, -50%);
+  transition: all 1.5s ease;
+}
+
+#timeline2.in-view .timeline-wrap article {
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
 #timeline2 .full-bleed {
   z-index: 1;
   opacity: 0.4;
 }
+
 #timeline2 .full-bleed.shown {
   height: 100%;
 }
+
 #timeline2 .full-bleed .cover {
   height: 100%;
   width: 100%;
@@ -130,12 +145,14 @@ probably best not to use it. I mean, were you going to anyway? */
   top: 0;
   left: 0;
 }
+
 #timeline2 .timeline-block {
   border: solid 1px #ccc;
   position: absolute;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
 #timeline2 .timeline-block .info {
   background-color: #F2F2F2;
   position: absolute;
@@ -146,6 +163,7 @@ probably best not to use it. I mean, were you going to anyway? */
   z-index: -1;
   overflow: hidden;
 }
+
 #timeline2 .timeline-block .info .inner {
   width: 70%;
   height: 50%;
@@ -158,21 +176,26 @@ probably best not to use it. I mean, were you going to anyway? */
   top: 50%;
   left: 50%;
 }
+
 #timeline2 .timeline-block .info .inner h5 {
   color: #D8CA53;
   font-size: 20px;
   margin: 0;
 }
+
 #timeline2 .timeline-block .info .inner p {
   color: #444444;
 }
+
 #timeline2 .timeline-block .info.show-me {
   width: 100%;
   height: 100%;
 }
+
 #timeline2 .timeline-block .info.show-me .inner {
   opacity: 1;
 }
+
 #timeline2 .date {
   position: absolute;
   height: 24px;
@@ -182,6 +205,7 @@ probably best not to use it. I mean, were you going to anyway? */
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
+
 #timeline2 .date .close {
   opacity: 0;
   background-image: url(../images/icons/menu-close-white.png);
@@ -195,6 +219,7 @@ probably best not to use it. I mean, were you going to anyway? */
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 #timeline2 .date .num {
   position: absolute;
   top: 50%;
@@ -208,69 +233,86 @@ probably best not to use it. I mean, were you going to anyway? */
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 #timeline2 .date.left-top {
   top: -12px;
   left: -12px;
 }
+
 #timeline2 .date.right-top {
   right: -12px;
   top: -12px;
 }
+
 #timeline2 .date.right-bottom {
   right: -12px;
   bottom: -12px;
 }
+
 #timeline2 .date.left-bottom {
   left: -12px;
   bottom: -12px;
 }
+
 #timeline2 .date:hover {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
 }
+
 #timeline2 .date:hover .num {
   opacity: 1;
 }
+
 #timeline2 .date:hover.left-top {
   top: -30px;
   left: -30px;
 }
+
 #timeline2 .date:hover.right-top {
   right: -30px;
   top: -30px;
 }
+
 #timeline2 .date:hover.right-bottom {
   right: -30px;
   bottom: -30px;
 }
+
 #timeline2 .date:hover.left-bottom {
   left: -30px;
   bottom: -30px;
 }
+
 #timeline2 .date.selected {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
 }
+
 #timeline2 .date.selected .num {
   opacity: 0;
 }
+
 #timeline2 .date.selected .close {
   opacity: 1;
 }
+
 #timeline2 .date.selected.left-top {
   top: -30px;
   left: -30px;
 }
+
 #timeline2 .date.selected.right-top {
   right: -30px;
   top: -30px;
 }
+
 #timeline2 .date.selected.right-bottom {
   right: -30px;
   bottom: -30px;
 }
+
 #timeline2 .date.selected.left-bottom {
   left: -30px;
   bottom: -30px;

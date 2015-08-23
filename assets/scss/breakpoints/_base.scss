@@ -35,7 +35,7 @@ section {
 	position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(249, 26, 0, 0.7);
+    background-color: rgba(235, 46, 33, 0.6);
     width: 100%;
     height: 0;
     opacity: 0;
@@ -57,7 +57,7 @@ a  {
 Global Buttons
 ***************************/		
 .close-video {
-	opacity: 0;
+	opacity: 1;
 	background-color: #A0A0A0;
 	width: 50px;
 	height: 50px;
@@ -188,6 +188,20 @@ FULL BLEED VIDEO
     z-index: 10;	
 }
 
+.video-overlay {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    z-index: 6;
+}
+
+.play-full-video .video-overlay {
+	left: 0;
+}
+
 /**************************
 Page Specific Styles
 ***************************/		
@@ -211,6 +225,30 @@ About Page
 ***************************/	
 .page-about {
 	
+}
+
+#about-landing {
+	.cta {
+		left: 15%;
+
+		.tagline {
+			font-size: 40px;
+			margin-bottom: 65px;
+			background: rgba(255,255,255, 0.9);
+			padding: 11px 15px;
+		}
+
+		p {
+			color: #fff;
+			padding-left: 10px;
+			line-height: 24px;
+			margin-bottom: 30px;
+		}
+
+		.nav-arrow-down {
+			margin-left: 10px;
+		}
+	}
 }
 
 .tile-container {
@@ -264,6 +302,10 @@ About Page
 }
 
 #timeline2 {
+	.full-bleed {
+		@include cancel-transition;
+	}
+
 	.large-date {
 	    font-family: 'futura_ltregular';
 	    font-size: 880px;
@@ -274,6 +316,8 @@ About Page
 	    line-height: 640px;
 	    z-index: 2;
 	    letter-spacing: -42px;
+	    @include cancel-transition;
+
 	}
 }
 
@@ -295,6 +339,20 @@ About Page
 
 		&.dark.blank {
 			background: transparent;
+		}		
+
+		.hover {
+			display: none;
+			height: 100%;
+			width: 100%;
+			background: #ef4330;
+		}
+
+		&:hover {
+			.hover {
+				display: block;
+				opacity: 1;
+			}
 		}		
 	}
 
@@ -371,11 +429,13 @@ About Page
 	}
 
 	#about-culture-video-full {
-		opacity: 0;
+		left: -100%;
 	}
 
-	#about-culture-video-loop {
-
+	&.play-full-video {
+	 	#about-culture-video-full {
+			left: 50%;	
+		}
 	}
 }
 
@@ -645,6 +705,168 @@ Contact page
 		    border-left: solid 15px transparent;
 		}
 	}
+}
+
+/**************************
+Blog page
+***************************/	
+#blog {
+	height: 100%;
+	width: 100%;
+
+	.articles {
+		height: 100%;
+		width: 100%;
+
+		article {
+			height: calc(100%/3);
+			width: 100%;
+			background: #CBCBB6;
+			position: relative;
+			transition: all 0.5s ease;
+
+			a {
+				text-decoration: underline;
+			}
+
+			.header {
+				display: block;
+			    height: 100%;
+			    width: 100%;
+			}				
+
+			.title {
+				color: #fff;
+				@include center-me;
+				margin: 0;
+				z-index: 2;
+				font-size: 38px;
+				font-weight: normal;
+			    width: 100%;
+			    text-align: center;					
+			}
+
+			.info {
+				color: #fff;
+			    position: absolute;
+			    top: 8px;
+			    right: 10px;
+			    z-index: 2;	
+			    font-size: 13px;				
+			    text-transform: uppercase;
+			}
+
+			.article-content {
+				-webkit-transform: translateX(-100%);
+				        transform: translateX(-100%);
+				display: none;
+			    margin: 0 auto;
+			    padding: 100px 0 70px 0;
+			    width: 80%;
+			    max-width: 900px;
+
+				p {
+					margin: 0 0 25px 0;
+					line-height: 29px;
+					color: #6E6E6E;
+				}
+
+				.blog-entry-img {
+					width: 100%;
+					margin-bottom: 25px;
+
+					img {
+						display: block;
+						width: 100%;
+					}
+				}
+
+				blockquote {
+					color: #86B1AA;
+					font-size: 38px;
+				    font-size: 38px;
+				    margin: 20px -40px 30px;
+				}
+			}
+
+			.blog-header-bg { display: none; }
+
+			// pseudo and classes for article
+			&:nth-child(2),
+			&:nth-child(3) {
+				background: #D8D8C2;
+			}
+
+			.related-articles {
+				h4 {
+					width: 100%;
+					margin: 0 auto 20px;
+					font-family: 'KlavikaWebBasicLight';
+					max-width: 900px;
+					display: none;
+				}
+			}
+
+			.related-article {
+				height: 250px;
+				width: 100%;
+				float: left;
+				background: #D8D8C2;
+				position: relative;
+				display: none;
+
+				&.blank {
+					background: #E2E2E2;
+					cursor: normal;
+				}
+
+				& + .related-article {
+					background: #CBCBB6;
+
+					&.blank {
+						background: #E2E2E2;
+						cursor: normal;
+					}					
+				}
+			}			
+
+			&.show-article {
+				width: 100%;
+
+				.related-articles {
+					h4 { 
+						display: block;
+						margin: 0 0 20px 20px;
+					}
+				}
+
+				.article-content {
+					-webkit-transform: translateX(0);
+					        transform: translateX(0);
+					display: block;
+				}
+
+				.blog-header-bg {
+					display: block;
+				}			
+
+				.related-article {
+					display: block;
+				}	
+			}
+
+			&.hide-me {
+				opacity: 0;
+				height: 0;
+			}
+
+			&.collapsed:hover {
+				.blog-header-bg {
+					display: block;
+				}
+			}			
+		}
+	}	
 }
 
 /**************************
@@ -1344,8 +1566,8 @@ Main Menu Styles
 #main-menu-btn,
 .right-menu-btn {
 	background: #fff;
-	width: 80px;
-	height: 50px;
+    width: 140px;
+    height: 70px;
 	display: inline-block;
 	position: fixed;
 	bottom: 0;
@@ -1376,7 +1598,7 @@ Main Menu Styles
 
 	.open-menu {
 		display: block;
-		padding-top: 15px;
+		padding-top: 20px;
 		height: 100%;
 		width: 100%;		
 		position: absolute;
@@ -1388,6 +1610,8 @@ Main Menu Styles
 #main-menu-btn {
 	background: #333;
 	color: #fff;
+	text-transform: lowercase;
+	font-size: 24px;
 
 	.close-menu {
 		background: #333;
@@ -1450,7 +1674,6 @@ Main Menu Styles
 
 	a {
 		color: #fff;
-		text-transform: uppercase;
 		font-family: "KlavikaWebBasicRegular";
 	}
 
@@ -1466,12 +1689,25 @@ Main Menu Styles
 }
 
 #main-menu {
+	a {
+		font-family: 'KlavikaWebBasicLight';
+	}
+
+    ul {
+    	padding-left: 20px;	
+    }
+
 	li:hover {
 		opacity: 0.5;
 	}
 }
 
 .right-menu {
+	a {
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+	}
+
 	ul {
 		li {
 			&.active {
@@ -1509,15 +1745,14 @@ Main Menu Styles
 	}
 
 	#main-menu-btn {
-		width: 50px;
-		z-index: 6;
+		font-family: "KlavikaWebBasicLight";
 
 		.open-menu {
-			bottom: -50px;
+			// bottom: -50px;
 		}
 
 		.close-menu {
-			left: 0;
+			// left: 0;
 		}
 	}
 }
@@ -1563,11 +1798,8 @@ div.scrollingHotSpotLeft
 /* Visible left hotspot */
 div.scrollingHotSpotLeftVisible
 {		
-	background-color: #fff;
+	background-color: rgba(255,255,255, 0);
 	background-repeat: no-repeat;
-	opacity: 0.35; /* Standard CSS3 opacity setting */
-	-moz-opacity: 0.35; /* Opacity for really old versions of Mozilla Firefox (0.9 or older) */
-	filter: alpha(opacity = 35); /* Opacity for Internet Explorer. */
 	zoom: 1; /* Trigger "hasLayout" in Internet Explorer 6 or older versions */
 }
 
@@ -1587,11 +1819,8 @@ div.scrollingHotSpotRight
 /* Visible right hotspot */
 div.scrollingHotSpotRightVisible
 {
-	background-color: #fff;
+	background-color: rgba(255,255,255, 0);
 	background-repeat: no-repeat;
-	opacity: 0.35;
-	filter: alpha(opacity = 35);
-	-moz-opacity: 0.35;
 	zoom: 1;
 }
 

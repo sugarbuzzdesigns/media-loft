@@ -124,6 +124,10 @@ function medialoft_scripts() {
 		wp_enqueue_script( 'services', get_template_directory_uri() . '/assets/js/modules/services.js', array( 'jquery' ), true );		
 	}		
 
+	if(is_home()){
+		wp_enqueue_script( 'blog', get_template_directory_uri() . '/assets/js/modules/blog.js', array( 'jquery' ), true );		
+	}
+
 	if(is_page('test')){
 		wp_enqueue_script( 'test', get_template_directory_uri() . '/assets/js/modules/test.js', array( 'jquery' ), true );		
 	}		

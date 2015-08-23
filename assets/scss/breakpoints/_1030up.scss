@@ -8,3 +8,26 @@ This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop.
 
 ******************************************************************/
+#blog {
+	.articles {
+		article {
+			height: 50%;
+			width: 50%;
+			float: left;
+			background: #CBCBB6;
+			position: relative;
+
+			&.show-article {
+				width: 100%;
+
+				.related-articles {
+					h4 {
+						width: 100%; 
+						display: block;
+						margin: 0 auto 20px;
+					}
+				}
+			}			
+		}
+	}
+}

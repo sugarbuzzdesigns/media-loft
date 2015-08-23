@@ -31,9 +31,9 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div class="cta alternate">
 			<h2 class="tagline">
 				<span>40 great years</span>
-				<span>an ongoing success story</span>
+				<span>an ongoing success story.</span>
 			</h2>		
-			<!-- <p>Media Loft is a 100% employee-owned company that produces corporate events across the globe, with account, technical, creative, design, video production and interactive technology services all under one roof.</p> -->
+			<p>Media Loft is a 100% employee-owned company that produces corporate<br>events across the globe, with account, technical, creative, design, video<br>production and interactive technology services all under one roof.</p>
 			<div class="nav-arrow-down animate-flicker">
 				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down.png" alt="Media Loft" />
 				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down.png" alt="Media Loft" />
@@ -42,7 +42,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 
 		<?php if(!wp_is_mobile()){ ?> 
 			<div class="video-bg-container">
-				<video id="landing-video" loop style="opacity: 0.5; background-image:url(<?php echo VID_DIR ?>/about/posters/Roof_Timelapse_02_H264_10K.jpg);">
+				<video id="landing-video" loop style="opacity: 0.3; background-image:url(<?php echo VID_DIR ?>/about/posters/Roof_Timelapse_02_H264_10K.jpg);">
 					<source src="https://player.vimeo.com/external/136884073.hd.mp4?s=d28c568b4bdd7b30fc2e1e9693c34fa7&profile_id=113">
 				</video>
 			</div>
@@ -60,6 +60,10 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 			<article></article>
 			<article></article>		
 		</div>	
+		<div class="full-bleed">
+			<img src="" style="display:none;">
+			<div class="cover"></div>
+		</div>		
 	</section>
 	<section data-section-name="section-clients" class="tile-container" id="clients">
 		<div class="cta alternate">
@@ -167,18 +171,20 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 
 		<?php if(!wp_is_mobile()){ ?> 
 			<!-- <div class="video-cover" style="background-image:url(<?php echo IMG_DIR ?>/768up/backgrounds/about/Culture_Vid_Static_BG.jpg);"></div> -->
-			<div class="video-bg-container">
-				<video id="about-culture-video-full">
-					<source src="https://player.vimeo.com/external/136641924.hd.mp4?s=bd657664d75006514d6ad9e03e56a317&profile_id=113">
-				</video>			
+			<div class="video-bg-container">			
 				<video id="about-culture-video-loop" autoplay loop style="background-image:url(<?php echo VID_DIR ?>/about/posters/Who_We_Are_Clicked.jpg);">
 					<source src="https://player.vimeo.com/external/136642425.sd.mp4?s=db0fe3877230369658d8e2e08a7796bc&profile_id=112">
 				</video>
-
 				<a href="" class="close-video"><i></i></a>				
 			</div>
+			<div class="blur-overlay show"></div>	
 		<?php } ?>	
-		<div class="blur-overlay show"></div>	
+		<div class="video-overlay">
+			<video id="about-culture-video-full" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
+				<source src="https://player.vimeo.com/external/136641924.hd.mp4?s=bd657664d75006514d6ad9e03e56a317&profile_id=113">
+			</video>
+			<a href="#" class="close-video"><i></i></a>				
+		</div>		
 	</section>
 	<section data-section-name="section-join-us" id="join-us">
 		<div class="contact-us">
@@ -204,7 +210,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		var imgDir = '<?php echo IMG_DIR; ?>';
 	</script>
 
-	<div id="timeline-data">
+	<div style="display: none;" id="timeline-data">
 		<span class="large-date">99</span>
 		<div class="timeline-container nano-content">
 			<div class="timeline-block bottom">

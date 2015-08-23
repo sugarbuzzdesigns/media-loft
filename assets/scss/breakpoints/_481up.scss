@@ -251,11 +251,9 @@ About Page
 #culture {
 	&.play-full-video {
 		#about-culture-video-loop {
-			left: -100%;
 		}
 	}
 }
-
 /**************************
 Blog page
 ***************************/	
@@ -269,138 +267,13 @@ Blog page
 
 		article {
 			height: 50%;
-			width: 50%;
-			float: left;
-			background: #CBCBB6;
-			position: relative;
-
-			.header {
-				display: block;
-			    height: 100%;
-			    width: 100%;
-			}				
-
-			.title {
-				color: #fff;
-				@include center-me;
-				margin: 0;
-				z-index: 2;
-				font-size: 38px;
-				font-weight: normal;
-			    width: 100%;
-			    text-align: center;					
-			}
-
-			.info {
-				color: #fff;
-			    position: absolute;
-			    top: 8px;
-			    right: 10px;
-			    z-index: 2;	
-			    font-size: 13px;				
-			    text-transform: uppercase;
-			}
+			width: 100%;
 
 			.article-content {
-				-webkit-transform: translateX(-100%);
-				        transform: translateX(-100%);
-				display: none;
-			    margin: 0 auto;
-			    padding: 100px 0 70px 0;
-			    width: 70%;
-			    max-width: 900px;
-
-				p {
-					margin: 0 0 25px 0;
-					line-height: 29px;
-					color: #6E6E6E;
-				}
-
-				.blog-entry-img {
-					width: 100%;
-					margin-bottom: 25px;
-
-					img {
-						display: block;
-						width: 100%;
-					}
-				}
-
-				blockquote {
-					color: #86B1AA;
-					font-size: 38px;
-				    font-size: 38px;
-				    margin: 20px -40px 30px;
-				}
+				
 			}
-
-			.blog-header-bg { display: none; }
-
-			// pseudo and classes for article
-			&:nth-child(2),
-			&:nth-child(3) {
-				background: #D8D8C2;
-			}
-
-			.related-articles {
-				h4 {
-					width: 70%;
-					margin: 0 auto 20px;
-					font-family: 'KlavikaWebBasicLight';
-					max-width: 900px;
-					display: none;
-				}
-			}
-
-			.related-article {
-				height: 250px;
-				width: 50%;
-				float: left;
-				background: #D8D8C2;
-				position: relative;
-				display: none;
-
-				& + .related-article {
-					background: #CBCBB6;
-				}
-			}			
-
-			&.show-article {
-				width: 100%;
-
-				.related-articles {
-					h4 { 
-						display: block;
-					}
-				}
-
-				.article-content {
-					-webkit-transform: translateX(0);
-					        transform: translateX(0);
-					display: block;
-				}
-
-				.blog-header-bg {
-					display: block;
-				}			
-
-				.related-article {
-					display: block;
-				}	
-			}
-
-			&.hide-me {
-				opacity: 0;
-				height: 0;
-			}
-
-			&.collapsed:hover {
-				.blog-header-bg {
-					display: block;
-				}
-			}			
 		}
-	}	
+	}
 }
 
 /**************************
@@ -903,7 +776,7 @@ Work Page
 	left: auto;
 	right: 0;
 	width: auto;
-	height: 50px;
+	height: 70px;
 	padding-top: 0;
 	z-index: 5;
 	background: transparent;
@@ -920,15 +793,19 @@ Work Page
 
 			&:last-child {
 				margin-bottom: 0;
+
+				a {
+					padding-right: 40px;
+				}
 			}
 		}
 	}
 
 	a {
 		color: #373837;
-		height: 50px;
+		height: 70px;
 		display: block;
-		padding: 20px 20px 0 20px;
+		padding: 30px 10px 0 45px;
 		text-transform: uppercase;
 		font-size: 13px;
 		background: #fff;

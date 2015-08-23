@@ -77,8 +77,7 @@
 			$('[data-client-img="'+ client +'"]')
 				.addClass('blank')
 				.attr('data-client-img', '')
-				.find('img')
-				.remove();
+				.empty();
 		},
 
 		showClient: function(){
@@ -108,6 +107,7 @@
 
 		addImage: function(tile, client){
 			$(tile).append('<img src="'+ imgDir + '/clients/' + client + '"/>');
+			$(tile).append('<div class="hover"><img src="'+ imgDir + '/clients/hover/' + client + '"/></div>');
 			$(tile).attr('data-client-img', client);
 		},
 

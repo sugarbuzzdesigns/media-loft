@@ -81,3 +81,10 @@ probably best not to use it. I mean, were you going to anyway? */
 	background-size: cover;
 	background-position: center;
 }
+
+@mixin cancel-transition {
+	-moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: color 0 ease-in;
+    transition: none;   
+}

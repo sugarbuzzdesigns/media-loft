@@ -33,6 +33,12 @@ ml.About = {};
 				$('.email-link a').attr('href', $(this).data('mailto'));
 			});
 
+			$('#culture .close-video').click(function(e){
+				e.preventDefault();
+
+				_this.stopCultureVideo();
+			});
+
 		},
 		scrollToSection: function(menuItem){
 			var $menuItem = $(menuItem),
@@ -65,53 +71,88 @@ ml.About = {};
 				_this.openWorkItem(workId);
 			}
 		},
+
 		updateUrl: function(workItemId){
 			window.location.hash = '#!/' + workItemId;
 		},	
+
 		playCultureVideo: function(){
 			$('#culture').addClass('play-full-video');
+
 			$('#about-culture-video-loop').fadeOut();
-			$('#about-culture-video-full').css('opacity', 1);
-			$('#culture .blur-overlay').css('opacity', 0);
 			$('#about-culture-video-full')[0].play();
-		},			
+		},	
+		stopCultureVideo: function(){
+			$('#culture').removeClass('play-full-video');
+
+			$('#about-culture-video-loop').fadeIn();
+			$('#about-culture-video-full')[0].pause();
+		},					
 	};
 	
 	$(function(){
 		ml.About.Global.init();
 
-		var clientsWaypoint = $('#clients').waypoint({
+		var timeLineWaypoit = $('#timeline2').waypoint({
 		  handler: function(direction) {
-		  	console.log('made it 50%');
+
 		  },
-		  offset: '80%'
-		});
+		  offset: '50%'
+		});			
 
 		var employeeTiles = $('#people .tile').waypoint({
 		  handler: function(direction) {
-		  	console.log($(this.element).addClass('in-view'));
+		  	if (direction === 'down') {
+		  		console.log('down');
+				$(this.element).addClass('in-view');
+		  	} else {
+				// $(this.element.offsetParent).removeClass('in-view');
+		  	}
 		  },
 		  offset: '80%'
 		});		
 
-		var employeeTiles = $('#clients .tile').waypoint({
+		var clientsWaypoint = $('#clients').waypoint({
 		  handler: function(direction) {
-		  	console.log(this.element.offsetParent);
-
 		  	if (direction === 'down') {
-				$(this.element.offsetParent).addClass('in-view');
+		  		console.log('down');
+				$(this.element).addClass('in-view');
 		  	} else {
-				$(this.element.offsetParent).removeClass('in-view');
+				// $(this.element.offsetParent).removeClass('in-view');
 		  	}
 		  },
-		  offset: '80%'
-		});			
+		  offset: '50%'
+		});		
+
+		var cultureWaypoint = $('#culture').waypoint({
+			handler: function(direction) {
+				if (direction === 'down') {
+					console.log('in from top');
+				} else {
+					// stop video
+					$('#about-culture-video-full')[0].pause();
+				}
+			},
+			offset: '20%'
+		});		
+
+		var cultureWaypoint2 = $('#culture').waypoint({
+			handler: function(direction) {
+				if (direction === 'up') {
+					console.log('in from bottom');
+				} else {
+					// stop video
+					$('#about-culture-video-full')[0].pause();
+				}
+			},
+			offset: '-80%'
+		});		
 	
 		$("section").snapPoint({ 
 		    scrollDelay: 200,       // Amount of time the visitor has to scroll before the snap point kicks in (ms)
 		    scrollSpeed: 200,        // Length of smooth scroll's animation (ms)
-		    outerTopOffset: 300,    // Number of pixels for the downward vertical offset (relative to the top of your snapping container)
-		    innerTopOffset: 300      // Number of pixels for the upward vertical offset (relative to the top of your snapping container)
+		    outerTopOffset: ($(window).height() * 0.40),    // Number of pixels for the downward vertical offset (relative to the top of your snapping container)
+		    innerTopOffset: ($(window).height() * 0.40)      // Number of pixels for the upward vertical offset (relative to the top of your snapping container)
 		});		
 
 	});

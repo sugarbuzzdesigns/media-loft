@@ -9,7 +9,7 @@
 			<span class="open-menu"><?php echo strtolower(get_the_title()); ?></span>
 			<?php } ?>
 		<?php } ?>
-		<span class="close-menu"><i></i></span>			
+		<!-- <span class="close-menu"><i></i></span>-->
 	</a>
 	<div id="menu-interior">
 		<a class="logo" href="/">

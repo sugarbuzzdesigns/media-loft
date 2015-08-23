@@ -3,6 +3,7 @@
 	ml.Timeline = {
 		init: function(){
 			this.timeline = $('#timeline2');
+			this.timelineScrollElm = $('#timeline2 .timeline-wrap');
 			this.timeLineImageDir = timeLineImageDir;
 
 			this.squareSideLength = 282;
@@ -85,7 +86,7 @@
 			$dateBtn.addClass('selected');
 			$('.date').not($dateBtn).removeClass('selected');
 
-			console.log($timelineBlock.offset());
+			$('.large-date').fadeOut();
 
 			_this.scrollTimeline($timelineBlock);
 		},	
@@ -98,6 +99,9 @@
 					
 			$(infoid).removeClass('show-me');
 			$dateBtn.removeClass('selected');
+
+			$('.large-date').fadeIn();
+			$timelineBgImage.fadeOut();
 		},				
 		loopEvents: function(containerIndex, numBoxes){
 			var tl = $('#timeline2').css('overflow', 'hidden'),
@@ -118,8 +122,6 @@
 			container.css({
 				position: 'absolute',
 				left: cLeft,
-				top: '50%',
-				transform: 'translate(0,-50%)',
 				height: sqRoot*2 - sqRoot/2,
 				width: containerWidth,
 				zIndex: this.containerIndex--
@@ -213,12 +215,11 @@
 		},		
 
 		scrollTimeline: function($box){
-			var timeline = $('currentLeft')
-				currentLeft = $('#timeline2').scrollLeft(),
+			var currentLeft = $('#timeline2 .timeline-wrap').scrollLeft(),
 				boxLeft = $box.offset().left,
 				newLeft = currentLeft + boxLeft - 40;
 
-			this.timeline.animate({
+			this.timelineScrollElm.animate({
 				scrollLeft: newLeft
 			});
 		}
@@ -233,15 +234,20 @@
 			// console.log($(this).offset().left);
 		});
 
-		$('#timeline2 .timeline-wrap').scroll(function(e){
-			$('#timeline2 .right-top').each(function(){ 
-				if($(this).offset().left > 10 && $(this).offset().left < 100){
-					var date = $(this).find('.num').text();
+		$("#timeline2 .timeline-wrap").smoothDivScroll({
+			setupComplete: function(){
+				$('#timeline2 .scrollWrapper').scroll(function(e){
+					console.log('scrollling');
+					$('#timeline2 .right-top').each(function(){ 
+						if($(this).offset().left > 10 && $(this).offset().left < 100){
+							var date = $(this).find('.num').text();
 
-					$('.large-date').text(date.slice(-2));
-				}
-			});
-		});
+							$('.large-date').text(date.slice(-2));
+						}
+					});
+				});
+			}
+		});		
 
 	});
 })(jQuery);

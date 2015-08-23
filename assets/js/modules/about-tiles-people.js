@@ -20,6 +20,17 @@
 			this.$startTiles = this.createStartTiles();
 
 			this.setupTiles();
+
+			this.bindEvents();
+
+			this.startSwapping();
+		},
+
+		bindEvents: function(){
+			$('#people .tile').click(function(){
+				// hide this tile and show another
+				// TODO. NOT IMPORTANT!
+			});
 		},
 
 		createStartTiles: function(){
@@ -82,7 +93,7 @@
 			$('[data-client-img="'+ client +'"]')
 				.addClass('blank')
 				.attr('data-client-img', '')
-				.find('.front img, .back img')
+				.find('.front div, .back div')
 				.remove();
 		},
 
@@ -112,8 +123,11 @@
 		},
 
 		addImage: function(tile, employee){
-			$(tile).find('.front').append('<img src="'+ imgDir + '/' + this.imageFolder + '/' + employee + '_rest.jpg"/>');
-			$(tile).find('.back').append('<img src="'+ imgDir + '/' + this.imageFolder + '/hover/' + employee + '_hover.jpg"/>');
+			// $(tile).find('.front').append('<img src="'+ imgDir + '/' + this.imageFolder + '/' + employee + '_rest.jpg"/>');
+			// $(tile).find('.back').append('<img src="'+ imgDir + '/' + this.imageFolder + '/hover/' + employee + '_hover.jpg"/>');
+			$(tile).find('.front').append('<div style="height: 100%; width: 100%; background-size: cover; background-position: center; background-image: url(' + imgDir + '/' + this.imageFolder + '/' + employee + '_rest.jpg)"></div>');
+			$(tile).find('.back').append('<div style="height: 100%; width: 100%; background-size: cover; background-position: center; background-image: url(' + imgDir + '/' + this.imageFolder + '/hover/' + employee + '_hover.jpg)"></div>');
+			
 			$(tile).attr('data-client-img', employee);
 		},
 

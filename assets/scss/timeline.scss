@@ -1,303 +1,286 @@
-// import mixins
-@import "partials/math";
+/******************************************************************
+Stylesheet: Variables
 
-// Sass variables
-@import "partials/variables";
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
 
-// Sass functions
-@import "partials/functions";
+******************************************************************/
+/**************************
+Text Colors
+***************************/
+/**************************
+Generi
+***************************/
+/**************************
+Background/Button colors
+***************************/
+/******************************************************************
+Site Name:
+Author:
 
-// import mixins
-@import "partials/mixins";
+Stylesheet: Sass Functions
 
-#timeline {
-	min-height: $timeline-min-height + px;
-	background-color: #313131;
-	overflow: hidden;
+You can do a lot of really cool things in Sass. Functions help you
+make repeated actions a lot easier. They are really similar to mixins,
+but can be used for so much more.
 
-	.full-bleed {
-		z-index: 1;
-		opacity: 0.4;
+Anyway, keep them all in here so it's easier to find when you're
+looking for one.
 
-		&.shown {
-			height: 100%;
-		}
+For more info on functions, go here:
+http://sass-lang.com/documentation/Sass/Script/Functions.html
 
-		.cover {
-			height: 100%;
-			width: 100%;
-			background: rgba(0,0,0,0.5);
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-	}	
+******************************************************************/
+/*********************
+COLOR FUNCTIONS
+These are helpful when you're working
+with shadows and such things. It's essentially
+a quicker way to write RGBA.
 
-	.timeline-container {
-		// height: $sq-root + $sq-root-half + px;
-		height: $timeline-min-height + px;
-		position: absolute;
-		top: 50%;
-		z-index: 3;
-		overflow-y: hidden;
-    	width: 100%;
-		-webkit-transform: translateY(-50%);
-		        transform: translateY(-50%);
+Example:
+box-shadow: 0 0 4px black(0.3);
+compiles to:
+box-shadow: 0 0 4px rgba(0,0,0,0.3);
+*********************/
+/*********************
+RESPONSIVE HELPER FUNCTION
+If you're creating a responsive site, then
+you've probably already read
+Responsive Web Design: http://www.abookapart.com/products/responsive-web-design
 
-		.timeline-block {
-			border: solid 1px #ccc;
-			height: $box-width-px;
-			width: $box-width-px;
-			position: absolute;
-			top: $top-row + px;
-			left: $left-start + px;
-			-webkit-transform: rotate(45deg);
-			        transform: rotate(45deg);
-			        z-index: 9;
+Here's a nice little helper function for calculating
+target / context
+as mentioned in that book.
 
-			&.top {
-				top: $offset + px;
-			}
-			
-			&.bottom {
-				top: $bottom-row;
-				z-index: 8;
-			}	
+Example:
+width: cp(650px, 1000px);
+or
+width: calc-percent(650px, 1000px);
+both compile to:
+width: 65%;
+*********************/
+/******************************************************************
+Site Name:
+Author:
 
-			&:nth-child(2) {
-				left: $left-start + $sq-root + px;
-				z-index: 7;
-			}		
+Stylesheet: Mixins Stylesheet
 
-			&:nth-child(3) {
-				left: $left-start + $sq-root + $sq-root-half + px;
-				z-index: 6;
-			}			
-			
-			&:nth-child(4) {
-				left: $left-start + $sq-root * 2 - 1 + px;
-				z-index: 5;
-			}		
+This is where you can take advantage of Sass' great features: Mixins.
+I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques gradients.
 
-			&:nth-child(5) {
-				left: $left-start + ($sq-root*3) - 2 + px;
-				z-index: 4;
-			}		
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
 
-			&:nth-child(6) {
-				left: $left-start + ($sq-root*4) - 2 + px;
-				z-index: 3;
-			}			
-			
-			&:nth-child(7) {
-				top: $top-row + px;
-				left: $left-start + ($sq-root*4 + $sq-root-half) - 2 + px;
-				z-index: 2;
-			}
+Helpful:
+http://sachagreif.com/useful-sass-mixins/
+http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
+http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
 
-			&:nth-child(8) {
-				left: $left-start + $sq-root*5 - 2 + px;
-				z-index: 2;
-			}	
-
-			&:nth-child(9) {
-				left: $left-start + ($sq-root*6) - 2 + px;
-				z-index: 4;
-			}		
-
-			&:nth-child(10) {
-				left: $left-start + ($sq-root*7) - 2 + px;
-				z-index: 3;
-			}			
-			
-			&:nth-child(11) {
-				top: $top-row + px;
-				left: $left-start + ($sq-root*7 + $sq-root-half) - 2 + px;
-				z-index: 2;
-			}
-
-			&:nth-child(12) {
-				left: $left-start + $sq-root*8 - 2 + px;
-				z-index: 2;
-			}		
-
-			&:nth-child(13) {
-				left: $left-start + $sq-root*9 - 2 + px;
-				z-index: 6;
-			}	
-
-			&:nth-child(14) {
-				top: $top-row + 1 + px;
-				left: $left-start + ($sq-root*9 + $sq-root-half) - 2 + px;
-				z-index: 6;				
-			}	
-
-			&:nth-child(15) {
-				left: $left-start + $sq-root*10 - 2 + px;
-				z-index: 5;
-			}												
-
-			.info {
-			    background-color: #F2F2F2;
-			    position: absolute;
-			    top: 0;
-			    left: 0;
-			    width: 0%;
-			    height: 100%;			    
-			    z-index: -1;
-			    overflow: hidden;		    
-
-			    .inner {
-			    	width: 70%;
-			    	height: 50%;
-			    	-webkit-transform: rotate(-45deg) translate(-50%, -50%);
-			    	        transform: rotate(-45deg) translate(-50%, -50%);
-			    	-webkit-transform-origin: 0% 0%;
-			    	        transform-origin: 0% 0%;				    	        
-			    	opacity: 0;
-				    position: absolute;
-				    top: 50%;
-				    left: 50%;	
-
-			    	h5 {
-			    		color: #D8CA53;
-			    		font-size: 20px;
-			    		margin: 0;
-			    	}	        
-
-			    	p {
-			    		color: #444444;
-			    	}				    		    	
-			    }
-
-			    &.show-me {
-					width: 100%;
-			    	height: 100%;
-
-				    .inner {
-				    	opacity: 1;
-				    }			    	
-			    }													
-			}
-		}		
-
-	}
-
-	.date {
-		position: absolute;
-		height: $date-size + px;
-		width: $date-size + px;
-		background-color: #E0E0E0;
-		border-radius: 50%;
-		-webkit-transform: rotate(-45deg);
-		        transform: rotate(-45deg);	
-
-        .close {
-        	opacity: 0;
-			background-image: url(../images/icons/menu-close-white.png);
-			background-repeat: no-repeat;
-			background-size: 100%;	
-			height: 30px;
-			width: 30px;
-			@include center-me;        	
-        }
-
-		.num {
-			@include center-me;
-			color: #fff;
-			opacity: 0;
-			display: block;
-			font-family: 'futura_ltlight';
-    		-webkit-transform: translate(-50%, -50%);;
-    		        transform: translate(-50%, -50%);;			
-		}
-	
-		&.left-top {
-			top: $date-pos;
-			left: $date-pos;
-		}
-		
-		&.right-top {
-			right: $date-pos;
-			top: $date-pos;
-		}	
-
-		&.right-bottom {
-			right: $date-pos;
-			bottom: $date-pos;
-		}	
-
-		&.left-bottom {
-			left: $date-pos;
-			bottom: $date-pos;
-		}	
-
-		&:hover {
-			.num {
-				opacity: 1;
-			}
-
-			background-color: #FF5543;
-
-			height: $hover-date-size + px;
-			width: $hover-date-size + px;
-
-			&.left-top {
-				top: $hover-date-size-pos;
-				left: $hover-date-size-pos;
-			}
-			
-			&.right-top {
-				right: $hover-date-size-pos;
-				top: $hover-date-size-pos;
-			}	
-
-			&.right-bottom {
-				right: $hover-date-size-pos;
-				bottom: $hover-date-size-pos;
-			}	
-
-			&.left-bottom {
-				left: $hover-date-size-pos;
-				bottom: $hover-date-size-pos;
-			}				
-		}
-
-
-		&.selected {
-
-			background-color: #FF5543;
-
-			.num {
-				opacity: 0;
-			}
-
-			.close {
-				opacity: 1;			
-			}
-
-			height: $hover-date-size + px;
-			width: $hover-date-size + px;
-
-			&.left-top {
-				top: $hover-date-size-pos;
-				left: $hover-date-size-pos;
-			}
-			
-			&.right-top {
-				right: $hover-date-size-pos;
-				top: $hover-date-size-pos;
-			}	
-
-			&.right-bottom {
-				right: $hover-date-size-pos;
-				bottom: $hover-date-size-pos;
-			}	
-
-			&.left-bottom {
-				left: $hover-date-size-pos;
-				bottom: $hover-date-size-pos;
-			}			
-		}
-	}
+******************************************************************/
+/*********************
+TRANSITION
+*********************/
+/*
+I totally rewrote this to be cleaner and easier to use.
+You'll need to be using Sass 3.2+ for these to work.
+Thanks to @anthonyshort for the inspiration on these.
+USAGE: @include transition(all 0.2s ease-in-out);
+*/
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdo it.
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+/*********************
+BOX SIZING
+*********************/
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+#timeline2 {
+  background-color: #313131;
+  overflow-x: scroll;
+}
+#timeline2 .timeline-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-x: scroll;
+}
+#timeline2 .timeline-wrap article {
+  top: 50%;
+  transform: translate(-100%,-50%);
+  transition: all 1.5s ease; 
+}
+#timeline2.in-view .timeline-wrap article {
+  top: 50%;
+  transform: translate(0,-50%);
+}
+#timeline2 .full-bleed {
+  z-index: 1;
+  opacity: 0.4;
+}
+#timeline2 .full-bleed.shown {
+  height: 100%;
+}
+#timeline2 .full-bleed .cover {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#timeline2 .timeline-block {
+  border: solid 1px #ccc;
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#timeline2 .timeline-block .info {
+  background-color: #F2F2F2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+#timeline2 .timeline-block .info .inner {
+  width: 70%;
+  height: 50%;
+  -webkit-transform: rotate(-45deg) translate(-50%, -50%);
+  transform: rotate(-45deg) translate(-50%, -50%);
+  -webkit-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#timeline2 .timeline-block .info .inner h5 {
+  color: #D8CA53;
+  font-size: 20px;
+  margin: 0;
+}
+#timeline2 .timeline-block .info .inner p {
+  color: #444444;
+}
+#timeline2 .timeline-block .info.show-me {
+  width: 100%;
+  height: 100%;
+}
+#timeline2 .timeline-block .info.show-me .inner {
+  opacity: 1;
+}
+#timeline2 .date {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  background-color: #E0E0E0;
+  border-radius: 50%;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+#timeline2 .date .close {
+  opacity: 0;
+  background-image: url(../images/icons/menu-close-white.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#timeline2 .date .num {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #fff;
+  opacity: 0;
+  display: block;
+  font-family: 'futura_ltlight';
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#timeline2 .date.left-top {
+  top: -12px;
+  left: -12px;
+}
+#timeline2 .date.right-top {
+  right: -12px;
+  top: -12px;
+}
+#timeline2 .date.right-bottom {
+  right: -12px;
+  bottom: -12px;
+}
+#timeline2 .date.left-bottom {
+  left: -12px;
+  bottom: -12px;
+}
+#timeline2 .date:hover {
+  background-color: #FF5543;
+  height: 60px;
+  width: 60px;
+}
+#timeline2 .date:hover .num {
+  opacity: 1;
+}
+#timeline2 .date:hover.left-top {
+  top: -30px;
+  left: -30px;
+}
+#timeline2 .date:hover.right-top {
+  right: -30px;
+  top: -30px;
+}
+#timeline2 .date:hover.right-bottom {
+  right: -30px;
+  bottom: -30px;
+}
+#timeline2 .date:hover.left-bottom {
+  left: -30px;
+  bottom: -30px;
+}
+#timeline2 .date.selected {
+  background-color: #FF5543;
+  height: 60px;
+  width: 60px;
+}
+#timeline2 .date.selected .num {
+  opacity: 0;
+}
+#timeline2 .date.selected .close {
+  opacity: 1;
+}
+#timeline2 .date.selected.left-top {
+  top: -30px;
+  left: -30px;
+}
+#timeline2 .date.selected.right-top {
+  right: -30px;
+  top: -30px;
+}
+#timeline2 .date.selected.right-bottom {
+  right: -30px;
+  bottom: -30px;
+}
+#timeline2 .date.selected.left-bottom {
+  left: -30px;
+  bottom: -30px;
 }
