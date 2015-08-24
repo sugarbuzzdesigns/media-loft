@@ -3618,6 +3618,7 @@ probably best not to use it. I mean, were you going to anyway? */
           transform: translate(-100%, -50%);
   -webkit-transition: all 1.5s ease;
           transition: all 1.5s ease;
+  opacity: 0.2;
 }
 
 #timeline2.in-view .timeline-wrap article {
@@ -3625,6 +3626,7 @@ probably best not to use it. I mean, were you going to anyway? */
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
+  opacity: 1;
 }
 
 #timeline2 .full-bleed {
@@ -3965,7 +3967,7 @@ section {
 .home .blur-overlay {
   height: 100%;
   opacity: 1;
-  z-index: -1;
+  z-index: 0;
 }
 
 .blur-overlay {
@@ -4168,6 +4170,14 @@ body.home {
   position: relative;
 }
 
+.video-overlay {
+  left: -100%;
+  z-index: 20;
+}
+.video-overlay.show-me {
+  left: 0;
+}
+
 /**************************
 About Page
 ***************************/
@@ -4282,13 +4292,15 @@ About Page
 }
 #clients .cta .tagline span {
   background-color: #373837;
-  padding: 5px 10px;
+  padding: 5px 12px 8px;
   color: #fff;
   display: block;
   float: left;
+  font-size: 40px;
 }
 #clients .cta .tagline span:last-child {
   clear: both;
+  padding-right: 18px;
 }
 #clients.in-view .tile {
   opacity: 1;
@@ -4320,22 +4332,35 @@ About Page
   padding: 0;
 }
 #people .cta .tagline span {
-  background-color: #EF4330;
-  opacity: 0.8;
+  background-color: rgba(239, 67, 48, 0.8);
   padding: 5px 10px;
   color: #fff;
   display: block;
   float: left;
 }
 
+#culture .video-overlay {
+  z-index: 20;
+}
 #culture .blur-overlay {
   background-color: rgba(134, 177, 170, 0.8);
 }
 #culture #about-culture-video-full {
   left: -100%;
 }
+#culture .play-reel span {
+  color: #000;
+}
+#culture .ml-play {
+  height: 47px;
+  width: 38px;
+}
 #culture.play-full-video #about-culture-video-full {
   left: 50%;
+}
+#culture .cta .tagline {
+  margin-bottom: 34px;
+  padding: 12px 24px;
 }
 
 #join-us .cta {
@@ -4349,14 +4374,14 @@ About Page
 #join-us .contact-us {
   position: absolute;
   top: 50%;
-  left: 10%;
+  left: 12%;
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
       transform: translate(0, -50%);
   z-index: 2;
 }
 #join-us .contact-us .tagline span {
-  font-size: 35px;
+  font-size: 40px;
 }
 #join-us .contact-us .tagline span:first-child {
   color: #959595;
@@ -4368,13 +4393,28 @@ About Page
 #join-us .email div {
   display: inline-block;
   vertical-align: top;
-  font-size: 25px;
+  font-size: 30px;
 }
 #join-us .email a {
   color: #fff;
   background-color: #EF4330;
-  padding: 5px 40px 5px 15px;
+  padding: 5px 15px;
   display: inline-block;
+  letter-spacing: 1px;
+}
+#join-us .email .visit-contact {
+  display: block;
+  margin: 0 0 0 40px;
+  font-size: 13px;
+  font-family: 'KlavikaWebBasicMedium';
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 28px;
+}
+#join-us .email .visit-contact a {
+  background: transparent;
+  padding: 0 0 2px 0;
+  border-bottom: solid 1px #fff;
 }
 #join-us .email .choose .selected {
   padding: 0 10px 10px 10px;
@@ -4405,7 +4445,7 @@ About Page
   text-transform: uppercase;
   font-size: 13px;
   margin: 2px 0 0 40px;
-  font-family: 'KlavikaWebBasicRegular';
+  font-family: 'KlavikaWebBasicMedium';
   position: relative;
 }
 #join-us .email .email-link i {
@@ -4527,7 +4567,8 @@ Contact page
 }
 .page-contact .contact-info .directions {
   display: block;
-  font-family: KlavikaWebBasicRegular;
+  font-family: 'KlavikaWebBasicMedium';
+  letter-spacing: 3px;
   color: #599187;
   text-transform: uppercase;
   font-size: 14px;
@@ -4562,6 +4603,30 @@ Contact page
 /**************************
 Blog page
 ***************************/
+#blog-video-overlay {
+  left: -100%;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+#blog-video-overlay video {
+  width: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+#blog-video-overlay.show-me {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
 #blog {
   height: 100%;
   width: 100%;
@@ -4577,6 +4642,15 @@ Blog page
   position: relative;
   -webkit-transition: all 0.5s ease;
           transition: all 0.5s ease;
+}
+#blog .articles article .social {
+  text-align: center;
+  margin-bottom: 55px;
+}
+#blog .articles article .social a {
+  color: #599187;
+  font-size: 20px;
+  margin-right: 20px;
 }
 #blog .articles article a {
   text-decoration: underline;
@@ -4596,19 +4670,72 @@ Blog page
       transform: translate(-50%, -50%);
   margin: 0;
   z-index: 2;
-  font-size: 38px;
+  font-size: 18px;
   font-weight: normal;
   width: 100%;
   text-align: center;
 }
+#blog .articles article .video-article-headline {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#blog .articles article .video-article-headline .title {
+  position: static;
+  left: auto;
+  top: auto;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+}
+#blog .articles article .video-article-headline .video-start {
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  cursor: pointer;
+  transform: translate(-50%, 40%);
+  -webkit-transform: translate(-50%, 40%);
+  -ms-transform: translate(-50%, -40%);
+  height: 50px;
+  width: 50px;
+  display: none;
+}
+#blog .articles article .video-article-headline .video-start div {
+  height: 35px;
+  width: 35px;
+}
+#blog .articles article .video-article-headline .video-start div:first-child:after {
+  content: "";
+  height: 0;
+  width: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 12px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  display: block;
+  position: absolute;
+  top: 46%;
+  left: 55%;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+  -ms-transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 #blog .articles article .info {
-  color: #fff;
+  color: #373837;
   position: absolute;
   top: 8px;
   right: 10px;
   z-index: 2;
   font-size: 13px;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'KlavikaWebBasicRegular';
 }
 #blog .articles article .article-content {
   -webkit-transform: translateX(-100%);
@@ -4616,7 +4743,7 @@ Blog page
       transform: translateX(-100%);
   display: none;
   margin: 0 auto;
-  padding: 100px 0 70px 0;
+  padding: 100px 0 20px 0;
   width: 80%;
   max-width: 900px;
 }
@@ -4624,6 +4751,9 @@ Blog page
   margin: 0 0 25px 0;
   line-height: 29px;
   color: #6E6E6E;
+}
+#blog .articles article .article-content p:last-child {
+  margin-bottom: 0;
 }
 #blog .articles article .article-content .blog-entry-img {
   width: 100%;
@@ -4635,22 +4765,34 @@ Blog page
 }
 #blog .articles article .article-content blockquote {
   color: #86B1AA;
-  font-size: 38px;
-  font-size: 38px;
-  margin: 20px -40px 30px;
+  font-size: 25px;
+  font-size: 25px;
+  margin: 20px 0 30px;
 }
 #blog .articles article .blog-header-bg {
   display: none;
 }
-#blog .articles article:nth-child(2), #blog .articles article:nth-child(3) {
+#blog .articles article .blog-header-bg::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#blog .articles article:nth-child(even) {
   background: #D8D8C2;
 }
 #blog .articles article .related-articles h4 {
   width: 100%;
-  margin: 0 auto 20px;
+  margin: 0 0 30px 0;
+  padding-left: 20px;
   font-family: 'KlavikaWebBasicLight';
   max-width: 900px;
   display: none;
+  font-size: 18px;
 }
 #blog .articles article .related-article {
   height: 250px;
@@ -4660,23 +4802,20 @@ Blog page
   position: relative;
   display: none;
 }
-#blog .articles article .related-article.blank {
-  background: #E2E2E2;
-  cursor: normal;
-}
 #blog .articles article .related-article + .related-article {
   background: #CBCBB6;
-}
-#blog .articles article .related-article + .related-article.blank {
-  background: #E2E2E2;
-  cursor: normal;
 }
 #blog .articles article.show-article {
   width: 100%;
 }
+#blog .articles article.show-article .video-article-headline .title {
+  margin-bottom: 50px;
+}
+#blog .articles article.show-article .video-article-headline .video-start {
+  display: block;
+}
 #blog .articles article.show-article .related-articles h4 {
   display: block;
-  margin: 0 0 20px 20px;
 }
 #blog .articles article.show-article .article-content {
   -webkit-transform: translateX(0);
@@ -4689,6 +4828,9 @@ Blog page
 }
 #blog .articles article.show-article .related-article {
   display: block;
+}
+#blog .articles article.show-article .related-article.blank {
+  display: none;
 }
 #blog .articles article.hide-me {
   opacity: 0;
@@ -5148,6 +5290,10 @@ Logo
   position: fixed;
 }
 
+.page-about #main-logo {
+  z-index: 12;
+}
+
 /**************************
 Cta & Tagline
 ***************************/
@@ -5323,8 +5469,8 @@ Main Menu Styles
 #main-menu-btn,
 .right-menu-btn {
   background: #fff;
-  width: 140px;
-  height: 70px;
+  width: auto;
+  height: 47px;
   display: inline-block;
   position: fixed;
   bottom: 0;
@@ -5332,6 +5478,7 @@ Main Menu Styles
   font-size: 15px;
   text-align: center;
   z-index: 6;
+  letter-spacing: 0.5px;
 }
 #main-menu-btn .close-menu,
 .right-menu-btn .close-menu {
@@ -5360,11 +5507,11 @@ Main Menu Styles
 }
 #main-menu-btn .open-menu,
 .right-menu-btn .open-menu {
+  background: #333;
   display: block;
-  padding-top: 20px;
+  padding: 20px 30px;
   height: 100%;
-  width: 100%;
-  position: absolute;
+  width: auto;
   bottom: 0;
   left: 0;
 }
@@ -5373,7 +5520,7 @@ Main Menu Styles
   background: #333;
   color: #fff;
   text-transform: lowercase;
-  font-size: 24px;
+  font-size: 18px;
 }
 #main-menu-btn .close-menu {
   background: #333;
@@ -5412,7 +5559,7 @@ Main Menu Styles
   background: #ef4330;
   font-size: 30px;
   padding-top: 100px;
-  z-index: 5;
+  z-index: 12;
 }
 #main-menu ul,
 .right-menu ul {
@@ -5446,6 +5593,9 @@ Main Menu Styles
   left: 0;
 }
 
+#main-menu {
+  z-index: 11;
+}
 #main-menu a {
   font-family: 'KlavikaWebBasicLight';
 }
@@ -5456,6 +5606,9 @@ Main Menu Styles
   opacity: 0.5;
 }
 
+.right-menu {
+  z-index: 11;
+}
 .right-menu a {
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -5615,6 +5768,11 @@ div.scrollableArea {
       transform: translate(-50%, -50%);
 }
 
+.home .scaling-svg {
+  min-height: 110%;
+  min-width: 110%;
+}
+
 .scaling-svg path, .scaling-svg line {
   stroke: rgba(255, 255, 255, 0.3);
   stroke-width: 0.4;
@@ -5708,7 +5866,7 @@ tweeners.
     width: 100%;
   }
   #main-menu ul li {
-    font-size: 28px;
+    font-size: 26px;
     margin-bottom: 30px;
   }
   #main-menu ul li:last-child {
@@ -5727,8 +5885,8 @@ tweeners.
   }
 
   .logo {
-    width: 170px;
-    height: 31px;
+    width: 260px;
+    height: 42px;
   }
   .logo.interior {
     width: 115px;
@@ -5772,6 +5930,30 @@ tweeners.
   }
 
   /**************************
+  Main Menu Styles
+  ***************************/
+  #main-menu-btn,
+  .right-menu-btn {
+    height: 70px;
+    bottom: 0;
+    left: 0;
+    font-size: 15px;
+    text-align: center;
+    z-index: 6;
+  }
+  #main-menu-btn .open-menu,
+  .right-menu-btn .open-menu {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  #main-menu-btn {
+    font-size: 22px;
+  }
+
+  /**************************
   Cta & Tagline
   ***************************/
   .home .cta .tagline {
@@ -5781,7 +5963,7 @@ tweeners.
   .cta {
     width: auto;
     top: 55%;
-    left: 30px;
+    left: 5%;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
         transform: translate(0, -50%);
@@ -5793,7 +5975,7 @@ tweeners.
             transition: none;
     background: rgba(255, 255, 255, 0.8);
     -webkit-animation: down 1s ease forwards;
-    padding: 7px 10px;
+    padding: 0;
   }
   .cta .tagline span {
     -webkit-transition: none;
@@ -6132,7 +6314,7 @@ tweeners.
   .work-item .work-carousel .work-copy nav a {
     height: 50px;
     width: 50px;
-    background-image: url(http://ml.dev/wp-content/themes/medialoft/assets/images/icons/carousel-arrow-nav-sprite.png);
+    background-image: url(http://ml.dev/wp-content/themes/medialoft/assets/images/icons/right-carousel-arrow.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: inline-block;
@@ -6302,7 +6484,7 @@ tweeners.
     width: auto;
     height: 70px;
     padding-top: 0;
-    z-index: 5;
+    z-index: 11;
     background: transparent;
     display: block;
     float: left;
@@ -6356,6 +6538,7 @@ tweeners.
   }
   .service-section .summary p {
     opacity: 0;
+    display: none;
     font-size: 18px;
     line-height: 24px;
   }
@@ -6866,8 +7049,16 @@ you can add resource intensive styles.
   /**************************
   Blog page
   ***************************/
-  #blog .articles article .related-article {
+  #blog .articles article.show-article .related-article {
     width: 50%;
+  }
+  #blog .articles article.show-article .related-article.blank {
+    background: #E2E2E2;
+    cursor: normal;
+    display: block;
+  }
+  #blog .articles article .title {
+    font-size: 38px;
   }
   #blog .articles article .article-content {
     width: 70%;
@@ -6934,13 +7125,25 @@ you can add resource intensive styles.
     background: #CBCBB6;
     position: relative;
   }
+  #blog .articles article .info {
+    color: #fff;
+  }
   #blog .articles article.show-article {
     width: 100%;
   }
   #blog .articles article.show-article .related-articles h4 {
     width: 100%;
     display: block;
-    margin: 0 auto 20px;
+    margin: 0;
+    padding-left: 100px;
+    padding-bottom: 30px;
+    font-size: 38px;
+  }
+  #blog .articles article:nth-child(2), #blog .articles article:nth-child(3) {
+    background: #D8D8C2;
+  }
+  #blog .articles article:nth-child(4) {
+    background: #CBCBB6;
   }
 }
 /*********************

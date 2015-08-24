@@ -28,7 +28,7 @@ section {
 .home .blur-overlay {
 	height: 100%;
 	opacity: 1;
-	z-index: -1;
+	z-index: 0;
 }
 
 .blur-overlay {
@@ -220,6 +220,15 @@ body.home {
 	position: relative;
 }
 
+.video-overlay {
+	left: -100%;
+	z-index: 20;
+
+	&.show-me {
+		left: 0;
+	}
+}
+
 /**************************
 About Page
 ***************************/	
@@ -363,13 +372,15 @@ About Page
 
 			span {
 				background-color: #373837;
-				padding: 5px 10px;
+				padding: 5px 12px 8px;
 				color: #fff;
 				display: block;
 				float: left;
+				font-size: 40px;
 
 				&:last-child {
 					clear: both;
+					padding-right: 18px;
 				}
 			}
 		}
@@ -407,9 +418,9 @@ About Page
 			background: transparent;
 			margin: 0;
 			padding: 0;
+			
 			span {
-				background-color: #EF4330;
-				opacity: 0.8;
+				background-color: rgba(239, 67, 48, 0.8);
 				padding: 5px 10px;
 				color: #fff;
 				display: block;
@@ -424,6 +435,10 @@ About Page
 
 	}
 
+	.video-overlay {
+		z-index: 20;
+	}
+
 	.blur-overlay {
 		background-color: rgba(134, 177, 170, 0.8);
 	}
@@ -432,10 +447,24 @@ About Page
 		left: -100%;
 	}
 
+	.play-reel span {
+		color: #000;
+	}
+
+	.ml-play {
+		height: 47px;
+    	width: 38px;
+	}
+
 	&.play-full-video {
 	 	#about-culture-video-full {
 			left: 50%;	
 		}
+	}
+
+	.cta .tagline {
+		margin-bottom: 34px;
+		padding: 12px 24px;
 	}
 }
 
@@ -450,14 +479,14 @@ About Page
 	.contact-us {
 		position: absolute;
 		top: 50%;
-		left: 10%;
+		left: 12%;
 		-webkit-transform: translate(0, -50%);
 		        transform: translate(0, -50%);
 		z-index: 2;
 
 		.tagline {
 			span {
-				font-size: 35px;
+				font-size: 40px;
 			}
 
 			span:first-child {
@@ -473,15 +502,32 @@ About Page
 		div {
 			display: inline-block;
 			vertical-align: top;
-			font-size: 25px;
+			font-size: 30px;
 		}
 
 		a {
 			color: #fff;
 			background-color: #EF4330;
-			padding: 5px 40px 5px 15px;
+			padding: 5px 15px;
 			display: inline-block;
+			letter-spacing: 1px;
 		}
+
+		.visit-contact {
+			display: block;
+			margin: 0 0 0 40px;
+			font-size: 13px;
+			font-family: 'KlavikaWebBasicMedium';
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			margin-top: 28px;
+
+			a {
+				background: transparent;
+				padding: 0 0 2px 0;
+				border-bottom: solid 1px #fff;
+			}
+		}	
 
 		.choose {
 			.selected {
@@ -521,7 +567,7 @@ About Page
 			text-transform: uppercase;
 			font-size: 13px;
     		margin: 2px 0 0 40px;	
-    		font-family: 'KlavikaWebBasicRegular';
+    		font-family: 'KlavikaWebBasicMedium';
     		position: relative;
     		
     		i {
@@ -531,7 +577,7 @@ About Page
     			left: 85px;
     			-webkit-transform: translate(0, -50%);
     			        transform: translate(0, -50%);
-    		}			
+    		}		
 		}
 	}
 }
@@ -663,7 +709,8 @@ Contact page
 	
 		.directions {
 			display: block;
-			font-family: KlavikaWebBasicRegular;
+			font-family: 'KlavikaWebBasicMedium';
+			letter-spacing: 3px;
 			color: $teal;
 			text-transform: uppercase;
 			font-size: 14px;
@@ -709,7 +756,28 @@ Contact page
 
 /**************************
 Blog page
-***************************/	
+***************************/
+#blog-video-overlay {
+	left: -100%;
+	background: rgba(0,0,0,0.8);
+	overflow: hidden;
+
+	video {
+		width: 0;
+		@include center-me;
+	}
+
+	&.show-me {
+		display: block;
+		width: 100%;
+	    height: 100%;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    z-index: 20;		
+	}
+}
+
 #blog {
 	height: 100%;
 	width: 100%;
@@ -724,6 +792,17 @@ Blog page
 			background: #CBCBB6;
 			position: relative;
 			transition: all 0.5s ease;
+
+			.social {
+				text-align: center;
+				margin-bottom: 55px;
+
+				a {
+					color: #599187;
+					font-size: 20px;
+					margin-right: 20px;					
+				}
+			}
 
 			a {
 				text-decoration: underline;
@@ -740,20 +819,71 @@ Blog page
 				@include center-me;
 				margin: 0;
 				z-index: 2;
-				font-size: 38px;
+				font-size: 18px;
 				font-weight: normal;
 			    width: 100%;
 			    text-align: center;					
 			}
 
+			.video-article-headline {
+				@include center-me;
+				z-index: 1;
+
+				.title {
+					position: static;
+					left: auto;
+					top: auto;
+					transform: none;
+				}
+
+				.video-start {
+				    position: absolute;
+				    left: 50%;
+				    z-index: 1;
+				    cursor: pointer;
+				    transform: translate(-50%, 40%);
+				    -webkit-transform: translate(-50%, 40%);
+				    -ms-transform: translate(-50%, -40%);
+				    height: 50px;
+				    width: 50px;	
+					display: none;
+
+				    div {
+						height: 35px;
+						width: 35px;
+				    }	
+
+					div:first-child:after {
+					    content: "";
+					    height: 0;
+					    width: 0;
+					    border-top: 7px solid transparent;
+					    border-bottom: 7px solid transparent;
+					    border-left: 12px solid #fff;
+					    -webkit-transform: rotate(-45deg);
+					    -ms-transform: rotate(-45deg);
+					    transform: rotate(-45deg);
+					    display: block;
+					    position: absolute;
+					    top: 46%;
+					    left: 55%;
+					    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+					    -ms-transform: translate(-50%, -50%) rotate(-45deg);
+					    transform: translate(-50%, -50%) rotate(-45deg);						
+					}
+				}
+			}
+
 			.info {
-				color: #fff;
+				color: #373837;
 			    position: absolute;
 			    top: 8px;
 			    right: 10px;
 			    z-index: 2;	
 			    font-size: 13px;				
 			    text-transform: uppercase;
+			    letter-spacing: 2px;
+			    font-family: 'KlavikaWebBasicRegular';
 			}
 
 			.article-content {
@@ -761,7 +891,7 @@ Blog page
 				        transform: translateX(-100%);
 				display: none;
 			    margin: 0 auto;
-			    padding: 100px 0 70px 0;
+			    padding: 100px 0 20px 0;
 			    width: 80%;
 			    max-width: 900px;
 
@@ -769,6 +899,10 @@ Blog page
 					margin: 0 0 25px 0;
 					line-height: 29px;
 					color: #6E6E6E;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
 				}
 
 				.blog-entry-img {
@@ -783,27 +917,41 @@ Blog page
 
 				blockquote {
 					color: #86B1AA;
-					font-size: 38px;
-				    font-size: 38px;
-				    margin: 20px -40px 30px;
+					font-size: 25px;
+				    font-size: 25px;
+				    margin: 20px 0 30px;
 				}
 			}
 
-			.blog-header-bg { display: none; }
+			.blog-header-bg { 
+				display: none; 
 
-			// pseudo and classes for article
-			&:nth-child(2),
-			&:nth-child(3) {
+				&::after {
+				    content: "";
+				    display: block;
+				    height: 100%;
+				    width: 100%;
+				    background-color: rgba(0,0,0,0.7);
+				    position: absolute;
+				    top: 0;
+				    left: 0;
+				}
+
+			}
+
+			&:nth-child(even){
 				background: #D8D8C2;
 			}
 
 			.related-articles {
 				h4 {
 					width: 100%;
-					margin: 0 auto 20px;
+					margin: 0 0 30px 0;
+					padding-left: 20px;
 					font-family: 'KlavikaWebBasicLight';
 					max-width: 900px;
 					display: none;
+					font-size: 18px;
 				}
 			}
 
@@ -815,28 +963,25 @@ Blog page
 				position: relative;
 				display: none;
 
-				&.blank {
-					background: #E2E2E2;
-					cursor: normal;
-				}
-
 				& + .related-article {
-					background: #CBCBB6;
-
-					&.blank {
-						background: #E2E2E2;
-						cursor: normal;
-					}					
+					background: #CBCBB6;					
 				}
-			}			
+			}
 
 			&.show-article {
 				width: 100%;
 
+				.video-article-headline {
+					.title { margin-bottom: 50px; }
+
+					.video-start {
+						display: block;
+					}					
+				}
+
 				.related-articles {
 					h4 { 
 						display: block;
-						margin: 0 0 20px 20px;
 					}
 				}
 
@@ -852,6 +997,10 @@ Blog page
 
 				.related-article {
 					display: block;
+
+					&.blank {
+						display: none;
+					}
 				}	
 			}
 
@@ -1392,6 +1541,10 @@ Logo
 	position: fixed;
 }
 
+.page-about #main-logo {
+	z-index: 12;
+}
+
 /**************************
 Cta & Tagline
 ***************************/		
@@ -1566,8 +1719,8 @@ Main Menu Styles
 #main-menu-btn,
 .right-menu-btn {
 	background: #fff;
-    width: 140px;
-    height: 70px;
+    width: auto;
+    height: 47px;
 	display: inline-block;
 	position: fixed;
 	bottom: 0;
@@ -1575,6 +1728,7 @@ Main Menu Styles
 	font-size: 15px;
 	text-align: center;
 	z-index: 6;	
+	letter-spacing: 0.5px;
 
 	.close-menu {
 		background-color: #fff;
@@ -1597,11 +1751,11 @@ Main Menu Styles
 	}
 
 	.open-menu {
+		background: #333;
 		display: block;
-		padding-top: 20px;
+		padding: 20px 30px;
 		height: 100%;
-		width: 100%;		
-		position: absolute;
+		width: auto;
 		bottom: 0;
 		left: 0;
 	}	
@@ -1611,7 +1765,7 @@ Main Menu Styles
 	background: #333;
 	color: #fff;
 	text-transform: lowercase;
-	font-size: 24px;
+	font-size: 18px;
 
 	.close-menu {
 		background: #333;
@@ -1654,7 +1808,7 @@ Main Menu Styles
 	background: $ml-red;
 	font-size: 30px;
 	padding-top: 100px;
-	z-index: 5;
+	z-index: 12;
 
 	ul {
 		margin: 0;
@@ -1689,6 +1843,8 @@ Main Menu Styles
 }
 
 #main-menu {
+	z-index: 11;
+
 	a {
 		font-family: 'KlavikaWebBasicLight';
 	}
@@ -1703,6 +1859,8 @@ Main Menu Styles
 }
 
 .right-menu {
+	z-index: 11;
+
 	a {
 		text-transform: uppercase;
 		letter-spacing: 1.5px;
@@ -1895,6 +2053,13 @@ div.scrollableArea
  top: 50%;
  -webkit-transform: translate(-50%,-50%);
  		 transform: translate(-50%,-50%);
+}
+
+.home {
+	.scaling-svg {
+		min-height: 110%;
+ 		min-width: 110%;
+	}
 }
 
 .scaling-svg {

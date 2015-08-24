@@ -607,9 +607,23 @@ Blog page
 	.articles {
 
 		article {
+			
+			&.show-article {
 
-			.related-article {
-				width: 50%;
+				.related-article {
+					width: 50%;
+
+					&.blank {
+						background: #E2E2E2;
+						cursor: normal;
+						display: block;
+					}	
+
+				}			
+			}
+
+			.title {
+				font-size: 38px;
 			}
 
 			.article-content {

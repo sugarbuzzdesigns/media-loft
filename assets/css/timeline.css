@@ -121,11 +121,13 @@ probably best not to use it. I mean, were you going to anyway? */
   top: 50%;
   transform: translate(-100%, -50%);
   transition: all 1.5s ease;
+  opacity: 0.2;
 }
 
 #timeline2.in-view .timeline-wrap article {
   top: 50%;
   transform: translate(0, -50%);
+  opacity: 1;
 }
 
 #timeline2 .full-bleed {

@@ -93,9 +93,39 @@ ml.About = {};
 	$(function(){
 		ml.About.Global.init();
 
+		function updateNav(id){
+			var navItem = $('li[data-section-name="#'+ id +'"]');
+			
+			navItem
+				.addClass('active')
+				.siblings()
+				.removeClass('active');
+		};
+
+		var sectionsDownWaypoit = $('section').waypoint({
+		  handler: function(direction) {
+		  	if (direction === 'down') {
+		  		updateNav($(this.element).attr('id'));
+		  	}
+		  },
+		  offset: '50%'
+		});			
+
+		var sectionsUpWaypoit = $('section').waypoint({
+		  handler: function(direction) {
+		  	if (direction === 'up') {
+		  		updateNav($(this.element).attr('id'));
+		  	}
+		  },
+		  offset: '-50%'
+		});	
+
 		var timeLineWaypoit = $('#timeline2').waypoint({
 		  handler: function(direction) {
-
+		  	if (direction === 'down') {
+		  		console.log('down');
+				$(this.element).addClass('in-view');
+		  	}
 		  },
 		  offset: '50%'
 		});			

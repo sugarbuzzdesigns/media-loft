@@ -69,7 +69,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div class="cta alternate">
 			<h2 class="tagline">
 				<span>relationships measured in decades,</span>
-				<span>not years</span>
+				<span>not years.</span>
 			</h2>
 		</div>	
 		<div data-img="" class="tile client dark"></div>
@@ -161,7 +161,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 	<section data-section-name="section-culture" id="culture">
 		<div class="cta centered">
 			<h2 class="tagline one-liner alternate-red">
-				<span>Fun is always in the equation</span>
+				<span>fun is <em>always</em> in the equation</span>
 			</h2>		
 			<a class="play-reel" href="#">
 				<i class="ml-play black"></i>
@@ -201,7 +201,11 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 					<span class="choice" data-mailto="mailto:contact@medialoft.com"><i class="check"></i> with</span>
 					<span class="choice active" data-mailto="mailto:careers@medialoft.com"><i class="check"></i> at</span>
 				</div> 
-				<div>media loft</div><div class="email-link"><a href="mailto:work@medialoft.com">talk to us <i class="fa fa-chevron-right"></i></a></div>
+				<div>media loft</div>
+				<div class="right-col">
+					<div class="email-link"><a href="mailto:work@medialoft.com">talk to us</a></div>
+					<div class="visit-contact"><span>or </span><a href="<?php echo get_site_url(); ?>/contact">visit contact page <i class="fa fa-chevron-right"></i></a></div>
+				</div>	
 			</div>			
 		</div>
 		<div class="full-bleed" style="background-image:url(<?php echo IMG_DIR ?>/768up/backgrounds/about/Join_Us_BG_02.jpg);"></div>

@@ -30,6 +30,7 @@ var $ = jQuery;
 
 			$('#main-menu').mouseover(function(){
 				_this.$body.addClass('main-menu-open');
+
 				$('#menu-overlay').stop().fadeTo('fast',1);
 			});
 
@@ -43,6 +44,12 @@ var $ = jQuery;
 
 				_this.playHomeVideo();
 			});			
+
+			$('#home-video-overlay .close-video').on('click', function(e){
+				e.preventDefault();
+
+				_this.closeHomeVideo();
+			});	
 
 			this.startLandingVideo();
 		},
@@ -108,9 +115,13 @@ var $ = jQuery;
 			$sectionToLoad.addClass('show-summary');	
 		},
 		playHomeVideo: function(){
-			$('#culture .cta, #culture .video-cover').remove();
-			$('#about-culture-video')[0].play();
-		},		
+			$('#home-video-overlay').addClass('show-me');
+			$('#home-video-full')[0].play();
+		},	
+		closeHomeVideo: function(){
+			$('#home-video-overlay').removeClass('show-me');
+			$('#home-video-full')[0].pause();
+		},				
 		startLandingVideo: function(){
 
 			var $vid = $('#landing-video');
@@ -215,7 +226,7 @@ var $ = jQuery;
             }, 200);
 
             ml.scaleSvgHeight();
-        });      
+        }).resize();      
 		// $.event.special.scrollstop.latency = 250;
 
 		// ml.selections.$win.on("scrollstop", function() {

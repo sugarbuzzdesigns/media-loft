@@ -36,8 +36,14 @@
 
 					<p>[To learn more about the golden age of industrial musicals, check out this <a href="https://www.facebook.com/industrialmusicals?fref=ts">Facebook</a> page, or this site where you can actually <a href="http://www.industrialmusicals.com/songs/">sample some of the music</a> of the era.]</p>
 				</div>
+				<div class="social">
+					<!-- http://www.facebook.com/share.php?u=[URL]&title=[TITLE] -->
+					<a href="https://www.facebook.com/TheMediaLoft"><i class="fa fa-facebook-official"></i></a>
+					<!-- http://twitter.com/intent/tweet?status=[TITLE]+[URL] -->
+					<a href="https://twitter.com/medialoft"><i class="fa fa-twitter"></i></a>
+				</div>					
 				<div class="related-articles">
-					<h4>Similar Reads</h4>
+					<h4>similar reads</h4>
 					<a href="#" data-related-article="who-you-gonna-call" class="related-article blog-article">
 						<h2 class="title">Who You Gonna Call?</h2>
 						<div class="info">
@@ -71,7 +77,7 @@
 					<p>Kate must have appreciated our gesture. The meeting proceeded without a hitch.</p>
 				</div>
 				<div class="related-articles">
-					<h4>Similar Reads</h4>
+					<h4>similar reads</h4>
 					<a href="#" data-related-article="madish-men" class="related-article blog-article">
 						<h2 class="title">Mad(ish) Men</h2>
 						<div class="info">
@@ -111,7 +117,7 @@
 
 				</div>
 <!-- 				<div class="related-articles">
-					<h4>Similar Reads</h4>
+					<h4>similar reads</h4>
 					<a href="#" class="related-article">
 						<h2 class="title">article headline goes here</h2>
 						<div class="info">
@@ -130,19 +136,25 @@
 				<a class="header" href="#" class="header">
 					<div class="inner">
 						<div class="header-copy">
-							<h2 class="title">Same Great Company. All New Brand.</h2>
+							<div class="video-article-headline">
+								<h2 class="title">Same Great Company. All New Brand.</h2>
+								<div class="video-start play-full-screen" data-video="">
+									<div></div>
+									<div></div>
+								</div>
+							</div>								
 							<div class="info">
 								<span class="category">Design</span> / <span class="date">8.24.15</span>
 							</div>
 						</div>	
-					</div>
+					</div>					
 					<div class="full-bleed blog-header-bg" style="background-image:url(<?php echo IMG_DIR; ?>/blog/LogoHistory_Header.jpg);"></div>
 				</a>	
 				<div class="article-content">
 					<p>It all started with a website redesign. Then we reevaluated and refreshed every aspect of our brand. You may have seen glimpses. From our identity to our lobby, we’ve updated our brand to better reflect who Media Loft is today. (Forty years of success can make you reflective.) We’ve had fun with it, as you will see. We’ve taken the best of who we are and what we do and rolled it into a new site with bigger bolder imagery, full-screen video and history to put it all into context. </p>
 				</div>
 <!-- 				<div class="related-articles">
-					<h4>Similar Reads</h4>
+					<h4>similar reads</h4>
 					<a href="#" class="related-article">
 						<h2 class="title">article headline goes here</h2>
 						<div class="info">
@@ -157,6 +169,13 @@
 					</a>
 				</div>	 -->				
 			</article>			
-		</div>			
+		</div>	
+
+		<div id="blog-video-overlay">
+			<video>
+				<source src="https://player.vimeo.com/external/137091838.hd.mp4?s=424d788e4de84c839fdcdae57e1c2e69&profile_id=113">
+			</video>
+			<a href="#" class="close-video"><i></i></a>		
+		</div>		
 	</section>	
 <?php get_footer(); ?>

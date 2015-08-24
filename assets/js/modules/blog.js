@@ -24,6 +24,8 @@ ml.Blog = {};
 
 				console.log($(this).parent());
 
+				if($(this).parent().is('.show-article')){ return; };
+
 				var id = $(this).parent().attr('id');
 
 				_this.updateUrl(id);
@@ -39,7 +41,36 @@ ml.Blog = {};
 
 				_this.updateUrl(articleId);
 				_this.openArticle(articleId);
+			});		
+
+			// TODO Make dynamic
+			$('.video-start').click(function(e){
+				e.preventDefault();
+				e.stopPropagation();
+
+				_this.playBlogVideo();
+				
+			});
+
+			// TODO make dynamic
+			$('.close-video').click(function(e){
+				e.preventDefault();
+
+				$('video')[0].pause();
+				$('video').css('width', 0);
+				$('#blog-video-overlay').removeClass('show-me');
 			});			
+		},
+
+		// TODO Make dynamic
+		playBlogVideo: function(){
+			$('#blog-video-overlay').addClass('show-me');		
+
+			$('video').css('width', $(window).width());
+
+			$('video').on('canplay', function(){
+				$('video')[0].play();
+			});
 		},
 
 		updateUrl: function(blogArticleId){

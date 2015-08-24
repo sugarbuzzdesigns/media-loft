@@ -17,6 +17,10 @@ be seen on the Desktop.
 			background: #CBCBB6;
 			position: relative;
 
+			.info {
+				color: #fff;
+			}
+
 			&.show-article {
 				width: 100%;
 
@@ -24,10 +28,22 @@ be seen on the Desktop.
 					h4 {
 						width: 100%; 
 						display: block;
-						margin: 0 auto 20px;
+						margin: 0;
+						padding-left: 100px;
+						padding-bottom: 30px;
+						font-size: 38px;
 					}
 				}
-			}			
+			}	
+			// pseudo and classes for article
+			&:nth-child(2),
+			&:nth-child(3) {
+				background: #D8D8C2;
+			}	
+
+			&:nth-child(4) {
+				background: #CBCBB6;
+			}
 		}
 	}
 }

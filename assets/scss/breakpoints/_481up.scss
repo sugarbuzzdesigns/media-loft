@@ -49,7 +49,7 @@ Main Nav
 	    width: 100%;
 
 		li {
-			font-size: 28px;
+			font-size: 26px;
 			margin-bottom: 30px;
 
 			&:last-child {
@@ -74,8 +74,8 @@ Main Nav
 }
 
 .logo {
-    width: 170px;
-    height: 31px;
+    width: 260px;
+    height: 42px;
 
     &.interior {
 	    width: 115px;
@@ -125,6 +125,30 @@ Other Misc menu stuff
 }
 
 /**************************
+Main Menu Styles
+***************************/
+#main-menu-btn,
+.right-menu-btn {
+	height: 70px;
+	bottom: 0;
+	left: 0;
+	font-size: 15px;
+	text-align: center;
+	z-index: 6;	
+
+	.open-menu {
+		display: block;	
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}	
+}
+
+#main-menu-btn {
+	font-size: 22px;
+}
+
+/**************************
 Cta & Tagline
 ***************************/		
 .home .cta .tagline {
@@ -134,7 +158,7 @@ Cta & Tagline
 .cta {
 	width: auto;
 	top: 55%;
-	left: 30px;
+	left: 5%;
 	-webkit-transform: translate(0, -50%);
 	        transform: translate(0, -50%);	
 	width: auto;
@@ -145,7 +169,7 @@ Cta & Tagline
 		transition: none;
 		background: rgba(255, 255, 255, 0.8);
 		-webkit-animation: down 1s ease forwards;
-		padding: 7px 10px;
+		padding: 0;
 
 		span {
 			transition: none;
@@ -270,7 +294,7 @@ Blog page
 			width: 100%;
 
 			.article-content {
-				
+
 			}
 		}
 	}
@@ -548,7 +572,7 @@ Work Page
     			a {
 				    height: 50px;
 				    width: 50px;
-				    background-image: url(http://ml.dev/wp-content/themes/medialoft/assets/images/icons/carousel-arrow-nav-sprite.png);
+				    background-image: url(http://ml.dev/wp-content/themes/medialoft/assets/images/icons/right-carousel-arrow.png);
 				    background-repeat: no-repeat;
 				    background-size: cover;
 				    display: inline-block;
@@ -778,7 +802,7 @@ Work Page
 	width: auto;
 	height: 70px;
 	padding-top: 0;
-	z-index: 5;
+	z-index: 11;
 	background: transparent;
 	display: block;
     float: left;
@@ -840,6 +864,7 @@ Services Page
 
 	    p {
 			opacity: 0;
+			display: none;
 			font-size: 18px;
 			line-height: 24px;
 	    }

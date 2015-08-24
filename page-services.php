@@ -144,7 +144,7 @@
 		<article class="service-section" id="services-motion" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/mobile/backgrounds/services/motion_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">04</span>
-				<div class="service">Motion Design</div>
+				<div class="service">Motion Graphics</div>
 				<p>Motion graphics is like magic in a box. It's where we get to color outside the lines of the imagination, with visual effects that include everything from dynamic text to infographics to 3D animation and beyond.</p>
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
