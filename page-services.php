@@ -25,51 +25,51 @@
 					<span class="quote-mark"></span>
 					<hr>
 					<span>Connection is why we're here; it is what gives</span>
-					<span>purpose and meaning to our lives.</span>
-					<small>– BRENE BROWNE</small>
+					<span>purpose and meaning to our lives."</span>
+					<small>– Brene Browne</small>
 				</div>	
 				<div class="quote">
 					<span class="quote-mark"></span>
 					<hr>
 					<span>No good movie is too long and no bad movie</span>
-					<span>is short enough.</span>
+					<span>is short enough."</span>
 					<small>– Roger Ebert</small>
 				</div>	
 				<div class="quote">
 					<span class="quote-mark"></span>
 					<hr>
-					<span>Only the prepared speaker deserves to be confident.</span>
+					<span>Only the prepared speaker deserves to be confident."</span>
 					<small>– Dale Carnegie</small>
 				</div>	
 				<div class="quote">
 					<span class="quote-mark"></span>
 					<hr>
-					<span>I could never go onstage in denims.</span>
+					<span>I could never go onstage in denims."</span>
 					<small>– Elton John</small>
 				</div>					
 				<div class="quote">
 					<span class="quote-mark"></span>
 					<hr>
-					<span>Eloquent speech is not from lip to ear, but rather from heart to heart.</span>
+					<span>Eloquent speech is not from lip to ear, but rather from heart to heart."</span>
 					<small>- William Jennings Bryan</small>
 				</div>													
 				<div class="quote">
 					<span class="quote-mark"></span>
 					<hr>
-					<span>The human species thinks in metaphors and learns through stories.</span>
+					<span>The human species thinks in metaphors and learns through stories."</span>
 					<small>- Mary Catherine Bateson</small>
 				</div>	
 				<div class="quote">
 					<span class="quote-mark"></span>
 					<hr>
 					<span>You want to have butterflies in your stomach, because if you don't,</span>
-					<span>if you walk out onstage complacent, that's not a good thing.</span>
+					<span>if you walk out onstage complacent, that's not a good thing."</span>
 					<small>- Joan Jett</small>
 				</div>	
 				<div class="quote last">
 					<span class="quote-mark"></span>
 					<hr>
-					<span>Never wear anything that panics the cat.</span>
+					<span>Never wear anything that panics the cat."</span>
 					<small>- P.J. O'Rourke</small>
 				</div>													
 			</div>	

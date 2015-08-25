@@ -26,9 +26,7 @@ section {
 }
 
 .home .blur-overlay {
-	height: 100%;
-	opacity: 1;
-	z-index: 0;
+	display: none;
 }
 
 .blur-overlay {
@@ -195,11 +193,33 @@ FULL BLEED VIDEO
     left: -100%;
     height: 100%;
     width: 100%;
-    z-index: 6;
+    z-index: 100;
+
+	video {
+	    min-width: 100%;
+	    min-height: 100%;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    -webkit-transform: translate(-50%,-50%);
+	            transform: translate(-50%,-50%);
+	    height: auto;
+	    width: auto;		
+	}    
 }
 
 .play-full-video .video-overlay {
 	left: 0;
+}
+
+.video-bg-container.mobile {
+	video {
+		display: none;
+	}
+
+	.close-video {
+		display: none;
+	}
 }
 
 /**************************
@@ -209,10 +229,23 @@ Page Specific Styles
 Homepage
 ***************************/	
 body.home {
-	background-image: url(../images/mobile/backgrounds/mobile-home-bg.png);
-	background-position: right bottom;
-	background-repeat: no-repeat;
-	background-size: 100%;
+	background-color: #F7F7F7;
+
+	.mobile-bg-corner {
+		background-image: url(../images/mobile/backgrounds/mobile-home-bg.png);
+		background-position: right bottom;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+		background-size: 100%;		
+    	position: absolute;
+	    top: 0;
+	    left: 0;		
+	}
+
+	.cta {
+    	top: 50%;		
+	}
 }	
 
 #home-landing {
@@ -222,7 +255,6 @@ body.home {
 
 .video-overlay {
 	left: -100%;
-	z-index: 20;
 
 	&.show-me {
 		left: 0;
@@ -238,18 +270,19 @@ About Page
 
 #about-landing {
 	.cta {
-		left: 15%;
 
 		.tagline {
-			font-size: 40px;
-			margin-bottom: 65px;
-			background: rgba(255,255,255, 0.9);
-			padding: 11px 15px;
+			font-size: 27px;
+			margin-bottom: 10px;
+			padding: 0;
+
+			span {
+
+			}
 		}
 
 		p {
 			color: #fff;
-			padding-left: 10px;
 			line-height: 24px;
 			margin-bottom: 30px;
 		}
@@ -266,10 +299,22 @@ About Page
 }
 
 .tile {
-	width: calc(100%/6);
-    padding-bottom: calc(100%/6);
+	width: calc(100%/3);
+    padding-bottom: calc(100%/3);
 	float: left;
 	position: relative;
+
+	.front, .back, .hover-state {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.hover-state {
+		opacity: 0;
+	}
 
 	&.dark {
 		background: #F5F5F5;
@@ -289,7 +334,11 @@ About Page
 		width: 100%;
 
 		& + img {
-			opacity: 0;
+			// opacity: 0;
+		}
+
+		&.flipped {
+
 		}
 	}
 
@@ -304,6 +353,16 @@ About Page
 			display: none;
 		}
 	}
+
+	&.in-view:hover {
+		.front, .back {
+			opacity: 0;
+		}
+
+		.hover-state {
+			opacity: 1;
+		}		
+	}
 }
 
 #about-landing {
@@ -317,21 +376,20 @@ About Page
 
 	.large-date {
 	    font-family: 'futura_ltregular';
-	    font-size: 880px;
+	    font-size: 360px;
 	    position: absolute;
 	    bottom: 0;
-	    right: 0;
+	    right: -40px;
 	    color: #3B3B3B;
-	    line-height: 640px;
+	    line-height: 220px;
 	    z-index: 2;
-	    letter-spacing: -42px;
+	    letter-spacing: -9px;
 	    @include cancel-transition;
 
 	}
 }
 
 #clients {
-	min-width: 1310px;
 	background-color: #E5E5E5;
 
 	.tile {
@@ -354,7 +412,7 @@ About Page
 			display: none;
 			height: 100%;
 			width: 100%;
-			background: #ef4330;
+			background: #fff;
 		}
 
 		&:hover {
@@ -366,6 +424,8 @@ About Page
 	}
 
 	.cta {
+		top: 50%;
+
 		.tagline {
 			margin: 0;
 			background: transparent;
@@ -376,7 +436,7 @@ About Page
 				color: #fff;
 				display: block;
 				float: left;
-				font-size: 40px;
+				font-size: 27px;
 
 				&:last-child {
 					clear: both;
@@ -391,19 +451,38 @@ About Page
 			opacity: 1;
 		}
 	}
+
+	.scaling-svg path, 
+	.scaling-svg line {
+		stroke: rgba(255, 255, 255, 0.5);
+	}
+
+	.in-view .scaling-svg {
+		-webkit-animation-name: draw;
+		    animation-name: draw;
+		-webkit-animation-duration: 3s;
+		    animation-duration: 3s;
+		-webkit-animation-fill-mode: forwards;
+		    animation-fill-mode: forwards; // Stay on the last frame
+		-webkit-animation-iteration-count: 1; // Stay on the last frame
+		    animation-iteration-count: 1; // Run only once
+		-webkit-animation-timing-function: linear; // Run only once
+		    animation-timing-function: linear;
+	}
 }
 
 #people {
+	.scaling-svg path, 
+	.scaling-svg line {
+		stroke: rgba(255, 255, 255, 0.5);
+	}
+
 	background-color: #DEDEDE;
 
 	.tile {
 		z-index: 1;
-		opacity: 0;
+		cursor: pointer;
 	
-		&.in-view {
-			opacity: 1;
-		}
-
 		img {
 			width: 100%;
 		}
@@ -411,8 +490,9 @@ About Page
 
 	.cta {
 		top: auto;
-		bottom: calc(100%/3);
-		transform: translate(0, calc(100%/3));
+		top: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		        transform: translate(-50%, -50%);
 
 		.tagline {
 			background: transparent;
@@ -420,7 +500,7 @@ About Page
 			padding: 0;
 			
 			span {
-				background-color: rgba(239, 67, 48, 0.8);
+				background-color: rgba(239, 67, 48, 0.9);
 				padding: 5px 10px;
 				color: #fff;
 				display: block;
@@ -436,11 +516,12 @@ About Page
 	}
 
 	.video-overlay {
-		z-index: 20;
+		z-index: 30;
 	}
 
 	.blur-overlay {
-		background-color: rgba(134, 177, 170, 0.8);
+		background-color: #A1E5DA;
+		opacity: 0.5;
 	}
 
 	#about-culture-video-full {
@@ -451,9 +532,9 @@ About Page
 		color: #000;
 	}
 
-	.ml-play {
-		height: 47px;
-    	width: 38px;
+	.play-reel {
+		text-align: left;
+		padding-left: 24px;
 	}
 
 	&.play-full-video {
@@ -462,9 +543,23 @@ About Page
 		}
 	}
 
+	.cta {
+		top: 50%;
+		left: 0;
+	    -webkit-transform: translate(0%, -50%);
+	    transform: translate(0%, -50%);
+	}
+
 	.cta .tagline {
-		margin-bottom: 34px;
+		margin-bottom: 14px;
 		padding: 12px 24px;
+		text-align: left;
+		background: transparent;
+
+		span {
+			background: rgba(239, 67, 48, 0.8);
+			text-align: left;
+		}
 	}
 }
 
@@ -475,11 +570,13 @@ About Page
 		-webkit-transition: none;
 		-webkit-transform: none;
     	transform: none;
+    	width: auto;
+    	display: none;
 	}
 	.contact-us {
 		position: absolute;
 		top: 50%;
-		left: 12%;
+		left: 20px;
 		-webkit-transform: translate(0, -50%);
 		        transform: translate(0, -50%);
 		z-index: 2;
@@ -503,19 +600,20 @@ About Page
 			display: inline-block;
 			vertical-align: top;
 			font-size: 30px;
+			margin-top: 20px;
 		}
 
 		a {
 			color: #fff;
 			background-color: #EF4330;
-			padding: 5px 15px;
+			padding: 8px 20px;
 			display: inline-block;
 			letter-spacing: 1px;
 		}
 
 		.visit-contact {
 			display: block;
-			margin: 0 0 0 40px;
+			margin: 0;
 			font-size: 13px;
 			font-family: 'KlavikaWebBasicMedium';
 			text-transform: uppercase;
@@ -566,7 +664,7 @@ About Page
 		.email-link {
 			text-transform: uppercase;
 			font-size: 13px;
-    		margin: 2px 0 0 40px;	
+    		margin: 2px 0 0 0;	
     		font-family: 'KlavikaWebBasicMedium';
     		position: relative;
     		
@@ -761,6 +859,10 @@ Blog page
 	left: -100%;
 	background: rgba(0,0,0,0.8);
 	overflow: hidden;
+	width: 100%;
+    height: 0;
+    position: absolute;	
+	z-index: 30;		    
 
 	video {
 		width: 0;
@@ -769,12 +871,9 @@ Blog page
 
 	&.show-me {
 		display: block;
-		width: 100%;
-	    height: 100%;
-	    position: absolute;
+		height: 100%;
 	    top: 0;
 	    left: 0;
-	    z-index: 20;		
 	}
 }
 
@@ -833,7 +932,8 @@ Blog page
 					position: static;
 					left: auto;
 					top: auto;
-					transform: none;
+					-webkit-transform: none;
+					        transform: none;
 				}
 
 				.video-start {
@@ -861,14 +961,12 @@ Blog page
 					    border-bottom: 7px solid transparent;
 					    border-left: 12px solid #fff;
 					    -webkit-transform: rotate(-45deg);
-					    -ms-transform: rotate(-45deg);
 					    transform: rotate(-45deg);
 					    display: block;
 					    position: absolute;
 					    top: 46%;
 					    left: 55%;
 					    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-					    -ms-transform: translate(-50%, -50%) rotate(-45deg);
 					    transform: translate(-50%, -50%) rotate(-45deg);						
 					}
 				}
@@ -922,6 +1020,10 @@ Blog page
 				    margin: 20px 0 30px;
 				}
 			}
+
+		    &.no-related-articles {
+		    	.article-content { padding: 100px 0 100px 0; }
+		    }			
 
 			.blog-header-bg { 
 				display: none; 
@@ -1193,14 +1295,27 @@ Services Page
     right: 0;
     color: #fff;
 
-    &.go-away {
-    	bottom: -50px;
+    .go-away {
+    	bottom: -80px;
     }
 }    
 
 /**************************
 Work Page
 ***************************/	
+.page-work {
+	.video-bg-container.mobile { 
+		video{ 
+			height: 100%;
+			width: 100%;
+		}
+	}
+}
+
+#work-menu {
+	background: #fff;
+}
+
 #work-items-window {
 	height: 100%;
 	width: 100%;
@@ -1210,6 +1325,7 @@ Work Page
 .work-items {
 	width: 100%;
 	height: 100%;
+	transition: left 1.5s ease; 
 }
 
 .work-item {
@@ -1314,6 +1430,10 @@ Work Page
 	width: 100%;
 	overflow: scroll;
 
+	.carousel-arrow-nav {
+		display: none;
+	}
+
 	.carousel-items {
 		height: 100%;
 		width: 100%;
@@ -1340,7 +1460,7 @@ Work Page
 	}
 
     .work-copy {
-    	padding: 222px 50px 5% 56px;
+    	padding: 150px 45px 5% 45px;
     	height: 100%;
     	width: 100%;
     	float: none;
@@ -1429,9 +1549,9 @@ Work Page
 				color: #000000;
 				background-color: #fff;
 				display: inline-block;
-				padding: 2px 10px;
-				font-size: 20px;
-				margin-bottom: 15px;
+				padding: 5px 15px;
+				font-size: 25px;
+				margin-bottom: 10px;
 				transition: all 0.2s ease;
 		    }	
 
@@ -1603,16 +1723,19 @@ Cta & Tagline
 	}
 	
 	&.alternate {
-		width: 320px;
+		width: 315px;
 
 		.tagline {
 			span {
 				background-color: #fff;
 				letter-spacing: 1px;
+			    position: relative;
+			    top: -8px;				
 			}
 
 			span:first-child {
 				color: #989898;
+				top: auto;
 			}
 		}	
 	}
@@ -1698,6 +1821,20 @@ Cta & Tagline
   100% { opacity:0.7; }
 }
 
+@-webkit-keyframes datePulse {
+	50% { 
+		height: 30px;
+		width: 30px;
+	} 
+}
+
+@keyframes datePulse {
+	50% { 
+		height: 30px;
+		width: 30px;
+	}
+}
+
 .play-reel {
 	display: block;
 
@@ -1706,7 +1843,7 @@ Cta & Tagline
 		vertical-align: middle;
 		margin-left: 10px;
 		text-transform: uppercase;
-		font-size: 14px;
+		font-size: 12px;
 		font-family: 'KlavikaWebBasicMedium';
 		letter-spacing: 3px;
 		color: #575859;
@@ -1718,20 +1855,18 @@ Main Menu Styles
 ***************************/
 #main-menu-btn,
 .right-menu-btn {
-	background: #fff;
     width: auto;
     height: 47px;
 	display: inline-block;
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	font-size: 15px;
+	font-size: 18px;
 	text-align: center;
 	z-index: 6;	
 	letter-spacing: 0.5px;
 
 	.close-menu {
-		background-color: #fff;
 		width: 50px;
 		height: 50px;
 		padding-top: 9px;
@@ -1753,7 +1888,7 @@ Main Menu Styles
 	.open-menu {
 		background: #333;
 		display: block;
-		padding: 20px 30px;
+		padding: 15px 30px;
 		height: 100%;
 		width: auto;
 		bottom: 0;
@@ -1762,10 +1897,13 @@ Main Menu Styles
 }
 
 #main-menu-btn {
-	background: #333;
 	color: #fff;
 	text-transform: lowercase;
 	font-size: 18px;
+
+	.open-menu {
+		background: #333;
+	}
 
 	.close-menu {
 		background: #333;
@@ -1779,9 +1917,12 @@ Main Menu Styles
 .right-menu-btn {
 	left: auto;
 	right: 0;
-	width: 120px;
 	background: $ml-dark-red;
 	color: #fff;
+
+	.open-menu {
+		background: transparent;
+	}
 
 	.close-menu {
 		left: auto;	
@@ -1808,7 +1949,7 @@ Main Menu Styles
 	background: $ml-red;
 	font-size: 30px;
 	padding-top: 100px;
-	z-index: 12;
+	z-index: 25;
 
 	ul {
 		margin: 0;
@@ -1843,10 +1984,9 @@ Main Menu Styles
 }
 
 #main-menu {
-	z-index: 11;
-
 	a {
 		font-family: 'KlavikaWebBasicLight';
+		text-transform: lowercase;
 	}
 
     ul {
@@ -1859,7 +1999,7 @@ Main Menu Styles
 }
 
 .right-menu {
-	z-index: 11;
+	z-index: 21;
 
 	a {
 		text-transform: uppercase;
@@ -1879,7 +2019,7 @@ Main Menu Styles
 	position: fixed;
 	left: auto;
 	right: -130%;
-	background: #fff;
+	background: rgba(255,255,255,0.9);
 
 	ul {
 		text-align: right;
@@ -1906,11 +2046,12 @@ Main Menu Styles
 		font-family: "KlavikaWebBasicLight";
 
 		.open-menu {
-			// bottom: -50px;
+			position: absolute;
+			bottom: -50px;
 		}
 
 		.close-menu {
-			// left: 0;
+			left: 0;
 		}
 	}
 }
@@ -1922,7 +2063,7 @@ Main Menu Styles
 
 	.right-menu-btn {
 		width: 50px;
-		z-index: 6;
+		z-index: 22;
 
 		.open-menu {
 			bottom: -50px;
@@ -1944,12 +2085,12 @@ div.scrollingHotSpotLeft
 	/* The hotspots have a minimum width of 100 pixels and if there is room the will grow
     and occupy 15% of the scrollable area (30% combined). Adjust it to your own taste. */
 	min-width: 75px;
-	width: 10%;
+	width: 15%;
 	height: 100%;
 	background-repeat: repeat;
 	background-position: center center;
 	position: absolute;
-	z-index: 200;
+	z-index: 20;
 	left: 0;
 }
 
@@ -1965,12 +2106,12 @@ div.scrollingHotSpotLeftVisible
 div.scrollingHotSpotRight
 {
 	min-width: 75px;
-	width: 10%;
+	width: 15%;
 	height: 100%;
 	background-repeat: repeat;
 	background-position: center center;
 	position: absolute;
-	z-index: 200;
+	z-index: 20;
 	right: 0;
 }
 
@@ -2041,6 +2182,7 @@ div.scrollableArea
     padding-bottom: 100%;
     top: 50%;
     left: 0;
+    pointer-events: none;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
  /* override this inline for aspect ratio other than square */
@@ -2106,6 +2248,26 @@ div.scrollableArea
   to {
     stroke-dashoffset: 0;
   }
+}
+
+#mobile-svg-bg {
+	path, line {
+		fill-opacity: 0;
+		stroke: rgba(228, 228, 228, 0.7);
+		stroke-width: 1;
+		stroke-dasharray: 1870;
+		stroke-dashoffset: 1870;
+		-webkit-animation-name: draw;
+		        animation-name: draw;
+		-webkit-animation-duration: 5s;
+		        animation-duration: 5s;
+		-webkit-animation-fill-mode: forwards;
+		        animation-fill-mode: forwards; // Stay on the last frame
+		-webkit-animation-iteration-count: 1; // Stay on the last frame
+		        animation-iteration-count: 1; // Run only once
+		-webkit-animation-timing-function: linear; // Run only once
+		        animation-timing-function: linear;
+	}	
 }
 
 // svg {

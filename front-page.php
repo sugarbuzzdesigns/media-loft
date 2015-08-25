@@ -1,14 +1,32 @@
 <?php get_header(); ?>	
 	<section id="home-landing">
+		<?php if(wp_is_mobile()){ ?>
+			<svg id="mobile-svg-bg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				 width="596px" height="589.273px" viewBox="0 0 596 589.273" enable-background="new 0 0 596 589.273" xml:space="preserve">
+			<path fill="none" stroke="#F26A6B" stroke-width="0.5" stroke-miterlimit="10" d="M294.865,6.726L7.878,291.761
+				c-2.161,2.154-2.161,5.676,0,7.846l139.373,139.368c2.17,2.161,5.678,2.161,7.854,0l290.91-288.964L302.724,6.726
+				C300.549,4.55,297.037,4.55,294.865,6.726z"/>
+			<path fill="none" stroke="#F26A6B" stroke-width="0.5" stroke-miterlimit="10" d="M301.615,6.726l286.986,285.035
+				c2.159,2.154,2.159,5.676,0,7.846L449.23,438.975c-2.168,2.161-5.678,2.161-7.854,0L150.465,150.011L293.759,6.726
+				C295.933,4.55,299.443,4.55,301.615,6.726z"/>
+			<path fill="none" stroke="#F26A6B" stroke-width="0.5" stroke-miterlimit="10" d="M294.865,147.919L7.878,432.952
+				c-2.161,2.158-2.161,5.674,0,7.851l139.373,139.364c2.17,2.165,5.678,2.165,7.854,0l290.91-288.964L302.724,147.919
+				C300.549,145.747,297.037,145.747,294.865,147.919z"/>
+			<path fill="none" stroke="#F26A6B" stroke-width="0.5" stroke-miterlimit="10" d="M445.457,291.762l143.145,141.19
+				c2.159,2.158,2.159,5.674,0,7.851L449.23,580.167c-2.168,2.165-5.678,2.165-7.854,0L297.713,438.451
+				C297.713,438.451,443.286,289.589,445.457,291.762z"/>
+			</svg>
+			<div class="mobile-bg-corner"></div>			
+		<?php } ?>
 		<div class="cta">
 			<?php if(wp_is_mobile()){ ?>
 				<h2 class="tagline">
-					<span>bringing brand stories</span>
-					<span>to life.</span>
+					<span>bringing brand stories</span><!--
+					--><span>to life worldwide.</span>
 				</h2>
 			<?php } else { ?>
 				<h2 class="tagline desktop">
-					<span>bringing brand stories to life worldwide</span>
+					<span>bringing brand stories to life worldwide.</span>
 				</h2>
 			<?php } ?>
 			<a class="play-reel" href="#">

@@ -3492,111 +3492,52 @@ them however you see fit.
   }
 }
 
-/******************************************************************
-Stylesheet: Variables
+#explore-timeline {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  font-family: 'KlavikaWebBasicMedium';
+  z-index: 20;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
 
-Here is where we declare all our variables like colors, fonts,
-base values, and defaults. We want to make sure this file ONLY
-contains variables that way our files don't get all messy.
-No one likes a mess.
+.in-view #explore-timeline {
+  bottom: 95px;
+}
 
-******************************************************************/
-/**************************
-Text Colors
-***************************/
-/**************************
-Generi
-***************************/
-/**************************
-Background/Button colors
-***************************/
-/******************************************************************
-Site Name:
-Author:
+#explore-timeline span,
+#explore-timeline .nav-arrow-right {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+}
 
-Stylesheet: Sass Functions
+#explore-timeline .nav-arrow-right {
+    height: 22px;
+}
 
-You can do a lot of really cool things in Sass. Functions help you
-make repeated actions a lot easier. They are really similar to mixins,
-but can be used for so much more.
+#explore-timeline .nav-arrow-right img {
+  -webkit-transform: rotate(-90deg);
+          -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+  width: 35px;
+  display: inline-block;
+  vertical-align: middle;  
+  -webkit-animation: flickerAnimation 1s infinite;
+          animation: flickerAnimation 1s infinite;
+}
 
-Anyway, keep them all in here so it's easier to find when you're
-looking for one.
+#explore-timeline .nav-arrow-right img + img {
+  -webkit-animation: flickerAnimationTwo 1s infinite;
+          animation: flickerAnimationTwo 1s infinite;  
+}
 
-For more info on functions, go here:
-http://sass-lang.com/documentation/Sass/Script/Functions.html
+#explore-timeline .nav-arrow-right img + img {
+  margin-left: -20px;
+}
 
-******************************************************************/
-/*********************
-COLOR FUNCTIONS
-These are helpful when you're working
-with shadows and such things. It's essentially
-a quicker way to write RGBA.
-
-Example:
-box-shadow: 0 0 4px black(0.3);
-compiles to:
-box-shadow: 0 0 4px rgba(0,0,0,0.3);
-*********************/
-/*********************
-RESPONSIVE HELPER FUNCTION
-If you're creating a responsive site, then
-you've probably already read
-Responsive Web Design: http://www.abookapart.com/products/responsive-web-design
-
-Here's a nice little helper function for calculating
-target / context
-as mentioned in that book.
-
-Example:
-width: cp(650px, 1000px);
-or
-width: calc-percent(650px, 1000px);
-both compile to:
-width: 65%;
-*********************/
-/******************************************************************
-Site Name:
-Author:
-
-Stylesheet: Mixins Stylesheet
-
-This is where you can take advantage of Sass' great features: Mixins.
-I won't go in-depth on how they work exactly,
-there are a few articles below that will help do that. What I will
-tell you is that this will help speed up simple changes like
-changing a color or adding CSS3 techniques gradients.
-
-A WORD OF WARNING: It's very easy to overdo it here. Be careful and
-remember less is more.
-
-Helpful:
-http://sachagreif.com/useful-sass-mixins/
-http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
-http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
-
-******************************************************************/
-/*********************
-TRANSITION
-*********************/
-/*
-I totally rewrote this to be cleaner and easier to use.
-You'll need to be using Sass 3.2+ for these to work.
-Thanks to @anthonyshort for the inspiration on these.
-USAGE: @include transition(all 0.2s ease-in-out);
-*/
-/*********************
-CSS3 GRADIENTS
-Be careful with these since they can
-really slow down your CSS. Don't overdo it.
-*********************/
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
-/*********************
-BOX SIZING
-*********************/
-/* @include box-sizing(border-box); */
-/* NOTE: value of "padding-box" is only supported in Gecko. So
-probably best not to use it. I mean, were you going to anyway? */
 #timeline2 {
   background-color: #313131;
   overflow-x: scroll;
@@ -3614,8 +3555,8 @@ probably best not to use it. I mean, were you going to anyway? */
 #timeline2 .timeline-wrap article {
   top: 50%;
   -webkit-transform: translate(-100%, -50%);
-      -ms-transform: translate(-100%, -50%);
-          transform: translate(-100%, -50%);
+          -ms-transform: translate(-100%, -50%);
+      transform: translate(-100%, -50%);
   -webkit-transition: all 1.5s ease;
           transition: all 1.5s ease;
   opacity: 0.2;
@@ -3624,8 +3565,8 @@ probably best not to use it. I mean, were you going to anyway? */
 #timeline2.in-view .timeline-wrap article {
   top: 50%;
   -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+          -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
   opacity: 1;
 }
 
@@ -3762,32 +3703,38 @@ probably best not to use it. I mean, were you going to anyway? */
   bottom: -12px;
 }
 
-#timeline2 .date:hover {
+#timeline2 .date:hover,
+#timeline2 .date.hover {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
 }
 
-#timeline2 .date:hover .num {
+#timeline2 .date:hover .num,
+#timeline2 .date.hover .num {
   opacity: 1;
 }
 
-#timeline2 .date:hover.left-top {
+#timeline2 .date:hover.left-top,
+#timeline2 .date.hover.left-top {
   top: -30px;
   left: -30px;
 }
 
-#timeline2 .date:hover.right-top {
+#timeline2 .date:hover.right-top,
+#timeline2 .date.hover.right-top {
   right: -30px;
   top: -30px;
 }
 
-#timeline2 .date:hover.right-bottom {
+#timeline2 .date:hover.right-bottom,
+#timeline2 .date.hover.right-bottom {
   right: -30px;
   bottom: -30px;
 }
 
-#timeline2 .date:hover.left-bottom {
+#timeline2 .date:hover.left-bottom,
+#timeline2 .date.hover.left-bottom {
   left: -30px;
   bottom: -30px;
 }
@@ -3825,7 +3772,6 @@ probably best not to use it. I mean, were you going to anyway? */
   left: -30px;
   bottom: -30px;
 }
-
 /******************************************************************
 Stylesheet: Variables
 
@@ -3965,9 +3911,7 @@ section {
 }
 
 .home .blur-overlay {
-  height: 100%;
-  opacity: 1;
-  z-index: 0;
+  display: none;
 }
 
 .blur-overlay {
@@ -4145,11 +4089,30 @@ FULL BLEED VIDEO
   left: -100%;
   height: 100%;
   width: 100%;
-  z-index: 6;
+  z-index: 100;
+}
+.video-overlay video {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+  height: auto;
+  width: auto;
 }
 
 .play-full-video .video-overlay {
   left: 0;
+}
+
+.video-bg-container.mobile video {
+  display: none;
+}
+.video-bg-container.mobile .close-video {
+  display: none;
 }
 
 /**************************
@@ -4159,10 +4122,21 @@ Page Specific Styles
 Homepage
 ***************************/
 body.home {
+  background-color: #F7F7F7;
+}
+body.home .mobile-bg-corner {
   background-image: url(../images/mobile/backgrounds/mobile-home-bg.png);
   background-position: right bottom;
   background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
   background-size: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+body.home .cta {
+  top: 50%;
 }
 
 #home-landing {
@@ -4172,7 +4146,6 @@ body.home {
 
 .video-overlay {
   left: -100%;
-  z-index: 20;
 }
 .video-overlay.show-me {
   left: 0;
@@ -4181,18 +4154,13 @@ body.home {
 /**************************
 About Page
 ***************************/
-#about-landing .cta {
-  left: 15%;
-}
 #about-landing .cta .tagline {
-  font-size: 40px;
-  margin-bottom: 65px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 11px 15px;
+  font-size: 27px;
+  margin-bottom: 10px;
+  padding: 0;
 }
 #about-landing .cta p {
   color: #fff;
-  padding-left: 10px;
   line-height: 24px;
   margin-bottom: 30px;
 }
@@ -4206,10 +4174,20 @@ About Page
 }
 
 .tile {
-  width: calc(100%/6);
-  padding-bottom: calc(100%/6);
+  width: calc(100%/3);
+  padding-bottom: calc(100%/3);
   float: left;
   position: relative;
+}
+.tile .front, .tile .back, .tile .hover-state {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.tile .hover-state {
+  opacity: 0;
 }
 .tile.dark {
   background: #F5F5F5;
@@ -4227,14 +4205,17 @@ About Page
       transform: translate(-50%, -50%);
   width: 100%;
 }
-.tile img + img {
-  opacity: 0;
-}
 .tile.blank {
   background: none;
 }
 .tile.blank img {
   display: none;
+}
+.tile.in-view:hover .front, .tile.in-view:hover .back {
+  opacity: 0;
+}
+.tile.in-view:hover .hover-state {
+  opacity: 1;
 }
 
 #about-landing {
@@ -4247,20 +4228,19 @@ About Page
 }
 #timeline2 .large-date {
   font-family: 'futura_ltregular';
-  font-size: 880px;
+  font-size: 360px;
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: -40px;
   color: #3B3B3B;
-  line-height: 640px;
+  line-height: 220px;
   z-index: 2;
-  letter-spacing: -42px;
+  letter-spacing: -9px;
   -webkit-transition: none;
   transition: none;
 }
 
 #clients {
-  min-width: 1310px;
   background-color: #E5E5E5;
 }
 #clients .tile {
@@ -4280,11 +4260,14 @@ About Page
   display: none;
   height: 100%;
   width: 100%;
-  background: #ef4330;
+  background: #fff;
 }
 #clients .tile:hover .hover {
   display: block;
   opacity: 1;
+}
+#clients .cta {
+  top: 50%;
 }
 #clients .cta .tagline {
   margin: 0;
@@ -4296,7 +4279,7 @@ About Page
   color: #fff;
   display: block;
   float: left;
-  font-size: 40px;
+  font-size: 27px;
 }
 #clients .cta .tagline span:last-child {
   clear: both;
@@ -4305,26 +4288,43 @@ About Page
 #clients.in-view .tile {
   opacity: 1;
 }
+#clients .scaling-svg path,
+#clients .scaling-svg line {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+#clients .in-view .scaling-svg {
+  -webkit-animation-name: draw;
+  animation-name: draw;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
 
 #people {
   background-color: #DEDEDE;
 }
+#people .scaling-svg path,
+#people .scaling-svg line {
+  stroke: rgba(255, 255, 255, 0.5);
+}
 #people .tile {
   z-index: 1;
-  opacity: 0;
-}
-#people .tile.in-view {
-  opacity: 1;
+  cursor: pointer;
 }
 #people .tile img {
   width: 100%;
 }
 #people .cta {
   top: auto;
-  bottom: calc(100%/3);
-  -webkit-transform: translate(0, calc(100%/3));
-      -ms-transform: translate(0, calc(100%/3));
-          transform: translate(0, calc(100%/3));
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
 }
 #people .cta .tagline {
   background: transparent;
@@ -4332,7 +4332,7 @@ About Page
   padding: 0;
 }
 #people .cta .tagline span {
-  background-color: rgba(239, 67, 48, 0.8);
+  background-color: rgba(239, 67, 48, 0.9);
   padding: 5px 10px;
   color: #fff;
   display: block;
@@ -4340,10 +4340,11 @@ About Page
 }
 
 #culture .video-overlay {
-  z-index: 20;
+  z-index: 30;
 }
 #culture .blur-overlay {
-  background-color: rgba(134, 177, 170, 0.8);
+  background-color: #A1E5DA;
+  opacity: 0.5;
 }
 #culture #about-culture-video-full {
   left: -100%;
@@ -4351,16 +4352,29 @@ About Page
 #culture .play-reel span {
   color: #000;
 }
-#culture .ml-play {
-  height: 47px;
-  width: 38px;
+#culture .play-reel {
+  text-align: left;
+  padding-left: 24px;
 }
 #culture.play-full-video #about-culture-video-full {
   left: 50%;
 }
+#culture .cta {
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%);
+      transform: translate(0%, -50%);
+}
 #culture .cta .tagline {
-  margin-bottom: 34px;
+  margin-bottom: 14px;
   padding: 12px 24px;
+  text-align: left;
+  background: transparent;
+}
+#culture .cta .tagline span {
+  background: rgba(239, 67, 48, 0.8);
+  text-align: left;
 }
 
 #join-us .cta {
@@ -4370,11 +4384,13 @@ About Page
   -webkit-transform: none;
   -ms-transform: none;
       transform: none;
+  width: auto;
+  display: none;
 }
 #join-us .contact-us {
   position: absolute;
   top: 50%;
-  left: 12%;
+  left: 20px;
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
       transform: translate(0, -50%);
@@ -4394,17 +4410,18 @@ About Page
   display: inline-block;
   vertical-align: top;
   font-size: 30px;
+  margin-top: 20px;
 }
 #join-us .email a {
   color: #fff;
   background-color: #EF4330;
-  padding: 5px 15px;
+  padding: 8px 20px;
   display: inline-block;
   letter-spacing: 1px;
 }
 #join-us .email .visit-contact {
   display: block;
-  margin: 0 0 0 40px;
+  margin: 0;
   font-size: 13px;
   font-family: 'KlavikaWebBasicMedium';
   text-transform: uppercase;
@@ -4444,7 +4461,7 @@ About Page
 #join-us .email .email-link {
   text-transform: uppercase;
   font-size: 13px;
-  margin: 2px 0 0 40px;
+  margin: 2px 0 0 0;
   font-family: 'KlavikaWebBasicMedium';
   position: relative;
 }
@@ -4607,6 +4624,10 @@ Blog page
   left: -100%;
   background: rgba(0, 0, 0, 0.8);
   overflow: hidden;
+  width: 100%;
+  height: 0;
+  position: absolute;
+  z-index: 30;
 }
 #blog-video-overlay video {
   width: 0;
@@ -4619,12 +4640,9 @@ Blog page
 }
 #blog-video-overlay.show-me {
   display: block;
-  width: 100%;
   height: 100%;
-  position: absolute;
   top: 0;
   left: 0;
-  z-index: 20;
 }
 
 #blog {
@@ -4689,8 +4707,8 @@ Blog page
   left: auto;
   top: auto;
   -webkit-transform: none;
-      -ms-transform: none;
-          transform: none;
+  -ms-transform: none;
+      transform: none;
 }
 #blog .articles article .video-article-headline .video-start {
   position: absolute;
@@ -4717,14 +4735,14 @@ Blog page
   border-left: 12px solid #fff;
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+      transform: rotate(-45deg);
   display: block;
   position: absolute;
   top: 46%;
   left: 55%;
   -webkit-transform: translate(-50%, -50%) rotate(-45deg);
   -ms-transform: translate(-50%, -50%) rotate(-45deg);
-  transform: translate(-50%, -50%) rotate(-45deg);
+      transform: translate(-50%, -50%) rotate(-45deg);
 }
 #blog .articles article .info {
   color: #373837;
@@ -4768,6 +4786,9 @@ Blog page
   font-size: 25px;
   font-size: 25px;
   margin: 20px 0 30px;
+}
+#blog .articles article.no-related-articles .article-content {
+  padding: 100px 0 100px 0;
 }
 #blog .articles article .blog-header-bg {
   display: none;
@@ -4992,13 +5013,22 @@ Services Page
   right: 0;
   color: #fff;
 }
-.right-menu.go-away {
-  bottom: -50px;
+.right-menu .go-away {
+  bottom: -80px;
 }
 
 /**************************
 Work Page
 ***************************/
+.page-work .video-bg-container.mobile video {
+  height: 100%;
+  width: 100%;
+}
+
+#work-menu {
+  background: #fff;
+}
+
 #work-items-window {
   height: 100%;
   width: 100%;
@@ -5008,6 +5038,8 @@ Work Page
 .work-items {
   width: 100%;
   height: 100%;
+  -webkit-transition: left 1.5s ease;
+          transition: left 1.5s ease;
 }
 
 .work-item {
@@ -5094,6 +5126,9 @@ Work Page
   width: 100%;
   overflow: scroll;
 }
+.work-carousel .carousel-arrow-nav {
+  display: none;
+}
 .work-carousel .carousel-items {
   height: 100%;
   width: 100%;
@@ -5115,7 +5150,7 @@ Work Page
   background: orange;
 }
 .work-carousel .work-copy {
-  padding: 222px 50px 5% 56px;
+  padding: 150px 45px 5% 45px;
   height: 100%;
   width: 100%;
   float: none;
@@ -5183,9 +5218,9 @@ Work Page
   color: #000000;
   background-color: #fff;
   display: inline-block;
-  padding: 2px 10px;
-  font-size: 20px;
-  margin-bottom: 15px;
+  padding: 5px 15px;
+  font-size: 25px;
+  margin-bottom: 10px;
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
 }
@@ -5347,14 +5382,17 @@ Cta & Tagline
   color: #fff;
 }
 .cta.alternate {
-  width: 320px;
+  width: 315px;
 }
 .cta.alternate .tagline span {
   background-color: #fff;
   letter-spacing: 1px;
+  position: relative;
+  top: -8px;
 }
 .cta.alternate .tagline span:first-child {
   color: #989898;
+  top: auto;
 }
 .cta.single .tagline h2 {
   background-color: #ef4330;
@@ -5449,6 +5487,18 @@ Cta & Tagline
     opacity: 0.7;
   }
 }
+@-webkit-keyframes datePulse {
+  50% {
+    height: 30px;
+    width: 30px;
+  }
+}
+@keyframes datePulse {
+  50% {
+    height: 30px;
+    width: 30px;
+  }
+}
 .play-reel {
   display: block;
 }
@@ -5457,7 +5507,7 @@ Cta & Tagline
   vertical-align: middle;
   margin-left: 10px;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 12px;
   font-family: 'KlavikaWebBasicMedium';
   letter-spacing: 3px;
   color: #575859;
@@ -5468,21 +5518,19 @@ Main Menu Styles
 ***************************/
 #main-menu-btn,
 .right-menu-btn {
-  background: #fff;
   width: auto;
   height: 47px;
   display: inline-block;
   position: fixed;
   bottom: 0;
   left: 0;
-  font-size: 15px;
+  font-size: 18px;
   text-align: center;
   z-index: 6;
   letter-spacing: 0.5px;
 }
 #main-menu-btn .close-menu,
 .right-menu-btn .close-menu {
-  background-color: #fff;
   width: 50px;
   height: 50px;
   padding-top: 9px;
@@ -5509,7 +5557,7 @@ Main Menu Styles
 .right-menu-btn .open-menu {
   background: #333;
   display: block;
-  padding: 20px 30px;
+  padding: 15px 30px;
   height: 100%;
   width: auto;
   bottom: 0;
@@ -5517,10 +5565,12 @@ Main Menu Styles
 }
 
 #main-menu-btn {
-  background: #333;
   color: #fff;
   text-transform: lowercase;
   font-size: 18px;
+}
+#main-menu-btn .open-menu {
+  background: #333;
 }
 #main-menu-btn .close-menu {
   background: #333;
@@ -5532,9 +5582,11 @@ Main Menu Styles
 .right-menu-btn {
   left: auto;
   right: 0;
-  width: 120px;
   background: #EA321D;
   color: #fff;
+}
+.right-menu-btn .open-menu {
+  background: transparent;
 }
 .right-menu-btn .close-menu {
   left: auto;
@@ -5559,7 +5611,7 @@ Main Menu Styles
   background: #ef4330;
   font-size: 30px;
   padding-top: 100px;
-  z-index: 12;
+  z-index: 25;
 }
 #main-menu ul,
 .right-menu ul {
@@ -5593,11 +5645,9 @@ Main Menu Styles
   left: 0;
 }
 
-#main-menu {
-  z-index: 11;
-}
 #main-menu a {
   font-family: 'KlavikaWebBasicLight';
+  text-transform: lowercase;
 }
 #main-menu ul {
   padding-left: 20px;
@@ -5607,7 +5657,7 @@ Main Menu Styles
 }
 
 .right-menu {
-  z-index: 11;
+  z-index: 21;
 }
 .right-menu a {
   text-transform: uppercase;
@@ -5621,7 +5671,7 @@ Main Menu Styles
   position: fixed;
   left: auto;
   right: -130%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
 }
 .right-menu ul {
   text-align: right;
@@ -5641,13 +5691,20 @@ Main Menu Styles
 .main-menu-open #main-menu-btn {
   font-family: "KlavikaWebBasicLight";
 }
+.main-menu-open #main-menu-btn .open-menu {
+  position: absolute;
+  bottom: -50px;
+}
+.main-menu-open #main-menu-btn .close-menu {
+  left: 0;
+}
 
 .right-menu-open .right-menu {
   right: 0%;
 }
 .right-menu-open .right-menu-btn {
   width: 50px;
-  z-index: 6;
+  z-index: 22;
 }
 .right-menu-open .right-menu-btn .open-menu {
   bottom: -50px;
@@ -5664,12 +5721,12 @@ div.scrollingHotSpotLeft {
   	/* The hotspots have a minimum width of 100 pixels and if there is room the will grow
       and occupy 15% of the scrollable area (30% combined). Adjust it to your own taste. */
   min-width: 75px;
-  width: 10%;
+  width: 15%;
   height: 100%;
   background-repeat: repeat;
   background-position: center center;
   position: absolute;
-  z-index: 200;
+  z-index: 20;
   left: 0;
 }
 
@@ -5684,12 +5741,12 @@ div.scrollingHotSpotLeftVisible {
 /* Invisible right hotspot */
 div.scrollingHotSpotRight {
   min-width: 75px;
-  width: 10%;
+  width: 15%;
   height: 100%;
   background-repeat: repeat;
   background-position: center center;
   position: absolute;
-  z-index: 200;
+  z-index: 20;
   right: 0;
 }
 
@@ -5751,6 +5808,7 @@ div.scrollableArea {
   padding-bottom: 100%;
   top: 50%;
   left: 0;
+  pointer-events: none;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
       transform: translateY(-50%);
@@ -5810,6 +5868,24 @@ div.scrollableArea {
     stroke-dashoffset: 0;
   }
 }
+#mobile-svg-bg path, #mobile-svg-bg line {
+  fill-opacity: 0;
+  stroke: rgba(228, 228, 228, 0.7);
+  stroke-width: 1;
+  stroke-dasharray: 1870;
+  stroke-dashoffset: 1870;
+  -webkit-animation-name: draw;
+  animation-name: draw;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
 /*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
@@ -5843,7 +5919,7 @@ tweeners.
   Main Nav
   ***************************/
   #main-menu {
-    min-width: 200px;
+    min-width: 300px;
     width: 25%;
     left: -100%;
     padding-top: 0;
@@ -5913,20 +5989,20 @@ tweeners.
   #menu-overlay {
     position: fixed;
     height: 100%;
-    width: 100%;
+    width: 0%;
     background-color: rgba(255, 255, 255, 0.5);
     top: 0;
     left: 0;
     display: none;
     opacity: 0;
-    z-index: -1;
     -webkit-transition: none;
     transition: none;
   }
 
   .main-menu-open #menu-overlay {
     opacity: 1;
-    z-index: 1;
+    width: 100%;
+    z-index: 24;
   }
 
   /**************************
@@ -5944,6 +6020,7 @@ tweeners.
   #main-menu-btn .open-menu,
   .right-menu-btn .open-menu {
     display: block;
+    padding: 26px 28px 0;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -5956,52 +6033,18 @@ tweeners.
   /**************************
   Cta & Tagline
   ***************************/
-  .home .cta .tagline {
-    background: transparent;
-  }
-
-  .cta {
-    width: auto;
-    top: 55%;
-    left: 5%;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-    width: auto;
-  }
-  .cta .tagline {
-    font-weight: normal;
-    -webkit-transition: none;
-            transition: none;
-    background: rgba(255, 255, 255, 0.8);
-    -webkit-animation: down 1s ease forwards;
-    padding: 0;
-  }
-  .cta .tagline span {
-    -webkit-transition: none;
-            transition: none;
-    font-size: 35px;
-  }
-  .cta .tagline .category {
-    background: transparent;
-    color: #6E6E6E;
-    font-size: 14px;
-    padding: 0;
+  .play-reel {
     display: block;
-    margin: 20px 0 0 0;
-    -webkit-transition: none;
-            transition: none;
   }
-  .cta.alternate {
-    width: auto;
-  }
-  .cta.alternate .tagline span {
-    background: transparent;
-    letter-spacing: 1px;
-    padding: 0;
-  }
-  .cta.alternate .tagline span:first-child {
-    color: #989898;
+  .play-reel span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'KlavikaWebBasicMedium';
+    letter-spacing: 3px;
+    color: #575859;
   }
 
   /**************************
@@ -6314,11 +6357,13 @@ tweeners.
   .work-item .work-carousel .work-copy nav a {
     height: 50px;
     width: 50px;
-    background-image: url(http://ml.dev/wp-content/themes/medialoft/assets/images/icons/right-carousel-arrow.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: inline-block;
-    margin-right: 28px;
+    margin-right: 24px;
+  }
+  .work-item .work-carousel .work-copy nav a img {
+    width: 100%;
   }
   .work-item .work-carousel .work-copy nav a.disabled {
     opacity: 0.5;
@@ -6538,7 +6583,6 @@ tweeners.
   }
   .service-section .summary p {
     opacity: 0;
-    display: none;
     font-size: 18px;
     line-height: 24px;
   }
@@ -6618,6 +6662,13 @@ you can add resource intensive styles.
     display: none;
   }
 
+  .main-menu-open #main-menu-btn .open-menu {
+    bottom: auto;
+  }
+  .main-menu-open #main-menu-btn .close-menu {
+    left: auto;
+  }
+
   /**************************
   Cta & Tagline
   ***************************/
@@ -6653,25 +6704,292 @@ you can add resource intensive styles.
   }
 
   /**************************
+  Home
+  ***************************/
+  body.home .cta {
+    width: auto;
+    top: 55%;
+    left: 5%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+    width: auto;
+  }
+
+  .blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(239, 40, 15, 0.8);
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease;
+  }
+  .blur-overlay.show {
+    height: 100%;
+    display: block;
+    opacity: 1;
+  }
+
+  /**************************
   About Page
   ***************************/
   #about-landing {
     background-image: url(../images/mobile/backgrounds/mobile-about-bg.jpg);
   }
 
+  #about-landing .cta {
+    left: 15%;
+    -webkit-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+        transform: translate(0%, -50%);
+  }
+  #about-landing .cta .tagline {
+    font-size: 40px;
+    margin-bottom: 65px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 11px 15px;
+  }
+  #about-landing .cta .tagline span {
+    position: static;
+    background: transparent;
+  }
+  #about-landing .cta p {
+    color: #fff;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  #about-landing .cta .nav-arrow-down {
+    margin-left: 10px;
+  }
+
   #timeline {
     background-color: #313131;
+  }
+
+  #timeline2 .full-bleed {
+    -webkit-transition: none;
+    transition: none;
+  }
+  #timeline2 .large-date {
+    font-family: 'futura_ltregular';
+    font-size: 880px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #3B3B3B;
+    line-height: 640px;
+    z-index: 2;
+    letter-spacing: -42px;
+    -webkit-transition: none;
+    transition: none;
+  }
+
+  .tile {
+    width: calc(100%/6);
+    padding-bottom: calc(100%/6);
+    float: left;
+    position: relative;
+  }
+  .tile.dark {
+    background: #F5F5F5;
+  }
+  .tile.blank {
+    background: transparent;
+  }
+  .tile img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  .tile img + img {
+    opacity: 0;
+  }
+  .tile.blank {
+    background: none;
+  }
+  .tile.blank img {
+    display: none;
   }
 
   #clients {
     background-color: #E5E5E5;
   }
+  #clients .cta {
+    left: 5%;
+    -webkit-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+        transform: translate(0%, -50%);
+  }
+  #clients .cta .tagline {
+    margin: 0;
+    background: transparent;
+  }
+  #clients .cta .tagline span {
+    background-color: #373837;
+    padding: 5px 12px 8px;
+    color: #fff;
+    display: block;
+    float: left;
+    font-size: 40px;
+  }
+  #clients .cta .tagline span:last-child {
+    clear: both;
+    padding-right: 18px;
+  }
 
   #people {
     background-color: #DEDEDE;
   }
+  #people .cta {
+    left: 3%;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+        transform: translate(0, 0);
+  }
+  #people .cta .tagline span {
+    font-size: 40px;
+  }
+  #people .cta .tagline {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+  }
+  #people .cta .tagline span {
+    background-color: rgba(239, 67, 48, 0.9);
+    padding: 5px 10px;
+    color: #fff;
+    display: block;
+    float: left;
+    font-size: 40px;
+  }
   #people .tile img {
     width: 100%;
+  }
+
+  #culture .cta {
+    width: auto;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 40px;
+  }
+  #culture .cta .tagline {
+    margin-bottom: 34px;
+    padding: 7px 24px 12px;
+    background: rgba(239, 67, 48, 0.8);
+    line-height: 40px;
+  }
+  #culture .cta .tagline span {
+    background: transparent;
+  }
+  #culture .cta .play-reel {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  #join-us .cta {
+    display: block;
+  }
+  #join-us .contact-us {
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+    z-index: 2;
+  }
+  #join-us .contact-us .tagline {
+    background: #fff;
+  }
+  #join-us .contact-us .tagline span {
+    font-size: 40px;
+  }
+  #join-us .contact-us .tagline span:first-child {
+    color: #959595;
+  }
+  #join-us .email {
+    color: #fff;
+    margin-top: 40px;
+  }
+  #join-us .email div {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 30px;
+    margin-top: 0;
+  }
+  #join-us .email a {
+    color: #fff;
+    background-color: #EF4330;
+    padding: 8px 20px;
+    display: inline-block;
+    letter-spacing: 1px;
+  }
+  #join-us .email .visit-contact {
+    display: block;
+    margin: 0 0 0 40px;
+    font-size: 13px;
+    font-family: 'KlavikaWebBasicMedium';
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 28px;
+  }
+  #join-us .email .visit-contact a {
+    background: transparent;
+    padding: 0 0 2px 0;
+    border-bottom: solid 1px #fff;
+  }
+  #join-us .email .choose .selected {
+    padding: 0 10px 10px 10px;
+    border-bottom: solid 1px #fff;
+    margin-bottom: 10px;
+  }
+  #join-us .email .choose span {
+    display: block;
+    position: relative;
+  }
+  #join-us .email .choose span + span {
+    cursor: pointer;
+  }
+  #join-us .email .choose span + span i {
+    background-image: url(../images/icons/check.png);
+    display: none;
+    height: 10px;
+    width: 13px;
+    position: absolute;
+    left: -26px;
+    background-size: cover;
+    top: 12px;
+  }
+  #join-us .email .choose span.active i {
+    display: block;
+  }
+  #join-us .email .email-link {
+    text-transform: uppercase;
+    font-size: 13px;
+    margin: 2px 0 0 40px;
+    font-family: 'KlavikaWebBasicMedium';
+    position: relative;
+  }
+  #join-us .email .email-link i {
+    font-size: 8px;
+    position: absolute;
+    top: 50%;
+    left: 85px;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
   }
 
   /**************************
@@ -6690,7 +7008,7 @@ you can add resource intensive styles.
   }
   #contact-landing .hero p {
     font-size: 34px;
-    left: 75px;
+    left: 80px;
   }
   #contact-landing .blur-overlay {
     height: 100%;
@@ -6797,6 +7115,12 @@ you can add resource intensive styles.
     background: transparent;
   }
 
+  .home .blur-overlay {
+    display: block;
+    opacity: 1;
+    height: 100%;
+  }
+
   /**************************
   Work Page
   ***************************/
@@ -6842,6 +7166,9 @@ you can add resource intensive styles.
     width: 100%;
     height: 100%;
   }
+  .work-item .work-carousel .carousel-arrow-nav {
+    display: block;
+  }
   .work-item .work-carousel .carousel-items {
     height: 100%;
     width: 100%;
@@ -6882,6 +7209,9 @@ you can add resource intensive styles.
   .work-item .work-carousel .carousel-image.hovered {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
+  }
+  .work-item .work-carousel .work-copy {
+    padding: 222px 50px 5% 56px;
   }
   .work-item .work-carousel .work-media {
     width: 75%;
@@ -6989,8 +7319,8 @@ you can add resource intensive styles.
     padding: 0;
   }
   .work-item .work-details .description {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 13px;
+    line-height: 24px;
   }
   .work-item .work-details.show-video .work-copy {
     margin-left: -25%;
@@ -7118,6 +7448,58 @@ you can add resource intensive styles.
   be seen on the Desktop.
   
   ******************************************************************/
+  /**************************
+  Cta & Tagline
+  ***************************/
+  .cta .tagline {
+    font-weight: normal;
+    -webkit-animation: down 1s ease forwards;
+    display: inline-block;
+  }
+  .cta .tagline span {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 15px;
+  }
+  .cta .tagline .category {
+    background: transparent;
+    text-transform: uppercase;
+    color: #6E6E6E;
+    font-size: 14px;
+    padding: 0;
+    display: block;
+    margin: 10px 0 0 0;
+  }
+  .cta .tagline.one-liner {
+    padding: 5px 15px;
+  }
+  .cta .tagline.one-liner span {
+    background-color: transparent;
+    padding: 0;
+  }
+  .cta .tagline.alternate-red {
+    background-color: rgba(239, 67, 48, 0.8);
+    color: #fff;
+  }
+  .cta.alternate .tagline span {
+    background-color: #fff;
+    letter-spacing: 1px;
+  }
+  .cta.alternate .tagline span:first-child {
+    color: #989898;
+    top: auto;
+  }
+  .cta.single .tagline h2 {
+    background-color: #ef4330;
+  }
+  .cta.single .tagline span {
+    background-color: transparent;
+    letter-spacing: 1px;
+  }
+
+  /**************************
+  Blog
+  ***************************/
   #blog .articles article {
     height: 50%;
     width: 50%;
@@ -7144,6 +7526,72 @@ you can add resource intensive styles.
   }
   #blog .articles article:nth-child(4) {
     background: #CBCBB6;
+  }
+
+  #main-menu-btn {
+    background: #333;
+    color: #fff;
+    text-transform: lowercase;
+    font-size: 20px;
+  }
+  #main-menu-btn .close-menu {
+    background: #333;
+  }
+  #main-menu-btn .close-menu i {
+    background-image: url(../images/icons/menu-close-white.png);
+  }
+
+  /**************************
+  About Page
+  ***************************/
+  #about-landing {
+    background: transparent;
+  }
+  #about-landing .cta {
+    left: 15%;
+  }
+
+  #about-landing .cta .tagline {
+    font-size: 40px;
+    margin-bottom: 65px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 11px 15px;
+  }
+  #about-landing .cta p {
+    color: #fff;
+    padding-left: 10px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  #about-landing .cta .nav-arrow-down {
+    margin-left: 10px;
+  }
+
+  /**************************
+  Services Page
+  ***************************/
+  .service-section .summary {
+    top: 35%;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+        transform: translateY(0);
+  }
+  .service-section .summary p {
+    -webkit-transform: translateY(40px);
+    -ms-transform: translateY(40px);
+        transform: translateY(40px);
+  }
+  .service-section.show-summary .summary {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+  }
+  .service-section.show-summary .summary p {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+        transform: translateY(0px);
   }
 }
 /*********************

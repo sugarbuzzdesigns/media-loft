@@ -34,14 +34,16 @@
 									</div>
 
 									<nav class="carousel-arrow-nav">
-										<a class="prev" href="#"></a><a class="next" href="#"></a>
+										<a class="prev disabled" href="#"><img src="<?php echo IMG_DIR ?>/icons/left-carousel-arrow.png" alt=""></a>
+										<a class="next" href="#"><img src="<?php echo IMG_DIR ?>/icons/right-carousel-arrow.png" alt=""></a>
 									</nav>
 								</div>
 								<div class="work-media">
 									<?php if($slide['media'][0] == 'image'){ ?>
 										<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $slide['media'][1]; ?>).jpg"></div>
 									<?php } else { ?>
-										<div class="video-bg-container">
+										<div class="video-bg-container <?php if(wp_is_mobile()) { echo 'mobile'; } ?>">
+											<div class="full-bleed" style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/work/mobile-video-posters/target.jpg);"></div>
 											<div class="video-start play-full-screen" data-video="<?php echo replace_spaces(strtolower($companyName)); ?>-video-<?php echo $index; ?>">
 												<div></div>
 												<div></div>
@@ -70,7 +72,8 @@
 									<div class="related-slide">
 										<p class="similar">similar projects</p>
 										<nav class="carousel-arrow-nav">
-											<a class="prev disabled" href="#"></a><a class="next" href="#"></a>
+											<a class="prev disabled" href="#"><img src="<?php echo IMG_DIR ?>/icons/left-carousel-arrow.png" alt=""></a>
+											<a class="next" href="#"><img src="<?php echo IMG_DIR ?>/icons/right-carousel-arrow.png" alt=""></a>
 										</nav>
 									</div>	
 								</div>	

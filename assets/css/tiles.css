@@ -86,6 +86,13 @@
     }
 }
 
+@media screen and ( max-width: 450px ) {
+    .tile {
+        width: calc(100%/3);
+        height: calc(100%/5);
+    }
+}
+
 /*@media screen and ( max-width: 1225px ) {
     .tile {
         width: calc(100%/4);

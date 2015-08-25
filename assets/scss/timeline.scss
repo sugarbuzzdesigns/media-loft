@@ -1,112 +1,24 @@
-/******************************************************************
-Stylesheet: Variables
+#explore-timeline {
+  position: absolute;
+  bottom: 75px;
+  right: 20px;
+  font-family: 'KlavikaWebBasicMedium';
+  z-index: 20;
+}
 
-Here is where we declare all our variables like colors, fonts,
-base values, and defaults. We want to make sure this file ONLY
-contains variables that way our files don't get all messy.
-No one likes a mess.
+#explore-timeline .nav-arrow-right {
+  
+}
 
-******************************************************************/
-/**************************
-Text Colors
-***************************/
-/**************************
-Generi
-***************************/
-/**************************
-Background/Button colors
-***************************/
-/******************************************************************
-Site Name:
-Author:
+#explore-timeline .nav-arrow-right img {
+  transform: rotate(45deg);
+}
 
-Stylesheet: Sass Functions
-
-You can do a lot of really cool things in Sass. Functions help you
-make repeated actions a lot easier. They are really similar to mixins,
-but can be used for so much more.
-
-Anyway, keep them all in here so it's easier to find when you're
-looking for one.
-
-For more info on functions, go here:
-http://sass-lang.com/documentation/Sass/Script/Functions.html
-
-******************************************************************/
-/*********************
-COLOR FUNCTIONS
-These are helpful when you're working
-with shadows and such things. It's essentially
-a quicker way to write RGBA.
-
-Example:
-box-shadow: 0 0 4px black(0.3);
-compiles to:
-box-shadow: 0 0 4px rgba(0,0,0,0.3);
-*********************/
-/*********************
-RESPONSIVE HELPER FUNCTION
-If you're creating a responsive site, then
-you've probably already read
-Responsive Web Design: http://www.abookapart.com/products/responsive-web-design
-
-Here's a nice little helper function for calculating
-target / context
-as mentioned in that book.
-
-Example:
-width: cp(650px, 1000px);
-or
-width: calc-percent(650px, 1000px);
-both compile to:
-width: 65%;
-*********************/
-/******************************************************************
-Site Name:
-Author:
-
-Stylesheet: Mixins Stylesheet
-
-This is where you can take advantage of Sass' great features: Mixins.
-I won't go in-depth on how they work exactly,
-there are a few articles below that will help do that. What I will
-tell you is that this will help speed up simple changes like
-changing a color or adding CSS3 techniques gradients.
-
-A WORD OF WARNING: It's very easy to overdo it here. Be careful and
-remember less is more.
-
-Helpful:
-http://sachagreif.com/useful-sass-mixins/
-http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
-http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
-
-******************************************************************/
-/*********************
-TRANSITION
-*********************/
-/*
-I totally rewrote this to be cleaner and easier to use.
-You'll need to be using Sass 3.2+ for these to work.
-Thanks to @anthonyshort for the inspiration on these.
-USAGE: @include transition(all 0.2s ease-in-out);
-*/
-/*********************
-CSS3 GRADIENTS
-Be careful with these since they can
-really slow down your CSS. Don't overdo it.
-*********************/
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
-/*********************
-BOX SIZING
-*********************/
-/* @include box-sizing(border-box); */
-/* NOTE: value of "padding-box" is only supported in Gecko. So
-probably best not to use it. I mean, were you going to anyway? */
 #timeline2 {
   background-color: #313131;
   overflow-x: scroll;
 }
+
 #timeline2 .timeline-wrap {
   width: 100%;
   height: 100%;
@@ -115,22 +27,29 @@ probably best not to use it. I mean, were you going to anyway? */
   left: 0;
   overflow-x: scroll;
 }
+
 #timeline2 .timeline-wrap article {
   top: 50%;
-  transform: translate(-100%,-50%);
-  transition: all 1.5s ease; 
+  transform: translate(-100%, -50%);
+  transition: all 1.5s ease;
+  opacity: 0.2;
 }
+
 #timeline2.in-view .timeline-wrap article {
   top: 50%;
-  transform: translate(0,-50%);
+  transform: translate(0, -50%);
+  opacity: 1;
 }
+
 #timeline2 .full-bleed {
   z-index: 1;
   opacity: 0.4;
 }
+
 #timeline2 .full-bleed.shown {
   height: 100%;
 }
+
 #timeline2 .full-bleed .cover {
   height: 100%;
   width: 100%;
@@ -139,12 +58,14 @@ probably best not to use it. I mean, were you going to anyway? */
   top: 0;
   left: 0;
 }
+
 #timeline2 .timeline-block {
   border: solid 1px #ccc;
   position: absolute;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
 #timeline2 .timeline-block .info {
   background-color: #F2F2F2;
   position: absolute;
@@ -155,6 +76,7 @@ probably best not to use it. I mean, were you going to anyway? */
   z-index: -1;
   overflow: hidden;
 }
+
 #timeline2 .timeline-block .info .inner {
   width: 70%;
   height: 50%;
@@ -167,21 +89,26 @@ probably best not to use it. I mean, were you going to anyway? */
   top: 50%;
   left: 50%;
 }
+
 #timeline2 .timeline-block .info .inner h5 {
   color: #D8CA53;
   font-size: 20px;
   margin: 0;
 }
+
 #timeline2 .timeline-block .info .inner p {
   color: #444444;
 }
+
 #timeline2 .timeline-block .info.show-me {
   width: 100%;
   height: 100%;
 }
+
 #timeline2 .timeline-block .info.show-me .inner {
   opacity: 1;
 }
+
 #timeline2 .date {
   position: absolute;
   height: 24px;
@@ -191,6 +118,7 @@ probably best not to use it. I mean, were you going to anyway? */
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
+
 #timeline2 .date .close {
   opacity: 0;
   background-image: url(../images/icons/menu-close-white.png);
@@ -204,6 +132,7 @@ probably best not to use it. I mean, were you going to anyway? */
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 #timeline2 .date .num {
   position: absolute;
   top: 50%;
@@ -217,69 +146,86 @@ probably best not to use it. I mean, were you going to anyway? */
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 #timeline2 .date.left-top {
   top: -12px;
   left: -12px;
 }
+
 #timeline2 .date.right-top {
   right: -12px;
   top: -12px;
 }
+
 #timeline2 .date.right-bottom {
   right: -12px;
   bottom: -12px;
 }
+
 #timeline2 .date.left-bottom {
   left: -12px;
   bottom: -12px;
 }
+
 #timeline2 .date:hover {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
 }
+
 #timeline2 .date:hover .num {
   opacity: 1;
 }
+
 #timeline2 .date:hover.left-top {
   top: -30px;
   left: -30px;
 }
+
 #timeline2 .date:hover.right-top {
   right: -30px;
   top: -30px;
 }
+
 #timeline2 .date:hover.right-bottom {
   right: -30px;
   bottom: -30px;
 }
+
 #timeline2 .date:hover.left-bottom {
   left: -30px;
   bottom: -30px;
 }
+
 #timeline2 .date.selected {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
 }
+
 #timeline2 .date.selected .num {
   opacity: 0;
 }
+
 #timeline2 .date.selected .close {
   opacity: 1;
 }
+
 #timeline2 .date.selected.left-top {
   top: -30px;
   left: -30px;
 }
+
 #timeline2 .date.selected.right-top {
   right: -30px;
   top: -30px;
 }
+
 #timeline2 .date.selected.right-bottom {
   right: -30px;
   bottom: -30px;
 }
+
 #timeline2 .date.selected.left-bottom {
   left: -30px;
   bottom: -30px;

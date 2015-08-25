@@ -15,7 +15,7 @@
 			this.currentWorkItem = '';
 			this.filterCat = '';
 			
-			if(ml.env != 'mobile'){
+			if(!isMobile){
 				this.setupWorkPage();
 			}
 			
@@ -48,15 +48,17 @@
 				}
 			});
 
-			_this.$workItems.hover(function(){
-					$(this).find('.work-item-bg').fadeOut();
-					$(this).find('.work-item-bg-hover').fadeIn();
-				},
-				function(){
-					$(this).find('.work-item-bg').fadeIn();
-					$(this).find('.work-item-bg-hover').fadeOut();
-				}
-			);
+			if(!isMobile){
+				_this.$workItems.hover(function(){
+						$(this).find('.work-item-bg').fadeOut();
+						$(this).find('.work-item-bg-hover').fadeIn();
+					},
+					function(){
+						$(this).find('.work-item-bg').fadeIn();
+						$(this).find('.work-item-bg-hover').fadeOut();
+					}
+				);
+			}				
 
 			$('.work-carousel .close').on('click', function(e){
 				e.preventDefault();
@@ -127,6 +129,15 @@
 				e.stopPropagation();
 
 				_this.filterWork(this);
+
+				if(isMobile){
+					setTimeout(function(){
+						$('body').removeClass('right-menu-open');
+					}, 400);
+						
+					$('html', 'body').animate({scrollTop: 0}, 500);
+					console.log('scroll to top');
+				}
 			});
 		
 			$('.carousel-image').on('click', function(){
@@ -151,6 +162,17 @@
 				_this.resetUrl();
 			});	
 
+			$('#work-menu-btn .open-menu').click(function(e){
+				e.preventDefault();
+
+				$('body').addClass('right-menu-open');
+			});
+
+			$('#work-menu-btn .close-menu').click(function(e){
+				e.preventDefault();
+
+				$('body').removeClass('right-menu-open');
+			});			
 		},
 
 		setupWorkPage: function(){
@@ -489,7 +511,7 @@
 			});
 		},
 
-		playFullVideo: function(playBtn){console.log('play full video');
+		playFullVideo: function(playBtn){
 			var _this = this,
 				$playBtn = $(playBtn),
 				videoId = $playBtn.data('video'),
@@ -501,10 +523,7 @@
 					$video.attr('src', videoSrc);
 				}
 
-
 			_this.currentVideo = $video[0];
-
-			console.log();
 
 			$('.work-loop-video', $currentWorkItem).css('opacity', 0); 
 			$('.work-full-video', $currentWorkItem).show().css('opacity', 1);
@@ -513,12 +532,23 @@
 			$('.show-details .work-details').addClass('show-video');
 			$('#main-logo, #main-menu-btn, .carousel-nav').addClass('show-video');
 
+			if(isMobile){
+				$playBtn.fadeOut();
+			}
+
 			$video[0].play();
 			$video.data('started', true);
+
+			$video.on('pause', function(){
+				if(isMobile){
+					$playBtn.fadeIn();
+					$video.hide();
+				}				
+			});
 		},
 
 		stopVideo: function(){
-			this.currentVideo.pause();
+			this.currentVideo.pause();		
 		},
 
 		closeVideo: function(){

@@ -41,6 +41,17 @@ Other Misc menu stuff
 	display: none;
 }
 
+.main-menu-open {
+	#main-menu-btn {
+		.open-menu {
+			bottom: auto;
+		}
+
+		.close-menu {
+			left: auto;
+		}
+	}
+}
 /**************************
 Cta & Tagline
 ***************************/		
@@ -85,22 +96,199 @@ Cta & Tagline
 }
 
 /**************************
+Home
+***************************/	
+body.home .cta {
+    width: auto;
+    top: 55%;
+    left: 5%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    width: auto;	
+}
+
+.blur-overlay {
+	position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(239, 40, 15, 0.8);
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease; 
+
+
+    &.show {
+    	height: 100%;
+    	display: block;
+    	opacity: 1;
+	}
+}
+
+/**************************
 About Page
 ***************************/
 #about-landing {
 	background-image: url(../images/mobile/backgrounds/mobile-about-bg.jpg);
 }
 
+#about-landing {
+	.cta {
+	    left: 15%;
+		-webkit-transform: translate(0%, -50%);	    
+	    transform: translate(0%, -50%);
+		
+		.tagline {
+		    font-size: 40px;
+		    margin-bottom: 65px;
+		    background: rgba(255, 255, 255, 0.9);
+		    padding: 11px 15px;
+
+		    span {
+		    	position: static;
+		    	background: transparent;
+		    }
+		}
+
+		p {
+			color: #fff;
+			line-height: 24px;
+			margin-bottom: 30px;
+		}
+
+		.nav-arrow-down {
+			margin-left: 10px;
+		}
+	}
+}
+
 #timeline {
 	background-color: $page-bg-drk-grey;
 }
 
+#timeline2 {
+	.full-bleed {
+		@include cancel-transition;
+	}
+
+	.large-date {
+	    font-family: 'futura_ltregular';
+	    font-size: 880px;
+	    position: absolute;
+	    bottom: 0;
+	    right: 0;
+	    color: #3B3B3B;
+	    line-height: 640px;
+	    z-index: 2;
+	    letter-spacing: -42px;
+	    @include cancel-transition;
+
+	}
+}
+
+.tile {
+	width: calc(100%/6);
+    padding-bottom: calc(100%/6);
+	float: left;
+	position: relative;
+
+	&.dark {
+		background: #F5F5F5;
+	}
+
+	&.blank {
+		background: transparent;
+	}
+
+	img {
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%,-50%);
+		        transform: translate(-50%,-50%);
+		width: 100%;
+
+		& + img {
+			opacity: 0;
+		}
+	}
+
+	&:nth-child(2n){
+
+	}
+
+	&.blank {
+		background: none;
+		
+		img {
+			display: none;
+		}
+	}
+}
+
 #clients {
 	background-color: #E5E5E5;
+
+	.cta {
+		left: 5%;
+	    -webkit-transform: translate(0%, -50%);
+	    transform: translate(0%, -50%);		
+
+		.tagline {
+			margin: 0;
+			background: transparent;
+
+			span {
+				background-color: #373837;
+				padding: 5px 12px 8px;
+				color: #fff;
+				display: block;
+				float: left;
+				font-size: 40px;
+
+				&:last-child {
+					clear: both;
+					padding-right: 18px;
+				}
+			}
+		}
+	}	
 }
 
 #people {
 	background-color: #DEDEDE;
+
+	.cta {
+		left: 3%;
+		-webkit-transform: translate(0,0);
+		        transform: translate(0,0);
+
+
+		.tagline {
+			span {
+				font-size: 40px;
+			}
+		}
+	}
+
+	.cta {
+
+		.tagline {
+			background: transparent;
+			margin: 0;
+			padding: 0;
+			
+			span {
+				background-color: rgba(239, 67, 48, 0.9);
+				padding: 5px 10px;
+				color: #fff;
+				display: block;
+				float: left;
+				font-size: 40px;
+			}
+		}
+	}	
 
 	.tile {
 		img {
@@ -110,11 +298,152 @@ About Page
 }
 
 #culture {
+	.cta {
+		width: auto;
+	    top: 50%;
+	    left: 50%;
+	    -webkit-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
+	    text-align: center;	
+	    font-size: 40px;	
+
+	    .tagline {
+	    	margin-bottom: 34px;
+			padding: 7px 24px 12px;
+			background: rgba(239, 67, 48, 0.8);
+			line-height: 40px;
+
+	    	span {
+	    		background: transparent;
+	    	}
+	    }
+
+		.play-reel {
+			text-align: center;
+			padding-left: 0;
+		}
+
+	}
+
 	&.play-full-video {
 		#about-culture-video-loop {
 
 		}
 	}
+}
+
+#join-us {
+	.cta {
+		display: block;		
+	}
+
+	.contact-us {
+		position: absolute;
+		top: 50%;
+		left: 12%;
+		-webkit-transform: translate(0, -50%);
+		        transform: translate(0, -50%);
+		z-index: 2;
+
+		.tagline {
+			background: #fff;
+
+			span {
+				font-size: 40px;
+			}
+
+			span:first-child {
+				color: #959595;
+			}
+		}
+	}
+
+	.email {
+		color: #fff;
+		margin-top: 40px;
+
+		div {
+			display: inline-block;
+			vertical-align: top;
+			font-size: 30px;
+			margin-top: 0;
+		}
+
+		a {
+			color: #fff;
+			background-color: #EF4330;
+			padding: 8px 20px;
+			display: inline-block;
+			letter-spacing: 1px;
+		}
+
+		.visit-contact {
+			display: block;
+			margin: 0 0 0 40px;
+			font-size: 13px;
+			font-family: 'KlavikaWebBasicMedium';
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			margin-top: 28px;
+
+			a {
+				background: transparent;
+				padding: 0 0 2px 0;
+				border-bottom: solid 1px #fff;
+			}
+		}	
+
+		.choose {
+			.selected {
+			    padding: 0 10px 10px 10px;
+			    border-bottom: solid 1px #fff;
+			    margin-bottom: 10px;
+			}
+
+			span {
+				display: block;
+				position: relative
+			}
+
+			span + span {
+				cursor: pointer;
+
+				i {
+					background-image: url(../images/icons/check.png);
+					display: none;
+				    height: 10px;
+				    width: 13px;
+				    position: absolute;
+				    left: -26px;
+				    background-size: cover;
+				    top: 12px;
+				}
+			}
+
+			span.active {
+				i {
+					display: block;
+				}
+			}
+		}
+
+		.email-link {
+			text-transform: uppercase;
+			font-size: 13px;
+    		margin: 2px 0 0 40px;	
+    		font-family: 'KlavikaWebBasicMedium';
+    		position: relative;
+    		
+    		i {
+    			font-size: 8px;
+    			position: absolute;
+    			top: 50%;
+    			left: 85px;
+    			-webkit-transform: translate(0, -50%);
+    			        transform: translate(0, -50%);
+    		}		
+		}
+	}		
 }
 
 /**************************
@@ -136,7 +465,7 @@ Contact page
 
 		p {
 			font-size: 34px;
-			left: 75px;			
+			left: 80px;			
 		}
 	}
 
@@ -244,6 +573,12 @@ body.home {
 	background: transparent;
 }	
 
+.home .blur-overlay {
+	display: block;
+	opacity: 1;
+	height: 100%;
+}
+
 /**************************
 Work Page
 ***************************/
@@ -296,6 +631,10 @@ Work Page
 		display: none;
 	    width: 100%;
 	    height: 100%;
+
+		.carousel-arrow-nav {
+			display: block;
+		}	    
 
 		.carousel-items {
 			height: 100%;
@@ -352,6 +691,7 @@ Work Page
 		}
 
 		.work-copy {
+			padding: 222px 50px 5% 56px;
 
     		nav {
 
@@ -504,8 +844,8 @@ Work Page
     	}
 
     	.description {
-		    font-size: 14px;
-		    line-height: 20px;    		
+		    font-size: 13px;
+		    line-height: 24px;    		
     	}
 
     	&.show-video {

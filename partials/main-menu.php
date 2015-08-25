@@ -9,8 +9,9 @@
 			<span class="open-menu"><?php echo strtolower(get_the_title()); ?></span>
 			<?php } ?>
 		<?php } ?>
-		<?php if(wp_is_mobile()){ } ?>
-			<!-- <span class="close-menu"><i></i></span> -->
+		<?php if(wp_is_mobile()){ ?> 
+			<span class="close-menu"><i></i></span>
+		<?php } ?>
 	</a>
 	<div id="menu-interior">
 		<a class="logo" href="/">

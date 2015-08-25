@@ -39,8 +39,11 @@ var $ = jQuery;
 				$('#menu-overlay').stop().fadeTo('fast',0);
 			});			
 
-			$('.home .play-reel').on('click', function(e){
+			$('.home .play-reel, .blur-overlay').on('click', function(e){
 				e.preventDefault();
+				e.stopPropagation();
+
+				console.log('hello');
 
 				_this.playHomeVideo();
 			});			
@@ -50,6 +53,16 @@ var $ = jQuery;
 
 				_this.closeHomeVideo();
 			});	
+
+			if(isMobile){
+				$('.close-menu').click(function(){
+					$('body').removeClass('main-menu-open');
+				});
+			}
+
+			$('#home-video-full').on('ended', function(){
+				_this.closeHomeVideo();
+			});
 
 			this.startLandingVideo();
 		},

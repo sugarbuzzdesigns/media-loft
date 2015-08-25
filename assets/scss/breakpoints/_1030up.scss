@@ -8,6 +8,93 @@ This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop.
 
 ******************************************************************/
+/**************************
+Cta & Tagline
+***************************/		
+.cta {
+	// width: 270px;
+	// position: absolute;
+	// z-index: 2;
+	// top: 55%;
+	// left: 50%;
+	// -webkit-transform: translate(-50%, -50%);
+	//         transform: translate(-50%, -50%);
+
+	&.centered {
+		// top: 50%;
+		// left: 50%;		
+		// -webkit-transform: translate(-50%, -50%);
+		//         transform: translate(-50%, -50%);	
+  //   	text-align: center;		        
+	}
+
+	.tagline {
+		font-weight: normal;
+		-webkit-animation: down 1s ease forwards;
+		display: inline-block;
+
+		span {
+			display: inline-block;
+			background: rgba(255, 255, 255, 0.8);
+			padding: 5px 15px;
+		}
+
+		.category {
+		    background: transparent;
+		    text-transform: uppercase;
+		    color: #6E6E6E;
+		    font-size: 14px;
+		    padding: 0;
+		    display: block;
+		    margin: 10px 0 0 0;
+		}
+
+	    &.one-liner {
+	    	padding: 5px 15px;
+
+	    	span {
+	    		background-color: transparent;
+	    		padding: 0;
+	    	}
+	    }	
+
+	    &.alternate-red {
+	    	background-color: rgba(239, 67, 48, 0.8);
+	    	color: #fff;
+	    }
+	}
+	
+	&.alternate {
+		.tagline {
+			span {
+				background-color: #fff;
+				letter-spacing: 1px;
+			}
+
+			span:first-child {
+				color: #989898;
+				top: auto;
+			}
+		}	
+	}
+
+	&.single {
+		.tagline {
+			h2 {
+				background-color: rgba(239, 67, 48, 1);
+			}
+
+			span {
+				background-color: transparent;
+				letter-spacing: 1px;
+			}
+		}			
+	}	
+}
+
+/**************************
+Blog
+***************************/		
 #blog {
 	.articles {
 		article {
@@ -43,6 +130,86 @@ be seen on the Desktop.
 
 			&:nth-child(4) {
 				background: #CBCBB6;
+			}
+		}
+	}
+}
+
+#main-menu-btn {
+	background: #333;
+	color: #fff;
+	text-transform: lowercase;
+	font-size: 20px;
+
+	.close-menu {
+		background: #333;
+		
+		i {
+			background-image: url(../images/icons/menu-close-white.png);
+		}
+	}
+}
+
+
+/**************************
+About Page
+***************************/		
+#about-landing {
+	background: transparent;
+
+	.cta {
+		left: 15%;
+	}
+}
+
+#about-landing {
+	.cta {
+
+		.tagline {
+			font-size: 40px;
+			margin-bottom: 65px;
+			background: rgba(255,255,255, 0.9);
+			padding: 11px 15px;
+		}
+
+		p {
+			color: #fff;
+			padding-left: 10px;
+			line-height: 24px;
+			margin-bottom: 30px;
+		}
+
+		.nav-arrow-down {
+			margin-left: 10px;
+		}
+	}
+}
+
+/**************************
+Services Page
+***************************/
+.service-section {
+	.summary {
+	    top: 35%;
+	    -webkit-transform: translateY(0);
+	            transform: translateY(0);		
+
+		p {
+			-webkit-transform: translateY(40px);
+			        transform: translateY(40px);
+		}
+	}
+
+	&.show-summary {
+		.summary {
+			top: 50%;
+		    -webkit-transform: translateY(-50%);
+		            transform: translateY(-50%);				
+
+			p {
+				opacity: 1;
+				-webkit-transform: translateY(0px);
+				        transform: translateY(0px);
 			}
 		}
 	}

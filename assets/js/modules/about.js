@@ -4,6 +4,8 @@ ml.About = {};
 	ml.About.Global = {
 		init: function(){
 			this.bindEvents();
+
+			this.positionPeopleTagline();
 		},
 		bindEvents: function(){
 			var _this = this;
@@ -22,7 +24,7 @@ ml.About = {};
 			});	
 
 			$('.nav-arrow-down').on('click', function(){
-				_this.scrollToSection($('#about-menu li').eq(1));
+				_this.scrollToSection($('#about-menu li').eq(0));
 			});
 
 			$('.email .choice').on('click', function(){
@@ -39,6 +41,25 @@ ml.About = {};
 				_this.stopCultureVideo();
 			});
 
+			$('#about-culture-video-full').on('ended', function(){
+				_this.stopCultureVideo();
+			});
+
+		},
+		positionPeopleTagline: function(){
+			var tileHeight = $('#people .tile').height(),
+				$cta = $('#people .cta'),
+				$tagline = $('#people .cta .tagline'),
+
+				ctaHeight = 58,
+				taglineHeight = $tagline.height(),
+				
+				heightDiff = ctaHeight - taglineHeight,
+				topPos = tileHeight*2 - ctaHeight;
+
+				console.log(ctaHeight);
+
+			$cta.css({top: topPos});
 		},
 		scrollToSection: function(menuItem){
 			var $menuItem = $(menuItem),
@@ -87,6 +108,7 @@ ml.About = {};
 
 			$('#about-culture-video-loop').fadeIn();
 			$('#about-culture-video-full')[0].pause();
+			$('#about-culture-video-full')[0].currentTime = 0;
 		},					
 	};
 	
@@ -123,29 +145,113 @@ ml.About = {};
 		var timeLineWaypoit = $('#timeline2').waypoint({
 		  handler: function(direction) {
 		  	if (direction === 'down') {
-		  		console.log('down');
+		  		// console.log('down');
 				$(this.element).addClass('in-view');
+
+				setTimeout(function(){
+					$('.date').eq(0).addClass('hover');
+				}, 500);
+
+				setTimeout(function(){
+					$('.date').eq(0).removeClass('hover');
+				}, 2200);
+
+				setTimeout(function(){
+					$('.date').eq(3).addClass('hover');
+				}, 800);
+
+				setTimeout(function(){
+					$('.date').eq(3).removeClass('hover');
+				}, 2200);
+
+				setTimeout(function(){
+					$('.date').eq(5).addClass('hover');
+				}, 1100);
+
+				setTimeout(function(){
+					$('.date').eq(5).removeClass('hover');
+				}, 2200);	
+
+				setTimeout(function(){
+					$('.date').eq(8).addClass('hover');
+				}, 1100);
+
+				setTimeout(function(){
+					$('.date').eq(8).removeClass('hover');
+				}, 2200);												
 		  	}
 		  },
-		  offset: '50%'
+		  offset: '20%'
 		});			
+
+		$('#people .tile').flip({
+			trigger: 'manual'
+		});
 
 		var employeeTiles = $('#people .tile').waypoint({
 		  handler: function(direction) {
 		  	if (direction === 'down') {
-		  		console.log('down');
 				$(this.element).addClass('in-view');
+
+				$(this.element).each(function(){
+					$(this).flip(true);
+				});			
 		  	} else {
-				// $(this.element.offsetParent).removeClass('in-view');
+				$(this.element).removeClass('in-view');
+
+				$(this.element).each(function(){
+					$(this).flip(false);
+				});					
 		  	}
 		  },
 		  offset: '80%'
 		});		
 
+		var employeeTiles2 = $('#people .tile').waypoint({
+		  handler: function(direction) {
+		  	if (direction === 'down') {
+				$(this.element).removeClass('in-view');
+
+				$(this.element).each(function(){
+					$(this).flip(false);
+				});			
+		  	} else {
+				$(this.element).addClass('in-view');
+
+				$(this.element).each(function(){
+					$(this).flip(true);
+				});					
+		  	}
+		  },
+		  offset: '-20%'
+		});				
+
+		var employeeSections = $('#people').waypoint({
+		  handler: function(direction) {
+		  	if (direction === 'up') {
+		  		console.log('out of view up');
+		  	} else {
+		  		console.log('in view down');
+		  	}
+		  },
+		  offset: '80%'
+		});		
+
+		var employeeSection2 = $('#people').waypoint({
+		  handler: function(direction) {
+		  	if (direction === 'down') {
+		  		console.log('out of view down');
+		  	} else {
+		  		console.log('in view up');
+		  	}
+		  },
+		  offset: '-80%'
+		});			
+
 		var clientsWaypoint = $('#clients').waypoint({
 		  handler: function(direction) {
 		  	if (direction === 'down') {
-		  		console.log('down');
+		  		// console.log('down');
 				$(this.element).addClass('in-view');
 		  	} else {
 				// $(this.element.offsetParent).removeClass('in-view');
@@ -157,10 +263,10 @@ ml.About = {};
 		var cultureWaypoint = $('#culture').waypoint({
 			handler: function(direction) {
 				if (direction === 'down') {
-					console.log('in from top');
+					// console.log('in from top');
 				} else {
 					// stop video
-					$('#about-culture-video-full')[0].pause();
+					ml.About.Global.stopCultureVideo();
 				}
 			},
 			offset: '20%'
@@ -172,7 +278,7 @@ ml.About = {};
 					console.log('in from bottom');
 				} else {
 					// stop video
-					$('#about-culture-video-full')[0].pause();
+					ml.About.Global.stopCultureVideo();
 				}
 			},
 			offset: '-80%'

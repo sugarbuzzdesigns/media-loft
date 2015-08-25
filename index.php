@@ -87,7 +87,7 @@
 					<a href="#" data-related-article="" class="related-article blank"></a>
 				</div>					
 			</article>
-			<article id="10-tips-for-a-better-powerpoint-presentation" class="collapsed blog-article">
+			<article id="10-tips-for-a-better-powerpoint-presentation" class="collapsed blog-article no-related-articles">
 				<a class="header" href="#" class="header">
 					<div class="inner">
 						<div class="header-copy">
@@ -132,7 +132,7 @@
 					</a>
 				</div>	 -->				
 			</article>
-			<article id="same-great-companyall-new-brand" class="collapsed blog-article">
+			<article id="same-great-companyall-new-brand" class="collapsed blog-article no-related-articles">
 				<a class="header" href="#" class="header">
 					<div class="inner">
 						<div class="header-copy">

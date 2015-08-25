@@ -6,7 +6,7 @@
 			
 			this.container = $('#clients');
 			this.tileLimit = 8;
-			this.swapSpeed = 3000;
+			this.swapSpeed = 2000;
 
 			this.swapInterval = null;
 
@@ -107,7 +107,7 @@
 
 		addImage: function(tile, client){
 			$(tile).append('<img src="'+ imgDir + '/clients/' + client + '"/>');
-			$(tile).append('<div class="hover"><img src="'+ imgDir + '/clients/hover/' + client + '"/></div>');
+			$(tile).append('<div class="hover"><img src="'+ imgDir + '/clients/hover/' + client.substring(0, client.length - 3) + 'jpg"/></div>');
 			$(tile).attr('data-client-img', client);
 		},
 

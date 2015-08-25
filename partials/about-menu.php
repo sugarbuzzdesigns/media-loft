@@ -9,7 +9,6 @@
 
 <nav class="right-menu" id="about-menu">
 	<ul>
-		<li data-section-name="#about-landing" class="active"><a href="#about-landing">About</a></li>
 		<li data-section-name="#timeline2"><a href="#timeline">History</a></li>
 		<li data-section-name="#clients"><a href="#clients">Clients</a></li>
 		<li data-section-name="#people"><a href="#people">People</a></li>

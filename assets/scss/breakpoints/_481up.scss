@@ -26,7 +26,7 @@ them in here, they won't work.
 Main Nav
 ***************************/
 #main-menu {
-	min-width: 200px;
+	min-width: 300px;
 	width: 25%;
 	left: -100%;
 	padding-top: 0;
@@ -104,13 +104,12 @@ Other Misc menu stuff
 #menu-overlay {
     position: fixed;
     height: 100%;
-    width: 100%;
+    width: 0%;
     background-color: rgba(255,255,255,0.5);
     top: 0;
     left: 0;
     display: none;
     opacity: 0;	
-    z-index: -1;
     -moz-transition: none;
     -webkit-transition: none;
     -o-transition: color 0 ease-in;
@@ -120,7 +119,8 @@ Other Misc menu stuff
 .main-menu-open {
 	#menu-overlay {
 		opacity: 1;
-		z-index: 1;
+		width: 100%;
+		z-index: 24;
 	}
 }
 
@@ -138,6 +138,7 @@ Main Menu Styles
 
 	.open-menu {
 		display: block;	
+		padding: 26px 28px 0;
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -151,57 +152,20 @@ Main Menu Styles
 /**************************
 Cta & Tagline
 ***************************/		
-.home .cta .tagline {
-	background: transparent;
-}
 
-.cta {
-	width: auto;
-	top: 55%;
-	left: 5%;
-	-webkit-transform: translate(0, -50%);
-	        transform: translate(0, -50%);	
-	width: auto;
+.play-reel {
+	display: block;
 
-
-	.tagline {
-		font-weight: normal;
-		transition: none;
-		background: rgba(255, 255, 255, 0.8);
-		-webkit-animation: down 1s ease forwards;
-		padding: 0;
-
-		span {
-			transition: none;
-			font-size: 35px;
-		}
-
-		.category {
-		    background: transparent;
-		    color: #6E6E6E;
-		    font-size: 14px;
-		    padding: 0;
-		    display: block;
-		    margin: 20px 0 0 0;
-		    transition: none;
-		}
+	span {
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 10px;
+		text-transform: uppercase;
+		font-size: 14px;
+		font-family: 'KlavikaWebBasicMedium';
+		letter-spacing: 3px;
+		color: #575859;
 	}
-	
-	&.alternate {
-		width: auto;
-
-		.tagline {
-			span {
-				background: transparent;
-				letter-spacing: 1px;
-				padding: 0;
-			}
-
-			span:first-child {
-				color: #989898;
-			}
-		}	
-	}	
 }
 
 /**************************
@@ -572,11 +536,14 @@ Work Page
     			a {
 				    height: 50px;
 				    width: 50px;
-				    background-image: url(http://ml.dev/wp-content/themes/medialoft/assets/images/icons/right-carousel-arrow.png);
 				    background-repeat: no-repeat;
 				    background-size: cover;
 				    display: inline-block;
-				    margin-right: 28px;
+				    margin-right: 24px;
+
+				    img {
+				    	width: 100%;
+				    }
 
 				    &.disabled {
 				    	opacity: 0.5;
@@ -864,7 +831,6 @@ Services Page
 
 	    p {
 			opacity: 0;
-			display: none;
 			font-size: 18px;
 			line-height: 24px;
 	    }

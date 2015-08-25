@@ -33,7 +33,11 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				<span>40 great years</span>
 				<span>an ongoing success story.</span>
 			</h2>		
-			<p>Media Loft is a 100% employee-owned company that produces corporate<br>events across the globe, with account, technical, creative, design, video<br>production and interactive technology services all under one roof.</p>
+			<?php if(!wp_is_mobile()){ ?> 
+				<p>Media Loft is a 100% employee-owned company that produces corporate<br>events across the globe, with account, technical, creative, design, video<br>production and interactive technology services all under one roof.</p>
+			<?php } else { ?>
+				<p>Media Loft is a 100% employee-owned company that produces corporate events across the globe, with account, technical, creative, design, video production and interactive technology services all under one roof.</p>
+			<?php } ?>
 			<div class="nav-arrow-down animate-flicker">
 				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down.png" alt="Media Loft" />
 				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down.png" alt="Media Loft" />
@@ -42,7 +46,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 
 		<?php if(!wp_is_mobile()){ ?> 
 			<div class="video-bg-container">
-				<video id="landing-video" loop style="opacity: 0.3; background-image:url(<?php echo VID_DIR ?>/about/posters/Roof_Timelapse_02_H264_10K.jpg);">
+				<video id="landing-video" loop style="background-image:url(<?php echo VID_DIR ?>/about/posters/Landing_About_BW.jpg);">
 					<source src="https://player.vimeo.com/external/136884073.hd.mp4?s=d28c568b4bdd7b30fc2e1e9693c34fa7&profile_id=113">
 				</video>
 			</div>
@@ -52,6 +56,13 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 	<section data-section-name="section-timeline2" id="timeline2">
 		<div class="large-date-wrap">
 			<span class="large-date">74</span>
+		</div>
+		<div id="explore-timeline">
+			<span>explore our history</span>
+			<div class="nav-arrow-right animate-flicker">
+				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down.png" alt="Media Loft" />
+				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down.png" alt="Media Loft" />
+			</div>	
 		</div>	
 
 		<div class="timeline-wrap">
@@ -68,12 +79,17 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 	<section data-section-name="section-clients" class="tile-container" id="clients">
 		<div class="cta alternate">
 			<h2 class="tagline">
-				<span>relationships measured in decades,</span>
-				<span>not years.</span>
+				<?php if(!wp_is_mobile()){ ?> 
+					<span>relationships measured in decades,</span>	
+					<span>not years.</span>
+				<?php } else { ?>	
+					<span>relationships measured</span>	
+					<span>in decades, not years.</span>	
+				<?php } ?>
 			</h2>
 		</div>	
+		<div data-img="" class="tile empty"></div>
 		<div data-img="" class="tile client dark"></div>
-		<div data-img="" class="tile client"></div>
 		<div data-img="" class="tile client"></div>
 		<div data-img="" class="tile client dark"></div>
 		<div data-img="" class="tile client"></div>
@@ -92,9 +108,10 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div data-img="" class="tile client dark"></div>
 		<div data-img="" class="tile client"></div>
 		<div data-img="" class="tile client dark"></div>
-		<div class="scaling-svg-container" style="padding-bottom: 124.6%;">
+
+		<div class="scaling-svg-container">
 			<svg class="scaling-svg" version="1.1" id="shape-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		 		width="473.25px" height="589.75px" viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">
+		 		preserveAspectRatio="xMidYMid slice" height="0" width="0" viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">
 			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M420.667,288.398l49.592-49.592
 				c1.687-1.687,1.687-4.422,0-6.109L240.479,2.916c-1.688-1.687-4.424-1.687-6.11,0L121.684,115.601c-1.687,1.687-1.687,4.422,0,6.109
 				l166.259,166.26"/>
@@ -109,8 +126,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				c1.688,1.688,4.422,1.688,6.109,0l109.818-109.761c1.687-1.688,3.277-4.213,2.865-9.033l0.8-129.685"/>
 			<line fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" x1="1.186" y1="338.904" x2="1.573" y2="471.645"/>
 			</svg>
-		</div>
-		<!-- <img data-img="" class="svg-bg" id="services-landing-svg-bg" src="<?php bloginfo('template_directory'); ?>/assets/vectors/services/services-landing-bg-vector.svg">		 -->
+		</div>	
 	</section>
 	<section data-section-name="section-people" class="tile-container" id="people">
 		<div class="cta alternate">
@@ -118,7 +134,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				<span>our people make it all possible.</span>
 			</h2>
 		</div>	
-		<div class="tile employee"></div>
+		<div class="tile empty"></div>
 		<div class="tile employee"></div>
 		<div class="tile employee"></div>
 		<div class="tile employee"></div>
@@ -160,9 +176,17 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 	</section>
 	<section data-section-name="section-culture" id="culture">
 		<div class="cta centered">
+			<?php if(!wp_is_mobile()){ ?> 
 			<h2 class="tagline one-liner alternate-red">
 				<span>fun is <em>always</em> in the equation</span>
-			</h2>		
+			</h2>	
+			<?php } else { ?>
+			<h2 class="tagline alternate-red">
+				<span>fun is <em>always</em> in</span>
+				<span>the equation</span>	
+			</h2>
+			<?php } ?>
+
 			<a class="play-reel" href="#">
 				<i class="ml-play black"></i>
 				<span>Look Inside</span>
@@ -175,16 +199,16 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				<video id="about-culture-video-loop" autoplay loop style="background-image:url(<?php echo VID_DIR ?>/about/posters/Who_We_Are_Clicked.jpg);">
 					<source src="https://player.vimeo.com/external/136642425.sd.mp4?s=db0fe3877230369658d8e2e08a7796bc&profile_id=112">
 				</video>
-				<a href="" class="close-video"><i></i></a>				
 			</div>
 			<div class="blur-overlay show"></div>	
 		<?php } ?>	
 		<div class="video-overlay">
-			<video id="about-culture-video-full" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
+			<video id="about-culture-video-full" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
 				<source src="https://player.vimeo.com/external/136641924.hd.mp4?s=bd657664d75006514d6ad9e03e56a317&profile_id=113">
 			</video>
 			<a href="#" class="close-video"><i></i></a>				
-		</div>		
+		</div>	
+		<?php if(wp_is_mobile()){ ?> <div class="full-bleed" style="background-image:url(<?php echo IMG_DIR ?>/mobile/backgrounds/about/Culture_Vid_Static_BG.jpg);"></div><?php } ?>
 	</section>
 	<section data-section-name="section-join-us" id="join-us">
 		<div class="contact-us">
@@ -197,13 +221,13 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 			<div class="email">
 				<div>work</div> 
 				<div class="choose">
-					<span class="selected">at</span>
-					<span class="choice" data-mailto="mailto:contact@medialoft.com"><i class="check"></i> with</span>
-					<span class="choice active" data-mailto="mailto:careers@medialoft.com"><i class="check"></i> at</span>
+					<span class="selected">with</span>
+					<span class="choice active" data-mailto="mailto:contact@medialoft.com"><i class="check"></i> with</span>
+					<span class="choice" data-mailto="mailto:careers@medialoft.com"><i class="check"></i> at</span>
 				</div> 
 				<div>media loft</div>
 				<div class="right-col">
-					<div class="email-link"><a href="mailto:work@medialoft.com">talk to us</a></div>
+					<div class="email-link"><a href="mailto:contact@medialoft.com">talk to us</a></div>
 					<div class="visit-contact"><span>or </span><a href="<?php echo get_site_url(); ?>/contact">visit contact page <i class="fa fa-chevron-right"></i></a></div>
 				</div>	
 			</div>			
@@ -245,7 +269,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 					<span class="close"></span>
 					<span class="info">New digs inspires first branding refresh</span>
 				</a>	
-				<a href="#" data-info-id="1979" data-bg-image="1979_Media_Loft_FirstPromo_ScreenGrab.jpg" class="date left-top">
+				<a href="#" data-info-id="1979" data-bg-image="1979_R_Smith_Shuneman.jpg" class="date left-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Media Loft founder R. Smith Schuneman with Show Pro 5, a (then) state-of-the-art multi-image computer system<span>
@@ -284,7 +308,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 
 			<!-- Start new part of timeline -->
 			<div class="timeline-block bottom">
-				<a href="#" data-info-id="1986" data-bg-image="1974_Media_Loft_FirstLogo2.jpg" class="date left-top">
+				<a href="#" data-info-id="1986" data-bg-image="1986_Union_Plaza01.jpg" class="date left-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Company moves to larger space in Union Plaza Building, and produces first Target event (29+ year partnership)</span>
@@ -363,7 +387,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				</a>															
 			</div>
 			<div class="timeline-block bottom">
-				<a href="#" data-info-id="2001" data-bg-image="BLANK" class="date right-bottom">
+				<a href="#" data-info-id="2001" data-bg-image="2001_BestBuyEvent.jpg" class="date right-bottom">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">First production in an annual series of Best Buy gala events that continue to the present day, with 3,000 attendees entertained by the likes of Elton John, Beyoncé, Aerosmith and Sheryl Crow</span>
@@ -385,7 +409,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 					<span class="close"></span>
 					<span class="info">8-track party invite marks Media Loft’s 30th year</span>
 				</a>
-				<a href="#" data-info-id="2005" data-bg-image="BLANK" class="date right-top">
+				<a href="#" data-info-id="2005" data-bg-image="2005_BMWEvent.jpg" class="date right-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Produce BMW event in South Miami Beach to introduce new 3 Series to North American and Latin American dealers</span>
