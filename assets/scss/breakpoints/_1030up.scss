@@ -8,6 +8,13 @@ This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop.
 
 ******************************************************************/
+#mobile-svg-bg, .mobile-bg-corner {
+	display: none;
+}
+
+.video-bg-container {
+	display: block;
+}
 /**************************
 Cta & Tagline
 ***************************/		
@@ -32,25 +39,19 @@ Cta & Tagline
 		font-weight: normal;
 		-webkit-animation: down 1s ease forwards;
 		display: inline-block;
+		padding: 14px 15px;
 
 		span {
 			display: inline-block;
-			background: rgba(255, 255, 255, 0.8);
-			padding: 5px 15px;
+			background: transparent;
+			padding: 0;
 		}
 
 		.category {
-		    background: transparent;
-		    text-transform: uppercase;
-		    color: #6E6E6E;
-		    font-size: 14px;
-		    padding: 0;
-		    display: block;
-		    margin: 10px 0 0 0;
+
 		}
 
 	    &.one-liner {
-	    	padding: 5px 15px;
 
 	    	span {
 	    		background-color: transparent;
@@ -101,7 +102,7 @@ Blog
 			height: 50%;
 			width: 50%;
 			float: left;
-			background: #CBCBB6;
+			background: #BDBDA6;
 			position: relative;
 
 			.info {
@@ -125,17 +126,17 @@ Blog
 			// pseudo and classes for article
 			&:nth-child(2),
 			&:nth-child(3) {
-				background: #D8D8C2;
+				background: #CDCDB4;
 			}	
 
 			&:nth-child(4) {
-				background: #CBCBB6;
+				background: #BDBDA6;
 			}
 		}
 	}
 }
 
-#main-menu-btn {
+.main-menu-btn {
 	background: #333;
 	color: #fff;
 	text-transform: lowercase;
@@ -157,19 +158,17 @@ About Page
 #about-landing {
 	background: transparent;
 
+	.blur-overlay {
+		display: block;
+	}	
+
 	.cta {
 		left: 15%;
-	}
-}
-
-#about-landing {
-	.cta {
 
 		.tagline {
-			font-size: 40px;
-			margin-bottom: 65px;
+			margin-bottom: 45px;
 			background: rgba(255,255,255, 0.9);
-			padding: 11px 15px;
+			padding: 14px 15px;
 		}
 
 		p {
@@ -182,7 +181,31 @@ About Page
 		.nav-arrow-down {
 			margin-left: 10px;
 		}
+	}	
+}
+
+#landing-video {
+	display: block;
+}
+
+#people {
+
+	.cta {
+
+		.tagline {
+			span {
+				font-size: 40px;
+				padding: 10px 12px;
+			}
+		}
 	}
+}
+
+/**************************
+CONTACT PAGE
+***************************/		
+.full-bleed {
+	display: block;
 }
 
 /**************************
@@ -202,10 +225,6 @@ Services Page
 
 	&.show-summary {
 		.summary {
-			top: 50%;
-		    -webkit-transform: translateY(-50%);
-		            transform: translateY(-50%);				
-
 			p {
 				opacity: 1;
 				-webkit-transform: translateY(0px);
@@ -214,3 +233,176 @@ Services Page
 		}
 	}
 }
+
+/**************************
+Work Page
+***************************/
+.work-item {
+	&:hover {
+		.company,
+		.category {
+			color: #fff;
+		}		
+	}
+}
+
+
+/**************************
+About Page
+***************************/		
+div.scrollingHotSpotLeft,
+div.scrollingHotSpotRight {
+	display: block;
+}
+
+
+/**************************
+Services Page
+***************************/
+.page-services {	
+	
+}
+
+#services-landing {
+	background-color: #2A2C2A;
+	color: #fff;
+	overflow: hidden;
+
+	&.hide-me {
+		opacity: 0;
+	}
+}
+
+#services-container {
+	background-color: #2A2CB3;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+
+	&.show-me {
+		opacity: 1;
+	}
+}
+
+.service-section {
+	height: 100%;
+	width: 100%;
+	background-color: $ml-red;
+	background-size: cover;
+
+	.blur-overlay {
+		display: none;
+
+	    &.show {
+	    	height: 100%;
+	    	display: block;
+	    	opacity: 1;
+	    }		
+	}
+
+	.number {
+		font-family: 'futura_ltregular';
+		letter-spacing: 1.5px;
+		padding-bottom: 10px;
+		border-bottom: solid 1px #fff;
+		display: inline-block;
+		font-size: 57px;
+	}
+
+	&.show-summary {
+		.summary {
+			p {
+				opacity: 1;
+				-webkit-transform: translateY(0px);
+				        transform: translateY(0px);
+			}
+		}
+
+		video {
+			-webkit-filter: blur(10px);
+					filter: blur(10px);
+		}
+	}
+}
+
+#service-svg {
+	display: none;
+}
+
+.landing blockquote {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 100%;
+    margin: 0;	
+	font-size: 25px;
+	padding: 0 20px;
+	// -webkit-animation: down 1s ease forwards;
+	z-index: 1;
+
+	.quote-mark {
+	    background: url(../images/icons/quote-mark.png) no-repeat;
+	    display: block;
+	    width: 20px;
+	    background-size: 100%;
+	    height: 20px;
+	}
+
+	.quote {
+		display: none;
+
+		&.show {
+			display: block;
+		}
+	}
+	small {
+		display: block;
+		font-size: 11px;
+		margin-top: 50px;		
+	}
+
+	hr {
+		height: 1px;
+		width: 40px;
+		background: #fff;
+		border: none;
+		margin: 30px 0 20px 0;
+	}	
+
+	nav {
+		text-align: right;
+		font-size: 20px;
+		margin-top: -20px;
+
+		span {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.cur {
+			margin-right: 5px;
+		}
+
+		.total {
+			margin-left: 5px;
+		}
+
+		.arrow {
+			margin: 0 5px;
+		}
+	}
+}
+
+.right-menu {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+
+    &.go-away {
+    	bottom: -80px;
+    }
+}    

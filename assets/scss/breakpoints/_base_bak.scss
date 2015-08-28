@@ -4,16 +4,18 @@ body {
 	width: 100%;
 }
 
-body * {
-	-webkit-font-smoothing: antialiased;
-}
-
 body {
 	font-family: $sans-serif;
 }
 
+body * {
+	transition: all 0.5s ease; 
+	-webkit-font-smoothing: antialiased;
+}
+
 .wrap {
 	height: 100%;
+
 }
 
 section {
@@ -22,10 +24,6 @@ section {
 	background-size: cover;
 	position: relative;
 }
-
-/**************************
-Links Styles
-***************************/		
 
 a  {
 	color: #575859;
@@ -104,26 +102,6 @@ Global Buttons
 	}
 }
 
-.play-reel {
-	display: block;
-	margin-top: 20px;
-
-	span {
-		display: inline-block;
-		display: none;
-		vertical-align: middle;
-		text-transform: uppercase;
-		font-size: 14px;
-		margin-left: 14px;
-		font-family: 'KlavikaWebBasicMedium';
-		letter-spacing: 1.2px;
-		color: #575859;
-	}
-}
-
-/**************************
-Nav arrows
-***************************/		
 .nav-arrow-right {
     height: 22px;
 }
@@ -164,7 +142,6 @@ Global Overlays
     	height: 100%;
     	display: block;
     	opacity: 1;
-    	transition: opacity 0.2s ease; 
     }
 }
 
@@ -178,7 +155,24 @@ GLobal BG Styles
 /**************************
 SVG Styles
 ***************************/		
+.svg-bg {
+    width: 100%;
+    opacity: 0.2;
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
 
+    &.home {
+    	opacity: 1;
+    	left: 0;
+    }
+}
+
+.blur-overlay .svg-bg {
+	opacity: 0.1;
+}
 
 /**************************
 FULL BLEED VIDEO 
@@ -206,10 +200,6 @@ FULL BLEED VIDEO
 	} 
 }
 
-.video-bg-container {
-	display: none;
-}
-
 #full-screen-video {
 	top: 0;
 	left: -100%;
@@ -225,11 +215,6 @@ FULL BLEED VIDEO
     height: 100%;
     width: 100%;
     z-index: 100;
-    transition: all 0.5s ease;
-
-	&.show-me {
-		left: 0;
-	}    
 
 	video {
 	    min-width: 100%;
@@ -264,7 +249,7 @@ Page Specific Styles
 /**************************
 Homepage
 ***************************/	
-.home {
+body.home {
 	background-color: #F7F7F7;
 
 	.mobile-bg-corner {
@@ -280,45 +265,35 @@ Homepage
 	}
 
 	.cta {
-    	top: 50%;	
-
-		.tagline {
-
-		}  		
+    	top: 50%;		
 	}
 
 	.left-svg-container {
 		display: none;
 	}
-
-	.blur-overlay {
-		display: none;
-	}	
 }	
+
+.home .blur-overlay {
+	display: none;
+}
 
 #home-landing {
 	overflow: hidden;
 	position: relative;
 }
+
+.video-overlay {
+	left: -100%;
+
+	&.show-me {
+		left: 0;
+	}
+}
+
 /**************************
 About Page
 ***************************/	
 .page-about {
-	.cta {
-		.tagline {
-			span {
-				font-size: 26px;
-			}
-		}
-
-		p {
-		    color: #fff;
-		    line-height: 22px;
-		    margin: 22px 0 22px 0;
-		    font-size: 14px;			
-		}
-	}
-
 	.svg-container {
 		svg {
 			line, path {
@@ -333,18 +308,44 @@ About Page
 				stroke: rgba(255, 255, 255, 0.5);	
 				stroke-dasharray: 1870;
 				stroke-dashoffset: 1870;
-				-webkit-animation: draw 5s linear 1 forwards;
-				        animation: draw 5s linear 1 forwards;	
+				-webkit-animation-name: draw;
+				        animation-name: draw;
+				-webkit-animation-duration: 5s;
+				        animation-duration: 5s;
+				-webkit-animation-fill-mode: forwards;
+				        animation-fill-mode: forwards; // Stay on the last frame
+				-webkit-animation-iteration-count: 1; // Stay on the last frame
+				        animation-iteration-count: 1; // Run only once
+				-webkit-animation-timing-function: linear; // Run only once
+				        animation-timing-function: linear;		
 			}	        
 		}
 	}
 }	
 
 #about-landing {
-	background-image: url(../images/mobile/backgrounds/mobile-about-bg.jpg);
+	.cta {
 
-	.blur-overlay {
-		display: none;
+		.tagline {
+			font-size: 27px;
+			margin-bottom: 10px;
+			padding: 0;
+
+			span {
+
+			}
+		}
+
+		p {
+			color: #fff;
+			line-height: 24px;
+			margin-bottom: 30px;
+			font-size: 16px;
+		}
+
+		.nav-arrow-down {
+			margin-left: 10px;
+		}
 	}
 }
 
@@ -421,7 +422,7 @@ About Page
 }
 
 #about-landing {
-	
+	background-image: url(../images/mobile/backgrounds/mobile-about-bg.jpg);
 }
 
 #timeline2 {
@@ -451,7 +452,7 @@ About Page
 		background: #FBFBFB;
 		opacity: 0;
 
-		&.blank, &.empty, &.mobile-empty {
+		&.blank, &.empty {
 			background: transparent;
 		}
 
@@ -1292,7 +1293,11 @@ Services Page
 
 #services-container {
 	background-color: #2A2CB3;
-	opacity: 1;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
 
 	&.show-me {
 		opacity: 1;
@@ -1304,8 +1309,6 @@ Services Page
 	width: 100%;
 	background-color: $ml-red;
 	background-size: cover;
-	position: relative;
-	// display: none;	
 
 	.blur-overlay {
 		display: none;
@@ -1322,7 +1325,8 @@ Services Page
 	            transform: translateY(-50%);		
 
 		p {
-
+			-webkit-transform: translateY(40px);
+			        transform: translateY(40px);
 		}
 	}	
 
@@ -1341,6 +1345,8 @@ Services Page
 		margin-top: 20px;
 	}
 
+	display: none;
+
 	&.active {
 		display: block;
 	}
@@ -1349,6 +1355,8 @@ Services Page
 		.summary {
 			p {
 				opacity: 1;
+				-webkit-transform: translateY(0px);
+				        transform: translateY(0px);
 			}
 		}
 
@@ -1392,7 +1400,7 @@ Services Page
 	}
 	small {
 		display: block;
-		font-size: 15px;
+		font-size: 11px;
 		margin-top: 50px;		
 	}
 
@@ -1787,8 +1795,8 @@ Media Loft buttons/icons
 	background-size: 100%;
 	display: inline-block;
 	vertical-align: middle;
-    height: 48px;
-    width: 39px;
+    height: 34px;
+    width: 28px;
 }
 
 .ml-play.black {
@@ -1803,11 +1811,11 @@ Media Loft buttons/icons
 Logo
 ***************************/
 .logo {
-	width: 200px;
-	height: 40px;
+	width: 150px;
+	height: 21px;
 	position: absolute;
-	top: 32px;
-	left: 33px;
+	top: 20px;
+	left: 20px;
 	margin: 0;
 	display: block;
 	z-index: 5;
@@ -1842,7 +1850,7 @@ Logo
 Cta & Tagline
 ***************************/		
 .cta {
-	width: 90%;
+	width: 270px;
 	position: absolute;
 	z-index: 2;
 	top: 55%;
@@ -1852,10 +1860,6 @@ Cta & Tagline
 
 	p {
 		font-family: 'ProximaNova-Regular';
-		color: #fff;
-		line-height: 24px;
-		margin-bottom: 30px;
-		font-size: 16px;
 	}
 
 	&.centered {
@@ -1870,17 +1874,12 @@ Cta & Tagline
 		font-weight: normal;
 		-webkit-animation: down 1s ease forwards;
 		display: inline-block;
-		margin: 0;
 
 		span {
 			display: inline-block;
-			background: rgba(255, 255, 255, 0.9);
-		    font-size: 30px;
-    		padding: 5px 10px;
-
-    		&.grey {
-    			color: #989898;
-    		}
+			background: rgba(255, 255, 255, 0.8);
+			font-size: 25px;
+			padding: 5px 15px;
 		}
 
 		.category {
@@ -1910,6 +1909,24 @@ Cta & Tagline
 	    }
 	}
 	
+	&.alternate {
+		width: 315px;
+
+		.tagline {
+			span {
+				background-color: #fff;
+				letter-spacing: 1px;
+			    position: relative;
+			    top: -8px;				
+			}
+
+			span:first-child {
+				color: #989898;
+				top: auto;
+			}
+		}	
+	}
+
 	&.single {
 		.tagline {
 			h2 {
@@ -2029,6 +2046,21 @@ Cta & Tagline
 	}
 }
 
+.play-reel {
+	display: block;
+
+	span {
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 10px;
+		text-transform: uppercase;
+		font-size: 12px;
+		font-family: 'KlavikaWebBasicMedium';
+		letter-spacing: 3px;
+		color: #575859;
+	}
+}
+
 /**************************
 Main Menu Styles
 ***************************/
@@ -2043,18 +2075,70 @@ Main Menu Styles
 	font-size: 18px;
 	text-align: center;
 	z-index: 6;	
-	letter-spacing: 0.5px;	
+	letter-spacing: 0.5px;
 
 	.close-menu {
-		transition: all 0.5s ease; 		
-		width: 63px;
-		height: 63px;
+		width: 50px;
+		height: 50px;
 		padding-top: 9px;
 		position: absolute;
 		bottom: 0;
-		left: -63px;	
-		font-size: 30px;
-		background: #333;	
+		left: -50px;	
+		font-size: 30px;	
+
+		i {
+			display: block;
+			height: 25px;
+			width: 25px;
+			background: url(../images/icons/menu-close.png) no-repeat;
+			background-size: cover;
+			@include center-me;
+		}		
+	}
+
+	.open-menu {
+		background: #333;
+		display: block;
+		padding: 15px 30px;
+		height: 100%;
+		width: auto;
+		bottom: 0;
+		left: 0;
+	}	
+}
+
+.main-menu-btn {
+	color: #fff;
+	text-transform: lowercase;
+	font-size: 18px;
+
+	.open-menu {
+		background: #333;
+	}
+
+	.close-menu {
+		background: #333;
+		
+		i {
+			background-image: url(../images/icons/menu-close-white.png);
+		}
+	}
+}
+
+.right-menu-btn {
+	left: auto;
+	right: 0;
+	background: $ml-dark-red;
+	color: #fff;
+
+	.open-menu {
+		background: transparent;
+	}
+
+	.close-menu {
+		left: auto;	
+		right: -50px;
+		background: $ml-dark-red;
 
 		i {
 			display: block;
@@ -2062,48 +2146,13 @@ Main Menu Styles
 			width: 25px;
 			background: url(../images/icons/menu-close-white.png) no-repeat;
 			background-size: cover;
-			@include center-me;
-		}		
-	}
-
-	.open-menu {
-		transition: all 0.5s ease; 		
-		background: #333;
-		display: block;
-		padding: 15px 30px;
-		height: 100%;
-		width: auto;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-	}	
-}
-
-.right-menu-btn {
-	left: auto;
-	right: 0;
-	color: #fff;
-
-	.open-menu {
-		background: $ml-dark-red;
-		position: relative;
-	}
-
-	.close-menu {
-		left: auto;	
-		background: $ml-dark-red;
-		position: absolute;
-	    top: 0;
-	    right: -63px;	
-		width: 63px;
-		height: 63px;	    	
+		}
 	}	
 }
 
 .main-menu, 
 .right-menu {
 	position: fixed;
-	transition: all 0.5s ease;
 	bottom: 0;
 	left: -130%;
 	width: 100%;
@@ -2117,7 +2166,7 @@ Main Menu Styles
 		margin: 0;
 
 		li {
-			margin-bottom: 15px;
+			margin-bottom: 10px;
 
 			&.active {
 				opacity: 0.5;
@@ -2157,7 +2206,7 @@ Main Menu Styles
 	}
 
     ul {
-    	padding-left: 30px;	
+    	padding-left: 20px;	
     }
 
 	li:hover {
@@ -2209,19 +2258,39 @@ Main Menu Styles
 		left: 0%;
 	}
 
-	.open-menu {
-		transition: all 0.5s ease;
-		bottom: -50px;
-	}
+	.main-menu-btn {
+		font-family: "KlavikaWebBasicLight";
 
-	.close-menu {
-		left: 0;
-	}
+		.open-menu {
+			position: absolute;
+			bottom: -50px;
+		}
 
+		.close-menu {
+			left: 0;
+		}
+	}
 }
 
 .right-menu-open {
+	.right-menu {
+		right: 0%;
+	}
 
+	.right-menu-btn {
+		width: 50px;
+		z-index: 22;
+
+		.open-menu {
+			bottom: -50px;
+		}
+
+		.close-menu {
+			right: 0;
+			background: $ml-dark-red;
+			color: #fff;
+		}
+	}
 }
 
 /* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
@@ -2239,7 +2308,6 @@ div.scrollingHotSpotLeft
 	position: absolute;
 	z-index: 20;
 	left: 0;
-	display: none;
 }
 
 /* Visible left hotspot */
@@ -2261,7 +2329,6 @@ div.scrollingHotSpotRight
 	position: absolute;
 	z-index: 20;
 	right: 0;
-	display: none;
 }
 
 /* Visible right hotspot */

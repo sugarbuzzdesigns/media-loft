@@ -1,0 +1,71 @@
+/**************************
+Main menu 
+***************************/		
+.main-menu-btn {
+	height: 63px;
+	font-size: 20px;
+}
+
+.main-menu-open {
+	.open-menu {
+		bottom: -63px;
+	}
+}
+
+.main-menu {
+    padding-top: 150px;
+
+	.menu-interior {
+		ul {
+			li {
+				margin-bottom: 32px;
+			}
+		}
+
+		a {
+			font-size: 38px;
+		}
+	}
+}
+
+.right-menu {
+	padding-top: 150px;
+}
+
+/**************************
+Cta & Tagline
+***************************/		
+.cta {
+	.tagline {
+		span {
+		    font-size: 38px;
+		    padding: 5px 16px;
+		}
+	}	
+}
+
+/**************************
+PAGE SPECIFIC STYLES
+***************************/
+/**************************
+***************************/
+/**************************
+***************************/
+/**************************
+***************************/
+.page-about {
+	.cta {
+		.tagline {
+			span {
+				font-size: 33px;
+			}
+		}
+
+		p {
+		    color: #fff;
+		    line-height: 22px;
+		    margin: 42px 0 22px 0;
+		    font-size: 14px;			
+		}
+	}
+}

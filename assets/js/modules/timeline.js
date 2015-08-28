@@ -6,7 +6,11 @@
 			this.timelineScrollElm = $('#timeline2 .timeline-wrap');
 			this.timeLineImageDir = timeLineImageDir;
 
-			this.squareSideLength = 282;
+			this.windowHeight = $(window).height();
+			this.maxTimelineHeight = 700;
+
+			this.setSquareSideLength();
+			
 			this.squareLeft = 0;
 			this.squareTop = 0;
 			this.containerIndex = 10;
@@ -23,6 +27,20 @@
 
 			this.bindEvents();
 		},
+
+		setSquareSideLength: function(){
+			var winH = this.windowHeight,
+				length;
+
+			length = Math.sqrt(Math.pow(winH/1.5, 2)/2);
+
+			this.squareSideLength = length > 325 ? 325 : length - 40;
+
+			console.log(this.squareSideLength);
+
+			return Math.sqrt(Math.pow(winH/1.5, 2)/2);
+		},
+
 		getTimelineWidht: function(){
 			var width = 0;
 
@@ -187,7 +205,7 @@
 			var createInfoBox = function(dateInfo, container){
 				var infoBox = $('<div class="info"></div>'),
 					infoBoxInner = $('<div class="inner"></div>'),
-					infoBoxDate = $('<h5>'+ dateInfo.date +'</h5>').appendTo(infoBoxInner),
+					// infoBoxDate = $('<h5>'+ dateInfo.date +'</h5>').appendTo(infoBoxInner),
 					infoBoxInfo = $('<p>'+ dateInfo.info +'</p>').appendTo(infoBoxInner);
 
 				infoBoxInner.appendTo(infoBox);
@@ -230,24 +248,33 @@
 
 		var winWidth = $(window).width();
 
+		// TODO RESIZE TIMELINE ON WINDOW RESIZE
+		ml.selections.$win.on("resizeEnd", function() {
+			// ml.Timeline.setSquareSideLength();
+			// ml.Timeline.loopEvents();
+
+			console.log('resize ended');
+		});
+
 		$('#timeline2 .left-top').each(function(){ 
 			// console.log($(this).offset().left);
 		});
 
-		$("#timeline2 .timeline-wrap").smoothDivScroll({
-			setupComplete: function(){
-				$('#timeline2 .scrollWrapper').scroll(function(e){
-					console.log('scrollling');
-					$('#timeline2 .right-top').each(function(){ 
-						if($(this).offset().left > 10 && $(this).offset().left < 100){
-							var date = $(this).find('.num').text();
+		if(ML_vars.device === 'desktop'){
+			$("#timeline2 .timeline-wrap").smoothDivScroll({
+				setupComplete: function(){
+					$('#timeline2 .scrollWrapper').scroll(function(e){
+						console.log('scrollling');
+						$('#timeline2 .right-top').each(function(){ 
+							if($(this).offset().left > 10 && $(this).offset().left < 100){
+								var date = $(this).find('.num').text();
 
-							$('.large-date').text(date.slice(-2));
-						}
+								$('.large-date').text(date.slice(-2));
+							}
+						});
 					});
-				});
-			}
-		});		
-
+				}
+			});		
+		}
 	});
 })(jQuery);

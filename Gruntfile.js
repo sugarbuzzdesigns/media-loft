@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			task: {
-				src: ['assets/css/css-dependencies.css', 'assets/css/timeline.css', 'assets/css/breakpoints.css'], 
+				src: ['assets/css/css-dependencies.css', 'assets/css/breakpoints.css'], 
 				dest: 'assets/css/style.css'
 			},
 			options: {
@@ -137,7 +137,7 @@ module.exports = function(grunt) {
 
 	// grunt.registerTask('default', ['clean', 'concat', 'watch', 'jshint', 'cssmin', 'uglify', 'autoprefixer', 'sass', 'compass']);
 	grunt.registerTask('build', ['sass:dist', 'concat', 'autoprefixer']);
-	grunt.registerTask('dev', ['sass:dev', 'concat', 'autoprefixer']);
+	grunt.registerTask('dev', ['sass:dev', 'concat']);
 
 
 

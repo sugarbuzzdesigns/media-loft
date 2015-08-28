@@ -22,16 +22,13 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		
 		employees.push('<?php echo $arr[0]; ?>');
 	<?php } ?>	
-
-	// console.log(employees);
-
 </script>
 	<section data-section-name="section-about-landing" id="about-landing">
 		<div class="sqr"></div>
-		<div class="cta alternate">
-			<h2 class="tagline">
-				<span>40 great years</span>
-				<span>an ongoing success story.</span>
+		<div class="cta">
+			<h2 class="tagline single-line">
+				<span class="grey">40 great years</span>
+				<span>an ongoing success story</span>
 			</h2>		
 			<?php if(!wp_is_mobile()){ ?> 
 				<p>Media Loft is a 100% employee-owned company that produces corporate<br>events across the globe, with account, technical, creative, design, video<br>production and interactive technology services all under one roof.</p>
@@ -81,10 +78,10 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 			<h2 class="tagline">
 				<?php if(!wp_is_mobile()){ ?> 
 					<span>relationships measured in decades,</span>	
-					<span>not years.</span>
+					<span>not years</span>
 				<?php } else { ?>	
 					<span>relationships measured</span>	
-					<span>in decades, not years.</span>	
+					<span>in decades, not years</span>	
 				<?php } ?>
 			</h2>
 		</div>	
@@ -109,9 +106,9 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div data-img="" class="tile client"></div>
 		<div data-img="" class="tile client dark"></div>
 
-		<div class="scaling-svg-container">
-			<svg class="scaling-svg" version="1.1" id="shape-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		 		preserveAspectRatio="xMidYMid slice" height="0" width="0" viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">
+		<div class="svg-container animated-svg">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 		preserveAspectRatio="xMidYMid slice" viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">
 			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M420.667,288.398l49.592-49.592
 				c1.687-1.687,1.687-4.422,0-6.109L240.479,2.916c-1.688-1.687-4.424-1.687-6.11,0L121.684,115.601c-1.687,1.687-1.687,4.422,0,6.109
 				l166.259,166.26"/>
@@ -131,7 +128,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 	<section data-section-name="section-people" class="tile-container" id="people">
 		<div class="cta alternate">
 			<h2 class="tagline">
-				<span>our people make it all possible.</span>
+				<span>our people make</span><span>it all possible</span>
 			</h2>
 		</div>	
 		<div class="tile empty"></div>
@@ -141,8 +138,8 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div class="tile employee"></div>
 		<div class="tile employee"></div>
 
-		<div class="tile employee"></div>
-		<div class="tile employee"></div>
+		<div class="tile mobile-empty"></div>
+		<div class="tile mobile-empty"></div>
 		<div class="tile employee"></div>
 		<div class="tile employee"></div>
 		<div class="tile employee"></div>
@@ -155,9 +152,9 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div class="tile employee"></div>
 		<div class="tile employee"></div>				
 
-		<div class="scaling-svg-container">
-			<svg class="scaling-svg" version="1.1" id="shape-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		 		preserveAspectRatio="xMidYMid slice" height="0" width="0" viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">
+		<div class="svg-container animated-svg">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 		preserveAspectRatio="xMidYMid slice" viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">
 			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M420.667,288.398l49.592-49.592
 				c1.687-1.687,1.687-4.422,0-6.109L240.479,2.916c-1.688-1.687-4.424-1.687-6.11,0L121.684,115.601c-1.687,1.687-1.687,4.422,0,6.109
 				l166.259,166.26"/>
@@ -188,8 +185,8 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 			<?php } ?>
 
 			<a class="play-reel" href="#">
-				<i class="ml-play black"></i>
-				<span>Look Inside</span>
+				<i class="ml-play white"></i>
+				<span>Play Reel</span>
 			</a>
 		</div>		
 
@@ -214,8 +211,8 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div class="contact-us">
 			<div class="cta">
 				<h2 class="tagline one-liner alternate">
-					<span>enough about us.</span>
-					<span>tell us about you.</span>
+					<span>enough about us</span>
+					<span>tell us about you</span>
 				</h2>	
 			</div>	
 			<div class="email">

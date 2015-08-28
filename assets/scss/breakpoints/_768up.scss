@@ -11,11 +11,10 @@ and other resources. You'll also notice the grid starts to
 come into play. Have fun!
 
 ******************************************************************/
-
 /**************************
 Main Nav
 ***************************/
-#main-menu {
+.main-menu {
 
 	ul {
 		li {
@@ -42,7 +41,7 @@ Other Misc menu stuff
 }
 
 .main-menu-open {
-	#main-menu-btn {
+	.main-menu-btn {
 		.open-menu {
 			bottom: auto;
 		}
@@ -56,10 +55,21 @@ Other Misc menu stuff
 Cta & Tagline
 ***************************/		
 .home .cta .tagline {
-	background: transparent;
+    padding: 14px 15px;
+    background-color: rgba(255,255,255,0.9);
+    
+    span {
+    	font-size: 40px;
+    }
+}
+
+.mobile-svg-bg {
+	display: none;
 }
 
 .cta {
+	width: auto;
+
 	.tagline {
 
 		span {
@@ -68,14 +78,18 @@ Cta & Tagline
 		}
 
 		.category {
-		    background: transparent;
-		    color: #6E6E6E;
-		    font-size: 14px;
-		    padding: 0;
-		    display: block;
-		    margin: 10px 0 0 0;
 		    transition: none;
 		}
+
+	    &.single-line {
+	    	background: rgba(255, 255, 255, 0.8);
+	    	padding: 5px 15px;
+
+	    	span {
+	    		padding: 0;
+	    		background: transparent;
+	    	}
+	    }		
 	}
 	
 	&.alternate {
@@ -125,26 +139,63 @@ body.home .cta {
 	}
 }
 
+body.home {
+	.left-svg-container {
+		display: block;
+	}
+
+	.svg-container {
+		z-index: 1;
+	    position: absolute;
+	    top: 50%;
+	    left: 0;
+	    transform: translate(0, -50%);
+
+	    svg {
+		    left: 0;
+		    width: 100%;
+		    -webkit-transform: translate(0, -50%);
+		    -ms-transform: translate(0, -50%);
+		    transform: translate(0%, -50%);			
+
+	    	path, line {
+				stroke: rgba(228, 228, 228, 0.7);
+				stroke-width: 1;	    		
+	    	}
+	    }	
+	}
+
+	.mobile-bg-corner {
+		background-position: right bottom;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+		background-size: 100%;		
+    	position: absolute;
+	    top: 0;
+	    left: 0;		
+	}	
+}
+	
 /**************************
 About Page
 ***************************/
 #about-landing {
 	background-image: url(../images/mobile/backgrounds/mobile-about-bg.jpg);
-}
 
-#about-landing {
 	.cta {
 	    left: 15%;
 		-webkit-transform: translate(0%, -50%);	    
 	    transform: translate(0%, -50%);
 		
 		.tagline {
-		    font-size: 40px;
-		    margin-bottom: 65px;
-		    background: rgba(255, 255, 255, 0.9);
-		    padding: 11px 15px;
+		    margin-bottom: 35px;
+		    padding: 15px 24px 15px;
+		    line-height: 35px;
 
 		    span {
+				font-size: 40px;
+		    	padding: 0;
 		    	position: static;
 		    	background: transparent;
 		    }
@@ -153,13 +204,22 @@ About Page
 		p {
 			color: #fff;
 			line-height: 24px;
-			margin-bottom: 30px;
+			margin: 22px 0 22px 0;
+			width: 500px;
 		}
 
 		.nav-arrow-down {
 			margin-left: 10px;
 		}
 	}
+
+	.blur-overlay {
+		display: none;
+	}
+}
+
+#landing-video {
+	display: none;
 }
 
 #timeline {
@@ -241,13 +301,14 @@ About Page
 
 			span {
 				background-color: #373837;
-				padding: 5px 12px 8px;
+				padding: 10px 12px 8px;
 				color: #fff;
 				display: block;
 				float: left;
 				font-size: 40px;
 
 				&:last-child {
+					padding: 5px 12px 8px;
 					clear: both;
 					padding-right: 18px;
 				}
@@ -261,34 +322,24 @@ About Page
 
 	.cta {
 		left: 3%;
+		background: transparent;
+		margin: 0;
+		padding: 0;		
 		-webkit-transform: translate(0,0);
 		        transform: translate(0,0);
 
 
 		.tagline {
 			span {
-				font-size: 40px;
-			}
-		}
-	}
-
-	.cta {
-
-		.tagline {
-			background: transparent;
-			margin: 0;
-			padding: 0;
-			
-			span {
 				background-color: rgba(239, 67, 48, 0.9);
-				padding: 5px 10px;
+				padding: 10px 12px;
 				color: #fff;
 				display: block;
 				float: left;
 				font-size: 40px;
 			}
 		}
-	}	
+	}
 
 	.tile {
 		img {
@@ -304,16 +355,17 @@ About Page
 	    left: 50%;
 	    -webkit-transform: translate(-50%, -50%);
 	    transform: translate(-50%, -50%);
-	    text-align: center;	
-	    font-size: 40px;	
+	    text-align: center;		
 
 	    .tagline {
 	    	margin-bottom: 34px;
-			padding: 7px 24px 12px;
+			padding: 15px 24px 12px;
 			background: rgba(239, 67, 48, 0.8);
 			line-height: 40px;
 
 	    	span {
+	    		font-size: 40px;
+	    		white-space: nowrap;
 	    		background: transparent;
 	    	}
 	    }
@@ -350,6 +402,7 @@ About Page
 
 			span {
 				font-size: 40px;
+				line-height: 40px;
 			}
 
 			span:first-child {
@@ -550,7 +603,7 @@ Contact page
 
 /**************************
 FULL BLEED VIDEO 
-***************************/	
+***************************/
 .home .video-bg-container {
 	z-index: -2;
 }
@@ -691,7 +744,7 @@ Work Page
 		}
 
 		.work-copy {
-			padding: 222px 50px 5% 56px;
+			padding: 178px 50px 5% 56px;
 
     		nav {
 
@@ -839,9 +892,11 @@ Work Page
  		
     	}
 
-    	.company {
-
-    	}
+		.company {
+			font-family: 'KlavikaWebBasicLight';
+			font-size: 28px;
+			margin: 13px 0 10px;
+		}
 
     	.description {
 		    font-size: 13px;
@@ -885,7 +940,7 @@ END WORK PAGE
     left: -50%;
 }
 
-#main-menu-btn.show-video {
+.main-menu-btn.show-video {
 	bottom: -50%;
     left: -50%;
 }
@@ -944,6 +999,10 @@ Blog page
 ***************************/	
 #blog {
 
+	.full-bleed {
+		background-position: bottom right;
+	}
+
 	.articles {
 
 		article {
@@ -968,6 +1027,18 @@ Blog page
 
 			.article-content {
 				width: 70%;
+
+				blockquote {
+					font-family: 'KlavikaWebBasicRegular';
+					color: #86B1AA;
+					font-size: 38px;
+				    margin: 20px -40px 30px;
+				}				
+
+				p {
+					font-size: 18px;
+					line-height: 29px;					
+				}
 			}
 		}
 	}
@@ -987,7 +1058,6 @@ Services Page
     margin: 0;
     font-size: 35px;
 	padding: 0 20px;
-	-webkit-animation: down 1s ease forwards;
 
 	.quote-mark {
 	    background: url(../images/icons/quote-mark.png) no-repeat;

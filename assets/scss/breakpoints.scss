@@ -1,24 +1,38 @@
-// import mixins
-@import "partials/math";
-
 // Sass variables
 @import "partials/variables";
-
-// Sass functions
-@import "partials/functions";
 
 // import mixins
 @import "partials/mixins";
 
 /*********************
-BASE (MOBILE) SIZE
+BASE (MOBILE) SIZE SMALL PHONE SIZES 4,5,5s
 This are the mobile styles. It's what people see on their phones. If
 you set a great foundation, you won't need to add too many styles in
 the other stylesheets. Remember, keep it light: Speed is Important.
 *********************/
 
-// styles in base.scss
-@import "breakpoints/base";
+@media only screen 
+	and (min-device-width: 320px) {
+	// styles in base.scss
+	@import "breakpoints/base";
+}
+
+/* ----------- iPhone 6 ----------- */
+@media only screen 
+	and (min-device-width: 375px) 
+	and (-webkit-min-device-pixel-ratio: 2) { 
+	@import "breakpoints/375up";
+
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+	@import "breakpoints/414up";
+}
 
 /*********************
 LARGER MOBILE DEVICES

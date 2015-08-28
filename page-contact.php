@@ -13,7 +13,7 @@
 					</div>
 					<div class="blur-overlay"></div>
 				<?php } else { ?>			
-					<div class="full-bleed" style="background-image:url(<?php echo IMG_DIR ?>/mobile/backgrounds/contact/contact-info-bg.jpg);"></div>
+
 				<?php } ?>
 				<div class="inner">
 					<div class="name-abbrev">mpls</div>
@@ -25,7 +25,7 @@
 				<div class="inner">
 					<h3>General Inquires</h3>
 					<a class="email" href="mailto:info@medialoft.com">info@medialoft.com</a>
-					<a class="tel" href="tel:612-375-1086">612.375.1086</a>
+					<a class="tel" href="tel:+16123751086">612.375.1086</a>
 					<p class="address">
 						<span>615 First Ave NE, Suite 100</span>
 						<span>Minneapolis, MN 55413</span>

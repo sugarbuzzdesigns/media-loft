@@ -2,7 +2,14 @@
 <!-- until we get WP backend, let's loop through the data -->
 <?php include('data/work-data.php'); ?>
 	<div id="work-items-window">
-		<div id="work-items" class="work-items">
+<!-- 		<div id="explore-work">
+			<span>explore our work</span>
+			<div class="nav-arrow-right animate-flicker">
+				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down-dark.png" alt="Media Loft" />
+				<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down-dark.png" alt="Media Loft" />
+			</div>	
+		</div>		 -->
+		<div id="work-items" class="work-items">		
 			<?php foreach ($workItems as $workItem) { ?>
 			<?php $companyName = $workItem['company name']; ?>
 			<div class="work-item" id="<?php echo replace_spaces(strtolower($companyName)); ?>" data-category="<?php echo replace_spaces($workItem['category']); ?>">
@@ -27,8 +34,8 @@
 							<div class="carousel-item">
 								<div class="work-copy">
 									<p class="category"><?php echo $workItem['category']; ?></p>
-									<!-- <p class="company"><?php echo $companyName; ?></p> -->
-									<p class="title"><?php echo $companyName; ?> - <?php echo $workItem['label']; ?></p>
+									<p class="company"><?php echo $companyName; ?></p>
+									<p class="title"><?php echo $workItem['label']; ?></p>
 									<div class="description">
 										<p><?php echo $slide['description']; ?></p>
 									</div>
@@ -40,7 +47,7 @@
 								</div>
 								<div class="work-media">
 									<?php if($slide['media'][0] == 'image'){ ?>
-										<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $slide['media'][1]; ?>).jpg"></div>
+										<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $slide['media'][1]; ?>)"></div>
 									<?php } else { ?>
 										<div class="video-bg-container <?php if(wp_is_mobile()) { echo 'mobile'; } ?>">
 											<div class="full-bleed" style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/work/mobile-video-posters/target.jpg);"></div>

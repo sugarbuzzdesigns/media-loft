@@ -43,6 +43,10 @@
 		createStartTiles: function(){
 			var tiles = this.container.find('.tile.employee');
 
+			if(ML_vars.device === 'desktop'){
+				$('.tile.mobile-empty', $('#people')).removeClass('mobile-empty').addClass('employee');
+			}
+
 			tiles.addClass('blank');
 			tiles.append('<div class="front"></div><div class="back"></div><div class="hover-state"></div>');
 
@@ -109,7 +113,7 @@
 			this.addImage(tileToFill, client);
 			$(tileToFill).removeClass('blank');
 
-			$(tileToFill).flip(false);
+			// $(tileToFill).flip(false);
 			
 			this.availableEmployees.splice(i, 1);
 			this.hiddenEmployees.splice(i, 1);

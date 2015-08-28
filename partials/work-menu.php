@@ -13,8 +13,8 @@
 		<li><a href="#" data-filter-cat="staging">Staging</a></li>
 		<li><a href="#" data-filter-cat="interactive">Interactive</a></li>
 		<li><a href="#" data-filter-cat="video">Video</a></li>
-		<li><a href="#" data-filter-cat="motion-graphics">Motion</a></li>
-		<li><a href="#" data-filter-cat="speaker-support">Support</a></li>
+		<li><a class="two-line" href="#" data-filter-cat="motion-graphics">Motion<br>Graphics</a></li>
+		<li><a class="two-line" href="#" data-filter-cat="speaker-support">Speaker<br>Support</a></li>
 	</ul>
 </nav>
 

@@ -21,6 +21,9 @@
 				e.preventDefault();
 				e.stopPropagation();
 
+				$this.addClass('hovered');
+				$this.siblings().removeClass('clicked');
+
 				ml.activateMenuItem($this);
 				_this.loadService($this);
 			});
@@ -36,7 +39,14 @@
 					ml.pauseActiveVideo();
 				}				
 
-				_this.showServiceContent($this);				
+				if($this.is('.clicked')){
+					_this.hideServiceContent($this);
+					ml.playVideo(ml.activeVideo);
+				} else {
+					_this.showServiceContent($this);
+				}				
+
+				$this.toggleClass('clicked');
 			});
 
 			$('.service-section .summary').on('click', function(){
@@ -49,17 +59,17 @@
 				$(this).parent().addClass('show-summary');
 			});
 
-			$('.service-section').on('mouseover', function(){
-				if ($(this).is('.active') && !$(this).is('.show-summary')) {
-					if(ml.activeVideo){
-						ml.pauseActiveVideo();
-					}				
+			// $('.service-section').on('mouseover', function(){
+			// 	if ($(this).is('.active') && !$(this).is('.show-summary')) {
+			// 		if(ml.activeVideo){
+			// 			ml.pauseActiveVideo();
+			// 		}				
 
-					$(this).parent().find('.blur-overlay').addClass('show');
-					$(this).find('.scaling-svg-container').addClass('show-me');
-					$(this).addClass('show-summary');	
-				}			
-			});
+			// 		$(this).parent().find('.blur-overlay').addClass('show');
+			// 		$(this).find('.scaling-svg-container').addClass('show-me');
+			// 		$(this).addClass('show-summary');	
+			// 	}			
+			// });
 
 			$('#services-menu-btn .open-menu').click(function(e){
 				e.preventDefault();
@@ -109,14 +119,30 @@
 				sectionToLoadHref = $link.attr('href'),
 				$sectionToLoad = $('#' + sectionToLoadHref);
 
+				console.log($('.blur-overlay', $sectionToLoad));
+
 			$('.blur-overlay', $sectionToLoad).addClass('show');
 			$('.scaling-svg-container', $sectionToLoad).addClass('show-me');
 
 			$sectionToLoad.addClass('show-summary');
-		},		
+		},
+
+		hideServiceContent: function($menuItem){
+			var $link = $('a', $menuItem),
+				sectionToLoadHref = $link.attr('href'),
+				$sectionToLoad = $('#' + sectionToLoadHref);
+
+			$('.blur-overlay', $sectionToLoad).removeClass('show');
+			$('.scaling-svg-container', $sectionToLoad).removeClass('show-me');
+
+			$sectionToLoad.removeClass('show-summary');
+		},	
 
 		buildSlideshow: function(){
-			var numQuotes = $('blockquote .quote').length;
+			var $quotes = $('blockquote .quote'),
+				numQuotes = $('blockquote .quote').length;
+			
+			$quotes.addClass('animated bounceInRight');
 
 			$('blockquote nav .total').text(numQuotes);
 		},

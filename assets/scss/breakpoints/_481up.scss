@@ -25,12 +25,12 @@ them in here, they won't work.
 /**************************
 Main Nav
 ***************************/
-#main-menu {
+.main-menu {
 	min-width: 300px;
 	width: 25%;
 	left: -100%;
 	padding-top: 0;
-	background: transparent;
+	background: #ef4330;
 
 	#menu-interior {
 		width: 100%;
@@ -87,8 +87,8 @@ Main Nav
 	    	position: absolute;
 	    	top: 50%;
 	    	left: 50%;
-	    	transform: translate(-50%, -50%);
-
+	    	-webkit-transform: translate(-50%, -50%);
+	    	        transform: translate(-50%, -50%);
 	    }
 
     }
@@ -109,10 +109,7 @@ Other Misc menu stuff
     top: 0;
     left: 0;
     display: none;
-    opacity: 0;	
-    -moz-transition: none;
-    -webkit-transition: none;
-    -o-transition: color 0 ease-in;
+    opacity: 0;
     transition: none;    
 }
 
@@ -127,7 +124,7 @@ Other Misc menu stuff
 /**************************
 Main Menu Styles
 ***************************/
-#main-menu-btn,
+.main-menu-btn,
 .right-menu-btn {
 	height: 70px;
 	bottom: 0;
@@ -145,7 +142,7 @@ Main Menu Styles
 	}	
 }
 
-#main-menu-btn {
+.main-menu-btn {
 	font-size: 22px;
 }
 
@@ -228,6 +225,15 @@ About Page
 
 #people {
 	background-color: #DEDEDE;
+
+	.cta {
+
+		.tagline {
+			span:first-child {
+				padding-right: 0;
+			}
+		}
+	}	
 
 	.tile {
 		img {
@@ -440,17 +446,11 @@ Work Page
 
 	.work-item-bg {
 		opacity: 0.3;
-		-webkit-transition:none !important;
-		-moz-transition:none !important;
-		-o-transition:none !important;
 		transition:none !important;		
 	}
 
 	.work-item-bg-hover {
 		display: none;
-		-webkit-transition:none !important;
-		-moz-transition:none !important;
-		-o-transition:none !important;
 		transition:none !important;
 	}
 
@@ -527,7 +527,7 @@ Work Page
     		display: block;
 
     		.company {
-    			font-size: 18px;
+
     		}
 
     		nav {
@@ -568,12 +568,7 @@ Work Page
 
     			video.work-loop-video {
 				    -webkit-filter: grayscale(100%);
-				    filter: grayscale(100%);    
-
-					&.hovered {
-						-webkit-filter: grayscale(0);
-						filter: grayscale(0);				
-					}				    			
+				    filter: grayscale(100%);	
 			    }
 
 			    .close-video {
@@ -595,6 +590,14 @@ Work Page
 						background-size: cover;
 						@include center-me;
 					}			    	
+			    }
+
+			    &.hovered {
+	    			video.work-loop-video {
+						-webkit-filter: grayscale(0);
+						filter: grayscale(0);	
+				    }			    	
+					
 			    }
     		}
 		}
@@ -735,7 +738,7 @@ Work Page
     left: -50%;
 }
 
-#main-menu-btn.show-video {
+.main-menu-btn.show-video {
 	bottom: -50%;
     left: -50%;
 }
@@ -858,7 +861,6 @@ Services Page
     margin: 0;
     font-size: 35px;
 	padding: 0 20px;
-	-webkit-animation: down 1s ease forwards;
 
 	.quote-mark {
 	    background: url(../images/icons/quote-mark.png) no-repeat;

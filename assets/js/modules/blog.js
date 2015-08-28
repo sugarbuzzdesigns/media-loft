@@ -6,7 +6,19 @@ ml.Blog = {};
 			this.currentArticle = '';
 			this.currentPath = '';
 
+			this.setUpSocialLinks();
+
+			this.setUpUrl();
+
 			this.bindEvents();
+		},
+
+		setUpUrl: function(){
+			var referrer = document.referrer;
+
+			if(referrer === 'https://www.facebook.com/'){
+				this.updateUrl(window.location.hash.substr(3));
+			}
 		},
 
 		bindEvents: function(){
@@ -62,15 +74,35 @@ ml.Blog = {};
 			});			
 		},
 
+		setUpSocialLinks: function(){
+			$('.blog-article .social a').each(function(i, link){
+				var url = $(link).data('url'),
+					title = $(link).data('title');
+
+				if($(link).is('.twitter')){
+					$(link).attr('href', 'http://twitter.com/intent/tweet?status='+ encodeURIComponent(title) + '+' + encodeURIComponent(ML_vars.homes+url));
+				} else {
+					$(link).attr('href', 'http://www.facebook.com/sharer/sharer.php?u=http://ml.dev&title=' + encodeURIComponent(title));
+					$(link).on('click', function(e){
+						e.preventDefault();
+						var windowObjectReference = window.open($(link).attr('href'), 'facebook share', "resizable,height=500,width=500");
+					});
+				}
+			});
+		},
+
 		// TODO Make dynamic
 		playBlogVideo: function(){
 			$('#blog-video-overlay').addClass('show-me');		
 
 			$('video').css('width', $(window).width());
 
-			$('video').on('canplay', function(){
-				$('video')[0].play();
-			});
+			$('video')[0].play();
+
+			// $('video').on('canplay', function(){
+			// 	console.log('play me');
+			// 	$('video')[0].play();
+			// });
 		},
 
 		updateUrl: function(blogArticleId){
@@ -101,6 +133,8 @@ ml.Blog = {};
 				group = $article.parent(),
 				groupSiblings = group.siblings('.group');
 
+			$('#blog').addClass('show-article');
+
 			groupSiblings.hide();
 			$article.siblings().hide();
 
@@ -116,6 +150,8 @@ ml.Blog = {};
 		closeArticle: function($article){
 			var group = $article.parent(),
 				groupSiblings = group.siblings('.group');
+
+			$('#blog').removeClass('show-article');
 
 			groupSiblings.show();
 			$article.siblings().show();

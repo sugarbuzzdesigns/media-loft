@@ -5,7 +5,9 @@ ml.About = {};
 		init: function(){
 			this.bindEvents();
 
-			this.positionPeopleTagline();
+			if(ML_vars.device === 'desktop'){
+				this.positionPeopleTagline();
+			}
 		},
 		bindEvents: function(){
 			var _this = this;
@@ -51,7 +53,7 @@ ml.About = {};
 				$cta = $('#people .cta'),
 				$tagline = $('#people .cta .tagline'),
 
-				ctaHeight = 58,
+				ctaHeight = 68,
 				taglineHeight = $tagline.height(),
 				
 				heightDiff = ctaHeight - taglineHeight,
@@ -188,43 +190,43 @@ ml.About = {};
 			trigger: 'manual'
 		});
 
-		var employeeTiles = $('#people .tile').waypoint({
-		  handler: function(direction) {
-		  	if (direction === 'down') {
-				$(this.element).addClass('in-view');
+		// var employeeTiles = $('#people .tile').waypoint({
+		//   handler: function(direction) {
+		//   	if (direction === 'down') {
+		// 		$(this.element).addClass('in-view');
 
-				$(this.element).each(function(){
-					$(this).flip(true);
-				});			
-		  	} else {
-				$(this.element).removeClass('in-view');
+		// 		$(this.element).each(function(){
+		// 			$(this).flip(true);
+		// 		});			
+		//   	} else {
+		// 		$(this.element).removeClass('in-view');
 
-				$(this.element).each(function(){
-					$(this).flip(false);
-				});					
-		  	}
-		  },
-		  offset: '80%'
-		});		
+		// 		$(this.element).each(function(){
+		// 			$(this).flip(false);
+		// 		});					
+		//   	}
+		//   },
+		//   offset: '80%'
+		// });		
 
-		var employeeTiles2 = $('#people .tile').waypoint({
-		  handler: function(direction) {
-		  	if (direction === 'down') {
-				$(this.element).removeClass('in-view');
+		// var employeeTiles2 = $('#people .tile').waypoint({
+		//   handler: function(direction) {
+		//   	if (direction === 'down') {
+		// 		$(this.element).removeClass('in-view');
 
-				$(this.element).each(function(){
-					$(this).flip(false);
-				});			
-		  	} else {
-				$(this.element).addClass('in-view');
+		// 		$(this.element).each(function(){
+		// 			$(this).flip(false);
+		// 		});			
+		//   	} else {
+		// 		$(this.element).addClass('in-view');
 
-				$(this.element).each(function(){
-					$(this).flip(true);
-				});					
-		  	}
-		  },
-		  offset: '-20%'
-		});				
+		// 		$(this.element).each(function(){
+		// 			$(this).flip(true);
+		// 		});					
+		//   	}
+		//   },
+		//   offset: '-20%'
+		// });				
 
 		var employeeSections = $('#people').waypoint({
 		  handler: function(direction) {
@@ -232,6 +234,7 @@ ml.About = {};
 		  		console.log('out of view up');
 		  	} else {
 		  		console.log('in view down');
+		  		$(this.element).addClass('in-view');
 		  	}
 		  },
 		  offset: '80%'
@@ -243,6 +246,7 @@ ml.About = {};
 		  		console.log('out of view down');
 		  	} else {
 		  		console.log('in view up');
+		  		$(this.element).addClass('in-view');
 		  	}
 		  },
 		  offset: '-80%'

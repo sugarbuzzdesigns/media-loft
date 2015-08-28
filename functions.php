@@ -12,6 +12,13 @@ define('IMG_DIR', get_bloginfo('template_directory') . '/assets/images');
 define('MOBILE_IMG', get_bloginfo('template_directory') . '/assets/images/mobile');
 
 /**
+ * Includes
+ */
+require_once('includes/Mobile_Detect.php');
+
+$GLOBALS['detect'] = new Mobile_Detect;
+
+/**
  * Media Loft functions and definitions
  */
 
@@ -95,6 +102,7 @@ add_action( 'wp_head', 'medialoft_javascript_detection', 0 );
  * @since Media Loft 1.0
  */
 function medialoft_scripts() {
+	global $detect;
 	// Load our main stylesheet.
 	wp_enqueue_style( 'medialoft-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr.js', array( 'jquery' ), true );
@@ -131,8 +139,43 @@ function medialoft_scripts() {
 	if(is_page('test')){
 		wp_enqueue_script( 'test', get_template_directory_uri() . '/assets/js/modules/test.js', array( 'jquery' ), true );		
 	}		
+
+	$dataToBePassed = array(
+	    'home'      => get_stylesheet_directory_uri(),
+	    'device'	=> getDevice(),
+	    'isMobile' 	=> $detect->isMobile(),
+	    'isTablet'	=> $detect->isTablet(),
+	    'isDesktop' => (!$detect->isTablet() && !$detect->isMobile())
+	);	
+
+	wp_localize_script( 'medialoft-script', 'ML_vars', $dataToBePassed );
+
 }
 add_action( 'wp_enqueue_scripts', 'medialoft_scripts' );
+
+/**
+ * Detct device
+ */
+
+function getDevice(){
+	global $detect;
+	
+	$device;
+
+	if ( $detect->isMobile() ) {
+		$device = 'mobile';
+	}
+
+	if( $detect->isTablet() ){
+		$device = 'tablet';
+	}
+
+	if(!$detect->isTablet() && !$detect->isMobile()){
+		$device = 'desktop';
+	}	
+
+	return $device;
+}
 
 /**
  * Remove WP admin bar
