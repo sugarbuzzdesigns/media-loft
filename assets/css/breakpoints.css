@@ -65,6 +65,17 @@ you set a great foundation, you won't need to add too many styles in
 the other stylesheets. Remember, keep it light: Speed is Important.
 *********************/
 @media only screen and (min-device-width: 320px) {
+  /**
+   * These values will not show up in content, but can be 
+   * queried by JavaScript to know which breakpoint is active.
+   * Add or remove as many breakpoints as you like.
+   */
+  body:before {
+    content: "smartphone";
+    display: none;
+    /* Prevent from displaying. */
+  }
+
   html,
   body {
     height: 100%;
@@ -91,10 +102,83 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   /**************************
+  Shrunken desktop screen
+  ***************************/
+  .no-touch .main-menu-btn .close-menu {
+    display: none;
+  }
+
+  /**************************
   Links Styles
   ***************************/
   a {
     color: #575859;
+  }
+
+  /**************************
+  Loader
+  ***************************/
+  #loader {
+    background: #ef4330;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+  }
+  #loader .inner {
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  #loader .inner svg {
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  #loader .inner svg .left {
+    stroke: #fff;
+    fill-opacity: 0;
+    stroke-width: 1;
+    stroke-dasharray: 540;
+    stroke-dashoffset: 540;
+    -webkit-animation-name: draw;
+    animation-name: draw;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+  #loader .inner svg .right {
+    stroke: #fff;
+    fill-opacity: 0;
+    stroke-width: 1;
+    stroke-dasharray: 1100;
+    stroke-dashoffset: 1100;
+    -webkit-animation-name: draw;
+    animation-name: draw;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
   }
 
   /**************************
@@ -107,8 +191,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     height: 50px;
     padding-top: 9px;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    top: 0;
+    right: 0;
     font-size: 30px;
   }
   .close-video i {
@@ -330,7 +414,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     background-color: #F7F7F7;
   }
   .home .mobile-bg-corner {
-    background-image: url(../images/mobile/backgrounds/mobile-home-bg.png);
+    background-image: url(../images/mobile/backgrounds/homepage_BG_mobile_V2.png);
     background-position: right bottom;
     background-repeat: no-repeat;
     width: 100%;
@@ -342,6 +426,12 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .home .cta {
     top: 50%;
+  }
+  .home .cta .tagline.two-liner {
+    width: 375px;
+  }
+  .home .cta .tagline.one-liner {
+    display: none;
   }
   .home .left-svg-container {
     display: none;
@@ -863,13 +953,16 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     height: 100%;
     width: 100%;
   }
+  #blog .full-bleed {
+    background-position: bottom right;
+  }
   #blog .back {
-    height: 50px;
-    width: 30px;
+    height: 30px;
+    width: 18px;
     display: block;
     position: fixed;
-    bottom: 80px;
-    left: 10px;
+    bottom: 70px;
+    left: 0;
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
     display: none;
@@ -943,17 +1036,17 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     left: 50%;
     z-index: 1;
     cursor: pointer;
-    transform: translate(-50%, 40%);
-    -webkit-transform: translate(-50%, 40%);
-    -ms-transform: translate(-50%, -40%);
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
     height: 50px;
     width: 50px;
     display: none;
   }
   #blog .articles article .video-article-headline .video-start div,
   #blog .articles article .text-article-headline .video-start div {
-    height: 35px;
-    width: 35px;
+    height: 25px;
+    width: 25px;
   }
   #blog .articles article .video-article-headline .video-start div:first-child:after,
   #blog .articles article .text-article-headline .video-start div:first-child:after {
@@ -991,6 +1084,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     padding: 100px 0 20px 0;
     width: 80%;
     max-width: 900px;
+    transition: all 0.5s ease;
   }
   #blog .articles article .article-content p {
     margin: 0 0 25px 0;
@@ -1017,7 +1111,6 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   #blog .articles article .article-content blockquote {
     font-family: 'KlavikaWebBasicRegular';
     color: #86B1AA;
-    font-size: 25px;
     font-size: 25px;
     margin: 20px 0 30px;
   }
@@ -1062,6 +1155,10 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   #blog .articles article.show-article {
     width: 100%;
+    height: 25%;
+  }
+  #blog .articles article.show-article .full-bleed {
+    background-position: center;
   }
   #blog .articles article.show-article .video-article-headline .title {
     margin-bottom: 50px;
@@ -1097,14 +1194,28 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     display: block;
   }
 
+  .loaded.article-open article.show-article {
+    -webkit-animation: slideInBlogArticle 0.5s forwards;
+    animation: slideInBlogArticle 0.5s forwards;
+  }
+  .loaded.article-open #main-logo {
+    -webkit-transform: translate(-100%, -100%);
+    transform: translate(-100%, -100%);
+    transition: all 0.5s ease;
+  }
+
   /**************************
   Services Page
   ***************************/
+  .page-services {
+    background: #2A2C2A;
+  }
   .page-services #services-container .svg-container svg {
-    display: none;
+    width: 130%;
   }
   .page-services #services-container .svg-container svg line, .page-services #services-container .svg-container svg path {
     stroke: rgba(255, 255, 255, 0);
+    stroke-width: 0.3;
   }
   .page-services #services-container .show-summary .svg-container svg {
     display: block;
@@ -1131,6 +1242,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     stroke: rgba(255, 255, 255, 0.1);
     stroke-dasharray: 1870;
     stroke-dashoffset: 1870;
+    stroke-width: 0.3;
     -webkit-animation-name: draw;
     animation-name: draw;
     -webkit-animation-duration: 5s;
@@ -1147,14 +1259,21 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     background-color: #2A2C2A;
     color: #fff;
     overflow: hidden;
+    opacity: 1;
+    transition: all 1s ease;
   }
   #services-landing.hide-me {
     opacity: 0;
+    transition: all 1s ease;
   }
 
   #services-container {
     background-color: #2A2CB3;
-    opacity: 1;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
   }
   #services-container.show-me {
     opacity: 1;
@@ -1165,7 +1284,11 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     width: 100%;
     background-color: #ef4330;
     background-size: cover;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s ease;
   }
   .service-section .blur-overlay {
     display: none;
@@ -1174,11 +1297,14 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     color: #fff;
     padding: 0 20px;
     position: absolute;
-    top: 50%;
+    top: 30%;
     z-index: 3;
-    cursor: pointer;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+  }
+  .service-section .summary p {
+    font-family: 'ProximaNova-Regular';
+    line-height: 21px;
+    margin: 20px 0 0 0;
+    font-size: 17px;
   }
   .service-section .number {
     font-family: 'futura_ltregular';
@@ -1190,14 +1316,17 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .service-section .service {
     text-transform: lowercase;
-    font-size: 25px;
+    font-size: 33px;
+    font-family: 'KlavikaWebBasicLight';
     margin-top: 20px;
   }
   .service-section.active {
-    display: block;
+    opacity: 1;
+    transition: all 0.5s ease;
   }
   .service-section.show-summary .summary p {
     opacity: 1;
+    transition: all 0.5s ease;
   }
   .service-section.show-summary video {
     -webkit-filter: blur(10px);
@@ -1211,23 +1340,25 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .landing blockquote {
     position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 100%;
+    width: 95%;
     margin: 0;
-    font-size: 25px;
     padding: 0 20px;
     z-index: 1;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
   .landing blockquote .quote-mark {
     background: url(../images/icons/quote-mark.png) no-repeat;
     display: block;
-    width: 20px;
     background-size: 100%;
-    height: 20px;
+    width: 25px;
+    height: 25px;
   }
   .landing blockquote .quote {
     display: none;
+    font-family: 'KlavikaWebBasicLightItalic';
+    font-size: 34px;
+    line-height: 36px;
   }
   .landing blockquote .quote.show {
     display: block;
@@ -1236,18 +1367,21 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     display: block;
     font-size: 15px;
     margin-top: 50px;
+    font-family: 'KlavikaWebBasicRegular';
   }
   .landing blockquote hr {
     height: 1px;
-    width: 40px;
+    width: 50px;
     background: #fff;
     border: none;
-    margin: 30px 0 20px 0;
+    margin: 37px 0 25px 0;
+    opacity: 0.5;
   }
   .landing blockquote nav {
     text-align: right;
     font-size: 20px;
-    margin-top: -20px;
+    margin-top: -32px;
+    color: #CBCBB6;
   }
   .landing blockquote nav span {
     display: inline-block;
@@ -1255,12 +1389,15 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .landing blockquote nav .cur {
     margin-right: 5px;
+    font-family: 'KlavikaWebBasicRegularItalic';
   }
   .landing blockquote nav .total {
     margin-left: 5px;
+    font-family: 'KlavikaWebBasicRegularItalic';
   }
   .landing blockquote nav .arrow {
     margin: 0 5px;
+    font-family: 'KlavikaWebBasicRegular';
   }
 
   .right-menu {
@@ -1268,9 +1405,6 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     bottom: 0;
     right: 0;
     color: #fff;
-  }
-  .right-menu.go-away {
-    bottom: -80px;
   }
 
   /**************************
@@ -1323,7 +1457,9 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     overflow: hidden;
     height: 100%;
     width: 100%;
+    min-height: 630px;
     position: relative;
+    transition: all 0.5s ease;
   }
   .work-item .work-item-bgs {
     background: #fff;
@@ -1352,8 +1488,28 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 0;
     left: 0;
   }
-  .work-item .work-summary .tagline {
-    background: transparent;
+  .work-item .work-summary .work-cta {
+    position: absolute;
+    top: 50%;
+    margin-left: 45px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+  .work-item .work-summary .work-cta .company {
+    background: #fff;
+    padding: 6px 8px;
+    font-size: 28px;
+    color: #000;
+    display: inline-block;
+    font-family: 'KlavikaWebBasicLight';
+    margin-bottom: 20px;
+  }
+  .work-item .work-summary .work-cta .category {
+    color: #6E6E6E;
+    font-size: 16px;
+    display: block;
+    font-family: 'KlavikaWebBasicRegular';
+    text-transform: uppercase;
   }
   .work-item .work-details {
     height: 100%;
@@ -1377,10 +1533,32 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     cursor: pointer;
   }
   .work-item .work-details .description {
-    opacity: 0.74;
     font-size: 14px;
     line-height: 20px;
     font-family: 'ProximaNova-Regular';
+  }
+  .work-item .work-details .description p {
+    opacity: 0.74;
+  }
+  .work-item .work-details .description .textNav span {
+    display: inline-block;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    height: 8px;
+    width: 8px;
+    background: #fff;
+    opacity: 0.2;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+  .work-item .work-details .description .textNav span.active {
+    opacity: 1;
+  }
+  .work-item .work-details .description p {
+    display: none;
+  }
+  .work-item .work-details .description p.active {
+    display: block;
   }
   .work-item .work-details .company {
     font-family: 'KlavikaWebBasicLight';
@@ -1401,6 +1579,17 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .work-item .work-details .work-content {
     font-size: 14px;
     line-height: 20px;
+  }
+  .work-item:hover .work-summary .work-cta .company {
+    background: #ef4330;
+    color: #fff;
+  }
+  .work-item:hover .work-summary .work-cta .category {
+    color: #fff;
+  }
+
+  .work-item * {
+    transition: all 0.5s ease;
   }
 
   .show-details .work-details {
@@ -1433,7 +1622,9 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .work-carousel .carousel-items .carousel-item:first-child .work-media {
     display: block;
     height: 50%;
-    background: orange;
+  }
+  .work-carousel .carousel-items .carousel-item:first-child .work-media .video-bg-container {
+    display: block;
   }
   .work-carousel .work-copy {
     padding: 150px 45px 5% 45px;
@@ -1587,10 +1778,11 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     height: 40px;
     position: absolute;
     top: 32px;
-    left: 33px;
+    left: 18px;
     margin: 0;
     display: block;
     z-index: 5;
+    transition: all 0.5s ease;
   }
   .logo img {
     width: 100%;
@@ -1599,16 +1791,21 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     margin: 0;
   }
   .logo.interior {
-    width: 75px;
-    height: 75px;
+    width: 45px;
+    height: 45px;
     background-color: #fff;
-    padding: 20px 10px;
+    padding: 15px 10px;
     top: 0;
     left: 0;
+    transition: all 0.5s ease;
   }
 
   #main-logo {
     position: fixed;
+    transition: all 0.5s ease;
+  }
+  #main-logo img {
+    transition: all 0.5s ease;
   }
 
   .page-about #main-logo {
@@ -1688,6 +1885,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 
   .nav-arrow-down {
     width: 35px;
+    cursor: pointer;
   }
   .nav-arrow-down img {
     width: 100%;
@@ -1827,6 +2025,14 @@ the other stylesheets. Remember, keep it light: Speed is Important.
       width: 30px;
     }
   }
+  @-webkit-keyframes slideInBlogArticle {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 0;
+    }
+  }
   /**************************
   Main Menu Styles
   ***************************/
@@ -1885,6 +2091,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     left: auto;
     right: 0;
     color: #fff;
+    z-index: 22;
   }
   .right-menu-btn .open-menu {
     background: #EA321D;
@@ -1938,6 +2145,10 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .right-menu a.two-line {
     padding-top: 20px;
     text-align: center;
+  }
+  .main-menu a.two-line span + span,
+  .right-menu a.two-line span + span {
+    margin-left: 10px;
   }
   .main-menu .logo,
   .right-menu .logo {
@@ -1993,12 +2204,24 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .main-menu-open .main-menu {
     left: 0%;
   }
-  .main-menu-open .open-menu {
+
+  .touch .main-menu-open .open-menu {
     transition: all 0.5s ease;
     bottom: -50px;
   }
-  .main-menu-open .close-menu {
+  .touch .main-menu-open .close-menu {
     left: 0;
+    transition: all 0.5s ease;
+  }
+
+  .right-menu-open .right-menu-btn .open-menu {
+    bottom: -80px;
+  }
+  .right-menu-open .right-menu-btn .close-menu {
+    right: 0;
+  }
+  .right-menu-open .right-menu {
+    right: 0;
   }
 
   /* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
@@ -2167,7 +2390,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     padding: 20px 30px 0;
   }
 
-  .main-menu-open .open-menu {
+  .touch .main-menu-open .open-menu {
     bottom: -63px;
   }
 
@@ -2219,22 +2442,54 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     margin: 32px 0 22px 0;
     font-size: 14px;
   }
+
+  /**************************
+  Blog
+  ***************************/
+  #blog .show-article .back {
+    height: 30px;
+    width: 23px;
+    display: block;
+    position: fixed;
+    bottom: 90px;
+  }
 }
 /* ----------- iPhone 6+ ----------- */
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 414px) and (-webkit-min-device-pixel-ratio: 2) {
   /**************************
+  Logo
+  ***************************/
+  .logo {
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    top: 32px;
+    left: 18px;
+    margin: 0;
+    display: block;
+    z-index: 5;
+    transition: all 0.5s ease;
+  }
+  .logo img {
+    width: 100%;
+  }
+  .logo h1 {
+    margin: 0;
+  }
+  .logo.interior {
+    width: 75px;
+    height: 75px;
+    background-color: #fff;
+    padding: 20px 10px;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease;
+  }
+
+  /**************************
   Main menu 
   ***************************/
-  .main-menu-btn {
-    height: 63px;
-    font-size: 20px;
-  }
-
-  .main-menu-open .open-menu {
-    bottom: -63px;
-  }
-
   .main-menu {
     padding-top: 150px;
   }
@@ -2305,6 +2560,12 @@ tweeners.
   anymore, so just be aware that if you drop
   them in here, they won't work.
   */
+  body:before {
+    content: "phablet";
+    display: none;
+    /* Prevent from displaying. */
+  }
+
   /**************************
   Main Nav
   ***************************/
@@ -2397,7 +2658,7 @@ tweeners.
   ***************************/
   .main-menu-btn,
   .right-menu-btn {
-    height: 70px;
+    height: 68px;
     bottom: 0;
     left: 0;
     font-size: 15px;
@@ -2407,7 +2668,7 @@ tweeners.
   .main-menu-btn .open-menu,
   .right-menu-btn .open-menu {
     display: block;
-    padding: 26px 28px 0;
+    padding: 22px 28px 0;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -2594,39 +2855,10 @@ tweeners.
   }
 
   /**************************
-  FULL BLEED VIDEO 
-  ***************************/
-  .home .video-bg-container {
-    z-index: -2;
-  }
-
-  .full-bleed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .video-cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-  }
-
-  /**************************
   Homepage
   ***************************/
   body.home {
     background: #F4F4F4;
-    background: transparent;
   }
 
   /**************************
@@ -2718,14 +2950,6 @@ tweeners.
   }
   .work-item .work-carousel .carousel-item .related-works .related-work {
     display: block;
-  }
-  .work-item .work-carousel .carousel-image {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-  }
-  .work-item .work-carousel .carousel-image.hovered {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
   }
   .work-item .work-carousel .work-copy {
     width: 25%;
@@ -2944,6 +3168,15 @@ tweeners.
     bottom: 0;
     left: 0;
   }
+  .right-menu.go-away {
+    bottom: -80px;
+  }
+  .right-menu a.two-line span {
+    display: block;
+  }
+  .right-menu a.two-line span + span {
+    margin-left: 0;
+  }
 
   /**************************
   Services Page
@@ -2954,10 +3187,9 @@ tweeners.
 
   .service-section {
     background: transparent;
-    display: none;
   }
   .service-section .summary {
-    width: 45%;
+    width: 50%;
     left: 15%;
   }
   .service-section .summary p {
@@ -3029,6 +3261,10 @@ you can add resource intensive styles.
   come into play. Have fun!
   
   ******************************************************************/
+  body:before {
+    content: "tablet";
+  }
+
   /**************************
   Main Nav
   ***************************/
@@ -3101,6 +3337,12 @@ you can add resource intensive styles.
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
     width: auto;
+  }
+  body.home .cta .tagline.one-liner {
+    display: block;
+  }
+  body.home .cta .tagline.two-liner {
+    display: none;
   }
 
   .blur-overlay {
@@ -3319,6 +3561,9 @@ you can add resource intensive styles.
     text-align: center;
     padding-left: 0;
   }
+  #culture .full-bleed {
+    background-image: url(Culture_Vid_Static_BG_tab.jpg);
+  }
 
   #join-us .cta {
     display: block;
@@ -3333,6 +3578,7 @@ you can add resource intensive styles.
   }
   #join-us .contact-us .tagline {
     background: #fff;
+    padding: 15px 24px 15px;
   }
   #join-us .contact-us .tagline span {
     font-size: 40px;
@@ -3532,13 +3778,6 @@ you can add resource intensive styles.
   ***************************/
   body.home {
     background: #F4F4F4;
-    background: transparent;
-  }
-
-  .home .blur-overlay {
-    display: block;
-    opacity: 1;
-    height: 100%;
   }
 
   /**************************
@@ -3554,6 +3793,7 @@ you can add resource intensive styles.
     height: 100%;
     width: 25%;
     float: left;
+    overflow: hidden;
     -webkit-animation: slideInLeft 1s;
     animation: slideInLeft 1s;
   }
@@ -3620,14 +3860,6 @@ you can add resource intensive styles.
   }
   .work-item .work-carousel .carousel-item .related-works .related-work {
     display: block;
-  }
-  .work-item .work-carousel .carousel-image {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-  }
-  .work-item .work-carousel .carousel-image.hovered {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
   }
   .work-item .work-carousel .work-copy {
     padding: 178px 50px 5% 56px;
@@ -3732,6 +3964,7 @@ you can add resource intensive styles.
   }
   .work-item .work-details {
     padding: 0;
+    overflow: hidden;
   }
   .work-item .work-details .company {
     font-family: 'KlavikaWebBasicLight';
@@ -3739,7 +3972,7 @@ you can add resource intensive styles.
     margin: 13px 0 10px;
   }
   .work-item .work-details .description {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 24px;
   }
   .work-item .work-details.show-video .work-copy {
@@ -3795,13 +4028,19 @@ you can add resource intensive styles.
     bottom: 0;
     left: 0;
   }
+  .right-menu.go-away {
+    bottom: -80px;
+  }
+  .right-menu a.two-line span {
+    display: block;
+  }
+  .right-menu a.two-line span + span {
+    margin-left: 0;
+  }
 
   /**************************
   Blog page
   ***************************/
-  #blog .full-bleed {
-    background-position: bottom right;
-  }
   #blog .articles article.show-article .related-article {
     width: 50%;
   }
@@ -3825,6 +4064,38 @@ you can add resource intensive styles.
   #blog .articles article .article-content p {
     font-size: 18px;
     line-height: 29px;
+  }
+  #blog .video-start {
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    cursor: pointer;
+    transform: translate(-50%, 40%);
+    -webkit-transform: translate(-50%, 40%);
+    -ms-transform: translate(-50%, -40%);
+    height: 50px;
+    width: 50px;
+    display: none;
+  }
+  #blog .video-start div {
+    height: 35px;
+    width: 35px;
+  }
+  #blog .video-start div:first-child:after {
+    content: "";
+    height: 0;
+    width: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 12px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    display: block;
+    position: absolute;
+    top: 46%;
+    left: 55%;
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 
   /**************************
@@ -3879,12 +4150,23 @@ you can add resource intensive styles.
   be seen on the Desktop.
   
   ******************************************************************/
+  body:before {
+    content: "desktop";
+  }
+
   #mobile-svg-bg, .mobile-bg-corner {
     display: none;
   }
 
   .video-bg-container {
     display: block;
+  }
+
+  /**************************
+  Main Menu
+  ***************************/
+  .main-menu .menu-interior a {
+    font-size: 30px;
   }
 
   /**************************
@@ -3955,6 +4237,24 @@ you can add resource intensive styles.
   #blog .articles article:nth-child(4) {
     background: #BDBDA6;
   }
+  #blog .article-open article.show-article {
+    -webkit-animation: slideInBlogArticle 0.5s forwards;
+    animation: slideInBlogArticle 0.5s forwards;
+  }
+  #blog .article-open #main-logo {
+    -webkit-transform: scale(0.7, 0.7);
+    transform: scale(0.7, 0.7);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    transition: all 0.5s ease;
+  }
+  #blog.show-article .back {
+    height: 30px;
+    width: 23px;
+    display: block;
+    position: fixed;
+    bottom: 90px;
+  }
 
   .main-menu-btn {
     background: #333;
@@ -3967,6 +4267,15 @@ you can add resource intensive styles.
   }
   .main-menu-btn .close-menu i {
     background-image: url(../images/icons/menu-close-white.png);
+  }
+
+  /**************************
+  Home
+  ***************************/
+  .home .blur-overlay {
+    display: block;
+    opacity: 1;
+    height: 100%;
   }
 
   /**************************
@@ -3996,6 +4305,10 @@ you can add resource intensive styles.
     margin-left: 10px;
   }
 
+  #culture .full-bleed {
+    display: none;
+  }
+
   #landing-video {
     display: block;
   }
@@ -4010,24 +4323,6 @@ you can add resource intensive styles.
   ***************************/
   .full-bleed {
     display: block;
-  }
-
-  /**************************
-  Services Page
-  ***************************/
-  .service-section .summary {
-    top: 35%;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  .service-section .summary p {
-    -webkit-transform: translateY(40px);
-    transform: translateY(40px);
-  }
-  .service-section.show-summary .summary p {
-    opacity: 1;
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px);
   }
 
   /**************************
@@ -4049,6 +4344,14 @@ you can add resource intensive styles.
   /**************************
   Services Page
   ***************************/
+  .service-section .summary {
+    top: 35%;
+  }
+  .service-section .summary p {
+    -webkit-transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 40px, 0);
+  }
+
   #services-landing {
     background-color: #2A2C2A;
     color: #fff;
@@ -4058,14 +4361,6 @@ you can add resource intensive styles.
     opacity: 0;
   }
 
-  #services-container {
-    background-color: #2A2CB3;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-  }
   #services-container.show-me {
     opacity: 1;
   }
@@ -4094,8 +4389,8 @@ you can add resource intensive styles.
   }
   .service-section.show-summary .summary p {
     opacity: 1;
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   .service-section.show-summary video {
     -webkit-filter: blur(10px);
@@ -4109,8 +4404,8 @@ you can add resource intensive styles.
   .landing blockquote {
     position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
     width: 100%;
     margin: 0;
     font-size: 25px;
@@ -4169,6 +4464,12 @@ you can add resource intensive styles.
   }
   .right-menu.go-away {
     bottom: -80px;
+  }
+  .right-menu a.two-line span {
+    display: block;
+  }
+  .right-menu a.two-line span + span {
+    margin-left: 0;
   }
 }
 /*********************

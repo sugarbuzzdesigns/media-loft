@@ -1,7 +1,5 @@
 <?php 
 	global $detect; 
-
-	$isTablet = $detect->isTablet();
 ?>
 
 <!DOCTYPE html>
@@ -17,13 +15,14 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<div class="wrap m-all">
+	<?php include('partials/loader.php'); ?>
+	<div class="wrap">
 		<?php if(is_front_page()) { ?>
-			<a id="main-logo" class="logo" href="/">
+			<a id="main-logo" class="logo" href="<?php echo get_site_url(); ?>/">
 				<img src="<?php bloginfo('template_directory'); ?>/assets/images/mobile/logos/ML_Logo_@2x.png" alt="Media Loft" />
 			</a>
 		<?php } else { ?>
-			<a id="main-logo" class="logo interior" href="/">
+			<a id="main-logo" class="logo interior" href="<?php echo get_site_url(); ?>/">
 				<img src="<?php bloginfo('template_directory'); ?>/assets/images/mobile/logos/Logo_Red_@2x.png" alt="Media Loft" />
 			</a>
 		<?php } ?>

@@ -1,9 +1,13 @@
 (function($){
 
 	ml.About.tileSwap = {
-		init: function(){
-			var clients = ["ally.png", "best_buy.png", "boston_scientific.png", "cargill.png", "dell.png", "dockers.png", "google.png", "indian.png", "mayo_clinic.png", "nike.png", "optum.png", "pizza_hut.png", "porsche.png", "staples.png", "target.png", "united_health.png"];
+		init: function(settings){
+			// var clients = ["ally.png", "best_buy.png", "boston_scientific.png", "cargill.png", "dell.png", "dockers.png", "google.png", "indian.png", "mayo_clinic.png", "nike.png", "optum.png", "pizza_hut.png", "porsche.png", "staples.png", "target.png", "united_health.png"];
 			
+			var clients = settings.tileArray;
+
+			console.log(clients);
+
 			this.container = $('#clients');
 			this.tileLimit = 8;
 			this.swapSpeed = 2000;
@@ -126,7 +130,9 @@
 	};
 
 	$(function(){
-		ml.About.tileSwap.init();
+		ml.About.tileSwap.init({
+			tileArray: clients
+		});
 	});
 
 })(jQuery);

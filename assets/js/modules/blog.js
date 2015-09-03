@@ -31,8 +31,12 @@ ml.Blog = {};
 				_this.checkUrl(event);
 			});				
 
-			$('.blog-article .header').on('click', function(e){
+			$('.blog-article .header').on('click touchend', function(e){
 				e.preventDefault();
+
+				if (ML_vars.isTouch) {
+					console.log('log touch evice');
+				};
 
 				console.log($(this).parent());
 
@@ -44,7 +48,7 @@ ml.Blog = {};
 				_this.openArticle(id);
 			});	
 
-			$('.related-article').on('click', function(e){
+			$('.related-article').on('click touchend', function(e){
 				e.preventDefault();
 				e.stopPropagation();
 
@@ -56,7 +60,7 @@ ml.Blog = {};
 			});		
 
 			// TODO Make dynamic
-			$('.video-start').click(function(e){
+			$('.video-start').on('click touchend', function(e){
 				e.preventDefault();
 				e.stopPropagation();
 
@@ -65,7 +69,7 @@ ml.Blog = {};
 			});
 
 			// TODO make dynamic
-			$('.close-video').click(function(e){
+			$('.close-video').on('click touchend', function(e){
 				e.preventDefault();
 
 				$('video')[0].pause();
@@ -133,10 +137,12 @@ ml.Blog = {};
 				group = $article.parent(),
 				groupSiblings = group.siblings('.group');
 
+			$('body').addClass('article-open');
+
 			$('#blog').addClass('show-article');
 
 			groupSiblings.hide();
-			$article.siblings().hide();
+			$article.siblings().removeClass('show-article').hide();
 
 			$article.addClass('show-article').show();
 
@@ -150,6 +156,8 @@ ml.Blog = {};
 		closeArticle: function($article){
 			var group = $article.parent(),
 				groupSiblings = group.siblings('.group');
+
+			$('body').removeClass('article-open');	
 
 			$('#blog').removeClass('show-article');
 

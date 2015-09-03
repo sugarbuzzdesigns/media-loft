@@ -8,6 +8,10 @@ This is the desktop size. It's larger than an iPad so it will only
 be seen on the Desktop.
 
 ******************************************************************/
+body:before {
+	content: "desktop";
+}
+
 #mobile-svg-bg, .mobile-bg-corner {
 	display: none;
 }
@@ -15,6 +19,14 @@ be seen on the Desktop.
 .video-bg-container {
 	display: block;
 }
+
+/**************************
+Main Menu
+***************************/		
+.main-menu .menu-interior a {
+	font-size: 30px;
+}
+
 /**************************
 Cta & Tagline
 ***************************/		
@@ -121,7 +133,7 @@ Blog
 						padding-bottom: 30px;
 						font-size: 38px;
 					}
-				}
+				}				
 			}	
 			// pseudo and classes for article
 			&:nth-child(2),
@@ -134,6 +146,36 @@ Blog
 			}
 		}
 	}
+
+	.article-open {
+		article.show-article {
+			-webkit-animation: slideInBlogArticle 0.5s forwards;
+			      	animation: slideInBlogArticle 0.5s forwards;
+		}
+
+		#main-logo {
+			-webkit-transform: scale(0.7, 0.7);
+			        transform: scale(0.7, 0.7);
+	        -webkit-transform-origin: 0 0;
+	                transform-origin: 0 0;
+		
+		    transition: all 0.5s ease;
+
+	    	img {
+
+	    	}
+		}
+	}
+
+	&.show-article {
+		.back {
+		    height: 30px;
+		    width: 23px;
+		    display: block;
+		    position: fixed;
+		    bottom: 90px;
+		}		
+	}	
 }
 
 .main-menu-btn {
@@ -151,6 +193,14 @@ Blog
 	}
 }
 
+/**************************
+Home
+***************************/
+.home .blur-overlay {
+	display: block;
+	opacity: 1;
+	height: 100%;
+}
 
 /**************************
 About Page
@@ -184,6 +234,12 @@ About Page
 	}	
 }
 
+#culture {
+	.full-bleed {
+		display: none;
+	}
+}
+
 #landing-video {
 	display: block;
 }
@@ -206,32 +262,6 @@ CONTACT PAGE
 ***************************/		
 .full-bleed {
 	display: block;
-}
-
-/**************************
-Services Page
-***************************/
-.service-section {
-	.summary {
-	    top: 35%;
-	    -webkit-transform: translateY(0);
-	            transform: translateY(0);		
-
-		p {
-			-webkit-transform: translateY(40px);
-			        transform: translateY(40px);
-		}
-	}
-
-	&.show-summary {
-		.summary {
-			p {
-				opacity: 1;
-				-webkit-transform: translateY(0px);
-				        transform: translateY(0px);
-			}
-		}
-	}
 }
 
 /**************************
@@ -263,6 +293,17 @@ Services Page
 	
 }
 
+.service-section {
+	.summary {
+	    top: 35%;
+
+		p {
+			-webkit-transform: translate3d(0, 40px, 0);
+			        transform: translate3d(0, 40px, 0);
+		}
+	}
+}
+
 #services-landing {
 	background-color: #2A2C2A;
 	color: #fff;
@@ -274,13 +315,6 @@ Services Page
 }
 
 #services-container {
-	background-color: #2A2CB3;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
-
 	&.show-me {
 		opacity: 1;
 	}
@@ -315,8 +349,8 @@ Services Page
 		.summary {
 			p {
 				opacity: 1;
-				-webkit-transform: translateY(0px);
-				        transform: translateY(0px);
+				-webkit-transform: translate3d(0,0,0);
+				        transform: translate3d(0,0,0);
 			}
 		}
 
@@ -334,8 +368,8 @@ Services Page
 .landing blockquote {
     position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    -webkit-transform: translate3d(0, -50%, 0);
+            transform: translate3d(0, -50%, 0);
     width: 100%;
     margin: 0;	
 	font-size: 25px;
@@ -404,5 +438,17 @@ Services Page
 
     &.go-away {
     	bottom: -80px;
+    }
+
+    a {
+    	&.two-line {
+    		span {
+    			display: block;
+    		}
+
+    		span + span {
+    			margin-left: 0;
+    		}
+    	}
     }
 }    

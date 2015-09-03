@@ -90,8 +90,10 @@
 
 			$('.large-date').text(date.slice(-2));
 
-			$imgPlaceholder.attr('src', _this.timeLineImageDir + bgImg);	
+			$timelineBgImage.removeClass('shown');
 
+			$imgPlaceholder.attr('src', _this.timeLineImageDir + bgImg);	
+			
 			$imgPlaceholder.on('load', function(){
 				$timelineBgImage
 					.attr('style', 'background-image:url(' + _this.timeLineImageDir + bgImg + ');')
@@ -249,7 +251,7 @@
 		var winWidth = $(window).width();
 
 		// TODO RESIZE TIMELINE ON WINDOW RESIZE
-		ml.selections.$win.on("resizeEnd", function() {
+		ml.elms.$win.on("resizeEnd", function() {
 			// ml.Timeline.setSquareSideLength();
 			// ml.Timeline.loopEvents();
 

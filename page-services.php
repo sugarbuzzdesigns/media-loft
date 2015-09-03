@@ -46,8 +46,7 @@
 				<div class="quote first show">
 					<span class="quote-mark"></span>
 					<hr>
-					<span>Connection is why we're here; it is what gives</span>
-					<span>purpose and meaning to our lives."</span>
+					<span>Connection is why we're here; it is what gives purpose and meaning to our lives."</span>
 					<small>– Brene Browne</small>
 				</div>	
 				<div class="quote">
@@ -84,8 +83,7 @@
 				<div class="quote">
 					<span class="quote-mark"></span>
 					<hr>
-					<span>You want to have butterflies in your stomach, because if you don't,</span>
-					<span>if you walk out onstage complacent, that's not a good thing."</span>
+					<span>You want to have butterflies in your stomach, because if you don't, if you walk out onstage complacent, that's not a good thing."</span>
 					<small>- Joan Jett</small>
 				</div>	
 				<div class="quote last">
@@ -99,7 +97,7 @@
 		</blockquote>
 	</section>
 	<section id="services-container">
-		<article class="service-section active <?php if(wp_is_mobile()){ echo 'show-summary';} ?>" id="services-staging" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/mobile/backgrounds/services/staging_BG_mobile.jpg);"<?php } ?>>
+		<article class="service-section<?php if(wp_is_mobile()){ echo 'show-summary';} ?>" id="services-staging" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/services/Mobile/staging_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">01</span>
 				<div class="service">Staging</div>
@@ -108,7 +106,7 @@
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
 					<video id="staging-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Staging_BW.jpg);">
-						<source src="<?php bloginfo('template_directory'); ?>/assets/videos/services/Ambient_Staging_BW.mp4">
+						<source src="https://player.vimeo.com/external/137640251.hd.mp4?s=d687eac0921c6ac5b1773c8733d811a2&profile_id=113">
 					</video>
 				</div>
 			<?php } ?>	
@@ -138,7 +136,7 @@
 			</div>
 			<div class="blur-overlay"></div>
 		</article>
-		<article class="service-section" id="services-video" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/mobile/backgrounds/services/video_BG_mobile.jpg);"<?php } ?>>
+		<article class="service-section" id="services-video" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/services/Mobile/video_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">02</span>
 				<div class="service">Video</div>
@@ -147,7 +145,7 @@
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
 					<video id="video-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Video_BW.jpg);">
-						<source src="<?php bloginfo('template_directory'); ?>/assets/videos/services/Ambient_Video_BW.mp4">
+						<source src="https://player.vimeo.com/external/137640256.hd.mp4?s=6c4ffd5cb8c5da4bff0e3ed8db7808dc&profile_id=113">
 					</video>
 				</div>
 			<?php } ?>
@@ -171,7 +169,7 @@
 			</div>			
 			<div class="blur-overlay"></div>
 		</article>	
-		<article class="service-section" id="services-design" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/mobile/backgrounds/services/design_BG_mobile.jpg);"<?php } ?>>
+		<article class="service-section" id="services-design" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/services/Mobile/design_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">03</span>
 				<div class="service">Design</div>
@@ -180,7 +178,7 @@
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
 					<video id="design-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Design_BW.jpg);">
-						<source src="<?php bloginfo('template_directory'); ?>/assets/videos/services/Ambient_Design_BW.mp4">
+						<source src="https://player.vimeo.com/external/137640249.hd.mp4?s=f43f8d8a9e24222d55afa85e7578b339&profile_id=113">
 					</video>
 				</div>
 			<?php } ?>
@@ -201,7 +199,7 @@
 			</div>			
 			<div class="blur-overlay"></div>
 		</article>	
-		<article class="service-section" id="services-motion" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/mobile/backgrounds/services/motion_BG_mobile.jpg);"<?php } ?>>
+		<article class="service-section" id="services-motion" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/services/Mobile/motion_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">04</span>
 				<div class="service">Motion Graphics</div>
@@ -209,8 +207,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="motion-video" preload="none" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Motion_BW.jpg);">
-						<source src="<?php bloginfo('template_directory'); ?>/assets/videos/services/Ambient_Motion_BW.mp4">
+					<video id="motion-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Motion_BW.jpg);">
+						<source src="https://player.vimeo.com/external/137640252.hd.mp4?s=2f50c2d787ec6f984ae0d3b7952ee9f5&profile_id=113">
 					</video>
 				</div>
 			<?php } ?>
@@ -234,7 +232,7 @@
 			</div>			
 			<div class="blur-overlay"></div>
 		</article>	
-		<article class="service-section" id="services-talent" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/mobile/backgrounds/services/talent_BG_mobile.jpg);"<?php } ?>>
+		<article class="service-section" id="services-talent" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/services/Mobile/talent_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">05</span>
 				<div class="service">Talent</div>
@@ -242,8 +240,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="talent-video" preload="none" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Talent_BW.jpg);">
-						<source src="<?php bloginfo('template_directory'); ?>/assets/videos/services/Ambient_Talent_BW.mp4">
+					<video id="talent-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Talent_BW.jpg);">
+						<source src="https://player.vimeo.com/external/137640248.hd.mp4?s=6baad63f5f10e2062fefd1f3a8b6b2e4&profile_id=113">
 					</video>
 				</div>
 			<?php } ?>
@@ -265,7 +263,7 @@
 			</div>			
 			<div class="blur-overlay"></div>
 		</article>
-		<article class="service-section" id="services-support" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/mobile/backgrounds/services/speak_BG_mobile.jpg);"<?php } ?>>
+		<article class="service-section" id="services-support" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/services/Mobile/speak_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">06</span>
 				<div class="service">Speaker Support</div>
@@ -273,8 +271,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="support-video" preload="none" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Support_BW.jpg);">
-						<source src="<?php bloginfo('template_directory'); ?>/assets/videos/services/Ambient_Support_BW.mp4">
+					<video id="support-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Support_BW.jpg);">
+						<source src="https://player.vimeo.com/external/137640250.hd.mp4?s=7ac0c0e82c256fc53819b295076b080c&profile_id=113">
 					</video>
 				</div>
 			<?php } ?>
@@ -309,7 +307,7 @@
 			</div>			
 			<div class="blur-overlay"></div>
 		</article>	
-		<article class="service-section" id="services-interactive" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/mobile/backgrounds/services/interactive_BG_mobile.jpg);"<?php } ?>>
+		<article class="service-section" id="services-interactive" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/services/Mobile/interactive_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">07</span>
 				<div class="service">Interactive</div>
@@ -317,8 +315,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="interactive-video" preload="none" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Interactive_BW.jpg);">
-						<source src="<?php bloginfo('template_directory'); ?>/assets/videos/services/Ambient_Interactive_BW.mp4">
+					<video id="interactive-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Interactive_BW.jpg);">
+						<source src="https://player.vimeo.com/external/137640253.hd.mp4?s=35284b47ee564a182282da6459e38798&profile_id=113">
 					</video>
 				</div>
 			<?php } ?>

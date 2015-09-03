@@ -11,6 +11,11 @@ and other resources. You'll also notice the grid starts to
 come into play. Have fun!
 
 ******************************************************************/
+
+body:before {
+	content: "tablet";
+}
+
 /**************************
 Main Nav
 ***************************/
@@ -118,7 +123,15 @@ body.home .cta {
     left: 5%;
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
-    width: auto;	
+    width: auto;
+
+	.tagline.one-liner {
+		display: block;
+	}
+
+	.tagline.two-liner {
+		display: none;
+	}    	
 }
 
 .blur-overlay {
@@ -130,7 +143,6 @@ body.home .cta {
     height: 0;
     opacity: 0;
     transition: opacity 0.2s ease; 
-
 
     &.show {
     	height: 100%;
@@ -382,6 +394,10 @@ About Page
 
 		}
 	}
+
+	.full-bleed {
+		background-image: url(Culture_Vid_Static_BG_tab.jpg);
+	}
 }
 
 #join-us {
@@ -399,6 +415,7 @@ About Page
 
 		.tagline {
 			background: #fff;
+			padding: 15px 24px 15px;
 
 			span {
 				font-size: 40px;
@@ -623,15 +640,7 @@ Homepage
 ***************************/	
 body.home {
 	background: #F4F4F4;
-	background: transparent;
 }	
-
-.home .blur-overlay {
-	display: block;
-	opacity: 1;
-	height: 100%;
-}
-
 /**************************
 Work Page
 ***************************/
@@ -645,6 +654,7 @@ Work Page
 	height: 100%;
 	width: 25%;
 	float: left;
+	overflow: hidden;
 	-webkit-animation: slideInLeft 1s;
 			animation: slideInLeft 1s;	
 
@@ -734,13 +744,13 @@ Work Page
 		}
 
 		.carousel-image {
-			-webkit-filter: grayscale(100%);
-			filter: grayscale(100%);
+			// -webkit-filter: grayscale(100%);
+			// filter: grayscale(100%);
 
-			&.hovered {
-				-webkit-filter: grayscale(0);
-				filter: grayscale(0);				
-			}
+			// &.hovered {
+			// 	-webkit-filter: grayscale(0);
+			// 	filter: grayscale(0);				
+			// }
 		}
 
 		.work-copy {
@@ -887,6 +897,7 @@ Work Page
 
 	.work-details {
 		padding: 0;
+		overflow: hidden;
 
     	.label {
  		
@@ -899,7 +910,7 @@ Work Page
 		}
 
     	.description {
-		    font-size: 13px;
+		    font-size: 14px;
 		    line-height: 24px;    		
     	}
 
@@ -979,10 +990,6 @@ END WORK PAGE
 		}
 	}
 
-	a {
-
-	}
-
 	.logo {
 		z-index: 3;
 	}
@@ -992,16 +999,28 @@ END WORK PAGE
 		bottom: 0;
 		left: 0;
 	}
+
+    &.go-away {
+    	bottom: -80px;
+    }
+
+    a {
+    	&.two-line {
+    		span {
+    			display: block;
+    		}
+
+    		span + span {
+    			margin-left: 0;
+    		}
+    	}
+    }	
 }
 
 /**************************
 Blog page
 ***************************/	
 #blog {
-
-	.full-bleed {
-		background-position: bottom right;
-	}
 
 	.articles {
 
@@ -1042,6 +1061,41 @@ Blog page
 			}
 		}
 	}
+
+	.video-start {
+	    position: absolute;
+	    left: 50%;
+	    z-index: 1;
+	    cursor: pointer;
+	    transform: translate(-50%, 40%);
+	    -webkit-transform: translate(-50%, 40%);
+	    -ms-transform: translate(-50%, -40%);
+	    height: 50px;
+	    width: 50px;	
+		display: none;
+
+	    div {
+			height: 35px;
+			width: 35px;
+	    }	
+
+		div:first-child:after {
+		    content: "";
+		    height: 0;
+		    width: 0;
+		    border-top: 7px solid transparent;
+		    border-bottom: 7px solid transparent;
+		    border-left: 12px solid #fff;
+		    -webkit-transform: rotate(-45deg);
+		    transform: rotate(-45deg);
+		    display: block;
+		    position: absolute;
+		    top: 46%;
+		    left: 55%;
+		    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+		    transform: translate(-50%, -50%) rotate(-45deg);						
+		}
+	}	
 }
 
 /**************************

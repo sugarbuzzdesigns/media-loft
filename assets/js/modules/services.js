@@ -2,7 +2,7 @@
 	ml.Services = {
 		init: function(){
 			this.buildSlideshow();
-			this.startSlideshow();
+			// this.startSlideshow();
 
 			this.bindEvents();
 		},
@@ -13,8 +13,13 @@
 			$('#services-menu li').on('mouseover', function(e){
 				var $this = $(this);
 
+				if ($this.is('.clicked')) {
+					return;
+				}
+
 				$('#services-container').addClass('show-me');
 				$('#services-landing').addClass('hide-me');
+				$('#services-menu').addClass('inactive');
 
 				$('.blur-overlay.show').removeClass('show');
 
@@ -24,7 +29,7 @@
 				$this.addClass('hovered');
 				$this.siblings().removeClass('clicked');
 
-				ml.activateMenuItem($this);
+				ml.menus.activateMenuItem($this);
 				_this.loadService($this);
 			});
 
@@ -33,25 +38,31 @@
 
 				e.preventDefault();
 
-				$('#services-menu-btn .open-menu').text($(this).text());
+				if(ML_vars.device === 'mobile'){
+					_this.loadService($this);
+				}
 
-				if(ml.activeVideo){
-					ml.pauseActiveVideo();
+				$('#services-menu-btn .open-menu').text($(this).data('menu-text'));
+
+				if(ml.video.activeVideo){
+					ml.video.pauseActiveVideo();
 				}				
 
 				if($this.is('.clicked')){
 					_this.hideServiceContent($this);
-					ml.playVideo(ml.activeVideo);
+					ml.video.playVideo(ml.video.activeVideo);
+					$('#services-menu').addClass('inactive');	
 				} else {
-					_this.showServiceContent($this);
+					_this.showServiceContent($this);	
+					$('#services-menu').removeClass('inactive');			
 				}				
 
 				$this.toggleClass('clicked');
 			});
 
 			$('.service-section .summary').on('click', function(){
-				if(ml.activeVideo){
-					ml.pauseActiveVideo();
+				if(ml.video.activeVideo){
+					ml.video.pauseActiveVideo();
 				}				
 
 				$(this).parent().find('.blur-overlay').addClass('show');
@@ -61,8 +72,8 @@
 
 			// $('.service-section').on('mouseover', function(){
 			// 	if ($(this).is('.active') && !$(this).is('.show-summary')) {
-			// 		if(ml.activeVideo){
-			// 			ml.pauseActiveVideo();
+			// 		if(ml.video.activeVideo){
+			// 			ml.video.pauseActiveVideo();
 			// 		}				
 
 			// 		$(this).parent().find('.blur-overlay').addClass('show');
@@ -74,6 +85,8 @@
 			$('#services-menu-btn .open-menu').click(function(e){
 				e.preventDefault();
 
+				console.log('open the menu');
+
 				$('body').addClass('right-menu-open');
 			});
 
@@ -81,7 +94,14 @@
 				e.preventDefault();
 
 				$('body').removeClass('right-menu-open');
-			});			
+			});	
+
+			$('#services-menu').mouseleave(function(){
+				if($(this).is('.inactive')){
+					$('#services-container').removeClass('show-me');
+					$('#services-landing').removeClass('hide-me');					
+				}
+			});		
 		},
 
 		loadService: function($menuItem){
@@ -97,11 +117,13 @@
 
 				if(hasVideo){
 					if(this.activeVideo){
-						ml.pauseActiveVideo();
+						ml.video.pauseActiveVideo();
 					}
 					
-					ml.playVideo($video[0]);
-					ml.activeVideo = $video[0];
+					ml.video.playVideo($video[0]);
+					ml.video.activeVideo = $video[0];
+
+					console.log('playe the video');
 				}
 
 			// hide current section if showing
@@ -111,7 +133,7 @@
 			// go to the section
 			$("html, body").animate({ scrollTop: containerTop });
 			// hide menu
-			ml.$body.removeClass('right-menu-open');
+			ml.elms.$body.removeClass('right-menu-open');
 		},
 
 		showServiceContent: function($menuItem){
@@ -119,10 +141,10 @@
 				sectionToLoadHref = $link.attr('href'),
 				$sectionToLoad = $('#' + sectionToLoadHref);
 
-				console.log($('.blur-overlay', $sectionToLoad));
-
 			$('.blur-overlay', $sectionToLoad).addClass('show');
 			$('.scaling-svg-container', $sectionToLoad).addClass('show-me');
+
+			console.log($sectionToLoad);
 
 			$sectionToLoad.addClass('show-summary');
 		},

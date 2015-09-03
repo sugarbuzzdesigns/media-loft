@@ -103,8 +103,7 @@ add_action( 'wp_head', 'medialoft_javascript_detection', 0 );
  */
 function medialoft_scripts() {
 	global $detect;
-	// Load our main stylesheet.
-	wp_enqueue_style( 'medialoft-style', get_stylesheet_uri() );
+
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-ui.js', get_template_directory_uri() . '/assets/js/vendor/jquery-ui.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'jquery-mousewheel', get_template_directory_uri() . '/assets/js/vendor/jquery-mousewheel.js', array( 'jquery' ), true );
@@ -112,6 +111,10 @@ function medialoft_scripts() {
 	wp_enqueue_script( 'jquery-smoothscroll', get_template_directory_uri() . '/assets/js/vendor/jquery-smoothscroll.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'ml-libraries', get_template_directory_uri() . '/assets/js/libs/libraries.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'medialoft-script', get_template_directory_uri() . '/assets/js/ml.js', array( 'jquery' ), true );
+
+	if(is_front_page()){
+		wp_enqueue_script( 'home', get_template_directory_uri() . '/assets/js/modules/home.js', array( 'jquery' ), true );		
+	}
 
 	if(is_page('work')){
 		wp_enqueue_script( 'work', get_template_directory_uri() . '/assets/js/modules/work.js', array( 'jquery' ), true );		
@@ -143,16 +146,22 @@ function medialoft_scripts() {
 	$dataToBePassed = array(
 	    'home'      => get_stylesheet_directory_uri(),
 	    'device'	=> getDevice(),
-	    'isMobile' 	=> $detect->isMobile(),
-	    'isTablet'	=> $detect->isTablet(),
+	    'isMobile' 	=> $detect->isMobile() == '1' ? true : false,
+	    'isTablet'	=> $detect->isTablet() == '1' ? true : false,
+	    'isTouch'	=> ($detect->isTablet() || $detect->isMobile()),
 	    'isDesktop' => (!$detect->isTablet() && !$detect->isMobile())
 	);	
 
 	wp_localize_script( 'medialoft-script', 'ML_vars', $dataToBePassed );
 
 }
-add_action( 'wp_enqueue_scripts', 'medialoft_scripts' );
+add_action( 'wp_footer', 'medialoft_scripts' );
 
+function medialoft_styles(){
+	wp_enqueue_style( 'medialoft-style', get_stylesheet_uri() );				
+}
+
+add_action( 'wp_enqueue_scripts', 'medialoft_styles' );
 /**
  * Detct device
  */

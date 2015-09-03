@@ -1,40 +1,31 @@
 <?php get_header(); ?>
-        <div id="container">
-            <svg version="1.1" id="shape-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                 viewBox="0 0 939.125 1170.31" enable-background="new 0 0 939.125 1170.31"
-                 xml:space="preserve" preserveAspectRatio="xMidYMid slice">
-            <path fill="none" stroke="#4C4B4C" stroke-width="2" stroke-miterlimit="10" d="M838.109,571.206l98.502-98.503
-                c3.352-3.351,3.352-8.784,0-12.134L480.207,4.164c-3.352-3.351-8.785-3.351-12.135,0L244.251,227.986
-                c-3.352,3.351-3.352,8.783,0,12.134l330.234,330.237"/>
-            <path fill="none" stroke="#4C4B4C" stroke-width="2" stroke-miterlimit="10" d="M231.242,901.415c3.351,3.352,8.784,3.352,12.135,0
-                l456.405-456.407c3.353-3.351,3.353-8.782,0-12.134L475.963,209.052c-3.353-3.351-8.786-3.351-12.136,0L7.421,665.457
-                c-3.351,3.354-3.351,8.783,0,12.135L231.242,901.415z"/>
-            <path fill="none" stroke="#4C4B4C" stroke-width="2" stroke-miterlimit="10" d="M133.568,803.739L8.193,929.114
-                c-3.351,3.352-3.351,8.782,0,12.135l223.82,223.821c3.351,3.352,8.785,3.352,12.135,0l593.912-593.912"/>
-            <path fill="none" stroke="#4C4B4C" stroke-width="2" stroke-miterlimit="10" d="M602.106,807.114l94.249,94.25
-                c3.352,3.351,8.784,3.351,12.137,0l223.818-223.823c3.354-3.35,3.354-8.784,0-12.135L699.786,432.882"/>
-            <path fill="none" stroke="#4C4B4C" stroke-width="2" stroke-miterlimit="10" d="M470.715,938.502l226.563,226.566
-                c3.354,3.354,8.785,3.354,12.135,0l218.128-218.014c3.35-3.354,6.508-8.368,5.689-17.942l1.591-257.588"/>
-            <line fill="none" stroke="#4C4B4C" stroke-width="2" stroke-miterlimit="10" x1="4.91" y1="671.524" x2="5.679" y2="935.182"/>
-            </svg>
-        </div> 
 
-        <style>
-            #container {
-                height: 100%;
-                width: 100%;
-                overflow: hidden;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
+<style>
+    #main-logo,
+    #loader {
+        display: none;
+    }
 
-            svg {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 110%;
-                transform: translate(-50%,-50%);
-            }
-        </style>      
+    .frame { width: 100%; height: 160px; padding: 0; }
+    .frame .slidee { margin: 0; padding: 0; height: 100%; list-style: none; }
+    .frame .slidee li { float: left; margin: 0 5px 0 0; padding: 0; width: 120px; height: 100%; }
+
+    .scrollbar { width: 100%; height: 10px; }
+    .scrollbar .handle {
+        width: 100px; /* overriden if dynamicHandle: 1 */
+        height: 100%;
+        background: #222;
+    }        
+</style>
+
+    <div id="frame">
+        <div class="slidee">
+            <h2>This in here...</h2>
+            <p>Hey</p>
+        </div>
+    </div>
+
+    <div class="scrollbar">
+        <div class="handle"></div>
+    </div>         
 <?php get_footer(); ?>

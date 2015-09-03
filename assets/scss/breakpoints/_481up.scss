@@ -22,6 +22,11 @@ anymore, so just be aware that if you drop
 them in here, they won't work.
 */
 
+body:before {
+  content: "phablet";
+  display: none; /* Prevent from displaying. */
+}
+
 /**************************
 Main Nav
 ***************************/
@@ -126,7 +131,7 @@ Main Menu Styles
 ***************************/
 .main-menu-btn,
 .right-menu-btn {
-	height: 70px;
+	height: 68px;
 	bottom: 0;
 	left: 0;
 	font-size: 15px;
@@ -135,7 +140,7 @@ Main Menu Styles
 
 	.open-menu {
 		display: block;	
-		padding: 26px 28px 0;
+		padding: 22px 28px 0;
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -375,28 +380,10 @@ Contact page
 }
 
 /**************************
-FULL BLEED VIDEO 
-***************************/	
-.home .video-bg-container {
-	z-index: -2;
-}
-
-// Cover for when a vid is started with a click
-.full-bleed {
-	@include full-bleed;
-}
-
-.video-cover {
-	@include full-bleed;
-	z-index: 1;
-}
-
-/**************************
 Homepage
 ***************************/	
 body.home {
 	background: #F4F4F4;
-	background: transparent;
 }	
 
 /**************************
@@ -510,13 +497,13 @@ Work Page
 		}
 
 		.carousel-image {
-			-webkit-filter: grayscale(100%);
-			filter: grayscale(100%);
+			// -webkit-filter: grayscale(100%);
+			// filter: grayscale(100%);
 
-			&.hovered {
-				-webkit-filter: grayscale(0);
-				filter: grayscale(0);				
-			}
+			// &.hovered {
+			// 	-webkit-filter: grayscale(0);
+			// 	filter: grayscale(0);				
+			// }
 		}
 
 		.work-copy {
@@ -814,6 +801,22 @@ Work Page
 		bottom: 0;
 		left: 0;
 	}
+
+    &.go-away {
+    	bottom: -80px;
+    }
+
+    a {
+    	&.two-line {
+    		span {
+    			display: block;
+    		}
+
+    		span + span {
+    			margin-left: 0;
+    		}
+    	}
+    }		
 }
 
 
@@ -826,10 +829,9 @@ Services Page
 
 .service-section {
 	background: transparent;
-	display: none;
 
 	.summary {
-	    width: 45%;
+	    width: 50%;
 	    left: 15%;
 
 	    p {

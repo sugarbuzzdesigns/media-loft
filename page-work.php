@@ -18,8 +18,8 @@
 					<div class="work-item-bg-hover" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/thumbs/<?php echo $workItem['thumb hover']; ?>)"></div>
 				</div>		
 				<article class="work-summary">
-					<div class="cta">
-						<h2 class="tagline work-title">
+					<div class="work-cta">
+						<h2 class="work-title">
 							<span class="company"><?php echo $companyName; ?></span>
 							<span class="category"><?php echo $workItem['category']; ?></span>
 						</h2>				
@@ -37,7 +37,8 @@
 									<p class="company"><?php echo $companyName; ?></p>
 									<p class="title"><?php echo $workItem['label']; ?></p>
 									<div class="description">
-										<p><?php echo $slide['description']; ?></p>
+										<?php echo $slide['description']; ?>
+										<div class="textNav"></div>
 									</div>
 
 									<nav class="carousel-arrow-nav">
@@ -50,13 +51,13 @@
 										<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $slide['media'][1]; ?>)"></div>
 									<?php } else { ?>
 										<div class="video-bg-container <?php if(wp_is_mobile()) { echo 'mobile'; } ?>">
-											<div class="full-bleed" style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/work/mobile-video-posters/target.jpg);"></div>
+											<div class="full-bleed" style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/work/mobile-video-posters/<?php echo $slide['media'][3]; ?>);"></div>
 											<div class="video-start play-full-screen" data-video="<?php echo replace_spaces(strtolower($companyName)); ?>-video-<?php echo $index; ?>">
 												<div></div>
 												<div></div>
 											</div>
 											
-											<video loop class="work-video work-full-video" id="<?php echo replace_spaces(strtolower($companyName)); ?>-video-<?php echo $index; ?>" class="work-video">
+											<video preload="none" class="work-video work-full-video" id="<?php echo replace_spaces(strtolower($companyName)); ?>-video-<?php echo $index; ?>" class="work-video">
 												<source data-src="<?php bloginfo('template_directory'); ?>/assets/videos/work/<?php echo $slide['media'][2]; ?>">
 											</video>					
 

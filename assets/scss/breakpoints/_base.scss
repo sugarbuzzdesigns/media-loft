@@ -1,3 +1,13 @@
+/**
+ * These values will not show up in content, but can be 
+ * queried by JavaScript to know which breakpoint is active.
+ * Add or remove as many breakpoints as you like.
+ */
+body:before {
+  content: "smartphone";
+  display: none; /* Prevent from displaying. */
+}
+
 html, 
 body {
 	height: 100%;
@@ -24,11 +34,92 @@ section {
 }
 
 /**************************
+Shrunken desktop screen
+***************************/		
+.no-touch {
+	.main-menu-btn {
+		.close-menu {
+			display: none;
+		}
+	}
+}
+
+/**************************
 Links Styles
 ***************************/		
 
 a  {
 	color: #575859;
+}
+
+/**************************
+Loader
+***************************/		
+#loader {
+	background: #ef4330;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1000;
+
+	.inner {
+		height: 50%;
+    	width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%,-50%);
+		        transform: translate(-50%,-50%);
+
+		svg {
+			width: 200px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%,-50%);
+			        transform: translate(-50%,-50%);
+
+			.left {
+				stroke: #fff;
+				fill-opacity: 0;
+				stroke-width: 1;
+				stroke-dasharray: 540;
+    			stroke-dashoffset: 540;
+				-webkit-animation-name: draw;
+				        animation-name: draw;
+				-webkit-animation-duration: 2s;
+				        animation-duration: 2s;
+				-webkit-animation-fill-mode: forwards;
+				        animation-fill-mode: forwards; // Stay on the last frame
+				-webkit-animation-iteration-count: infinite; // Stay on the last frame
+				        animation-iteration-count: infinite; // Run only once
+				-webkit-animation-timing-function: linear; // Run only once
+				        animation-timing-function: linear;				
+			}
+
+			.right {
+				stroke: #fff;
+				fill-opacity: 0;
+				stroke-width: 1;
+				stroke-dasharray: 1100;
+				stroke-dashoffset: 1100;
+				-webkit-animation-name: draw;
+				        animation-name: draw;
+				-webkit-animation-duration: 2s;
+				        animation-duration: 2s;
+				-webkit-animation-fill-mode: forwards;
+				        animation-fill-mode: forwards; // Stay on the last frame
+				-webkit-animation-iteration-count: infinite; // Stay on the last frame
+				        animation-iteration-count: infinite; // Run only once
+				-webkit-animation-timing-function: linear; // Run only once
+				        animation-timing-function: linear;				
+			}			
+		}
+	}
 }
 
 /**************************
@@ -41,8 +132,8 @@ Global Buttons
 	height: 50px;
 	padding-top: 9px;
 	position: absolute;
-	bottom: 0;
-	left: 0;	
+	top: 0;
+	right: 0;	
 	font-size: 30px;	
 
 	i {
@@ -268,7 +359,7 @@ Homepage
 	background-color: #F7F7F7;
 
 	.mobile-bg-corner {
-		background-image: url(../images/mobile/backgrounds/mobile-home-bg.png);
+		background-image: url(../images/mobile/backgrounds/homepage_BG_mobile_V2.png);
 		background-position: right bottom;
 		background-repeat: no-repeat;
 		width: 100%;
@@ -282,8 +373,12 @@ Homepage
 	.cta {
     	top: 50%;	
 
-		.tagline {
+    	.tagline.two-liner {
+    		width: 375px;    		
+    	}
 
+		.tagline.one-liner {
+			display: none;
 		}  		
 	}
 
@@ -944,13 +1039,17 @@ Blog page
 	height: 100%;
 	width: 100%;
 
+	.full-bleed {
+		background-position: bottom right;
+	}	
+
 	.back {
-	    height: 50px;
-	    width: 30px;
+	    height: 30px;
+	    width: 18px;
 	    display: block;
 	    position: fixed;
-	    bottom: 80px;
-	    left: 10px;
+	    bottom: 70px;
+	    left: 0;
 	    -webkit-transform: rotate(90deg);
 	            transform: rotate(90deg);
 	    display: none;
@@ -1022,16 +1121,16 @@ Blog page
 				    left: 50%;
 				    z-index: 1;
 				    cursor: pointer;
-				    transform: translate(-50%, 40%);
-				    -webkit-transform: translate(-50%, 40%);
-				    -ms-transform: translate(-50%, -40%);
+				    transform: translate(-50%, 0);
+				    -webkit-transform: translate(-50%, 0);
+				    -ms-transform: translate(-50%, 0);
 				    height: 50px;
 				    width: 50px;	
 					display: none;
 
 				    div {
-						height: 35px;
-						width: 35px;
+						height: 25px;
+						width: 25px;
 				    }	
 
 					div:first-child:after {
@@ -1073,6 +1172,7 @@ Blog page
 			    padding: 100px 0 20px 0;
 			    width: 80%;
 			    max-width: 900px;
+			    transition: all 0.5s ease;
 
 				p {
 					margin: 0 0 25px 0;
@@ -1105,7 +1205,6 @@ Blog page
 					font-family: 'KlavikaWebBasicRegular';
 					color: #86B1AA;
 					font-size: 25px;
-				    font-size: 25px;
 				    margin: 20px 0 30px;
 				}
 			}
@@ -1161,6 +1260,11 @@ Blog page
 
 			&.show-article {
 				width: 100%;
+				height: 25%;
+
+				.full-bleed {
+					background-position: center;
+				}
 
 				.video-article-headline {
 					.title { margin-bottom: 50px; }
@@ -1215,17 +1319,38 @@ Blog page
 	}
 }
 
+.loaded.article-open {
+	article.show-article {
+		-webkit-animation: slideInBlogArticle 0.5s forwards;
+		      	animation: slideInBlogArticle 0.5s forwards;
+	}
+
+	#main-logo {
+		-webkit-transform: translate(-100%, -100%);
+		        transform: translate(-100%, -100%);
+	
+	    transition: all 0.5s ease;
+
+    	img {
+
+    	}
+	}
+}
+
 /**************************
 Services Page
 ***************************/
 .page-services {
+	background: #2A2C2A;
+
 	#services-container {
 		.svg-container {
 			svg {
-				display: none;
+				width: 130%;
 
 				line, path {
-					stroke: rgba(255, 255, 255, 0.0);				
+					stroke: rgba(255, 255, 255, 0.0);	
+					stroke-width: 0.3;			
 				}
 			}
 		}	
@@ -1265,6 +1390,7 @@ Services Page
 				stroke: rgba(255, 255, 255, 0.1);	
 				stroke-dasharray: 1870;
 				stroke-dashoffset: 1870;
+				stroke-width: 0.3;	    	
 				-webkit-animation-name: draw;
 				        animation-name: draw;
 				-webkit-animation-duration: 5s;
@@ -1284,15 +1410,22 @@ Services Page
 	background-color: #2A2C2A;
 	color: #fff;
 	overflow: hidden;
+	opacity: 1;
+	transition: all 1s ease;
 
 	&.hide-me {
 		opacity: 0;
+		transition: all 1s ease;
 	}
 }
 
 #services-container {
 	background-color: #2A2CB3;
-	opacity: 1;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;	
 
 	&.show-me {
 		opacity: 1;
@@ -1304,8 +1437,11 @@ Services Page
 	width: 100%;
 	background-color: $ml-red;
 	background-size: cover;
-	position: relative;
-	// display: none;	
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: all 0.5s ease;	
 
 	.blur-overlay {
 		display: none;
@@ -1315,14 +1451,14 @@ Services Page
 		color: #fff;
 		padding: 0 20px;
 	    position: absolute;
-	    top: 50%;
+	    top: 30%;
 	    z-index: 3;
-	    cursor: pointer;
-	    -webkit-transform: translateY(-50%);
-	            transform: translateY(-50%);		
 
 		p {
-
+			font-family: 'ProximaNova-Regular';
+			line-height: 21px;
+			margin: 20px 0 0 0;
+			font-size: 17px;
 		}
 	}	
 
@@ -1337,25 +1473,28 @@ Services Page
 
 	.service {
 		text-transform: lowercase;
-		font-size: 25px;
+		font-size: 33px;
+		font-family: 'KlavikaWebBasicLight';
 		margin-top: 20px;
 	}
 
 	&.active {
-		display: block;
+		opacity: 1;
+		transition: all 0.5s ease;
 	}
 
 	&.show-summary {
 		.summary {
 			p {
 				opacity: 1;
+				transition: all 0.5s ease;
 			}
 		}
 
 		video {
 			-webkit-filter: blur(10px);
 					filter: blur(10px);
-		}
+		}	
 	}
 }
 
@@ -1366,25 +1505,26 @@ Services Page
 .landing blockquote {
     position: absolute;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    width: 100%;
-    margin: 0;	
-	font-size: 25px;
+    width: 95%;
+    margin: 0;
 	padding: 0 20px;
-	// -webkit-animation: down 1s ease forwards;
 	z-index: 1;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);	
 
 	.quote-mark {
 	    background: url(../images/icons/quote-mark.png) no-repeat;
 	    display: block;
-	    width: 20px;
 	    background-size: 100%;
-	    height: 20px;
+	    width: 25px;
+	    height: 25px;
 	}
 
 	.quote {
 		display: none;
+		font-family: 'KlavikaWebBasicLightItalic';
+		font-size: 34px;
+		line-height: 36px;
 
 		&.show {
 			display: block;
@@ -1393,21 +1533,24 @@ Services Page
 	small {
 		display: block;
 		font-size: 15px;
-		margin-top: 50px;		
+		margin-top: 50px;	
+		font-family: 'KlavikaWebBasicRegular';	
 	}
 
 	hr {
 		height: 1px;
-		width: 40px;
+		width: 50px;
 		background: #fff;
 		border: none;
-		margin: 30px 0 20px 0;
+		margin: 37px 0 25px 0;
+		opacity: 0.5;
 	}	
 
 	nav {
-		text-align: right;
-		font-size: 20px;
-		margin-top: -20px;
+	    text-align: right;
+	    font-size: 20px;
+	    margin-top: -32px;
+	    color: #CBCBB6;
 
 		span {
 			display: inline-block;
@@ -1416,14 +1559,17 @@ Services Page
 
 		.cur {
 			margin-right: 5px;
+			font-family: 'KlavikaWebBasicRegularItalic';
 		}
 
 		.total {
 			margin-left: 5px;
+			font-family: 'KlavikaWebBasicRegularItalic';
 		}
 
 		.arrow {
 			margin: 0 5px;
+			font-family: 'KlavikaWebBasicRegular';
 		}
 	}
 }
@@ -1433,10 +1579,6 @@ Services Page
     bottom: 0;
     right: 0;
     color: #fff;
-
-    &.go-away {
-    	bottom: -80px;
-    }
 }    
 
 /**************************
@@ -1493,7 +1635,9 @@ Work Page
 	overflow: hidden;
 	height: 100%;
 	width: 100%;
+	min-height: 630px;
 	position: relative;
+	transition: all 0.5s ease;
 
 	.work-item-bgs {
 		background: #fff;
@@ -1523,10 +1667,32 @@ Work Page
 		width: 100%;	
 		position: absolute;
 		top: 0;
-		left: 0;	
+		left: 0;
 
-		.tagline {
-			background: transparent;
+		.work-cta {
+			position: absolute;
+			top: 50%;
+			margin-left: 45px;
+			-webkit-transform: translate(0, -50%);
+			        transform: translate(0, -50%);
+
+			.company {
+				background: #fff;
+				padding: 6px 8px;
+				font-size: 28px;
+				color: #000;
+				display: inline-block;
+				font-family: 'KlavikaWebBasicLight';
+				margin-bottom: 20px;
+			}
+
+			.category {
+				color: #6E6E6E;
+				font-size: 16px;
+				display: block;
+				font-family: 'KlavikaWebBasicRegular';
+				text-transform: uppercase;
+			}			
 		}
 	}
 
@@ -1553,12 +1719,40 @@ Work Page
 		}
 
     	.description {
-    		opacity: 0.74;
 		    font-size: 14px;
 		    line-height: 20px; 
 		    font-family: 'ProximaNova-Regular';
-		    // height: 100px;
-		    // overflow: scroll;
+
+		    p {
+		    	opacity: 0.74;
+		    }
+
+		    .textNav {
+
+		    	span {
+		    		display: inline-block;
+		    		-webkit-transform: rotate(45deg);
+		    		        transform: rotate(45deg);
+				    height: 8px;
+				    width: 8px;
+				    background: #fff;
+				    opacity: 0.2;
+				    cursor: pointer;
+				    margin-right: 15px;
+
+		    		&.active {
+		    			opacity: 1;
+		    		}
+		    	}
+		    }
+			
+			p {
+				display: none;
+
+				&.active {
+					display: block;
+				}
+			}
     	}
 
     	.company {
@@ -1586,6 +1780,25 @@ Work Page
 		    line-height: 20px;    		
     	}
 	}
+
+	&:hover {
+		.work-summary {
+			.work-cta {
+				.company {
+					background: $ml-red;
+					color: #fff;
+				}
+
+				.category {
+					color: #fff;
+				}				
+			}
+		}
+	}
+}
+
+.work-item * {
+	transition: all 0.5s ease;
 }
 
 .show-details {
@@ -1622,7 +1835,10 @@ Work Page
 		    	.work-media {
 		    		display: block;
 		    		height: 50%;
-		    		background: orange;
+
+					.video-bg-container {
+						display: block;
+					}		    		
 		    	}		    	
 		    }
 		}		
@@ -1807,10 +2023,11 @@ Logo
 	height: 40px;
 	position: absolute;
 	top: 32px;
-	left: 33px;
+	left: 18px;
 	margin: 0;
 	display: block;
 	z-index: 5;
+	transition: all 0.5s ease;
 
 	img {
 		width: 100%;
@@ -1821,17 +2038,29 @@ Logo
 	}
 
 	&.interior {
-		width: 75px;
-		height: 75px; 
+		width: 45px;
+		height: 45px;
 		background-color: #fff;
-		padding: 20px 10px;
+		padding: 15px 10px;
 		top: 0;
-		left: 0;		
+		left: 0;	
+		transition: all 0.5s ease;	
+	}
+}
+
+.ariticle-open {
+	.logo.interior {
+		
 	}
 }
 
 #main-logo {
 	position: fixed;
+	transition: all 0.5s ease;
+
+	img {
+		transition: all 0.5s ease;
+	}
 }
 
 .page-about #main-logo {
@@ -1926,6 +2155,7 @@ Cta & Tagline
 
 .nav-arrow-down {
 	width: 35px;
+	cursor: pointer;
 
 	img {
 		width: 100%;
@@ -2029,6 +2259,11 @@ Cta & Tagline
 	}
 }
 
+@-webkit-keyframes slideInBlogArticle {
+  0%   { left: -100%; }
+  100% { left: 0; }
+}
+
 /**************************
 Main Menu Styles
 ***************************/
@@ -2083,6 +2318,7 @@ Main Menu Styles
 	left: auto;
 	right: 0;
 	color: #fff;
+	z-index: 22;
 
 	.open-menu {
 		background: $ml-dark-red;
@@ -2134,6 +2370,10 @@ Main Menu Styles
 		font-family: "KlavikaWebBasicRegular";
 
 		&.two-line {
+			span + span {
+				margin-left: 10px;
+			}
+
 		    padding-top: 20px;
 		    text-align: center;			
 		}
@@ -2208,7 +2448,9 @@ Main Menu Styles
 	.main-menu {
 		left: 0%;
 	}
+}
 
+.touch .main-menu-open {
 	.open-menu {
 		transition: all 0.5s ease;
 		bottom: -50px;
@@ -2216,12 +2458,25 @@ Main Menu Styles
 
 	.close-menu {
 		left: 0;
-	}
-
+		transition: all 0.5s ease;
+	}	
 }
 
 .right-menu-open {
 
+	.right-menu-btn {
+		.open-menu {
+			bottom: -80px;
+		}
+
+		.close-menu {
+			right: 0;
+		}
+	}
+
+	.right-menu {
+		right: 0;
+	}
 }
 
 /* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */

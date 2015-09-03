@@ -1,17 +1,39 @@
 /**************************
-Main menu 
-***************************/		
-.main-menu-btn {
-	height: 63px;
-	font-size: 20px;
-}
+Logo
+***************************/
+.logo {
+	width: 200px;
+	height: 40px;
+	position: absolute;
+	top: 32px;
+	left: 18px;
+	margin: 0;
+	display: block;
+	z-index: 5;
+	transition: all 0.5s ease;
 
-.main-menu-open {
-	.open-menu {
-		bottom: -63px;
+	img {
+		width: 100%;
+	}
+
+	h1 {
+		margin: 0;
+	}
+
+	&.interior {
+		width: 75px;
+		height: 75px; 
+		background-color: #fff;
+		padding: 20px 10px;
+		top: 0;
+		left: 0;	
+		transition: all 0.5s ease;	
 	}
 }
 
+/**************************
+Main menu 
+***************************/
 .main-menu {
     padding-top: 150px;
 
@@ -68,4 +90,4 @@ PAGE SPECIFIC STYLES
 		    font-size: 14px;			
 		}
 	}
-}
+}	

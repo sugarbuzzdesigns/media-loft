@@ -1,268 +1,153 @@
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, 
+			args = arguments;
+		
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+
+		var callNow = immediate && !timeout;
+
+		clearTimeout(timeout);
+		
+		timeout = setTimeout(later, wait);
+		
+		if (callNow) func.apply(context, args);
+	};
+};
+
+var myEfficientFn = debounce(function() {
+	ml.utils.setBreakpoint();
+}, 250);
+
+// For testing so It's easy to
+// make selections in the console
 var $ = jQuery;
+
+// Declare global namespace for ML object
+ml = {};
 
 /**
  * Start Media Loft Object
  */
 (function($){
-	jQuery(window).load(function() {
-	  // console.log('all site loaded');
-	});
+	ml.elms = {
+	    $win: $(window),
+	    $html: $('html'),
+	    $body: $('body'),
+	    $document: $(document),
+	    $bodyScrollElement: $('html, body'),
+	    $loader: $('#loader')
+	};
 
-	ml = {
-
-		selections: {
-			$win: $(window)
-		},
-
+	ml.mainMenu = {
 		init: function(){
+			this.$mainMenuBtn = $('main-menu-btn');
+			this.$mainMenu = $('.main-menu');
+			this.$menuLink = $('.main-menu li a');
+			this.$menuOverlay = $('#menu-overlay');
+			this.$mainMenuOpen = $('.main-menu .open-menu');
+			this.$mainMenuClose = $('.main-menu .close-menu');
+			this.openClass = 'main-menu-open';
+
 			this.bindEvents();
-
-			// Cache some often used elements
-			this.$win = $(window);
-			this.$body = $('body');
-
-			this.env = $('html').is('.mobile') ? 'mobile' : 'desktop';
-
-			// console.log(this.env);
 		},
-		bindEvents: function() {
-			var _this = this;
 
-			$('.main-menu').mouseover(function(){
-				if(ML_vars.device === 'mobile'){return}
+		bindEvents: function(){
+			var _this = this;	
 
-				_this.$body.addClass('main-menu-open');
-				$('#menu-overlay').stop().fadeTo('fast',1);
+			_this.$mainMenuOpen.on('mouseover touchstart', function(){
+				_this.openMainMenu();
 			});
 
-			$('.main-menu .open-menu').click(function(){
-				_this.$body.addClass('main-menu-open');
-				console.log('open me');
-			});
-
-			$('#menu-overlay').mouseover(function(){
+			_this.$menuOverlay.on('mouseover', function(){
 				if(ML_vars.device === 'mobile'){return}
-
-				_this.$body.removeClass('main-menu-open');
-				$('#menu-overlay').stop().fadeTo('fast',0);
-			});			
-
-			$('.home .play-reel, .blur-overlay').on('click', function(e){
-				e.preventDefault();
-				e.stopPropagation();
-
-				_this.playHomeVideo();
-			});			
-
-			$('#home-video-overlay .close-video').on('click', function(e){
-				e.preventDefault();
-
-				_this.closeHomeVideo();
+				_this.closeMainMenu();
 			});	
 
-			if(ML_vars.device === 'mobile'){
-				$('.close-menu').click(function(){
-					$('body').removeClass('main-menu-open');
-					console.log('close me');
-				});
-			}
-
-			$('#home-video-full').on('ended', function(){
-				_this.closeHomeVideo();
+			_this.$mainMenuClose.on('touchstart', function(){
+				_this.closeMainMenu();			
 			});
 
-			this.startLandingVideo();
+			_this.$menuLink.on('click', function(){
+				_this.deselectMenuItems($(this));
+			});
 		},
-		openNavMenu: function($menuBtn){
-			if($menuBtn.is('.main-menu-btn')){
-				this.toggleMainMenu();
-			} else {
-				this.toggleSideMenu();
-			}
-		},	
-		toggleMainMenu: function(){
-			this.$body.toggleClass('main-menu-open');
-			if(this.$body.hasClass('right-menu-open')){
-				this.$body.removeClass('right-menu-open');
-			}			
+
+		openMainMenu: function(){
+			ml.elms.$body.addClass(this.openClass);
+			this.$menuOverlay.stop().fadeTo('fast',1);
 		},
-		toggleSideMenu: function(){
-			this.$body.toggleClass('right-menu-open');
-			if(this.$body.hasClass('main-menu-open')){
-				this.$body.removeClass('main-menu-open');
-			}
+
+		closeMainMenu: function(){
+			console.log('close main menu');
+			ml.elms.$body.removeClass(this.openClass);
+			this.$menuOverlay.stop().fadeTo('fast',0);			
 		},
+
+		deselectMenuItems: function($link){
+			$link.parent().siblings().removeClass('active');
+		}
+	};
+
+	ml.menus = {
 		activateMenuItem: function($menuItem){
 			$menuItem.addClass('active');
 			$menuItem.siblings().removeClass('active');
-		},
-		hideRightNav: function(){
-			$('.right-menu').addClass('go-away');
-		},
-		loadService: function($menuItem){
-			var $serviceSections = $('.service-section');
-				$link = $('a', $menuItem),
-				$sectionToLoad = $($link.attr('href')),
-				$servicesContainer = $('#services-container'),
-				containerTop = $servicesContainer.offset().top,
-				$video = $('video', $sectionToLoad),
-				hasVideo = $video.length > 0 ? true : false;
+		}		
+	};
 
-				if(hasVideo){
-					if(this.activeVideo){
-						this.pauseActiveVideo();
-					}
-					
-					this.playVideo($video[0]);
+	ml.video = {
+		activeVideo: '',
 
-				}
-
-			// hide current section if showing
-			$serviceSections.removeClass('active show-summary');
-			// show the section chosen
-			$sectionToLoad.addClass('active');
-			// go to the section
-			$("html, body").animate({ scrollTop: containerTop });
-			// hide menu
-			this.$body.removeClass('right-menu-open');
-		},
-		showServiceContent: function($menuItem){
-			var $link = $('a', $menuItem),
-				$sectionToLoad = $($link.attr('href'));
-
-			$('.blur-overlay', $sectionToLoad).addClass('show');
-
-			$sectionToLoad.addClass('show-summary');	
-		},
-		playHomeVideo: function(){
-			$('#home-video-overlay').addClass('show-me');
-			$('#home-video-full')[0].play();
-		},	
-		closeHomeVideo: function(){
-			$('#home-video-overlay').removeClass('show-me');
-			$('#home-video-full')[0].pause();
-		},				
-		startLandingVideo: function(){
-
-			var $vid = $('#landing-video');
-				vid = $vid[0];
-
-			$vid.on('canplay', function(){
-				vid.play();
-			});
-		},
 		pauseActiveVideo: function(){
 			this.activeVideo.pause();
 		},
+
 		playVideo: function(video){
 			video.play();
 
 			this.activeVideo = video;
 		},
-		showRelatedBlogArticle: function($article){
-			var group = $article.parent(),
-				groupSiblings = group.siblings('.group');
+	};
 
-			groupSiblings.hide();
-			$article.siblings().hide();
+	ml.utils = {
+		setBreakpoint: function () {
+			this.breakpoint = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
 
-			$article.addClass('show-article');
-
-			// console.log($('article').not('.show-article').addClass('hide-me'));
-			// console.log($(entry).parent().find('.article-content'));
+			if(this.breakpoint === 'smartphone'){
+				ml.elms.$body.addClass('smartphone').removeClass('phablet tablet desktop');
+			}
+			if(this.breakpoint === 'phablet'){
+				ml.elms.$body.addClass('phablet').removeClass('smartphone tablet desktop');
+			}
+			if(this.breakpoint === 'tablet'){
+				ml.elms.$body.addClass('tablet').removeClass('phablet smartphone desktop');
+			}
+			if(this.breakpoint === 'desktop'){
+				ml.elms.$body.addClass('desktop').removeClass('phablet tablet smartphone');
+			}									
 		},
 
-		scaleSvgHeight: function(){
-			var svgContainer = $('.scaling-svg-container');
-			var svg = $('.scaling-svg-container svg');
-
-			var w = $(window).width();
-			var h = $(window).height();
-
-			var pb = (h/w) * 100;
-
-			svgContainer.css('padding-bottom', pb + '%');
-
-			svg.attr({
-				'height': h,
-				'width': w,
-				'viewBox': [0, 0, w, h].join(' ')
-			});		
+		isTouch: function(){
+			return ml.elms.$html.is('.touch') ? true : false;
 		}
-	};
-
-	ml.Utils = {
-
-		getHasbang: function(url, i, hash) {
-	        url = url || window.location.href;
-
-	        var pos = url.indexOf('#!');
-	       
-	        if( pos < 0 ) return [];
-	        
-	        var vars = [], 
-	        	hashes = url.slice(pos + 2).split('&');
-
-	        for(i = hashes.length; i--;) {
-	            hash = hashes[i].split('=');
-	            vars.push({ name: hash[0], value: hash.length > 1 ? hash[1] : null});
-	        }
-
-	        return vars;
-    	},
-
-		getClosestSection: function(){
-			var scrollPos = ml.selections.$win.scrollTop(),
-				closest = $('section').first();
-				// distance = Math.abs(closest.offset().top - scrollPos);
-
-			$('section').each(function(){
-				var distanceFromScreenTop = Math.abs($(this).offset().top - scrollPos);
-
-				if(distanceFromScreenTop < Math.abs(closest.offset().top - scrollPos)){
-					closest = $(this);
-				}
-			});
-
-			this.closestSection = closest;
-		},
-		scrollToClosestSection: function(){
-			var scrollPos = this.closestSection.offset().top;
-
-			$('html, body').animate({
-				scrollTop: scrollPos
-			});
-		}  	
-	};
-
+	}
 
 	$(function(){
-		ml.init();
-
-		ml.selections.$win.resize(function() {
-            if(this.resizeTO) clearTimeout(this.resizeTO);
-            this.resizeTO = setTimeout(function() {
-                $(this).trigger('resizeEnd');
-            }, 200);
-
-            // ml.scaleSvgHeight();
-        }).resize();      
-		// $.event.special.scrollstop.latency = 250;
-
-		// ml.selections.$win.on("scrollstop", function() {
-		//     // Paint it all green when scrolling stops.
-		//     console.log('stop');
-		//     $(this).trigger('stop');
-		//     ml.Utils.getClosestSection();
-		//     ml.Utils.scrollToClosestSection();
-		// });
-
-		// ml.selections.$win.on("resizeEnd", function() {
-		//     // Paint it all green when scrolling stops.
-		//     console.log('resize done');
-		//     ml.Utils.getClosestSection();
-		//     ml.Utils.scrollToClosestSection();
-		// });		
+		ml.mainMenu.init();
+		// ml.elms.$win.load(function(){
+			ml.elms.$body.addClass('loaded');
+			ml.elms.$loader.delay(200).fadeOut();
+		// });			
+		ml.elms.$win.on('resize', myEfficientFn).resize();
 	});
 
 })(jQuery);

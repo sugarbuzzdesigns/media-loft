@@ -2,7 +2,7 @@
 <?php 
 
 $clientFiles = scandir(__DIR__ . '/assets/images/clients');
-$clientFiles = array_diff($clientFiles, array('.', '..', '.DS_Store'));
+$clientFiles = array_diff($clientFiles, array('.', '..', '.DS_Store', 'hover'));
 
 $employeeFiles = scandir(__DIR__ . '/assets/images/employees');
 $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover'));
@@ -205,12 +205,12 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 			</video>
 			<a href="#" class="close-video"><i></i></a>				
 		</div>	
-		<?php if(wp_is_mobile()){ ?> <div class="full-bleed" style="background-image:url(<?php echo IMG_DIR ?>/mobile/backgrounds/about/Culture_Vid_Static_BG.jpg);"></div><?php } ?>
+		<div class="full-bleed" style="background-image:url(<?php echo IMG_DIR ?>/mobile/backgrounds/about/Culture_Vid_Static_BG.jpg);"></div>
 	</section>
 	<section data-section-name="section-join-us" id="join-us">
 		<div class="contact-us">
 			<div class="cta">
-				<h2 class="tagline one-liner alternate">
+				<h2 class="tagline single-line alternate">
 					<span>enough about us</span>
 					<span>tell us about you</span>
 				</h2>	
@@ -351,7 +351,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				</a>						
 			</div>	
 			<div class="timeline-block bottom">				
-				<a href="#" data-info-id="1995" data-bg-image="BLANK" class="date right-bottom">
+				<a href="#" data-info-id="1995" data-bg-image="1995_ESOP.jpg" class="date right-bottom">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Company converts to Employee Stock Option Plan (ESOP)</span>
@@ -371,7 +371,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 					<span class="info">Media Loft announces that company is now 100% employee-owned</span>
 				</a>		
 
-				<a href="#" data-info-id="1999" data-bg-image="BLANK" class="date right-bottom">
+				<a href="#" data-info-id="1999" data-bg-image="1999_ML_Logo.jpg" class="date right-bottom">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">Company logo refresh</span>
@@ -418,10 +418,10 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 					<span class="close"></span>
 					<span class="info">Media Loft goes global with sales event for Staples 20th Anniversary</span>
 				</a>							
-				<a href="#" data-info-id="2007" data-bg-image="BLANK" class="date right-top">
+				<a href="#" data-info-id="2007" data-bg-image="2007_showcue.jpg" class="date right-top">
 					<span class="num"></span>
 					<span class="close"></span>
-					<span class="info">Media Loft launches proprietary software that allows DVD playback of video content from laptop’s internal drive, eliminating the need for outside playback device, switcher and technician to run…oh never mind. FYI, it saved our clients a boatload of money per show.</span>
+					<span class="info">Media Loft launches proprietary software that allows DVD playback of video content from laptop’s internal drive, eliminating the need for outside playback device, switcher and technician to run. FYI, it saved our clients a boatload of money.</span>
 				</a>							
 			</div>	
 			<div class="timeline-block bottom">
@@ -453,7 +453,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 					<span class="close"></span>
 					<span class="info">16% of Media Loft’s revenue generated internationally.</span>
 				</a>
-				<a href="#" data-info-id="2015" data-bg-image="BLANK" class="date right-top">
+				<a href="#" data-info-id="2015" data-bg-image="2015.jpg" class="date right-top">
 					<span class="num"></span>
 					<span class="close"></span>
 					<span class="info">A new day, new branding for Media Loft.</span>

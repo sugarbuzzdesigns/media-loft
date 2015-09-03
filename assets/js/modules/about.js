@@ -16,6 +16,8 @@ ml.About = {};
 				e.stopPropagation();
 				e.preventDefault();
 
+				console.log('ehylkjklj');
+
 				_this.scrollToSection(this);
 			});
 
@@ -74,9 +76,11 @@ ml.About = {};
 				.siblings()
 				.removeClass('active');
 
-			$('body', 'html').animate({
+				console.log('scroll down!');
+
+			$('body, html').animate({
 				scrollTop: sectionTop
-			})
+			});
 		},
 		checkUrl: function(event){
 			var _this = this,
@@ -149,6 +153,10 @@ ml.About = {};
 		  	if (direction === 'down') {
 		  		// console.log('down');
 				$(this.element).addClass('in-view');
+
+				setTimeout(function(){
+					$('#explore-timeline').fadeOut();
+				}, 3000);
 
 				setTimeout(function(){
 					$('.date').eq(0).addClass('hover');

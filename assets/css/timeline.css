@@ -1,46 +1,13 @@
 #explore-timeline {
   position: absolute;
-  bottom: 0;
+  bottom: 75px;
   right: 20px;
   font-family: 'KlavikaWebBasicMedium';
   z-index: 20;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.in-view #explore-timeline {
-  bottom: 95px;
-}
-
-#explore-timeline span,
-#explore-timeline .nav-arrow-right {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 14px;
-}
-
-#explore-timeline .nav-arrow-right {
-    height: 22px;
 }
 
 #explore-timeline .nav-arrow-right img {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  width: 35px;
-  display: inline-block;
-  vertical-align: middle;  
-  -webkit-animation: flickerAnimation 1s infinite;
-          animation: flickerAnimation 1s infinite;
-}
-
-#explore-timeline .nav-arrow-right img + img {
-  -webkit-animation: flickerAnimationTwo 1s infinite;
-          animation: flickerAnimationTwo 1s infinite;  
-}
-
-#explore-timeline .nav-arrow-right img + img {
-  margin-left: -20px;
+  transform: rotate(45deg);
 }
 
 #timeline2 {
@@ -59,16 +26,14 @@
 
 #timeline2 .timeline-wrap article {
   top: 50%;
-  -webkit-transform: translate(-100%, -50%);
-          transform: translate(-100%, -50%);
+  transform: translate(-100%, -50%);
   transition: all 1.5s ease;
   opacity: 0.2;
 }
 
 #timeline2.in-view .timeline-wrap article {
   top: 50%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+  transform: translate(0, -50%);
   opacity: 1;
 }
 
@@ -109,7 +74,7 @@
 }
 
 #timeline2 .timeline-block .info .inner {
-  width: 80%;
+  width: 70%;
   height: 50%;
   -webkit-transform: rotate(-45deg) translate(-50%, -50%);
   transform: rotate(-45deg) translate(-50%, -50%);
@@ -119,7 +84,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  overflow-y: scroll;
 }
 
 #timeline2 .timeline-block .info .inner h5 {
@@ -153,9 +117,9 @@
 
 #timeline2 .date .close {
   opacity: 0;
-/*  background-image: url(../images/icons/menu-close-white.png);
+  background-image: url(../images/icons/menu-close-white.png);
   background-repeat: no-repeat;
-  background-size: 100%;*/
+  background-size: 100%;
   height: 30px;
   width: 30px;
   position: absolute;
@@ -199,38 +163,32 @@
   bottom: -12px;
 }
 
-#timeline2 .date:hover,
-#timeline2 .date.hover {
+#timeline2 .date:hover {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
 }
 
-#timeline2 .date:hover .num,
-#timeline2 .date.hover .num {
+#timeline2 .date:hover .num {
   opacity: 1;
 }
 
-#timeline2 .date:hover.left-top,
-#timeline2 .date.hover.left-top {
+#timeline2 .date:hover.left-top {
   top: -30px;
   left: -30px;
 }
 
-#timeline2 .date:hover.right-top,
-#timeline2 .date.hover.right-top {
+#timeline2 .date:hover.right-top {
   right: -30px;
   top: -30px;
 }
 
-#timeline2 .date:hover.right-bottom,
-#timeline2 .date.hover.right-bottom {
+#timeline2 .date:hover.right-bottom {
   right: -30px;
   bottom: -30px;
 }
 
-#timeline2 .date:hover.left-bottom,
-#timeline2 .date.hover.left-bottom {
+#timeline2 .date:hover.left-bottom {
   left: -30px;
   bottom: -30px;
 }
@@ -242,11 +200,11 @@
 }
 
 #timeline2 .date.selected .num {
-  opacity: 1;
+  opacity: 0;
 }
 
 #timeline2 .date.selected .close {
-  /*opacity: 1;*/
+  opacity: 1;
 }
 
 #timeline2 .date.selected.left-top {
@@ -268,3 +226,7 @@
   left: -30px;
   bottom: -30px;
 }
+
+/*# sourceMappingURL=timeline.css.map */
+
+/*# sourceMappingURL=timeline.css.map */

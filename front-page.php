@@ -17,17 +17,14 @@
 			</svg>
 			<div class="mobile-bg-corner"></div>			
 		<div class="cta">
-			<?php if(wp_is_mobile()){ ?>
-				<h2 class="tagline two-liner">
-					<span>bringing brand stories</span><!--
-					--><span>to life worldwide</span>
-				</h2>
-			<?php } else { ?>
-				<h2 class="tagline one-liner">
-					<span>bringing brand stories to life worldwide</span>
-				</h2>
-			<?php } ?>
-			<a class="play-reel" href="#">
+			<h2 class="tagline two-liner">
+				<span>bringing brand stories</span><!--
+				--><span>to life worldwide</span>
+			</h2>
+			<h2 class="tagline one-liner">
+				<span>bringing brand stories to life worldwide</span>
+			</h2>
+			<a class="play-reel" href="#" data-video-container="home-video-overlay">
 				<i class="ml-play"></i>
 				<span>Play Reel</span>
 			</a>
