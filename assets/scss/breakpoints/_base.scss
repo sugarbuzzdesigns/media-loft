@@ -1585,6 +1585,10 @@ Services Page
 Work Page
 ***************************/	
 .page-work {
+	.wrap {
+		// height: auto;
+	}
+
 	.video-bg-container.mobile { 
 		video{ 
 			height: 100%;

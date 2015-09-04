@@ -656,8 +656,8 @@
 	}	
 
 	$(function(){
-		ml.Work.init();
-		ml.Work.video.init();
+		// ml.Work.init();
+		// ml.Work.video.init();
 
         // $("#work-items-window").mCustomScrollbar({
         // 	axis:"x"
@@ -707,6 +707,12 @@
 		// 		// ml.Work.scrollToClosestSection($('#work-items-window'));
 		// 	}
 		// });
+
+	      $(".main").onepage_scroll({
+	        sectionContainer: ".work-item",
+	        loop: true,
+	        responsiveFallback: false
+	      });
 			
 		$(window).on('resizeEnd', function(){
 			console.log('hey resized');

@@ -1,32 +1,3 @@
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds. If `immediate` is passed, trigger the function on the
-// leading edge, instead of the trailing.
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, 
-			args = arguments;
-		
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-
-		var callNow = immediate && !timeout;
-
-		clearTimeout(timeout);
-		
-		timeout = setTimeout(later, wait);
-		
-		if (callNow) func.apply(context, args);
-	};
-};
-
-var myEfficientFn = debounce(function() {
-	ml.utils.setBreakpoint();
-}, 250);
-
 // For testing so It's easy to
 // make selections in the console
 var $ = jQuery;
@@ -119,6 +90,27 @@ ml = {};
 	};
 
 	ml.utils = {
+		debounce: function(func, wait, immediate) {
+			var timeout;
+			return function() {
+				var context = this, 
+					args = arguments;
+				
+				var later = function() {
+					timeout = null;
+					if (!immediate) func.apply(context, args);
+				};
+
+				var callNow = immediate && !timeout;
+
+				clearTimeout(timeout);
+				
+				timeout = setTimeout(later, wait);
+				
+				if (callNow) func.apply(context, args);
+			}
+		},
+
 		setBreakpoint: function () {
 			this.breakpoint = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
 
@@ -138,8 +130,36 @@ ml = {};
 
 		isTouch: function(){
 			return ml.elms.$html.is('.touch') ? true : false;
-		}
-	}
+		},
+
+		getClosestSection: function($section){
+			var scrollPos = ml.elms.$win.scrollTop(),
+				closest = $section.first();
+				// distance = Math.abs(closest.offset().top - scrollPos);
+
+			$section.each(function(){
+				var distanceFromScreenTop = Math.abs($(this).offset().top - scrollPos);
+
+				if(distanceFromScreenTop < Math.abs(closest.offset().top - scrollPos)){
+					closest = $(this);
+				}
+			});
+
+			this.closestSection = closest;
+		},	
+
+		scrollToClosestSection: function(){
+			var scrollPos = this.closestSection.offset().top;
+
+			$('html, body').animate({
+				scrollTop: scrollPos
+			});
+		} 		
+	};
+
+	var myEfficientFn = ml.utils.debounce(function() {
+		ml.utils.setBreakpoint();
+	}, 350);	
 
 	$(function(){
 		ml.mainMenu.init();
@@ -148,6 +168,7 @@ ml = {};
 			ml.elms.$loader.delay(200).fadeOut();
 		// });			
 		ml.elms.$win.on('resize', myEfficientFn).resize();
+		ml.elms.$win.on('scroll', myEfficientFn).scroll();
 	});
 
 })(jQuery);
