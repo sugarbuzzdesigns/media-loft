@@ -151,7 +151,6 @@ em,
  * Address differences between Firefox and other browsers.
  */
 hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -163,7 +162,8 @@ p {
   -webkit-hyphens: auto;
   -epub-hyphens: auto;
   -moz-hyphens: auto;
-  hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
 }
 
 /*
@@ -405,8 +405,6 @@ input[type="radio"] {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box;
 }
@@ -452,8 +450,6 @@ table {
 }
 
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -665,7 +661,8 @@ span.amp {
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  filter: none;
+  -webkit-filter: none;
+          filter: none;
 }
 
 .fa-stack {
@@ -3246,7 +3243,8 @@ more here: http://www.newnet-soft.com/blog/csstypography
 p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
   -webkit-hyphenate-before: 2;
   -webkit-hyphenate-after: 3;
   hyphenate-lines: 3;
@@ -3530,8 +3528,6 @@ them however you see fit.
   }
 }
 
-/*# sourceMappingURL=css-dependencies.css.map */
-
 /******************************************************************
 Stylesheet: Variables
 
@@ -3636,6 +3632,59 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   /**************************
+  One Pager for mobile work Page
+  ***************************/
+  body.page-work {
+    margin: 0;
+    overflow: hidden;
+    -webkit-transition: opacity 400ms;
+            transition: opacity 400ms;
+  }
+
+  .onepage-wrapper {
+    display: block;
+    position: static;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .onepage-wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    padding: 0;
+    -webkit-transform-style: preserve-3d;
+  }
+
+  .onepage-wrapper .section {
+    width: 100%;
+    height: 100%;
+  }
+
+  .disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
+    overflow: auto;
+  }
+
+  .disabled-onepage-scroll .onepage-wrapper .section {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+  }
+
+  .disabled-onepage-scroll .onepage-wrapper {
+    -webkit-transform: none !important;
+    transform: none !important;
+    -ms-transform: none !important;
+    min-height: 100%;
+  }
+
+  body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html {
+    position: inherit;
+  }
+
+  /**************************
   Shrunken desktop screen
   ***************************/
   .no-touch .main-menu-btn .close-menu {
@@ -3670,7 +3719,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
   #loader .inner svg {
     width: 200px;
@@ -3678,7 +3728,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
   #loader .inner svg .left {
     stroke: #fff;
@@ -3739,7 +3790,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
 
   .video-start {
@@ -3749,9 +3801,11 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     z-index: 1;
     cursor: pointer;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     height: 50px;
     width: 50px;
+    opacity: 1;
   }
   .video-start div {
     height: 50px;
@@ -3761,7 +3815,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .video-start div:first-child {
     background: #EF4330;
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
     z-index: 1;
   }
   .video-start div:first-child:after {
@@ -3772,18 +3827,21 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     border-bottom: 10px solid transparent;
     border-left: 15px solid #fff;
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
     display: block;
     position: absolute;
     top: 46%;
     left: 55%;
     -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-    transform: translate(-50%, -50%) rotate(-45deg);
+    -ms-transform: translate(-50%, -50%) rotate(-45deg);
+        transform: translate(-50%, -50%) rotate(-45deg);
   }
   .video-start div:nth-child(2) {
     border: solid 1px #fff;
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
     top: 10px;
   }
 
@@ -3812,7 +3870,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 
   .nav-arrow-right img {
     -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
     width: 35px;
     display: inline-block;
     vertical-align: middle;
@@ -3840,13 +3899,15 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     width: 100%;
     height: 0;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    -webkit-transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease;
   }
   .blur-overlay.show {
     height: 100%;
     display: block;
     opacity: 1;
-    transition: opacity 0.2s ease;
+    -webkit-transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease;
   }
 
   /**************************
@@ -3882,7 +3943,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     position: absolute;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     min-width: 100%;
     min-height: 100%;
     left: 50%;
@@ -3910,7 +3972,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     height: 100%;
     width: 100%;
     z-index: 100;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
   .video-overlay.show-me {
     left: 0;
@@ -3922,7 +3985,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     height: auto;
     width: auto;
   }
@@ -3931,11 +3995,32 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     left: 0;
   }
 
+  .video-bg-container.mobile {
+    background-color: #000;
+  }
   .video-bg-container.mobile video {
     display: none;
   }
   .video-bg-container.mobile .close-video {
     display: none;
+  }
+
+  .show-video .work-carousel .close,
+  .show-video .menu-btn,
+  .show-video .logo {
+    display: none;
+  }
+  .show-video .video-start {
+    opacity: 0;
+  }
+  .show-video .video-bg-container.mobile .full-bleed {
+    opacity: 0;
+  }
+  .show-video .video-bg-container.mobile video {
+    display: block;
+  }
+  .show-video .video-bg-container.mobile .close-video {
+    display: block;
   }
 
   /**************************
@@ -4042,7 +4127,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     width: 100%;
   }
   .tile.blank {
@@ -4059,9 +4145,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   #timeline2 .full-bleed {
-    -moz-transition: none;
     -webkit-transition: none;
-    -o-transition: color 0 ease-in;
     transition: none;
   }
   #timeline2 .large-date {
@@ -4074,9 +4158,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     line-height: 220px;
     z-index: 2;
     letter-spacing: -9px;
-    -moz-transition: none;
     -webkit-transition: none;
-    -o-transition: color 0 ease-in;
     transition: none;
   }
 
@@ -4143,7 +4225,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: auto;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
   #people .cta .tagline {
     background: transparent;
@@ -4182,7 +4265,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 0;
     -webkit-transform: translate(0%, -50%);
-    transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+        transform: translate(0%, -50%);
   }
   #culture .cta .tagline {
     margin-bottom: 14px;
@@ -4200,7 +4284,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     transition: none;
     -webkit-transition: none;
     -webkit-transform: none;
-    transform: none;
+    -ms-transform: none;
+        transform: none;
     width: auto;
     display: none;
   }
@@ -4209,7 +4294,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 20px;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
     z-index: 2;
   }
   #join-us .contact-us .tagline span {
@@ -4287,7 +4373,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 85px;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
   }
 
   /**************************
@@ -4376,7 +4463,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .page-contact .general-info .clock .minutes {
     background-image: url(../images/icons/clock-minutes.png);
-    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+            transition: all 1s ease;
   }
   .page-contact .general-info .weather {
     font-family: 'futura_ltlight';
@@ -4474,7 +4562,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
   #blog-video-overlay.show-me {
     display: block;
@@ -4498,7 +4587,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     bottom: 70px;
     left: 0;
     -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
     display: none;
   }
   #blog .back img {
@@ -4513,7 +4603,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     width: 100%;
     background: #BDBDA6;
     position: relative;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
   #blog .articles article .social {
     text-align: center;
@@ -4538,7 +4629,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     margin: 0;
     z-index: 2;
     font-size: 18px;
@@ -4552,7 +4644,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     z-index: 1;
     width: 80%;
   }
@@ -4562,7 +4655,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     left: auto;
     top: auto;
     -webkit-transform: none;
-    transform: none;
+    -ms-transform: none;
+        transform: none;
   }
   #blog .articles article .video-article-headline .video-start,
   #blog .articles article .text-article-headline .video-start {
@@ -4591,13 +4685,15 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     border-bottom: 7px solid transparent;
     border-left: 12px solid #fff;
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
     display: block;
     position: absolute;
     top: 46%;
     left: 55%;
     -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-    transform: translate(-50%, -50%) rotate(-45deg);
+    -ms-transform: translate(-50%, -50%) rotate(-45deg);
+        transform: translate(-50%, -50%) rotate(-45deg);
   }
   #blog .articles article .info {
     color: #373837;
@@ -4612,13 +4708,15 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   #blog .articles article .article-content {
     -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+        transform: translateX(-100%);
     display: none;
     margin: 0 auto;
     padding: 100px 0 20px 0;
     width: 80%;
     max-width: 900px;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
   #blog .articles article .article-content p {
     margin: 0 0 25px 0;
@@ -4705,7 +4803,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   #blog .articles article.show-article .article-content {
     -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -ms-transform: translateX(0);
+        transform: translateX(0);
     display: block;
   }
   #blog .articles article.show-article .blog-header-bg {
@@ -4734,8 +4833,10 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .loaded.article-open #main-logo {
     -webkit-transform: translate(-100%, -100%);
-    transform: translate(-100%, -100%);
-    transition: all 0.5s ease;
+    -ms-transform: translate(-100%, -100%);
+        transform: translate(-100%, -100%);
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
 
   /**************************
@@ -4794,11 +4895,13 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     color: #fff;
     overflow: hidden;
     opacity: 1;
-    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+            transition: all 1s ease;
   }
   #services-landing.hide-me {
     opacity: 0;
-    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+            transition: all 1s ease;
   }
 
   #services-container {
@@ -4822,7 +4925,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 0;
     left: 0;
     opacity: 0;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
   .service-section .blur-overlay {
     display: none;
@@ -4856,11 +4960,13 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .service-section.active {
     opacity: 1;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
   .service-section.show-summary .summary p {
     opacity: 1;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
   .service-section.show-summary video {
     -webkit-filter: blur(10px);
@@ -4879,7 +4985,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     padding: 0 20px;
     z-index: 1;
     -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
   }
   .landing blockquote .quote-mark {
     background: url(../images/icons/quote-mark.png) no-repeat;
@@ -4956,6 +5063,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   #work-items-window {
     height: 100%;
     width: 100%;
+    position: relative;
     overflow: scroll;
   }
 
@@ -4984,16 +5092,26 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .work-items {
     width: 100%;
     height: 100%;
-    transition: left 1.5s ease;
+    -webkit-transition: left 1.5s ease;
+            transition: left 1.5s ease;
   }
 
   .work-item {
     overflow: hidden;
     height: 100%;
-    width: 100%;
-    min-height: 630px;
+    width: 200%;
     position: relative;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+  }
+  .work-item p {
+    color: #fff;
+  }
+  .work-item .work-cover {
+    height: 100%;
+    width: 50%;
+    float: left;
+    position: relative;
   }
   .work-item .work-item-bgs {
     background: #fff;
@@ -5003,7 +5121,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 0;
     left: 0;
   }
-  .work-item .work-item-bgs .work-item-bg {
+  .work-item .work-item-bgs .work-item-bg,
+  .work-item .work-item-bgs .work-item-bg-hover {
     position: absolute;
     top: 0;
     left: 0;
@@ -5015,19 +5134,20 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .work-item .work-item-bgs .work-item-bg {
     opacity: 0.3;
   }
+  .work-item .work-item-bgs .work-item-bg-hover {
+    opacity: 0;
+  }
   .work-item .work-summary {
     height: 100%;
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
   }
   .work-item .work-summary .work-cta {
     position: absolute;
     top: 50%;
     margin-left: 45px;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
   }
   .work-item .work-summary .work-cta .company {
     background: #fff;
@@ -5047,17 +5167,16 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .work-item .work-details {
     height: 100%;
-    width: 100%;
+    width: 50%;
     background: #ef4330;
-    position: absolute;
-    left: -100%;
-    z-index: 2;
+    float: left;
     color: #fff;
   }
   .work-item .work-details .category {
     font-family: 'KlavikaWebBasicRegular';
     font-size: 13px;
-    transition: all none;
+    -webkit-transition: all none;
+            transition: all none;
     background: #EA321D;
     color: #FFAEA5;
     display: inline-block;
@@ -5077,7 +5196,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .work-item .work-details .description .textNav span {
     display: inline-block;
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
     height: 8px;
     width: 8px;
     background: #fff;
@@ -5114,20 +5234,34 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     font-size: 14px;
     line-height: 20px;
   }
-  .work-item:hover .work-summary .work-cta .company {
+  .work-item.hovering .work-item-bg {
+    opacity: 0.0;
+  }
+  .work-item.hovering .work-item-bg-hover {
+    opacity: 1;
+  }
+  .work-item.hovering .work-summary .work-cta .company {
     background: #ef4330;
     color: #fff;
   }
-  .work-item:hover .work-summary .work-cta .category {
+  .work-item.hovering .work-summary .work-cta .category {
     color: #fff;
+  }
+  .work-item.active .work-item-bg {
+    opacity: 1;
+  }
+  .work-item.active .work-item-bg-hover {
+    opacity: 0;
+  }
+  .work-item.open {
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
   }
 
   .work-item * {
-    transition: all 0.5s ease;
-  }
-
-  .show-details .work-details {
-    left: 0;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
 
   .work-carousel {
@@ -5222,7 +5356,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 10%;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
   }
   .work-carousel .related-works .related-work .company {
     color: #000000;
@@ -5231,7 +5366,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     padding: 5px 15px;
     font-size: 25px;
     margin-bottom: 10px;
-    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
   }
   .work-carousel .related-works .related-work .category {
     background: transparent;
@@ -5240,7 +5376,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     padding: 0;
     text-transform: uppercase;
     font-size: 15px;
-    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
     margin: 0;
   }
   .work-carousel .carousel-image {
@@ -5253,8 +5390,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 
   .work-carousel .close {
     background-color: #fff;
-    width: 0;
-    height: 0;
+    width: 40px;
+    height: 40px;
     padding-top: 9px;
     position: absolute;
     top: 0;
@@ -5264,18 +5401,16 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .work-carousel .close i {
     display: block;
-    height: 25px;
-    width: 25px;
+    height: 15px;
+    width: 15px;
     background: url(../images/icons/menu-close.png) no-repeat;
     background-size: cover;
     position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  .work-carousel .close.show-video {
-    opacity: 0;
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
 
   .show-details .work-carousel .close {
@@ -5316,7 +5451,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     margin: 0;
     display: block;
     z-index: 5;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
   .logo img {
     width: 100%;
@@ -5325,21 +5461,33 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     margin: 0;
   }
   .logo.interior {
-    width: 45px;
-    height: 45px;
+    width: 72px;
+    height: 72px;
     background-color: #fff;
-    padding: 15px 10px;
     top: 0;
     left: 0;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+  }
+  .logo.interior img {
+    width: 44px;
+    position: absolute;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
 
   #main-logo {
     position: fixed;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
   #main-logo img {
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
 
   .page-about #main-logo {
@@ -5356,7 +5504,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 55%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
   .cta p {
     font-family: 'ProximaNova-Regular';
@@ -5369,7 +5518,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     text-align: center;
   }
   .cta .tagline {
@@ -5585,7 +5735,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .main-menu-btn .close-menu,
   .right-menu-btn .close-menu {
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
     width: 63px;
     height: 63px;
     padding-top: 9px;
@@ -5606,11 +5757,13 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
   .main-menu-btn .open-menu,
   .right-menu-btn .open-menu {
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
     background: #333;
     display: block;
     padding: 15px 30px;
@@ -5644,7 +5797,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .main-menu,
   .right-menu {
     position: fixed;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
     bottom: 0;
     left: -130%;
     width: 100%;
@@ -5739,15 +5893,20 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     left: 0%;
   }
 
-  .touch .main-menu-open .open-menu {
-    transition: all 0.5s ease;
+  .touch .main-menu-open .main-menu .open-menu {
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
     bottom: -50px;
   }
-  .touch .main-menu-open .close-menu {
+  .touch .main-menu-open .main-menu .close-menu {
     left: 0;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
 
+  .right-menu-open .main-menu {
+    z-index: 0;
+  }
   .right-menu-open .right-menu-btn .open-menu {
     bottom: -80px;
   }
@@ -5835,7 +5994,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     left: 50%;
     width: 110%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
   .svg-container svg path, .svg-container svg line {
     stroke: rgba(0, 0, 0, 0.9);
@@ -5851,7 +6011,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     top: 50%;
     left: 0;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
     height: 100%;
   }
   .left-svg-container svg {
@@ -5860,7 +6021,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     left: 0;
     height: 100%;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
   }
   .left-svg-container svg .light-grey path, .left-svg-container svg .light-grey line {
     fill-opacity: 0;
@@ -5924,7 +6086,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     padding: 20px 30px 0;
   }
 
-  .touch .main-menu-open .open-menu {
+  .touch .main-menu-open .main-menu .open-menu {
     bottom: -63px;
   }
 
@@ -6003,7 +6165,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     margin: 0;
     display: block;
     z-index: 5;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
   .logo img {
     width: 100%;
@@ -6012,13 +6175,23 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     margin: 0;
   }
   .logo.interior {
-    width: 75px;
-    height: 75px;
+    width: 91px;
+    height: 91px;
     background-color: #fff;
-    padding: 20px 10px;
     top: 0;
     left: 0;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+  }
+  .logo.interior img {
+    width: 59px;
+    position: absolute;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
 
   /**************************
@@ -6122,7 +6295,8 @@ tweeners.
     margin-left: 0;
     top: 50%;
     -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
     width: 100%;
   }
   .main-menu ul li {
@@ -6159,7 +6333,8 @@ tweeners.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
 
   /**************************
@@ -6178,7 +6353,8 @@ tweeners.
     left: 0;
     display: none;
     opacity: 0;
-    transition: none;
+    -webkit-transition: none;
+            transition: none;
   }
 
   .main-menu-open #menu-overlay {
@@ -6341,7 +6517,8 @@ tweeners.
     top: 50%;
     left: 60px;
     -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
     font-size: 80px;
     letter-spacing: 12px;
   }
@@ -6440,11 +6617,13 @@ tweeners.
   }
   .work-item .work-item-bg {
     opacity: 0.3;
-    transition: none !important;
+    -webkit-transition: none !important;
+            transition: none !important;
   }
   .work-item .work-item-bg-hover {
     display: none;
-    transition: none !important;
+    -webkit-transition: none !important;
+            transition: none !important;
   }
   .work-item .work-carousel {
     display: none;
@@ -6475,7 +6654,8 @@ tweeners.
     top: 50%;
     position: absolute;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
   }
   .work-item .work-carousel .carousel-item .related-works {
     width: 75%;
@@ -6547,53 +6727,23 @@ tweeners.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
   .work-item .work-carousel .work-media .video-bg-container.hovered video.work-loop-video {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
-  .work-item .work-carousel .carousel-nav {
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #fff;
-  }
-  .work-item .work-carousel .carousel-nav ul {
-    height: 100%;
-    margin: 0;
-    padding: 20px 30px 0 30px;
-  }
-  .work-item .work-carousel .carousel-nav ul li {
-    height: 10px;
-    width: 10px;
-    background: #DCDCDC;
-    display: block;
-    float: left;
-    cursor: pointer;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    margin: 0 40px 0 0;
-  }
-  .work-item .work-carousel .carousel-nav ul li:last-child {
-    margin-right: 0;
-  }
-  .work-item .work-carousel .carousel-nav ul li.active {
-    background: #EA321D;
-  }
-  .work-item .work-carousel .carousel-nav.show-video {
-    bottom: -50px;
-    right: -100%;
-  }
   .work-item .tagline {
-    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
   }
   .work-item .tagline.work-title .company {
     font-size: 25px;
   }
   .work-item:hover .tagline span:first-child {
-    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
     background-color: #ef4330;
   }
   .work-item:hover .company,
@@ -6746,7 +6896,8 @@ tweeners.
     left: 10%;
     padding-left: 0;
     -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
     width: 50%;
     margin: 0;
     font-size: 35px;
@@ -6835,11 +6986,13 @@ you can add resource intensive styles.
     width: auto;
   }
   .cta .tagline span {
-    transition: none;
+    -webkit-transition: none;
+            transition: none;
     font-size: 35px;
   }
   .cta .tagline .category {
-    transition: none;
+    -webkit-transition: none;
+            transition: none;
   }
   .cta .tagline.single-line {
     background: rgba(255, 255, 255, 0.8);
@@ -6869,7 +7022,8 @@ you can add resource intensive styles.
     top: 55%;
     left: 5%;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
     width: auto;
   }
   body.home .cta .tagline.one-liner {
@@ -6887,7 +7041,8 @@ you can add resource intensive styles.
     width: 100%;
     height: 0;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    -webkit-transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease;
   }
   .blur-overlay.show {
     height: 100%;
@@ -6903,7 +7058,9 @@ you can add resource intensive styles.
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
   }
   body.home .svg-container svg {
     left: 0;
@@ -6936,7 +7093,8 @@ you can add resource intensive styles.
   #about-landing .cta {
     left: 15%;
     -webkit-transform: translate(0%, -50%);
-    transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+        transform: translate(0%, -50%);
   }
   #about-landing .cta .tagline {
     margin-bottom: 35px;
@@ -6971,9 +7129,7 @@ you can add resource intensive styles.
   }
 
   #timeline2 .full-bleed {
-    -moz-transition: none;
     -webkit-transition: none;
-    -o-transition: color 0 ease-in;
     transition: none;
   }
   #timeline2 .large-date {
@@ -6986,9 +7142,7 @@ you can add resource intensive styles.
     line-height: 640px;
     z-index: 2;
     letter-spacing: -42px;
-    -moz-transition: none;
     -webkit-transition: none;
-    -o-transition: color 0 ease-in;
     transition: none;
   }
 
@@ -7010,7 +7164,8 @@ you can add resource intensive styles.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     width: 100%;
   }
   .tile img + img {
@@ -7029,7 +7184,8 @@ you can add resource intensive styles.
   #clients .cta {
     left: 5%;
     -webkit-transform: translate(0%, -50%);
-    transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+        transform: translate(0%, -50%);
   }
   #clients .cta .tagline {
     margin: 0;
@@ -7058,7 +7214,8 @@ you can add resource intensive styles.
     margin: 0;
     padding: 0;
     -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+        transform: translate(0, 0);
   }
   #people .cta .tagline span {
     background-color: rgba(239, 67, 48, 0.9);
@@ -7077,7 +7234,8 @@ you can add resource intensive styles.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     text-align: center;
   }
   #culture .cta .tagline {
@@ -7107,7 +7265,8 @@ you can add resource intensive styles.
     top: 50%;
     left: 12%;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
     z-index: 2;
   }
   #join-us .contact-us .tagline {
@@ -7190,7 +7349,8 @@ you can add resource intensive styles.
     top: 50%;
     left: 85px;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
   }
 
   /**************************
@@ -7232,7 +7392,8 @@ you can add resource intensive styles.
     top: 50%;
     left: 60px;
     -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
     font-size: 80px;
     letter-spacing: 12px;
   }
@@ -7385,7 +7546,8 @@ you can add resource intensive styles.
     top: 50%;
     position: absolute;
     -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
   }
   .work-item .work-carousel .carousel-item .related-works {
     width: 75%;
@@ -7436,46 +7598,16 @@ you can add resource intensive styles.
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  .work-item .work-carousel .carousel-nav {
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #fff;
-  }
-  .work-item .work-carousel .carousel-nav ul {
-    height: 100%;
-    margin: 0;
-    padding: 20px 30px 0 30px;
-  }
-  .work-item .work-carousel .carousel-nav ul li {
-    height: 10px;
-    width: 10px;
-    background: #DCDCDC;
-    display: block;
-    float: left;
-    cursor: pointer;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    margin: 0 40px 0 0;
-  }
-  .work-item .work-carousel .carousel-nav ul li:last-child {
-    margin-right: 0;
-  }
-  .work-item .work-carousel .carousel-nav ul li.active {
-    background: #EA321D;
-  }
-  .work-item .work-carousel .carousel-nav.show-video {
-    bottom: -50px;
-    right: -100%;
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
   }
   .work-item .tagline {
-    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
   }
   .work-item:hover .tagline span:first-child {
-    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
     background-color: #ef4330;
   }
   .work-item:hover .company,
@@ -7623,13 +7755,15 @@ you can add resource intensive styles.
     border-bottom: 7px solid transparent;
     border-left: 12px solid #fff;
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
     display: block;
     position: absolute;
     top: 46%;
     left: 55%;
     -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-    transform: translate(-50%, -50%) rotate(-45deg);
+    -ms-transform: translate(-50%, -50%) rotate(-45deg);
+        transform: translate(-50%, -50%) rotate(-45deg);
   }
 
   /**************************
@@ -7641,7 +7775,8 @@ you can add resource intensive styles.
     left: 10%;
     padding-left: 0;
     -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
     width: 50%;
     margin: 0;
     font-size: 35px;
@@ -7777,10 +7912,13 @@ you can add resource intensive styles.
   }
   #blog .article-open #main-logo {
     -webkit-transform: scale(0.7, 0.7);
-    transform: scale(0.7, 0.7);
+    -ms-transform: scale(0.7, 0.7);
+        transform: scale(0.7, 0.7);
     -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    transition: all 0.5s ease;
+    -ms-transform-origin: 0 0;
+        transform-origin: 0 0;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
   #blog.show-article .back {
     height: 30px;
@@ -7865,6 +8003,41 @@ you can add resource intensive styles.
   .work-item:hover .company,
   .work-item:hover .category {
     color: #fff;
+  }
+
+  .work-item .carousel-nav {
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+  }
+  .work-item .carousel-nav ul {
+    height: 100%;
+    margin: 0;
+    padding: 20px 30px 0 30px;
+  }
+  .work-item .carousel-nav ul li {
+    height: 10px;
+    width: 10px;
+    background: #DCDCDC;
+    display: block;
+    float: left;
+    cursor: pointer;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    margin: 0 40px 0 0;
+  }
+  .work-item .carousel-nav ul li:last-child {
+    margin-right: 0;
+  }
+  .work-item .carousel-nav ul li.active {
+    background: #EA321D;
+  }
+  .work-item .carousel-nav.show-video {
+    bottom: -50px;
+    right: -100%;
   }
 
   /**************************
@@ -8092,7 +8265,8 @@ be set to display none.
     background: transparent !important;
     color: black !important;
     text-shadow: none !important;
-    filter: none !important;
+    -webkit-filter: none !important;
+            filter: none !important;
     -ms-filter: none !important;
   }
 
@@ -8151,5 +8325,3 @@ be set to display none.
     display: none;
   }
 }
-
-/*# sourceMappingURL=breakpoints.css.map */

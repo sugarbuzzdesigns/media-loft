@@ -276,6 +276,46 @@ Work Page
 	}
 }
 
+.work-item {
+	.carousel-nav {
+		height: 50px;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #fff;
+
+		ul {
+			height: 100%;
+			margin: 0;
+			padding: 20px 30px 0 30px;
+		
+			li {
+				height: 10px;
+				width: 10px;
+				background: #DCDCDC;
+				display: block;
+				float: left;
+				cursor: pointer;
+				-webkit-transform: rotate(45deg);
+				        transform: rotate(45deg);
+				margin: 0 40px 0 0;
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				&.active {
+					background: $ml-dark-red;
+				}
+			}
+		}	
+
+		&.show-video {
+			bottom: -50px;
+			right: -100%;
+		}
+	}
+}	
 
 /**************************
 About Page

@@ -1,6 +1,6 @@
 <?php if(wp_is_mobile()){ ?>
 	<a class="right-menu-btn mobile-menu-btn menu-btn" id="work-menu-btn" href="#" data-menu-name="work-menu">
-		<span class="open-menu">project types</span>
+		<span class="open-menu">all</span>
 		<span class="close-menu"><i></i></span>			
 	</a>	
 <?php } else { ?>

@@ -21,13 +21,18 @@ Logo
 	}
 
 	&.interior {
-		width: 75px;
-		height: 75px; 
+		width: 91px;
+		height: 91px;
 		background-color: #fff;
-		padding: 20px 10px;
 		top: 0;
 		left: 0;	
 		transition: all 0.5s ease;	
+
+		img {
+			width: 59px;
+			position: absolute;
+			@include center-me;
+		}
 	}
 }
 

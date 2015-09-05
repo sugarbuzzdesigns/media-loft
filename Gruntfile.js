@@ -137,7 +137,7 @@ module.exports = function(grunt) {
 
 	// grunt.registerTask('default', ['clean', 'concat', 'watch', 'jshint', 'cssmin', 'uglify', 'autoprefixer', 'sass', 'compass']);
 	grunt.registerTask('build', ['sass:dist', 'concat', 'autoprefixer']);
-	grunt.registerTask('dev', ['sass:dev', 'concat']);
+	grunt.registerTask('dev', ['sass:dev', 'concat', 'autoprefixer']);
 
 
 

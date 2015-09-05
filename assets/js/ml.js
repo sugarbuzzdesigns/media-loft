@@ -18,6 +18,14 @@ ml = {};
 	    $loader: $('#loader')
 	};
 
+	ml.env = {
+		init: function(){
+			this.winHeight = ml.elms.$win.height();
+			this.isTouch = ml.elms.$html.is('.touch') ? true : false;
+			this.tapClick = this.isTouch ? 'touchend' : 'click';
+		}
+	};
+
 	ml.mainMenu = {
 		init: function(){
 			this.$mainMenuBtn = $('main-menu-btn');
@@ -66,6 +74,39 @@ ml = {};
 		deselectMenuItems: function($link){
 			$link.parent().siblings().removeClass('active');
 		}
+	};
+
+	ml.rightMenu = {
+		init: function(){
+			this.$rightMenu = $('.right-menu');
+			this.$rightMenuBtn = $('.right-menu-btn');
+			this.$rightMenuOpen = $('.right-menu-btn .open-menu');
+			this.$rightMenuClose = $('.right-menu-btn .close-menu');
+
+			this.openClass = 'right-menu-open';
+
+			this.bindEvents();
+		},
+
+		bindEvents: function(){
+			var _this = this;
+
+			_this.$rightMenuOpen.on('click', function(){
+				_this.openRightMenu();
+			});
+
+			_this.$rightMenuClose.on('click', function(){
+				_this.closeRightMenu();
+			});
+		},
+
+		openRightMenu: function(){
+			ml.elms.$body.addClass(this.openClass);
+		},
+
+		closeRightMenu: function(){
+			ml.elms.$body.removeClass(this.openClass);
+		}		
 	};
 
 	ml.menus = {
@@ -162,7 +203,9 @@ ml = {};
 	}, 350);	
 
 	$(function(){
+		ml.env.init();
 		ml.mainMenu.init();
+		ml.rightMenu.init();
 		// ml.elms.$win.load(function(){
 			ml.elms.$body.addClass('loaded');
 			ml.elms.$loader.delay(200).fadeOut();
