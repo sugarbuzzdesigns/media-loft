@@ -9,9 +9,10 @@
 			this.$workItemsWin = $("#work-items-window");
 			this.$workCarousels = $('.work-carousel');
 			this.$closeBtn = $('.work-item .close');
-			this.$curWorkItem = '';
+			this.$relatedWork = $('.related-work');
+			this.$curWorkItem = null;
 
-			this.currentVideo = '';
+			this.currentVideo = null;
 
 			this.numWorkItems = this.$workItems.length;
 
@@ -67,22 +68,53 @@
 				e.stopPropagation();	
 
 				_this.closeFullVideo();
-			});						
+			});	
+
+			/*
+			Related Work Click
+			 */				
+			_this.$relatedWork.on('click', function(){
+				_this.openRelatedWork($(this));
+			});
 		},
 
 		openWorkItem: function($item){
-			$item.addClass('open');
-			this.$workItemsWin.addClass('item-open');
+			var _this = this;
 
-			this.$curWorkItem = $item;
+			$item.addClass('open');
+			_this.$workItemsWin.addClass('item-open');
+
+			_this.$curWorkItem = $item;
+			_this.currentIndex = $item.index();
 		},
 
 		closeWorkItem: function($item){
 			$item.removeClass('open');
 			this.$workItemsWin.removeClass('item-open');
 
-			this.$curWorkItem = '';
+			this.resetWorkItem(this.$curWorkitem);
+
+			this.$curWorkItem = null;
 			this.carouselIndex = 0;
+		},
+
+		openRelatedWork: function($link){
+			var workName = $link.data('href'),
+				$item = $('#' + workName);
+
+			this.resetWorkItem(this.$curWorkitem);	
+
+			this.closeWorkItem(this.$curWorkItem);
+			this.scrollToItem($item);
+
+			this.openWorkItem($item);
+		},
+
+		scrollToItem: function($item){
+			var i = $item.index();
+			var scrollTo = ml.env.winHeight * i;
+
+			this.scrollWorkSummary(scrollTo);
 		},
 
 		summaryScroll: function(direction){
@@ -126,20 +158,27 @@
 	    	}, 500, 'easeOutQuad');				
 		},
 
-		scrollWorkDetail: function(){
-			var yPos = -this.carouselIndex*100 + '%';
+		scrollWorkDetail: function(index){
+			var yPos = (index) ? -index*100 + '%' : -this.carouselIndex*100 + '%';
 
 			$('.carousel-items', this.$curWorkItem).css({
 				"-webkit-transform":"translate(0,"+ yPos + ")",
 				"-ms-transform":"translate(0,"+ yPos + ")",
 				"transform":"translate(0,"+ yPos + ")"				
 			});
+
+			console.log($('.carousel-items', this.$curWorkItem));
 		},
 
 		resetToTop: function(){
 	    	this.$workItemsWin.animate({
 	    		scrollTop: 0
 	    	}, 500, 'easeOutQuad');				
+		},
+
+		resetWorkItem: function($item){
+			this.carouselIndex = 0;
+			this.scrollWorkDetail();
 		},
 
 		buildWorkCarousels: function(){
@@ -172,7 +211,7 @@
 
 				var $this = $(this),
 					index = $this.index(),
-					$curWorkitem = $('#' + _this.currentWorkItem),
+					$curWorkItem = $('#' + _this.currentWorkItem),
 					$items = $(this).closest('.carousel-nav').siblings('.carousel-items'),
 					slideToShow = $('.carousel-item', $items)[index];
 
@@ -184,13 +223,13 @@
 
 					if (index === 0) {
 						// set prev to disabled
-						$('.prev', $curWorkitem).addClass('disabled');
+						$('.prev', $curWorkItem).addClass('disabled');
 					} else {
-						$('.prev', $curWorkitem).removeClass('disabled');
+						$('.prev', $curWorkItem).removeClass('disabled');
 					}
 
-					if(index === ($('.carousel-nav li', $curWorkitem).length-1)){
-						$('.related-slide .next', $curWorkitem).addClass('disabled');
+					if(index === ($('.carousel-nav li', $curWorkItem).length-1)){
+						$('.related-slide .next', $curWorkItem).addClass('disabled');
 					}
 			});
 		},

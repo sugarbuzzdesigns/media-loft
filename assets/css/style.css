@@ -5329,10 +5329,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     display: none;
   }
   .work-carousel .related-works .related-work:hover .resting {
-    display: none;
-  }
-  .work-carousel .related-works .related-work:hover .hover {
-    display: block;
+    opacity: 1;
   }
   .work-carousel .related-works .related-work:hover .company {
     background: #EF4330;
@@ -5340,13 +5337,6 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .work-carousel .related-works .related-work:hover .category {
     color: #fff;
-  }
-  .work-carousel .related-works .related-work:active .resting {
-    display: block;
-    opacity: 1;
-  }
-  .work-carousel .related-works .related-work:active .hover {
-    display: none;
   }
   .work-carousel .related-works .related-work p {
     margin: 0;

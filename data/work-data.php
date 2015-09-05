@@ -130,7 +130,7 @@
 						'category' => 'staging'
 					),
 					array(
-						'url' => 'Essendant',
+						'url' => 'essendant',
 						'background' => 'United',
 						'company' => 'Essendant',
 						'category' => 'staging'
@@ -173,7 +173,7 @@
 						'category' => 'staging'
 					),
 					array(
-						'url' => 'Essendant',
+						'url' => 'essendant',
 						'background' => 'United',
 						'company' => 'Essendant',
 						'category' => 'staging'

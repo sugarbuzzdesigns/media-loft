@@ -2002,12 +2002,8 @@ Work Page
 
 		    &:hover {
 			    .resting {
-			    	display: none;
+					opacity: 1;
 			    }
-
-		    	.hover {
-		    		display: block;
-		    	}
 
 		    	.company {
 		    		background: #EF4330;
@@ -2019,16 +2015,16 @@ Work Page
 		    	}
 		    }
 
-		    &:active {
-			    .resting {
-			    	display: block;
-			    	opacity: 1;
-			    }
+		    // &:active {
+			   //  .resting {
+			   //  	display: block;
+			   //  	opacity: 1;
+			   //  }
 
-		    	.hover {
-		    		display: none;
-		    	}			    	
-		    }
+		    // 	.hover {
+		    // 		display: none;
+		    // 	}			    	
+		    // }
 
 		    p {
 		    	margin: 0;
