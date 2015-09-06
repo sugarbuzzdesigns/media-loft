@@ -3,14 +3,6 @@
       .contentHolder { position:relative; margin:0px auto; padding:0px; width: 640px; height: 360px; overflow: auto; }
       .contentHolder .content-x {width: 1000px; height: 360px; }
 
-      .filmstrip {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 1000px;
-      }
-
       .item {
         width: 100px;
         background: #ccc;
@@ -132,7 +124,6 @@
     <h1 style="text-align:center">Can scroll X axis with Y axis wheel.</h1>
     <div id="CanScrollWithYAxis" class="contentHolder">
       <div class="content-x">
-        <div class="filmstrip">
           <div class="item"></div>
           <div class="item"></div>
           <div class="item"></div>
@@ -143,7 +134,6 @@
           <div class="item"></div>
           <div class="item"></div>
           <div class="item"></div>
-        </div>
       </div>
     </div>
     <script>

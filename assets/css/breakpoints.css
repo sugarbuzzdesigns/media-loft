@@ -156,7 +156,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   /**************************
   Shrunken desktop screen
   ***************************/
-  .no-touch .main-menu-btn .close-menu {
+  .noTouch .main-menu-btn .close-menu {
     display: none;
   }
 
@@ -1522,6 +1522,13 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     width: 30px;
   }
 
+  #work-items-wrap {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: scroll;
+  }
+
   .work-items {
     width: 100%;
     height: 100%;
@@ -1662,25 +1669,34 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     font-size: 14px;
     line-height: 20px;
   }
-  .work-item.hovering .work-item-bg {
+
+  .work-item.hovering .work-item-bg,
+  .noTouch .work-item:hover .work-item-bg {
     opacity: 0.0;
   }
-  .work-item.hovering .work-item-bg-hover {
+  .work-item.hovering .work-item-bg-hover,
+  .noTouch .work-item:hover .work-item-bg-hover {
     opacity: 1;
   }
-  .work-item.hovering .work-summary .work-cta .company {
+  .work-item.hovering .work-summary .work-cta .company,
+  .noTouch .work-item:hover .work-summary .work-cta .company {
     background: #ef4330;
     color: #fff;
   }
-  .work-item.hovering .work-summary .work-cta .category {
+  .work-item.hovering .work-summary .work-cta .category,
+  .noTouch .work-item:hover .work-summary .work-cta .category {
     color: #fff;
   }
-  .work-item.active .work-item-bg {
+
+  .work-item.active .work-item-bg,
+  .noTouch .work-item:active .work-item-bg {
     opacity: 1;
   }
-  .work-item.active .work-item-bg-hover {
+  .work-item.active .work-item-bg-hover,
+  .noTouch .work-item:active .work-item-bg-hover {
     opacity: 0;
   }
+
   .work-item.open {
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
@@ -2453,6 +2469,124 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
   }
+
+  /* perfect-scrollbar v0.6.5-1 */
+  .ps-container {
+    -ms-touch-action: none;
+    overflow: hidden !important;
+  }
+
+  .ps-container.ps-active-x > .ps-scrollbar-x-rail, .ps-container.ps-active-y > .ps-scrollbar-y-rail {
+    display: block;
+  }
+
+  .ps-container.ps-in-scrolling {
+    pointer-events: none;
+  }
+
+  .ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
+    background-color: #fff;
+    opacity: 1;
+  }
+
+  .ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+    background-color: #999;
+  }
+
+  .ps-container > .ps-scrollbar-x-rail {
+    display: block;
+    position: absolute;
+    /* please don't change 'position' */
+    opacity: 1;
+    top: 0px;
+    bottom: auto;
+    background: #fff;
+    /* there must be 'bottom' for ps-scrollbar-x-rail */
+    height: 15px;
+  }
+
+  .ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+    position: absolute;
+    /* please don't change 'position' */
+    background-color: #ef4330;
+    top: 0;
+    /* there must be 'bottom' for ps-scrollbar-x */
+    height: 15px;
+  }
+
+  .ps-container > .ps-scrollbar-y-rail {
+    display: none;
+    position: absolute;
+    /* please don't change 'position' */
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    opacity: 0;
+    -webkit-transition: background-color .2s linear, opacity .2s linear;
+    -moz-transition: background-color .2s linear, opacity .2s linear;
+    -o-transition: background-color .2s linear, opacity .2s linear;
+    transition: background-color .2s linear, opacity .2s linear;
+    right: 3px;
+    /* there must be 'right' for ps-scrollbar-y-rail */
+    width: 8px;
+  }
+
+  .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+    position: absolute;
+    /* please don't change 'position' */
+    background-color: #aaa;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transition: background-color .2s linear;
+    -moz-transition: background-color .2s linear;
+    -o-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+    right: 0;
+    /* there must be 'right' for ps-scrollbar-y */
+    width: 8px;
+  }
+
+  .ps-container:hover.ps-in-scrolling {
+    pointer-events: none;
+  }
+
+  .ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
+    background-color: #eee;
+    opacity: 1;
+  }
+
+  .ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+    background-color: #999;
+  }
+
+  .ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+    background-color: #999;
+  }
+
+  .ps-container:hover > .ps-scrollbar-x-rail, .ps-container:hover > .ps-scrollbar-y-rail {
+    opacity: 1;
+  }
+
+  .ps-container:hover > .ps-scrollbar-x-rail:hover {
+    background-color: #eee;
+    opacity: 1;
+  }
+
+  .ps-container:hover > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x {
+    background-color: #999;
+  }
+
+  .ps-container:hover > .ps-scrollbar-y-rail:hover {
+    background-color: #eee;
+    opacity: 1;
+  }
+
+  .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
+    background-color: #999;
+  }
 }
 /* ----------- iPhone 6 ----------- */
 @media only screen and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -2483,7 +2617,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   .touch .main-menu-open .main-menu .open-menu {
-    bottom: -63px;
+    bottom: -68px;
   }
 
   .main-menu {
@@ -2965,284 +3099,31 @@ tweeners.
   Work Page
   ***************************/
   #work-items-window {
-    height: 100%;
-    width: 100%;
-    background: #333;
-    overflow: hidden;
+    transform: translate3d(0, 0, 0);
   }
 
   .work-items {
-    height: 100%;
-    overflow: hidden;
     position: relative;
-    background-color: #313131;
   }
 
   .work-item {
-    display: none;
-    height: 100%;
-    width: 25%;
+    width: calc(50%);
     float: left;
-    -webkit-animation: slideInLeft 1s;
-    animation: slideInLeft 1s;
   }
-  .work-item .work-item-bgs {
-    background: #fff;
-    height: 100%;
+  .work-item .work-cover {
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .work-item .work-item-bg,
-  .work-item .work-item-bg-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-  }
-  .work-item .work-item-bg {
-    opacity: 0.3;
-    transition: none !important;
-  }
-  .work-item .work-item-bg-hover {
-    display: none;
-    transition: none !important;
-  }
-  .work-item .work-carousel {
-    display: none;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  .work-item .work-carousel .carousel-items {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-  }
-  .work-item .work-carousel .carousel-item {
-    height: 100%;
-    width: 100%;
-  }
-  .work-item .work-carousel .carousel-item:first-child {
-    height: 100%;
-  }
-  .work-item .work-carousel .carousel-item:first-child .work-copy {
-    height: 100%;
-  }
-  .work-item .work-carousel .carousel-item:first-child .work-media {
-    height: 100%;
-    background: transparent;
-  }
-  .work-item .work-carousel .carousel-item .related-slide {
-    top: 50%;
-    position: absolute;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-  }
-  .work-item .work-carousel .carousel-item .related-works {
-    width: 75%;
-    float: left;
-    position: relative;
-  }
-  .work-item .work-carousel .carousel-item .related-works .related-work {
-    display: block;
-  }
-  .work-item .work-carousel .work-copy {
-    width: 25%;
-    height: 100%;
-    position: relative;
-    float: left;
-    display: block;
-  }
-  .work-item .work-carousel .work-copy nav {
-    margin-top: 50px;
-  }
-  .work-item .work-carousel .work-copy nav a {
-    height: 50px;
-    width: 50px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: inline-block;
-    margin-right: 24px;
-  }
-  .work-item .work-carousel .work-copy nav a img {
-    width: 100%;
-  }
-  .work-item .work-carousel .work-copy nav a.disabled {
-    opacity: 0.5;
-  }
-  .work-item .work-carousel .work-copy nav .next {
-    background-position: -52px;
-    margin-right: 0;
-  }
-  .work-item .work-carousel .work-media {
-    width: 75%;
-    height: 100%;
-    float: left;
-    position: relative;
-  }
-  .work-item .work-carousel .work-media .video-bg-container {
-    background-color: #333;
-  }
-  .work-item .work-carousel .work-media .video-bg-container video.work-loop-video {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-  }
-  .work-item .work-carousel .work-media .video-bg-container .close-video {
-    opacity: 0;
-    background-color: #A0A0A0;
-    width: 50px;
-    height: 50px;
-    padding-top: 9px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    font-size: 30px;
-  }
-  .work-item .work-carousel .work-media .video-bg-container .close-video i {
-    display: block;
-    height: 25px;
-    width: 25px;
-    background: url(../images/icons/menu-close-white.png) no-repeat;
-    background-size: cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  .work-item .work-carousel .work-media .video-bg-container.hovered video.work-loop-video {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
-  }
-  .work-item .tagline {
-    transition: all 0.2s ease;
-  }
-  .work-item .tagline.work-title .company {
-    font-size: 25px;
-  }
-  .work-item:hover .tagline span:first-child {
-    transition: all 0.2s ease;
-    background-color: #ef4330;
-  }
-  .work-item:hover .company,
-  .work-item:hover .category {
-    color: #fff;
-  }
-  .work-item:active .work-item-bg {
-    display: block;
-    opacity: 1;
-  }
-  .work-item:active .work-item-bg-hover {
-    display: none;
-  }
-  .work-item .work-summary {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
   }
   .work-item .work-details {
-    padding: 0;
-  }
-  .work-item .work-details.show-video .work-copy {
-    margin-left: -25%;
-  }
-  .work-item .work-details.show-video .work-media {
-    width: 100%;
-  }
-  .work-item .work-details.show-video .video-start {
-    opacity: 0;
-  }
-  .work-item .work-details.show-video .close-video {
-    opacity: 1 !important;
-  }
-  .work-item .work-details .work-full-video {
-    opacity: 0;
-  }
-
-  #main-logo.show-video {
-    top: -50%;
-    left: -50%;
-  }
-
-  .main-menu-btn.show-video {
-    bottom: -50%;
-    left: -50%;
-  }
-
-  .show-details {
-    width: 100%;
-  }
-  .show-details .work-item-bg {
     display: none;
   }
-  .show-details:hover .work-item-bg-hover {
-    display: none;
-  }
-  .show-details .work-details {
-    left: 0;
-  }
-  .show-details .work-carousel {
-    display: block;
-  }
-
-  .right-menu {
-    bottom: 0;
-    left: auto;
-    right: 0;
-    width: auto;
-    height: 70px;
-    padding-top: 0;
-    z-index: 11;
-    background: transparent;
-    display: block;
-    float: left;
-  }
-  .right-menu ul {
-    margin: 0;
-  }
-  .right-menu ul li {
-    margin-bottom: 0;
-    display: block;
-    float: left;
-  }
-  .right-menu ul li:last-child {
-    margin-bottom: 0;
-  }
-  .right-menu ul li:last-child a {
-    padding-right: 40px;
-  }
-  .right-menu a {
-    color: #373837;
-    height: 70px;
-    display: block;
-    padding: 30px 10px 0 45px;
-    text-transform: uppercase;
-    font-size: 13px;
-    background: #fff;
-  }
-  .right-menu .logo {
-    z-index: 3;
-  }
-  .right-menu.open {
-    display: block;
-    bottom: 0;
-    left: 0;
-  }
-  .right-menu.go-away {
-    bottom: -80px;
-  }
-  .right-menu a.two-line span {
-    display: block;
-  }
-  .right-menu a.two-line span + span {
-    margin-left: 0;
+  .work-item.open {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: color 0 ease-in;
+    transition: none;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   /**************************
@@ -3850,6 +3731,12 @@ you can add resource intensive styles.
   /**************************
   Work Page
   ***************************/
+  #work-items-window.item-open .scrollingHotSpotLeft,
+  #work-items-window.item-open .scrollingHotSpotRight,
+  #work-items-window.item-open .ps-scrollbar-x-rail {
+    display: none !important;
+  }
+
   .work-items {
     height: 100%;
     overflow: hidden;
@@ -3858,7 +3745,7 @@ you can add resource intensive styles.
 
   .work-item {
     height: 100%;
-    width: 25%;
+    width: calc(100%/3);
     float: left;
     overflow: hidden;
     -webkit-animation: slideInLeft 1s;
@@ -3885,9 +3772,6 @@ you can add resource intensive styles.
   .work-item .work-item-bg {
     opacity: 0.3;
   }
-  .work-item .work-item-bg-hover {
-    display: none;
-  }
   .work-item .work-carousel {
     display: none;
     width: 100%;
@@ -3895,17 +3779,32 @@ you can add resource intensive styles.
   }
   .work-item .work-carousel .carousel-arrow-nav {
     display: block;
+    position: absolute;
+    bottom: 125px;
+  }
+  .work-item .work-carousel .carousel-arrow-nav a {
+    margin-right: 20px;
+  }
+  .work-item .work-carousel .carousel-arrow-nav a:last-child {
+    margin-right: 0;
+  }
+  .work-item .work-carousel .carousel-arrow-nav img {
+    width: 50px;
+    height: 50px;
   }
   .work-item .work-carousel .carousel-items {
     height: 100%;
     width: 100%;
+    overflow: hidden;
   }
   .work-item .work-carousel .carousel-item {
     height: 100%;
     width: 100%;
+    display: none;
   }
   .work-item .work-carousel .carousel-item:first-child {
     height: 100%;
+    display: block;
   }
   .work-item .work-carousel .carousel-item:first-child .work-copy {
     height: 100%;
@@ -3930,6 +3829,9 @@ you can add resource intensive styles.
   }
   .work-item .work-carousel .work-copy {
     padding: 178px 50px 5% 56px;
+    width: 25%;
+    float: left;
+    display: block;
   }
   .work-item .work-carousel .work-media {
     width: 75%;
@@ -3974,21 +3876,6 @@ you can add resource intensive styles.
   .work-item .tagline {
     transition: all 0.2s ease;
   }
-  .work-item:hover .tagline span:first-child {
-    transition: all 0.2s ease;
-    background-color: #ef4330;
-  }
-  .work-item:hover .company,
-  .work-item:hover .category {
-    color: #fff;
-  }
-  .work-item:active .work-item-bg {
-    display: block;
-    opacity: 1;
-  }
-  .work-item:active .work-item-bg-hover {
-    display: none;
-  }
   .work-item .work-summary {
     height: 100%;
     width: 100%;
@@ -3997,8 +3884,12 @@ you can add resource intensive styles.
     left: 0;
   }
   .work-item .work-details {
+    position: absolute;
+    top: 0;
+    left: 0;
     padding: 0;
     overflow: hidden;
+    width: 100%;
   }
   .work-item .work-details .company {
     font-family: 'KlavikaWebBasicLight';
@@ -4038,19 +3929,19 @@ you can add resource intensive styles.
     left: -50%;
   }
 
-  .show-details {
+  .work-item.open {
     width: 100%;
   }
-  .show-details .work-item-bg {
+  .work-item.open .work-item-bg {
     display: none;
   }
-  .show-details:hover .work-item-bg-hover {
+  .work-item.open:hover .work-item-bg-hover {
     display: none;
   }
-  .show-details .work-details {
-    left: 0;
+  .work-item.open .work-details {
+    display: block;
   }
-  .show-details .work-carousel {
+  .work-item.open .work-carousel {
     display: block;
   }
 
@@ -4201,6 +4092,35 @@ you can add resource intensive styles.
   ***************************/
   .main-menu .menu-interior a {
     font-size: 30px;
+  }
+
+  /**************************
+  Right Menus
+  ***************************/
+  .right-menu {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: auto;
+    width: auto;
+    height: 70px;
+    padding-top: 0;
+    z-index: 11;
+    background: transparent;
+    display: block;
+  }
+  .right-menu ul li {
+    margin-bottom: 0;
+    display: block;
+    float: left;
+  }
+  .right-menu ul li a {
+    height: 70px;
+    display: block;
+    padding: 30px 10px 0 45px;
+    text-transform: uppercase;
+    font-size: 13px;
+    background: #fff;
   }
 
   /**************************
@@ -4367,6 +4287,9 @@ you can add resource intensive styles.
     color: #fff;
   }
 
+  .work-item {
+    width: 25%;
+  }
   .work-item .carousel-nav {
     height: 50px;
     position: absolute;

@@ -43,7 +43,11 @@
 								</div>
 								<div class="work-media">
 									<?php if($slide['media'][0] == 'image'){ ?>
-										<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $slide['media'][1]; ?>)"></div>
+										<?php if($detect->isMobile()) { ?>
+											<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/mobile/<?php echo $slide['media'][1]; ?>)"></div>
+										<?php } else { ?>
+											<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $slide['media'][1]; ?>)"></div>
+										<?php } ?>
 									<?php } else { ?>
 										<div class="video-bg-container <?php if(wp_is_mobile()) { echo 'mobile'; } ?>">
 											<div class="full-bleed" style="background-image: url(<?php bloginfo('template_directory'); ?>/assets/images/work/mobile-video-posters/<?php echo $slide['media'][3]; ?>);"></div>
@@ -118,6 +122,6 @@
 			</div>
 			<?php } ?>
 		</div>
-	</div>						
+    </div>					
 	<?php include('partials/work-menu.php'); ?>
 <?php get_footer(); ?>

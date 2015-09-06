@@ -644,6 +644,15 @@ body.home {
 /**************************
 Work Page
 ***************************/
+#work-items-window.item-open {
+	.scrollingHotSpotLeft,
+	.scrollingHotSpotRight,
+	.ps-scrollbar-x-rail {
+		display: none !important;
+	}
+
+}
+
 .work-items {
 	height: 100%;
     overflow: hidden;
@@ -652,7 +661,7 @@ Work Page
 
 .work-item {
 	height: 100%;
-	width: 25%;
+	width: calc(100%/3);
 	float: left;
 	overflow: hidden;
 	-webkit-animation: slideInLeft 1s;
@@ -682,10 +691,6 @@ Work Page
 		opacity: 0.3;
 	}
 
-	.work-item-bg-hover {
-		display: none;
-	}
-
 	&:nth-child(1n+5) {
 	// display: none;
 	}
@@ -697,19 +702,37 @@ Work Page
 
 		.carousel-arrow-nav {
 			display: block;
+			position: absolute;
+			bottom: 125px;
+
+			a {
+				margin-right: 20px;
+
+				&:last-child {
+					margin-right: 0;
+				}				
+			}
+
+			img {
+				width: 50px;
+				height: 50px;
+			}
 		}	    
 
 		.carousel-items {
 			height: 100%;
     		width: 100%;
+    		overflow: hidden;
 		}
 		
 		.carousel-item {
 		    height: 100%;
-		    width: 100%;	
+		    width: 100%;
+		    display: none;	
 
 		    &:first-child {
 		    	height: 100%;
+		    	display: block;
 
 		    	.work-copy {
 		    		height: 100%;
@@ -755,6 +778,9 @@ Work Page
 
 		.work-copy {
 			padding: 178px 50px 5% 56px;
+			width: 25%;
+			float: left;
+			display: block;
 
     		nav {
 
@@ -817,37 +843,6 @@ Work Page
 		transition: all 0.2s ease;
 	}
 
-	&:hover {
-		.work-item-bg {
-		}
-
-		.work-item-bg-hover {
-		}		
-
-		.tagline {
-			span:first-child {
-				transition: all 0.2s ease;
-				background-color: $ml-red;	
-			}
-		}
-
-		.company,
-		.category {
-			color: #fff;
-		}		
-	}
-
-	&:active {
-		.work-item-bg {
-			display: block;
-			opacity: 1;
-		}
-
-		.work-item-bg-hover {
-			display: none;
-		}
-	}
-
 	.work-summary {
 		height: 100%;
 		width: 100%;	
@@ -857,8 +852,12 @@ Work Page
 	}
 
 	.work-details {
+		position: absolute;
+		top: 0;
+		left: 0;
 		padding: 0;
 		overflow: hidden;
+		width: 100%;
 
     	.label {
  		
@@ -900,9 +899,9 @@ Work Page
 	}
 }
 
-@media screen and ( max-height: 769px ) {
+// @media screen and ( max-height: 769px ) {
 	
-}
+// }
 /**************************
 END WORK PAGE
 ***************************/		
@@ -917,7 +916,7 @@ END WORK PAGE
     left: -50%;
 }
 
-.show-details {
+.work-item.open {
 	width: 100%;
 
 	.work-item-bg {
@@ -931,7 +930,7 @@ END WORK PAGE
 	}	
 
 	.work-details {
-		left: 0;
+		display: block;
 	}
 
 	.work-carousel {

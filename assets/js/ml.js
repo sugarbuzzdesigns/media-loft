@@ -21,8 +21,19 @@ ml = {};
 	ml.env = {
 		init: function(){
 			this.winHeight = ml.elms.$win.height();
-			this.isTouch = ml.elms.$html.is('.touch') ? true : false;
+			this.winWidth = ml.elms.$win.width();
+			this.isTouch = (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 			this.tapClick = this.isTouch ? 'touchend' : 'click';
+
+			this.setTouchClass();
+		},
+
+		setTouchClass: function(){
+			if(this.isTouch){
+				ml.elms.$html.addClass('isTouch');
+			} else {
+				ml.elms.$html.addClass('noTouch');
+			}
 		}
 	};
 

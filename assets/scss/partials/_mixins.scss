@@ -84,7 +84,13 @@ probably best not to use it. I mean, were you going to anyway? */
 
 @mixin cancel-transition {
 	-moz-transition: none;
-    -webkit-transition: none;
-    -o-transition: color 0 ease-in;
-    transition: none;   
+  -webkit-transition: none;
+  -o-transition: color 0 ease-in;
+  transition: none;   
+}
+
+@mixin no-trans {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
