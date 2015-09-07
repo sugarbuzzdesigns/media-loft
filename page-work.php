@@ -37,7 +37,7 @@
 									</div>
 
 									<nav class="carousel-arrow-nav">
-										<a class="prev disabled" href="#"><img src="<?php echo IMG_DIR ?>/icons/left-carousel-arrow.png" alt=""></a>
+										<a class="prev" href="#"><img src="<?php echo IMG_DIR ?>/icons/left-carousel-arrow.png" alt=""></a>
 										<a class="next" href="#"><img src="<?php echo IMG_DIR ?>/icons/right-carousel-arrow.png" alt=""></a>
 									</nav>
 								</div>
@@ -78,11 +78,11 @@
 								<div class="work-copy">
 									<div class="related-slide">
 										<p class="similar">similar projects</p>
-										<nav class="carousel-arrow-nav">
-											<a class="prev disabled" href="#"><img src="<?php echo IMG_DIR ?>/icons/left-carousel-arrow.png" alt=""></a>
-											<a class="next" href="#"><img src="<?php echo IMG_DIR ?>/icons/right-carousel-arrow.png" alt=""></a>
-										</nav>
 									</div>	
+									<nav class="carousel-arrow-nav">
+										<a class="prev" href="#"><img src="<?php echo IMG_DIR ?>/icons/left-carousel-arrow.png" alt=""></a>
+										<a class="next" href="#"><img src="<?php echo IMG_DIR ?>/icons/right-carousel-arrow.png" alt=""></a>
+									</nav>									
 								</div>	
 								<div class="related-works">
 									<?php if (isset($workItem['related'][0])) { ?>

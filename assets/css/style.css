@@ -6072,6 +6072,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 
   .ps-container.ps-active-x > .ps-scrollbar-x-rail, .ps-container.ps-active-y > .ps-scrollbar-y-rail {
     display: block;
+    z-index: 4;
   }
 
   .ps-container.ps-in-scrolling {
@@ -6079,12 +6080,12 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   .ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
-    background-color: #fff;
+    background-color: #D4D4D4;
     opacity: 1;
   }
 
   .ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
-    background-color: #999;
+    background-color: #D63726;
   }
 
   .ps-container > .ps-scrollbar-x-rail {
@@ -6094,7 +6095,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     opacity: 1;
     top: 0px;
     bottom: auto;
-    background: #fff;
+    background: #D4D4D4;
     /* there must be 'bottom' for ps-scrollbar-x-rail */
     height: 15px;
   }
@@ -6108,46 +6109,12 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     height: 15px;
   }
 
-  .ps-container > .ps-scrollbar-y-rail {
-    display: none;
-    position: absolute;
-    /* please don't change 'position' */
-    border-radius: 4px;
-    opacity: 0;
-    -webkit-transition: background-color .2s linear, opacity .2s linear;
-    transition: background-color .2s linear, opacity .2s linear;
-    right: 3px;
-    /* there must be 'right' for ps-scrollbar-y-rail */
-    width: 8px;
-  }
-
-  .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
-    position: absolute;
-    /* please don't change 'position' */
-    background-color: #aaa;
-    border-radius: 4px;
-    -webkit-transition: background-color .2s linear;
-    transition: background-color .2s linear;
-    right: 0;
-    /* there must be 'right' for ps-scrollbar-y */
-    width: 8px;
-  }
-
   .ps-container:hover.ps-in-scrolling {
     pointer-events: none;
   }
 
   .ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
-    background-color: #eee;
     opacity: 1;
-  }
-
-  .ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
-    background-color: #999;
-  }
-
-  .ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
-    background-color: #999;
   }
 
   .ps-container:hover > .ps-scrollbar-x-rail, .ps-container:hover > .ps-scrollbar-y-rail {
@@ -6155,21 +6122,11 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   .ps-container:hover > .ps-scrollbar-x-rail:hover {
-    background-color: #eee;
     opacity: 1;
-  }
-
-  .ps-container:hover > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x {
-    background-color: #999;
   }
 
   .ps-container:hover > .ps-scrollbar-y-rail:hover {
-    background-color: #eee;
     opacity: 1;
-  }
-
-  .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
-    background-color: #999;
   }
 }
 /* ----------- iPhone 6 ----------- */
@@ -6913,15 +6870,15 @@ you can add resource intensive styles.
     top: 50%;
     left: 0;
     -webkit-transform: translate(0, -50%);
-        -ms-transform: translate(0, -50%);
-            transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
   }
   body.home .svg-container svg {
     left: 0;
     width: 100%;
     -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+        transform: translate(0%, -50%);
   }
   body.home .svg-container svg path, body.home .svg-container svg line {
     stroke: rgba(228, 228, 228, 0.7);
@@ -7435,6 +7392,9 @@ you can add resource intensive styles.
     float: left;
     display: block;
   }
+  .work-item .work-carousel .work-copy nav a.disabled {
+    opacity: 0.5;
+  }
   .work-item .work-carousel .work-media {
     width: 75%;
     height: 100%;
@@ -7489,11 +7449,13 @@ you can add resource intensive styles.
   }
   .work-item .work-details {
     position: absolute;
+    display: block;
     top: 0;
-    left: 0;
+    left: -100%;
     padding: 0;
     overflow: hidden;
     width: 100%;
+    height: 100%;
   }
   .work-item .work-details .company {
     font-family: 'KlavikaWebBasicLight';
@@ -7535,15 +7497,17 @@ you can add resource intensive styles.
 
   .work-item.open {
     width: 100%;
+    -webkit-transition: all 1s ease;
+            transition: all 1s ease;
   }
-  .work-item.open .work-item-bg {
+  .work-item.open .work-cover {
     display: none;
   }
   .work-item.open:hover .work-item-bg-hover {
     display: none;
   }
   .work-item.open .work-details {
-    display: block;
+    left: 0;
   }
   .work-item.open .work-carousel {
     display: block;

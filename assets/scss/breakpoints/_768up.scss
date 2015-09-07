@@ -161,13 +161,13 @@ body.home {
 	    position: absolute;
 	    top: 50%;
 	    left: 0;
-	    transform: translate(0, -50%);
+	    -webkit-transform: translate(0, -50%);
+	            transform: translate(0, -50%);
 
 	    svg {
 		    left: 0;
 		    width: 100%;
 		    -webkit-transform: translate(0, -50%);
-		    -ms-transform: translate(0, -50%);
 		    transform: translate(0%, -50%);			
 
 	    	path, line {
@@ -786,7 +786,7 @@ Work Page
 
     			a {
 				    &.disabled {
-
+						opacity: 0.5;
 				    }
     			}
 
@@ -853,11 +853,13 @@ Work Page
 
 	.work-details {
 		position: absolute;
+		display: block;
 		top: 0;
-		left: 0;
+		left: -100%;
 		padding: 0;
 		overflow: hidden;
 		width: 100%;
+		height: 100%;
 
     	.label {
  		
@@ -918,8 +920,9 @@ END WORK PAGE
 
 .work-item.open {
 	width: 100%;
+	transition: all 1s ease;
 
-	.work-item-bg {
+	.work-cover {
 		display: none;
 	}
 
@@ -930,7 +933,7 @@ END WORK PAGE
 	}	
 
 	.work-details {
-		display: block;
+		left: 0;
 	}
 
 	.work-carousel {

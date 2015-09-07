@@ -13,6 +13,8 @@
 			this.$relatedWork = $('.related-work');
 			this.$curWorkItem = null;
 
+			this.workItemsContainerWidth = 0;
+
 			this.currentVideo = null;
 
 			this.numWorkItems = this.$workItems.length;
@@ -85,10 +87,20 @@
 			_this.$relatedWork.on('click', function(){
 				_this.openRelatedWork($(this));
 			});
+
+			/*
+			Work Carousel
+			 */
+			$('.carousel-arrow-nav a').on('click', function(e){
+				e.preventDefault();
+				e.stopPropagation();
+
+				_this.navigateCarouselPrevNext($(this));				
+			});			
 		},
 
 		setUpWorkPage: function(){
-			var workItemWidth = this.$workItems.outerWidth(),
+			var workItemWidth = this.$workItems[0].getBoundingClientRect().width,
 				numWorkItems = this.$workItems.length,
 				workItemsContainerWidth = workItemWidth*numWorkItems;
 
@@ -129,6 +141,8 @@
 			_this.$workItemsWin.addClass('item-open');
 
 			if(ML_vars.device === 'desktop'){
+				_this.scrollLeftPos = $('.scrollWrapper').scrollLeft();
+
 				$item
 					.css('width', '100%');
 
@@ -147,7 +161,9 @@
 			$item.removeClass('open');
 			this.$workItemsWin.removeClass('item-open');
 
-			this.resetWorkItem(this.$curWorkitem);
+			$('.scrollWrapper').perfectScrollbar('update');
+
+			this.resetWorkItem(this.$curWorkItem);
 
 			this.$curWorkItem = null;
 			this.carouselIndex = 0;
@@ -156,9 +172,13 @@
 				$item
 					.css('width', this.workItemWidth);
 
+					console.log(this.workItemsContainerWidth);
+
 				_this.$workItemsContainer.css('width', this.workItemsContainerWidth);
 				_this.$workItems.show();
 				$('.scrollableArea').css('width', this.workItemsContainerWidth);	
+
+				$('.scrollWrapper').scrollLeft(this.scrollLeftPos);
 			}			
 		},
 
@@ -166,7 +186,7 @@
 			var workName = $link.data('href'),
 				$item = $('#' + workName);
 
-			this.resetWorkItem(this.$curWorkitem);	
+			this.resetWorkItem(this.$curWorkItem);	
 
 			this.closeWorkItem(this.$curWorkItem);
 			this.scrollToItem($item);
@@ -275,11 +295,11 @@
 
 				var $this = $(this),
 					index = $this.index(),
-					$curWorkItem = $('#' + _this.currentWorkItem),
+					$curWorkItem = $('#' + _this.curWorkItem),
 					$items = $(this).closest('.carousel-nav').siblings('.carousel-items'),
 					slideToShow = $('.carousel-item', $items)[index];
 
-					_this.curCarouselItem = index;
+					_this.carouselIndex = index;
 
 					$this.addClass('active').siblings().removeClass('active')
 
@@ -297,6 +317,63 @@
 					}
 			});
 		},
+
+		navigateCarouselPrevNext: function($navButton){
+				var $curCarousel = $('.work-carousel', this.$curWorkItem),
+					firstCarouselitem = $curCarousel.find('.carousel-item')[0];
+
+				if($navButton.is('.prev') && this.carouselIndex === 0){
+					this.closeWorkItem(this.$curWorkItem);
+					// this.resetUrl();
+					return;
+				}
+
+				if($navButton.is('.disabled')){
+					return;
+				} 
+
+				if($navButton.is('.prev')){
+					// try prev
+					console.log('prev');
+					$('.carousel-nav .active', $curCarousel).removeClass('active');
+
+					this.carouselIndex--;
+					$('.carousel-nav li', $curCarousel).eq(this.carouselIndex).addClass('active');
+
+					var curIndex = $navButton.closest('.carousel-item').index();
+
+					$navButton.closest('.carousel-item').hide();
+					$navButton.closest('.carousel-item').prev().show();
+
+					// if (curIndex === 1) { 
+					// 	console.log('disable it');
+					// 	 $(firstCarouselitem).find('.prev').addClass('disabled');
+					// 	return; 
+					// };
+
+					$navButton.closest('.carousel-item').index();
+				}
+
+				if($navButton.is('.next')){
+					// try next
+					console.log('next');
+					$('.carousel-nav .active', $curCarousel).removeClass('active');
+
+					this.carouselIndex++;
+
+					$('.carousel-nav li', $curCarousel).eq(this.carouselIndex).addClass('active');
+
+					$('.prev', this.$curWorkItem).removeClass('disabled');
+
+					$navButton.closest('.carousel-item').hide();
+					$navButton.closest('.carousel-item').next().show();
+
+					if($navButton.closest('.carousel-item').next().is('.related-content')){
+						$navButton.closest('.carousel-item').next().find('.next').addClass('disabled');
+						return;
+					}					
+				}	
+		},		
 
 		setupDescription: function(){
 			$('.description').each(function(i, elm){
@@ -329,7 +406,7 @@
 				$playBtn = $videoContainer.find('.video-start'),
 				videoId = $playBtn.data('video'),
 				$video = $('#' + videoId),
-				$currentWorkItem = $('#' + ml.Work.currentWorkItem),
+				$curWorkItem = $('#' + ml.Work.curWorkItem),
 				videoSrc = $('source', $video).data('src');
 
 				if(!$video.data('started')){
@@ -340,8 +417,8 @@
 
 			_this.currentVideo = $video[0];
 
-			$('.work-loop-video', $currentWorkItem).css('opacity', 0); 
-			$('.work-full-video', $currentWorkItem).show().css('opacity', 1);
+			$('.work-loop-video', $curWorkItem).css('opacity', 0); 
+			$('.work-full-video', $curWorkItem).show().css('opacity', 1);
 
 			ml.elms.$body.addClass('show-video');
 
@@ -356,7 +433,44 @@
 			$(this.currentVideo).fadeOut();
 			
 			ml.elms.$body.removeClass('show-video');
-		}							
+		},
+
+		resizeWorkPage: function(){
+			var	winWidth = $(window).width(),
+				winHeight = $(window).height(),
+				itemWidth = winWidth/4,
+				winMinWidth1 = 1030,
+				winMinWidth2 = 875,
+				containerWidth;
+
+				if (winWidth < winMinWidth1) {
+					itemWidth = winWidth/3;
+				}
+
+				if (winWidth < winMinWidth2) {
+					itemWidth = winWidth/2;
+				}		
+
+			this.workItemWidth = itemWidth;
+
+			if($('.work-item.open').length > 0){
+				containerWidth = '100%';
+			} else {
+				this.workItemsContainerWidth = containerWidth = itemWidth*this.numWorkItems;
+			}
+
+			this.$workItemsContainer.css('height', winHeight);
+			this.$workItemsContainer.css('width', containerWidth);
+			$('#work-items-window').css('height', winHeight);
+			$('#work-items-window').css('width', winWidth);
+
+			$('.work-item').not('.open').css('width', itemWidth);
+			$('.work-item.open').css('width', '100%');
+			$('.scrollableArea').css('width', this.workItemsContainerWidth);
+
+			$('.scrollWrapper').perfectScrollbar('update');
+		},
+
 	};
 
 	ml.Work.menu = {
@@ -426,15 +540,6 @@
 					$('.scrollWrapper').perfectScrollbar({useBothWheelAxes: true});	
 				}
 			});
-		}
-
-
-	
-		$(window).on('resizeEnd', function(){
-			console.log('hey resized');
-			if(ML_vars.device != 'mobile'){
-				ml.Work.resizeWorkPage();
-			}
-		});		
+		}	
 	});
 })(jQuery);

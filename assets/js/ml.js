@@ -211,6 +211,7 @@ ml = {};
 
 	var myEfficientFn = ml.utils.debounce(function() {
 		ml.utils.setBreakpoint();
+		ml.Work.resizeWorkPage();
 	}, 350);	
 
 	$(function(){
