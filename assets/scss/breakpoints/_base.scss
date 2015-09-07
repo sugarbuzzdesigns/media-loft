@@ -2649,6 +2649,11 @@ div.scrollingHotSpotRightVisible
 	zoom: 1;
 }
 
+.isTouch div.scrollingHotSpotRight,
+.isTouch div.scrollingHotSpotLeft {
+	display: none !important;
+}
+
 /* The scroll wrapper is always the same width and height as the containing element (div).
    Overflow is hidden because you don't want to show all of the scrollable area.
 */

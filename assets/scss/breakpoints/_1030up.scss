@@ -23,8 +23,13 @@ body:before {
 /**************************
 Main Menu
 ***************************/		
-.main-menu .menu-interior a {
-	font-size: 30px;
+.main-menu {
+	width: 25%;
+	min-width: 300px;
+
+	.menu-interior a {
+		font-size: 30px;
+	}
 }
 
 /**************************
@@ -58,7 +63,26 @@ Right Menus
 		    }		
 		}
 	}
-}    
+}  
+
+.right-menu {
+
+    &.go-away {
+    	bottom: -80px;
+    }
+
+    a {
+    	&.two-line {
+    		span {
+    			display: block;
+    		}
+
+    		span + span {
+    			margin-left: 0;
+    		}
+    	}
+    }
+}  
 
 /**************************
 Cta & Tagline
@@ -312,44 +336,20 @@ Work Page
 .work-item {
 	width: 25%;
 
-	.carousel-nav {
-		height: 50px;
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		background: #fff;
-
-		ul {
-			height: 100%;
-			margin: 0;
-			padding: 20px 30px 0 30px;
-		
-			li {
-				height: 10px;
-				width: 10px;
-				background: #DCDCDC;
-				display: block;
-				float: left;
-				cursor: pointer;
-				-webkit-transform: rotate(45deg);
-				        transform: rotate(45deg);
-				margin: 0 40px 0 0;
-
-				&:last-child {
-					margin-right: 0;
-				}
-
-				&.active {
-					background: $ml-dark-red;
-				}
-			}
-		}	
-
-		&.show-video {
-			bottom: -50px;
-			right: -100%;
+	.carousel-item {
+		.related-works {
+		    width: 75%;
 		}
 	}
+
+	.work-copy {
+		padding: 178px 50px 5% 56px;
+		width: 25%;
+	}	
+
+	.work-media {
+		width: 75%;
+	}	
 }	
 
 /**************************
@@ -503,27 +503,4 @@ Services Page
 			margin: 0 5px;
 		}
 	}
-}
-
-.right-menu {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    color: #fff;
-
-    &.go-away {
-    	bottom: -80px;
-    }
-
-    a {
-    	&.two-line {
-    		span {
-    			display: block;
-    		}
-
-    		span + span {
-    			margin-left: 0;
-    		}
-    	}
-    }
-}    
+}  

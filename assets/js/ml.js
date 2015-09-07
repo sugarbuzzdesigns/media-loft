@@ -57,7 +57,10 @@ ml = {};
 				_this.openMainMenu();
 			});
 
-			_this.$menuOverlay.on('mouseover', function(){
+			_this.$menuOverlay.on('mouseover', function(e){
+				e.preventDefault();
+				e.stopPropagation();
+
 				if(ML_vars.device === 'mobile'){return}
 				_this.closeMainMenu();
 			});	
@@ -211,7 +214,11 @@ ml = {};
 
 	var myEfficientFn = ml.utils.debounce(function() {
 		ml.utils.setBreakpoint();
-		ml.Work.resizeWorkPage();
+
+		if(ML_vars.device === 'desktop'){
+			ml.Work.resizeWorkPage();
+		}
+
 	}, 350);	
 
 	$(function(){

@@ -31,8 +31,7 @@ body:before {
 Main Nav
 ***************************/
 .main-menu {
-	min-width: 300px;
-	width: 25%;
+	width: 100%;
 	left: -100%;
 	padding-top: 0;
 	background: #ef4330;
@@ -102,10 +101,6 @@ Main Nav
 /**************************
 Other Misc menu stuff
 ***************************/		
-.mobile-menu-btn {
-	display: none;
-}
-
 #menu-overlay {
     position: fixed;
     height: 100%;
@@ -132,19 +127,11 @@ Main Menu Styles
 .main-menu-btn,
 .right-menu-btn {
 	height: 68px;
-	bottom: 0;
-	left: 0;
-	font-size: 15px;
-	text-align: center;
-	z-index: 6;	
 
+	.close-menu, 
 	.open-menu {
-		display: block;	
-		padding: 22px 28px 0;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-	}	
+		height: 68px;
+	}
 }
 
 .main-menu-btn {

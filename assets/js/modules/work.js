@@ -47,6 +47,8 @@
 			_this.$closeBtn.on(ml.env.tapClick, function(e){
 				e.stopPropagation();
 
+				console.log('hey');
+
 				var $item = $(this).closest('.work-item');
 
 				_this.closeWorkItem($item);
@@ -140,18 +142,19 @@
 			$item.addClass('open');
 			_this.$workItemsWin.addClass('item-open');
 
-			if(ML_vars.device === 'desktop'){
+			if(ML_vars.device != 'mobile'){
 				_this.scrollLeftPos = $('.scrollWrapper').scrollLeft();
 
 				$item
 					.css('width', '100%');
 
-				ml.rightMenu.$rightMenu.addClass('go-away');
-
 				_this.$workItemsContainer.css('width', '100%');
 				_this.$workItems.not('.open').css('display', 'none');
 				$('.scrollableArea').css('width', '100%');	
 			}
+
+			ml.rightMenu.$rightMenu.addClass('go-away');
+			ml.rightMenu.$rightMenuBtn.addClass('go-away');
 
 			_this.$curWorkItem = $item;
 			_this.currentIndex = $item.index();
@@ -165,10 +168,12 @@
 
 			this.resetWorkItem(this.$curWorkItem);
 
+			ml.rightMenu.$rightMenu.removeClass('go-away');
+
 			this.$curWorkItem = null;
 			this.carouselIndex = 0;
 
-			if(ML_vars.device === 'desktop'){
+			if(ML_vars.device != 'mobile'){
 				$item
 					.css('width', this.workItemWidth);
 
@@ -440,7 +445,7 @@
 				winHeight = $(window).height(),
 				itemWidth = winWidth/4,
 				winMinWidth1 = 1030,
-				winMinWidth2 = 875,
+				winMinWidth2 = 768,
 				containerWidth;
 
 				if (winWidth < winMinWidth1) {
@@ -457,6 +462,7 @@
 				containerWidth = '100%';
 			} else {
 				this.workItemsContainerWidth = containerWidth = itemWidth*this.numWorkItems;
+				$('.scrollableArea').css('width', this.workItemsContainerWidth);
 			}
 
 			this.$workItemsContainer.css('height', winHeight);
@@ -466,7 +472,6 @@
 
 			$('.work-item').not('.open').css('width', itemWidth);
 			$('.work-item.open').css('width', '100%');
-			$('.scrollableArea').css('width', this.workItemsContainerWidth);
 
 			$('.scrollWrapper').perfectScrollbar('update');
 		},

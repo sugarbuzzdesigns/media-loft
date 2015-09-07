@@ -43,7 +43,7 @@
 								</div>
 								<div class="work-media">
 									<?php if($slide['media'][0] == 'image'){ ?>
-										<?php if($detect->isMobile()) { ?>
+										<?php if($detect->isMobile() && !$detect->isTablet()) { ?>
 											<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/mobile/<?php echo $slide['media'][1]; ?>)"></div>
 										<?php } else { ?>
 											<div class="carousel-image" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/images/work/<?php echo $slide['media'][1]; ?>)"></div>
