@@ -238,7 +238,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   ***************************/
   .close-video {
     opacity: 1;
-    background-color: #A0A0A0;
+    background-color: #fff;
     width: 50px;
     height: 50px;
     padding-top: 9px;
@@ -251,7 +251,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     display: block;
     height: 25px;
     width: 25px;
-    background: url(../images/icons/menu-close-white.png) no-repeat;
+    background: url(../images/icons/menu-close.png) no-repeat;
     background-size: cover;
     position: absolute;
     top: 50%;
@@ -309,6 +309,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .play-reel {
     display: block;
     margin-top: 20px;
+    cursor: pointer;
   }
   .play-reel span {
     display: inline-block;
@@ -430,6 +431,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     width: 100%;
     z-index: 100;
     transition: all 0.5s ease;
+    background-color: #000;
   }
   .video-overlay.show-me {
     left: 0;
@@ -522,6 +524,10 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   /**************************
   About Page
   ***************************/
+  .isTouch .page-about {
+    overflow: hidden;
+  }
+
   .page-about .cta .tagline span {
     font-size: 26px;
   }
@@ -559,6 +565,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     padding-bottom: calc(100%/3);
     float: left;
     position: relative;
+    opacity: 1;
+    transition: all 0.5s ease;
   }
   .tile .front, .tile .back, .tile .hover-state {
     height: 100%;
@@ -566,6 +574,23 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     position: absolute;
     top: 0;
     left: 0;
+    transition: all 0.5s ease;
+    -webkit-backface-visibility: hidden;
+    /* Chrome, Safari, Opera */
+    backface-visibility: hidden;
+  }
+  .tile .front div, .tile .back div, .tile .hover-state div {
+    -webkit-backface-visibility: hidden;
+    /* Chrome, Safari, Opera */
+    backface-visibility: hidden;
+  }
+  .tile .front {
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+  }
+  .tile.in-view .front {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
   .tile .hover-state {
     opacity: 0;
@@ -587,6 +612,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .tile.blank {
     background: none;
+    opacity: 0;
   }
   .tile.blank img {
     display: none;
@@ -704,9 +730,6 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   #culture .blur-overlay {
     background-color: #A1E5DA;
     opacity: 0.5;
-  }
-  #culture #about-culture-video-full {
-    left: -100%;
   }
   #culture .play-reel span {
     color: #fff;
@@ -1192,7 +1215,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     padding: 100px 0 100px 0;
   }
   #blog .articles article .blog-header-bg {
-    display: none;
+    opacity: 0;
+    transition: all 0.5s ease;
   }
   #blog .articles article .blog-header-bg::after {
     content: "";
@@ -1250,6 +1274,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   #blog .articles article.show-article .blog-header-bg {
     display: block;
+    opacity: 1;
   }
   #blog .articles article.show-article .related-article {
     display: block;
@@ -1262,7 +1287,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     height: 0;
   }
   #blog .articles article.collapsed:hover .blog-header-bg {
-    display: block;
+    opacity: 1;
   }
   #blog.show-article .back {
     display: block;
@@ -1489,15 +1514,20 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     width: 100%;
   }
 
-  #work-menu {
-    background: #fff;
-  }
-
   #work-items-window {
     height: 100%;
     width: 100%;
     position: relative;
     overflow: scroll;
+  }
+  #work-items-window .nav-arrow-down {
+    position: absolute;
+    bottom: 60px;
+    right: 10px;
+    z-index: 10;
+  }
+  #work-items-window.scrolled .nav-arrow-down {
+    opacity: 0;
   }
 
   #explore-work {
@@ -1768,7 +1798,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     opacity: 0.2;
   }
   .work-carousel .related-works .related-work .hover {
-    display: none;
+    opacity: 0;
   }
   .work-carousel .related-works .related-work:hover .resting {
     opacity: 1;
@@ -1815,6 +1845,13 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  .noTouch .work-carousel .related-works .related-work:hover .resting {
+    opacity: 0;
+  }
+  .noTouch .work-carousel .related-works .related-work:hover .hover {
+    opacity: 1;
   }
 
   .work-carousel .close {
@@ -2157,12 +2194,12 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .main-menu-btn .close-menu,
   .right-menu-btn .close-menu {
     transition: all 0.5s ease;
-    width: 63px;
-    height: 63px;
+    width: 47px;
+    height: 47px;
     padding-top: 9px;
     position: absolute;
     bottom: 0;
-    left: -63px;
+    left: -47px;
     font-size: 30px;
     background: #333;
   }
@@ -2196,7 +2233,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     left: auto;
     right: 0;
     color: #fff;
-    z-index: 22;
+    z-index: 26;
   }
   .right-menu-btn .open-menu {
     background: #EA321D;
@@ -2207,9 +2244,9 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     background: #EA321D;
     position: absolute;
     top: 0;
-    right: -63px;
-    width: 63px;
-    height: 63px;
+    right: -47px;
+    width: 47px;
+    height: 47px;
   }
 
   .main-menu,
@@ -2278,21 +2315,11 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   .right-menu {
-    z-index: 21;
-  }
-  .right-menu a {
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-  }
-  .right-menu ul li.active {
-    opacity: 1;
-  }
-
-  .right-menu {
     position: fixed;
     left: auto;
     right: -130%;
     background: rgba(255, 255, 255, 0.9);
+    font-size: 25px;
   }
   .right-menu ul {
     text-align: right;
@@ -2301,6 +2328,11 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .right-menu li a {
     color: #2E2E2E;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .right-menu li.active {
+    opacity: 1;
   }
   .right-menu li.active a {
     color: #B6AA45;
@@ -2308,6 +2340,9 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 
   .main-menu-open .main-menu {
     left: 0%;
+  }
+  .main-menu-open .right-menu-btn {
+    z-index: 1;
   }
 
   .touch .main-menu-open .main-menu .open-menu {
@@ -2567,13 +2602,17 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .main-menu-btn .open-menu {
     padding: 20px 30px 0;
   }
+  .main-menu-btn .close-menu {
+    height: 63px;
+    width: 63px;
+  }
 
   .touch .main-menu-open .main-menu .open-menu {
     bottom: -68px;
   }
 
   .main-menu {
-    padding-top: 120px;
+    padding-top: 90px;
   }
   .main-menu .menu-interior ul li {
     margin-bottom: 28px;
@@ -2585,6 +2624,10 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   .right-menu-btn {
     height: 63px;
     font-size: 20px;
+  }
+  .right-menu-btn .close-menu {
+    height: 63px;
+    width: 63px;
   }
   .right-menu-btn .open-menu {
     padding: 20px 30px 0;
@@ -2630,6 +2673,13 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     display: block;
     position: fixed;
     bottom: 90px;
+  }
+
+  /**************************
+  Work
+  ***************************/
+  #work-items-window .nav-arrow-down {
+    bottom: 80px;
   }
 }
 /* ----------- iPhone 6+ ----------- */
@@ -2677,7 +2727,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   Main menu 
   ***************************/
   .main-menu {
-    padding-top: 150px;
+    padding-top: 100px;
   }
   .main-menu .menu-interior ul li {
     margin-bottom: 32px;
@@ -2795,24 +2845,6 @@ tweeners.
     left: 0;
   }
 
-  .logo {
-    width: 260px;
-    height: 42px;
-  }
-  .logo.interior {
-    width: 115px;
-    height: 115px;
-  }
-  .logo.interior img {
-    width: 64px;
-    height: 32px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-
   /**************************
   Other Misc menu stuff
   ***************************/
@@ -2832,24 +2864,6 @@ tweeners.
     opacity: 1;
     width: 100%;
     z-index: 24;
-  }
-
-  /**************************
-  Main Menu Styles
-  ***************************/
-  .main-menu-btn,
-  .right-menu-btn {
-    height: 68px;
-  }
-  .main-menu-btn .close-menu,
-  .main-menu-btn .open-menu,
-  .right-menu-btn .close-menu,
-  .right-menu-btn .open-menu {
-    height: 68px;
-  }
-
-  .main-menu-btn {
-    font-size: 22px;
   }
 
   /**************************
@@ -2941,94 +2955,6 @@ tweeners.
   }
 
   /**************************
-  Contact page
-  ***************************/
-  #contact-video {
-    min-width: 100%;
-    opacity: 0;
-  }
-
-  .page-contact .video-bg-container {
-    display: block;
-  }
-
-  #contact-landing .hero {
-    background-image: url(../images/768up/backgrounds/contact/contact-map-header.jpg);
-    height: 38%;
-  }
-  #contact-landing .hero p {
-    font-size: 34px;
-    left: 75px;
-  }
-  #contact-landing .blur-overlay {
-    height: 100%;
-    opacity: 1;
-  }
-  #contact-landing .content {
-    height: 62%;
-    position: relative;
-  }
-  #contact-landing .content .general-info {
-    width: 60%;
-    float: right;
-    min-height: 100%;
-    position: relative;
-    overflow: hidden;
-    background: transparent;
-  }
-  #contact-landing .content .general-info .name-abbrev {
-    position: absolute;
-    top: 50%;
-    left: 60px;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    font-size: 80px;
-    letter-spacing: 12px;
-  }
-  #contact-landing .content .general-info .clock {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    width: auto;
-  }
-  #contact-landing .content .general-info .clock i {
-    height: 50px;
-    width: 50px;
-  }
-  #contact-landing .content .general-info .weather {
-    position: absolute;
-    bottom: 5px;
-    left: 25px;
-    width: auto;
-    font-size: 55px;
-  }
-  #contact-landing .content .contact-info {
-    padding: 30px 0 0 80px;
-    width: 40%;
-    float: left;
-    min-height: 100%;
-    position: relative;
-  }
-  #contact-landing .content .contact-info .directions {
-    position: relative;
-    font-size: 16px;
-  }
-  #contact-landing .content .contact-info .directions:before {
-    content: "";
-    height: 38px;
-    width: 30px;
-    display: block;
-    background: url(../images/icons/map.png);
-    background-size: cover;
-    position: absolute;
-    left: -40px;
-    top: -7px;
-  }
-  #contact-landing .social {
-    bottom: 13px;
-  }
-
-  /**************************
   Homepage
   ***************************/
   body.home {
@@ -3073,9 +2999,6 @@ tweeners.
     background-color: #2A2C2A;
   }
 
-  .service-section {
-    background: transparent;
-  }
   .service-section .summary {
     width: 50%;
     left: 15%;
@@ -3092,41 +3015,6 @@ tweeners.
   #svg-animate-services path, #svg-animate-services line {
     fill-opacity: 0;
     stroke: rgba(255, 255, 255, 0.3);
-  }
-
-  .landing blockquote {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    padding-left: 0;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 50%;
-    margin: 0;
-    font-size: 35px;
-    padding: 0 20px;
-  }
-  .landing blockquote .quote-mark {
-    background: url(../images/icons/quote-mark.png) no-repeat;
-    display: block;
-    width: 20px;
-    background-size: 100%;
-    height: 20px;
-  }
-  .landing blockquote nav {
-    margin-top: 0;
-  }
-  .landing blockquote hr {
-    height: 1px;
-    width: 40px;
-    background: #fff;
-    border: none;
-    margin: 30px 0 20px 0;
-  }
-  .landing blockquote small {
-    display: block;
-    font-size: 20px;
-    margin-top: 50px;
   }
 }
 /*********************
@@ -3153,11 +3041,30 @@ you can add resource intensive styles.
     content: "tablet";
   }
 
+  .logo {
+    width: 260px;
+    height: 42px;
+  }
+  .logo.interior {
+    width: 115px;
+    height: 115px;
+  }
+  .logo.interior img {
+    width: 64px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
   /**************************
   Main Nav
   ***************************/
   .right-menu {
     font-size: 38px;
+    background: #fff;
   }
   .right-menu ul li {
     margin-bottom: 30px;
@@ -3165,6 +3072,22 @@ you can add resource intensive styles.
 
   .right-menu-btn.go-away {
     bottom: -80px;
+  }
+
+  .main-menu-btn,
+  .right-menu-btn {
+    height: 68px;
+  }
+  .main-menu-btn .close-menu,
+  .main-menu-btn .open-menu,
+  .right-menu-btn .close-menu,
+  .right-menu-btn .open-menu {
+    height: 68px;
+    padding: 21px 30px;
+  }
+
+  .main-menu-btn {
+    font-size: 22px;
   }
 
   /**************************
@@ -3298,7 +3221,6 @@ you can add resource intensive styles.
     line-height: 35px;
   }
   #about-landing .cta .tagline span {
-    font-size: 40px;
     padding: 0;
     position: static;
     background: transparent;
@@ -3548,92 +3470,6 @@ you can add resource intensive styles.
   }
 
   /**************************
-  Blog page
-  ***************************/
-  /**************************
-  Contact page
-  ***************************/
-  #contact-video {
-    min-width: 100%;
-    opacity: 0;
-  }
-
-  #contact-landing .hero {
-    background-image: url(../images/768up/backgrounds/contact/contact-map-header.jpg);
-  }
-  #contact-landing .hero p {
-    font-size: 34px;
-    left: 80px;
-  }
-  #contact-landing .blur-overlay {
-    height: 100%;
-    opacity: 1;
-  }
-  #contact-landing .content {
-    height: 62%;
-    position: relative;
-  }
-  #contact-landing .content .general-info {
-    width: 60%;
-    float: right;
-    min-height: 100%;
-    position: relative;
-    overflow: hidden;
-    background: transparent;
-  }
-  #contact-landing .content .general-info .name-abbrev {
-    position: absolute;
-    top: 50%;
-    left: 60px;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    font-size: 80px;
-    letter-spacing: 12px;
-  }
-  #contact-landing .content .general-info .clock {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    width: auto;
-  }
-  #contact-landing .content .general-info .clock i {
-    height: 50px;
-    width: 50px;
-  }
-  #contact-landing .content .general-info .weather {
-    position: absolute;
-    bottom: 5px;
-    left: 25px;
-    width: auto;
-    font-size: 55px;
-  }
-  #contact-landing .content .contact-info {
-    padding: 30px 0 0 80px;
-    width: 40%;
-    float: left;
-    min-height: 100%;
-    position: relative;
-  }
-  #contact-landing .content .contact-info .directions {
-    position: relative;
-    font-size: 16px;
-  }
-  #contact-landing .content .contact-info .directions:before {
-    content: "";
-    height: 38px;
-    width: 30px;
-    display: block;
-    background: url(../images/icons/map.png);
-    background-size: cover;
-    position: absolute;
-    left: -40px;
-    top: -7px;
-  }
-  #contact-landing .social {
-    bottom: 13px;
-  }
-
-  /**************************
   FULL BLEED VIDEO 
   ***************************/
   .home .video-bg-container {
@@ -3716,6 +3552,14 @@ you can add resource intensive styles.
     display: none;
     width: 100%;
     height: 100%;
+  }
+  .work-item .work-carousel .close {
+    width: 50px;
+    height: 50px;
+  }
+  .work-item .work-carousel .close i {
+    height: 25px;
+    width: 25px;
   }
   .work-item .work-carousel .carousel-nav {
     height: 50px;
@@ -3808,7 +3652,7 @@ you can add resource intensive styles.
   .work-item .work-carousel .work-media {
     width: calc(100%/1.5);
     height: 100%;
-    float: left;
+    float: right;
     position: relative;
   }
   .work-item .work-carousel .work-media .video-bg-container {
@@ -3818,32 +3662,12 @@ you can add resource intensive styles.
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
   }
-  .work-item .work-carousel .work-media .video-bg-container video.work-loop-video.hovered {
+  .work-item .work-carousel .work-media .video-bg-container.hovered video.work-loop-video {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
   .work-item .work-carousel .work-media .video-bg-container .close-video {
     opacity: 0;
-    background-color: #A0A0A0;
-    width: 50px;
-    height: 50px;
-    padding-top: 9px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 30px;
-  }
-  .work-item .work-carousel .work-media .video-bg-container .close-video i {
-    display: block;
-    height: 25px;
-    width: 25px;
-    background: url(../images/icons/menu-close-white.png) no-repeat;
-    background-size: cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
   }
   .work-item .tagline {
     transition: all 0.2s ease;
@@ -3854,6 +3678,9 @@ you can add resource intensive styles.
     position: absolute;
     top: 0;
     left: 0;
+  }
+  .work-item .work-summary .work-cta {
+    margin-left: 23px;
   }
   .work-item .work-details {
     position: absolute;
@@ -3878,19 +3705,20 @@ you can add resource intensive styles.
     opacity: 0;
   }
 
-  .show-video .work-carousel .work-copy {
+  .show-video .work-item .work-carousel .work-copy {
     margin-left: calc(-100%/3);
   }
-  .show-video .work-carousel .work-media {
+  .show-video .work-item .work-carousel .work-media {
     width: 100%;
   }
-  .show-video .work-carousel .video-start {
+  .show-video .work-item .work-carousel .video-start,
+  .show-video .work-item .work-carousel .work-loop-video {
     opacity: 0;
   }
-  .show-video .work-carousel .work-full-video {
+  .show-video .work-item .work-carousel .work-full-video {
     opacity: 1;
   }
-  .show-video .work-carousel .close-video {
+  .show-video .work-item .work-carousel .close-video {
     opacity: 1 !important;
   }
   .show-video .work-item .carousel-nav {
@@ -3914,7 +3742,60 @@ you can add resource intensive styles.
   .work-item.open .work-carousel {
     display: block;
   }
+}
+@media only screen and (min-width: 768px) and (max-height: 700px) {
+  .work-item .work-carousel .carousel-arrow-nav {
+    bottom: 85px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-height: 650px) {
+  .work-items .work-item .work-carousel .work-copy {
+    width: 40%;
+  }
 
+  .work-items .work-item .work-carousel .work-media,
+  .work-item .work-carousel .carousel-items .carousel-item .related-works {
+    width: 60%;
+  }
+
+  .work-items .show-video .work-item .work-carousel .work-copy {
+    margin-left: -40%;
+  }
+
+  .show-video .work-item .work-carousel .work-copy {
+    margin-left: calc(-40%);
+  }
+  .show-video .work-item .work-carousel .work-media {
+    width: 100%;
+  }
+  .show-video .work-item .carousel-nav {
+    bottom: -50px;
+    right: -100%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-height: 560px) {
+  .work-items .work-item .work-carousel .work-copy .description {
+    display: none;
+  }
+
+  .work-items .work-item .work-carousel .work-copy {
+    width: 25%;
+  }
+
+  .work-items .work-item .work-carousel .work-media,
+  .work-item .work-carousel .carousel-items .carousel-item .related-works {
+    width: 75%;
+  }
+
+  .show-video .work-items .work-item .work-carousel .work-copy {
+    margin-left: -25%;
+  }
+
+  .show-video .work-items .work-item .work-carousel .work-media {
+    width: 100% !important;
+  }
+}
+@media only screen and (min-width: 768px) {
   /**************************
   END WORK PAGE
   ***************************/
@@ -4075,7 +3956,6 @@ you can add resource intensive styles.
     height: 70px;
     padding-top: 0;
     z-index: 11;
-    background: transparent;
     display: block;
   }
   .right-menu ul li {
@@ -4228,6 +4108,9 @@ you can add resource intensive styles.
     background: rgba(255, 255, 255, 0.9);
     padding: 14px 15px;
   }
+  #about-landing .cta .tagline span {
+    font-size: 40px;
+  }
   #about-landing .cta p {
     color: #fff;
     padding-left: 10px;
@@ -4269,14 +4152,14 @@ you can add resource intensive styles.
   .work-item {
     width: 25%;
   }
-  .work-item .carousel-item .related-works {
-    width: 75%;
-  }
-  .work-item .work-copy {
+  .work-item .work-carousel .work-copy {
     padding: 178px 50px 5% 56px;
     width: 25%;
   }
-  .work-item .work-media {
+  .work-item .work-carousel .work-media {
+    width: 75%;
+  }
+  .work-item .work-carousel .carousel-item .related-works {
     width: 75%;
   }
 
@@ -4286,6 +4169,94 @@ you can add resource intensive styles.
   div.scrollingHotSpotLeft,
   div.scrollingHotSpotRight {
     display: block;
+  }
+
+  /**************************
+  Contact page
+  ***************************/
+  #contact-video {
+    min-width: 100%;
+    opacity: 0;
+  }
+
+  .page-contact .video-bg-container {
+    display: block;
+  }
+
+  #contact-landing .hero {
+    background-image: url(../images/768up/backgrounds/contact/contact-map-header.jpg);
+    height: 38%;
+  }
+  #contact-landing .hero p {
+    font-size: 34px;
+    left: 75px;
+  }
+  #contact-landing .blur-overlay {
+    height: 100%;
+    opacity: 1;
+  }
+  #contact-landing .content {
+    height: 62%;
+    position: relative;
+  }
+  #contact-landing .content .general-info {
+    width: 60%;
+    float: right;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+  }
+  #contact-landing .content .general-info .name-abbrev {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 80px;
+    letter-spacing: 12px;
+  }
+  #contact-landing .content .general-info .clock {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: auto;
+  }
+  #contact-landing .content .general-info .clock i {
+    height: 50px;
+    width: 50px;
+  }
+  #contact-landing .content .general-info .weather {
+    position: absolute;
+    bottom: 5px;
+    left: 25px;
+    width: auto;
+    font-size: 55px;
+  }
+  #contact-landing .content .contact-info {
+    padding: 30px 0 0 80px;
+    width: 40%;
+    float: left;
+    min-height: 100%;
+    position: relative;
+  }
+  #contact-landing .content .contact-info .directions {
+    position: relative;
+    font-size: 16px;
+  }
+  #contact-landing .content .contact-info .directions:before {
+    content: "";
+    height: 38px;
+    width: 30px;
+    display: block;
+    background: url(../images/icons/map.png);
+    background-size: cover;
+    position: absolute;
+    left: -40px;
+    top: -7px;
+  }
+  #contact-landing .social {
+    bottom: 13px;
   }
 
   /**************************
@@ -4319,7 +4290,7 @@ you can add resource intensive styles.
     background-size: cover;
   }
   .service-section .blur-overlay {
-    display: none;
+    opacity: 0;
   }
   .service-section .blur-overlay.show {
     height: 100%;
@@ -4353,7 +4324,6 @@ you can add resource intensive styles.
     top: 50%;
     -webkit-transform: translate3d(0, -50%, 0);
     transform: translate3d(0, -50%, 0);
-    width: 100%;
     margin: 0;
     font-size: 25px;
     padding: 0 20px;

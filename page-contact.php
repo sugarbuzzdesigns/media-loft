@@ -42,31 +42,4 @@
 			</div>
 		</div>			
 	</section>	
-	<script>
-		// Show current temperature
-		(function($){
-			$.simpleWeather({
-				location: 'Minneapolis, MN',
-				woeid: '',
-				unit: 'f',
-				success: function(weather) {
-					html = '<span>'+weather.temp+'<sup>&deg;</sup></span>';
-
-					$(".weather").html(html);
-				},
-					error: function(error) {
-					$(".weather").html('<p>'+error+'</p>');
-				}
-			});		
-			<?php if(!wp_is_mobile()){ ?>
-			$(function(){
-				var contactVideo = $('#contact-video')[0];
-
-				contactVideo.addEventListener('canplay', function(){
-					$(contactVideo).css('opacity', 1);
-				});
-			});
-			<?php } ?>
-		})(jQuery);
-	</script>
 <?php get_footer(); ?>

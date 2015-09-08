@@ -3,6 +3,9 @@ ml.About = {};
 (function($){
 	ml.About.Global = {
 		init: function(){
+			this.currentIndex = 0;
+			this.sections = $('section');
+			this.sectionsCount = this.sections.length;
 			this.bindEvents();
 
 			if(ML_vars.device === 'desktop'){
@@ -60,8 +63,6 @@ ml.About = {};
 				
 				heightDiff = ctaHeight - taglineHeight,
 				topPos = tileHeight*2 - ctaHeight;
-
-				console.log(ctaHeight);
 
 			$cta.css({top: topPos});
 		},
@@ -194,47 +195,31 @@ ml.About = {};
 		  offset: '20%'
 		});			
 
-		$('#people .tile').flip({
-			trigger: 'manual'
-		});
+		// $('#people .tile').flip({
+		// 	trigger: 'manual'
+		// });
 
-		// var employeeTiles = $('#people .tile').waypoint({
-		//   handler: function(direction) {
-		//   	if (direction === 'down') {
-		// 		$(this.element).addClass('in-view');
+		var employeeTiles = $('#people .tile').waypoint({
+		  handler: function(direction) {
+		  	if (direction === 'down') {
+				$(this.element).addClass('in-view');		
+		  	} else {
+				$(this.element).removeClass('in-view');				
+		  	}
+		  },
+		  offset: '80%'
+		});		
 
-		// 		$(this.element).each(function(){
-		// 			$(this).flip(true);
-		// 		});			
-		//   	} else {
-		// 		$(this.element).removeClass('in-view');
-
-		// 		$(this.element).each(function(){
-		// 			$(this).flip(false);
-		// 		});					
-		//   	}
-		//   },
-		//   offset: '80%'
-		// });		
-
-		// var employeeTiles2 = $('#people .tile').waypoint({
-		//   handler: function(direction) {
-		//   	if (direction === 'down') {
-		// 		$(this.element).removeClass('in-view');
-
-		// 		$(this.element).each(function(){
-		// 			$(this).flip(false);
-		// 		});			
-		//   	} else {
-		// 		$(this.element).addClass('in-view');
-
-		// 		$(this.element).each(function(){
-		// 			$(this).flip(true);
-		// 		});					
-		//   	}
-		//   },
-		//   offset: '-20%'
-		// });				
+		var employeeTiles2 = $('#people .tile').waypoint({
+		  handler: function(direction) {
+		  	if (direction === 'down') {
+				$(this.element).removeClass('in-view');		
+		  	} else {
+				$(this.element).addClass('in-view');				
+		  	}
+		  },
+		  offset: '-20%'
+		});				
 
 		var employeeSections = $('#people').waypoint({
 		  handler: function(direction) {
@@ -301,9 +286,36 @@ ml.About = {};
 		    scrollSpeed: 200,        // Length of smooth scroll's animation (ms)
 		    outerTopOffset: ($(window).height() * 0.40),    // Number of pixels for the downward vertical offset (relative to the top of your snapping container)
 		    innerTopOffset: ($(window).height() * 0.40)      // Number of pixels for the upward vertical offset (relative to the top of your snapping container)
-		});		
+		});	
 
+		$('body, article').swipe({
+			swipe:function(event, direction, distance, duration, fingerCount) {
+				if(direction === 'up'){
+					if(ml.About.Global.currentIndex === ml.About.Global.sectionsCount-1){ return }
+					ml.About.Global.currentIndex++;
+
+					ml.elms.$bodyScrollElement.animate({
+						scrollTop: ml.About.Global.currentIndex*ml.env.winHeight
+					});
+				}
+
+				if(direction === 'down'){
+					console.log('down');
+					if(ml.About.Global.currentIndex === 0){ return }
+					ml.About.Global.currentIndex--;
+
+					ml.elms.$bodyScrollElement.animate({
+						scrollTop: ml.About.Global.currentIndex*ml.env.winHeight
+					});						
+				}
+			}
+		});	
+
+		$('article').swipe({
+			swipe:function(event, direction, distance, duration, fingerCount) {
+				console.log(this);
+			}
+		});
 	});
-
 
 })(jQuery);

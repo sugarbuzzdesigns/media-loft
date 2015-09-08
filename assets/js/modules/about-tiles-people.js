@@ -32,12 +32,11 @@
 			$('#people .tile').click(function(){
 				// hide this tile and show another
 
-				_this.swapTiles($(this).data('employee-img'));
-			});
+				clearInterval(_this.swapInterval);
+				_this.swapTiles($(this).attr('data-employee-img'));
 
-			$('#people .tile').mouseover(function(){
-				
-			});			
+				_this.startSwapping();
+			});		
 		},
 
 		createStartTiles: function(){
@@ -56,6 +55,7 @@
 				var random = this.getRanNum(blankTiles.length);
 
 				$(blankTiles[random]).removeClass('blank');
+				console.log($(blankTiles[random]));
 			}
 			return this.container.find('.tile.employee').not('.blank');
 		},
@@ -70,6 +70,8 @@
 				this.availableEmployees.splice(ci, 1);
 
 				this.addImage(this.$startTiles[i], this.allEmployees[i]);
+
+				// $(this.$startTiles[i]).flip(true);
 			}
 
 			this.hiddenEmployees = this.availableEmployees.slice(0);
@@ -101,7 +103,9 @@
 				.addClass('blank')
 				.attr('data-client-img', '')
 				.find('.front div, .back div, .hover-state div')
-				.remove();
+				.fadeOut(function(){
+					$(this).remove();
+				});
 		},
 
 		showEmployee: function(){
@@ -112,8 +116,6 @@
 
 			this.addImage(tileToFill, client);
 			$(tileToFill).removeClass('blank');
-
-			// $(tileToFill).flip(false);
 			
 			this.availableEmployees.splice(i, 1);
 			this.hiddenEmployees.splice(i, 1);
@@ -127,15 +129,16 @@
 		},
 
 		swapTiles: function(employeeToSwap){
+			this.showEmployee();
 			this.hideEmployee(employeeToSwap);
-			this.showEmployee(employeeToSwap);
 		},
 
 		addImage: function(tile, employee){
 			// $(tile).find('.front').append('<img src="'+ imgDir + '/' + this.imageFolder + '/' + employee + '_rest.jpg"/>');
 			// $(tile).find('.back').append('<img src="'+ imgDir + '/' + this.imageFolder + '/hover/' + employee + '_hover.jpg"/>');
-			$(tile).find('.front').append('<div style="height: 100%; width: 100%; background-size: cover; background-position: center; background-image: url(' + imgDir + '/' + this.imageFolder + '/hover/' + employee + '_hover.jpg)"></div>');
-			$(tile).find('.back').append('<div style="height: 100%; width: 100%; background-size: cover; background-position: center; background-image: url(' + imgDir + '/' + this.imageFolder + '/' + employee + '_rest.jpg)"></div>');
+			$(tile).find('.front').append('<div style="height: 100%; width: 100%; background-size: cover; background-position: center; background-image: url(' + imgDir + '/' + this.imageFolder + '/' + employee + '_rest.jpg)"></div>');
+			$(tile).find('.back').append('<div style="height: 100%; width: 100%; background-color: transparent;"></div>');
+			
 			$(tile).find('.hover-state').append('<div style="height: 100%; width: 100%; background-size: cover; background-position: center; background-image: url(' + imgDir + '/' + this.imageFolder + '/hover/' + employee + '_hover.jpg)"></div>');
 			
 			$(tile).attr('data-employee-img', employee);

@@ -97,7 +97,7 @@
 		</blockquote>
 	</section>
 	<section id="services-container">
-		<article class="service-section<?php if(wp_is_mobile()){ echo 'show-summary';} ?>" id="services-staging" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/services/Mobile/staging_BG_mobile.jpg);"<?php } ?>>
+		<article class="service-section <?php if($detect->isMobile() && !$detect->isTablet()){ echo 'show-summary';} ?>" id="services-staging" <?php if(wp_is_mobile()) { ?>style="background-image:url(<?php bloginfo('template_directory') ?>/assets/images/services/Mobile/staging_BG_mobile.jpg);"<?php } ?>>
 			<div class="summary">
 				<span class="number">01</span>
 				<div class="service">Staging</div>

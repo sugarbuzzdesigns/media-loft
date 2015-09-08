@@ -16,6 +16,27 @@ body:before {
 	content: "tablet";
 }
 
+.logo {
+    width: 260px;
+    height: 42px;
+
+    &.interior {
+	    width: 115px;
+	    height: 115px;
+
+	    img {
+	    	width: 64px;
+	    	height: 32px;
+	    	position: absolute;
+	    	top: 50%;
+	    	left: 50%;
+	    	-webkit-transform: translate(-50%, -50%);
+	    	        transform: translate(-50%, -50%);
+	    }
+
+    }
+}
+
 /**************************
 Main Nav
 ***************************/
@@ -40,6 +61,7 @@ Main Nav
 
 .right-menu {
 	font-size: 38px;
+	background: #fff;
 
 	ul li {
 		margin-bottom: 30px;
@@ -48,6 +70,21 @@ Main Nav
 
 .right-menu-btn.go-away {
 	bottom: -80px;
+}
+
+.main-menu-btn,
+.right-menu-btn {
+	height: 68px;
+
+	.close-menu, 
+	.open-menu {
+		height: 68px;
+		padding: 21px 30px;
+	}
+}
+
+.main-menu-btn {
+	font-size: 22px;
 }
 
 /**************************
@@ -204,7 +241,6 @@ About Page
 		    line-height: 35px;
 
 		    span {
-				font-size: 40px;
 		    	padding: 0;
 		    	position: static;
 		    	background: transparent;
@@ -515,108 +551,6 @@ About Page
 }
 
 /**************************
-Blog page
-***************************/	
-
-
-/**************************
-Contact page
-***************************/	
-#contact-video {
-	min-width: 100%;
-	opacity: 0;
-}
-
-#contact-landing {
-	.hero {
-		background-image: url(../images/768up/backgrounds/contact/contact-map-header.jpg);
-
-		p {
-			font-size: 34px;
-			left: 80px;			
-		}
-	}
-
-	.blur-overlay {
-		height: 100%;
-		opacity: 1;
-	}
-
-	.content {
-		height: 62%;
-		position: relative;
-
-		.general-info {
-			width: 60%;
-			float: right;
-			min-height: 100%;
-			position: relative;
-			overflow: hidden;
-			background: transparent;
-
-			.name-abbrev {
-				position: absolute;
-				top: 50%;
-				left: 60px;
-				-webkit-transform: translateY(-50%);
-				        transform: translateY(-50%);
-				font-size: 80px;
-				letter-spacing: 12px;
-			}
-
-			.clock {
-				position: absolute;
-				top: 25px;
-				left: 25px;
-				width: auto;
-
-				i {
-				    height: 50px;
-				    width: 50px;					
-				}
-			}
-
-			.weather {
-				position: absolute;
-				bottom: 5px;
-				left: 25px;	
-				width: auto;	
-				font-size: 55px;		
-			}
-		}
-
-		.contact-info {
-			padding: 30px 0 0 80px;
-			width: 40%;
-			float: left;
-			min-height: 100%;
-			position: relative;
-
-			.directions {
-				position: relative;
-				font-size: 16px;
-			}
-
-			.directions:before {
-				content: "";
-				height: 38px;
-				width: 30px;
-				display: block;
-				background: url(../images/icons/map.png);
-			    background-size: cover;
-			    position: absolute;
-			    left: -40px;
-			    top: -7px;				
-			}
-		}
-	}
-
-	.social {
-		bottom: 13px;
-	}
-}
-
-/**************************
 FULL BLEED VIDEO 
 ***************************/
 .home .video-bg-container {
@@ -697,6 +631,16 @@ Work Page
 		display: none;
 	    width: 100%;
 	    height: 100%;
+
+		.close {
+			width: 50px;
+			height: 50px; 
+
+			i {
+			    height: 25px;
+			    width: 25px;			
+			}  
+		} 
 
 		.carousel-nav {
 			height: 50px;
@@ -831,7 +775,7 @@ Work Page
 		.work-media {
 			width: calc(100%/1.5);
     		height: 100%;
-    		float: left;
+    		float: right;
     		position: relative;
 
     		.video-bg-container {
@@ -839,33 +783,18 @@ Work Page
 
     			video.work-loop-video {
 				    -webkit-filter: grayscale(100%);
-				    filter: grayscale(100%);    
-
-					&.hovered {
-						-webkit-filter: grayscale(0);
-						filter: grayscale(0);				
-					}				    			
+				    filter: grayscale(100%);    				    			
 			    }
 
-			    .close-video {
-			    	opacity: 0;
-					background-color: #A0A0A0;
-					width: 50px;
-					height: 50px;
-					padding-top: 9px;
-					position: absolute;
-					top: 0;
-					right: 0;	
-					font-size: 30px;	
+				&.hovered {
+					video.work-loop-video {
+						-webkit-filter: grayscale(0);
+						filter: grayscale(0);
+					}				
+				}			    
 
-					i {
-						display: block;
-						height: 25px;
-						width: 25px;
-						background: url(../images/icons/menu-close-white.png) no-repeat;
-						background-size: cover;
-						@include center-me;
-					}			    	
+			    .close-video {
+			    	opacity: 0;			    	
 			    }
     		}
 		}
@@ -881,6 +810,10 @@ Work Page
 		position: absolute;
 		top: 0;
 		left: 0;	
+
+		.work-cta {
+			margin-left: 23px;
+		}
 	}
 
 	.work-details {
@@ -909,14 +842,13 @@ Work Page
     	}
 
     	.work-full-video {
-    		// display: none;
     		opacity: 0;
     	}
 	}
 }
 
 .show-video {
-	.work-carousel {
+	.work-item .work-carousel {
 		.work-copy {
 			margin-left: calc(-100%/3);
 		}
@@ -925,7 +857,8 @@ Work Page
 			width: 100%;
 		}
 
-		.video-start {
+		.video-start,
+		.work-loop-video {
 			opacity: 0;
 		}
 
@@ -967,9 +900,67 @@ Work Page
 	}
 }
 
-// @media screen and ( max-height: 769px ) {
-	
-// }
+@media screen and ( max-height: 700px ) {
+	.work-item .work-carousel .carousel-arrow-nav {
+		bottom: 85px;
+	}
+}
+
+@media screen and ( max-height: 650px ) {
+	.work-items .work-item .work-carousel .work-copy {
+		width: 40%;
+	}
+
+	.work-items .work-item .work-carousel .work-media,
+	.work-item .work-carousel .carousel-items .carousel-item .related-works {
+		width: 60%;
+	}
+
+	.work-items .show-video .work-item .work-carousel .work-copy {
+		margin-left: -40%;
+	}
+
+	.show-video {
+		.work-item .work-carousel {
+			.work-copy {
+				margin-left: calc(-40%);
+			}
+
+			.work-media {
+				width: 100%;
+			}
+		}
+
+		.work-item .carousel-nav {
+			bottom: -50px;
+			right: -100%;
+		}	
+	}	
+}
+
+@media screen and ( max-height: 560px ) {
+	.work-items .work-item .work-carousel .work-copy .description {
+		display: none;
+	}
+
+	.work-items .work-item .work-carousel .work-copy {
+		width: 25%;
+	}
+
+	.work-items .work-item .work-carousel .work-media,
+	.work-item .work-carousel .carousel-items .carousel-item .related-works {
+		width: 75%;
+	}
+
+	.show-video .work-items .work-item .work-carousel .work-copy {
+		margin-left: -25%;
+	}	
+
+	.show-video .work-items .work-item .work-carousel .work-media {
+		width: 100% !important;
+	}		
+}
+
 /**************************
 END WORK PAGE
 ***************************/		

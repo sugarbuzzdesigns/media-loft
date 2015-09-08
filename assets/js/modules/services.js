@@ -65,7 +65,10 @@
 					ml.video.pauseActiveVideo();
 				}				
 
-				$(this).parent().find('.blur-overlay').addClass('show');
+				if(ML_vars.device === 'desktop'){
+					$(this).parent().find('.blur-overlay').addClass('show');
+				}
+
 				$(this).parent().find('.scaling-svg-container').addClass('show-me');
 				$(this).parent().addClass('show-summary');
 			});
@@ -141,7 +144,11 @@
 				sectionToLoadHref = $link.attr('href'),
 				$sectionToLoad = $('#' + sectionToLoadHref);
 
-			$('.blur-overlay', $sectionToLoad).addClass('show');
+			if(ML_vars.device === 'desktop'){
+				$sectionToLoad.find('.blur-overlay').addClass('show');
+				console.log('show overlay');
+			}
+
 			$('.scaling-svg-container', $sectionToLoad).addClass('show-me');
 
 			console.log($sectionToLoad);

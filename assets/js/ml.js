@@ -215,10 +215,9 @@ ml = {};
 	var myEfficientFn = ml.utils.debounce(function() {
 		ml.utils.setBreakpoint();
 
-		if(ML_vars.device === 'desktop'){
+		if(ml.elms.$body.is('.page-work') && ML_vars.device === 'desktop'){
 			ml.Work.resizeWorkPage();
 		}
-
 	}, 350);	
 
 	$(function(){

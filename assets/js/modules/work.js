@@ -35,9 +35,12 @@
 		bindEvents: function(){
 			var _this = this;
 
-			// _this.$workCover.on('touchstart', function(){
-			// 	$(this).parent().addClass('active');
-			// });
+			$.address.change(function(event) {  
+				_this.currentPath = event.path;
+				// check for #! to go straight work
+				// this.checkUrl();				
+				_this.checkUrl(event);
+			});
 
 			_this.$workCover.on('click', function(){
 				_this.openWorkItem($(this).parent());
@@ -57,7 +60,6 @@
 			if(ML_vars.device === 'mobile'){ 
 				_this.$workItemsWin.swipe({
 					swipe:function(event, direction, distance, duration, fingerCount) {
-						
 
 						var scrollTo;
 
@@ -69,6 +71,11 @@
 					}
 				});	
 			}
+
+			$('.work-media .video-bg-container .play-full-screen').mouseover(function(){
+				console.log('mouseover');
+				$(this).closest('.video-bg-container').addClass('hovered');
+			});			
 
 			/*
 			Video Event Bindings
@@ -98,8 +105,36 @@
 				e.stopPropagation();
 
 				_this.navigateCarouselPrevNext($(this));				
-			});			
-		},
+			});	
+
+			$(document).keydown(function(e){
+				if(_this.$curWorkItem == null){ return; }
+
+				var curCarouselItem = _this.$curWorkItem.find('.carousel-item')[_this.carouselIndex];
+
+			    if (e.keyCode == 37) { 
+			       console.log( "left pressed" );
+
+			       $('.prev', $(curCarouselItem)).click();
+
+			       return false;
+			    }
+
+			    if (e.keyCode == 39) { 
+			       console.log( "right pressed" );
+
+					$('.next', $(curCarouselItem)).click();
+
+			       return false;
+			    }		
+
+			    if (e.keyCode == 27) { 
+					_this.closeWorkItem(_this.$curWorkItem);
+
+			       return false;
+			    }
+			});					
+		},	
 
 		setUpWorkPage: function(){
 			var workItemWidth = this.$workItems[0].getBoundingClientRect().width,
@@ -136,7 +171,15 @@
 		},		
 
 		openWorkItem: function($item){
-			var _this = this;
+			var _this = this,
+				$loopVideo = $('.work-loop-video', $item);
+
+			$('.nav-arrow-down').fadeOut();
+
+			if(ML_vars.device === 'desktop'){
+				$loopVideo[0].play();
+				// ml.Work.video.currentVideo = $loopVideo[0];
+			}				
 
 			$item.siblings().removeClass('open');
 			$item.addClass('open');
@@ -157,10 +200,11 @@
 			ml.rightMenu.$rightMenuBtn.addClass('go-away');
 
 			_this.$curWorkItem = $item;
-			_this.currentIndex = $item.index();
+			_this.currentIndex = $item.data('filter-index');
 		},
 
 		closeWorkItem: function($item){
+			$('.nav-arrow-down').fadeIn();
 			$item.removeClass('open');
 			this.$workItemsWin.removeClass('item-open');
 
@@ -209,13 +253,19 @@
 		summaryScroll: function(direction){
 			var _this = this;
 
+			this.$workItemsWin.addClass('scrolled');
+
 		    if(direction === 'down'){
-		    	if(_this.currentIndex === 0){ return; }
+		    	if(_this.currentIndex === 0){ 
+		    		return; 
+		    	}
 		    	_this.currentIndex--;
 		    } 
 
 		    if(direction === 'up'){
-		    	if(_this.currentIndex === _this.numWorkItems - 1){ return; }
+		    	if(_this.currentIndex === _this.numWorkItems - 1){ 
+		    		return; 
+		    	}
 				_this.currentIndex++;
 		    }
 
@@ -266,6 +316,9 @@
 		},
 
 		resetWorkItem: function($item){
+			$item.find('.carousel-item').eq(0).show().siblings().hide();
+			$item.find('.carousel-nav li').eq(0).addClass('active').siblings().removeClass('active');
+
 			this.carouselIndex = 0;
 			this.scrollWorkDetail();
 		},
@@ -476,6 +529,31 @@
 			$('.scrollWrapper').perfectScrollbar('update');
 		},
 
+		checkUrl: function(event){
+			var _this = this,
+				workId = '';
+
+			if(_this.currentPath === '/'){
+				if (_this.currentWorkItem != '') {
+					// reset the work page
+					// _this.closeWorkItem(_this.currentWorkItem);
+				};
+
+				return;
+			} else {
+				workId = _this.currentPath.replace('/', '');
+				// _this.openWorkItem(workId);
+			}
+		},
+
+		updateUrl: function(workItemId){
+			window.location.hash = '#!/' + workItemId;
+		},
+
+		resetUrl: function(){
+			window.location.hash = '#!/';
+		},		
+
 	};
 
 	ml.Work.menu = {
@@ -517,10 +595,18 @@
 		},
 
 		filterWork: function(){
+			ml.Work.$workItemsWin.removeClass('item-open');
+
 			ml.Work.currentIndex = 0;
 			ml.Work.numWorkItems = this.worksInCat.length;
 
 			ml.Work.resetToTop();
+
+			this.worksInCat.each(function(i, elm){
+				$(elm).data('filter-index', i);
+			});
+
+			console.log(this.worksInCat);
 
 			this.worksInCat.show();
 			this.worksToHide.hide();

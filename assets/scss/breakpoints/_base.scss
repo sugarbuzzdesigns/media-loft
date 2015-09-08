@@ -178,7 +178,7 @@ Global Buttons
 ***************************/		
 .close-video {
 	opacity: 1;
-	background-color: #A0A0A0;
+	background-color: #fff;
 	width: 50px;
 	height: 50px;
 	padding-top: 9px;
@@ -191,7 +191,7 @@ Global Buttons
 		display: block;
 		height: 25px;
 		width: 25px;
-		background: url(../images/icons/menu-close-white.png) no-repeat;
+		background: url(../images/icons/menu-close.png) no-repeat;
 		background-size: cover;
 		@include center-me;
 	}			    	
@@ -250,6 +250,7 @@ Global Buttons
 .play-reel {
 	display: block;
 	margin-top: 20px;
+	cursor: pointer;
 
 	span {
 		display: inline-block;
@@ -369,6 +370,7 @@ FULL BLEED VIDEO
     width: 100%;
     z-index: 100;
     transition: all 0.5s ease;
+    background-color: #000;
 
 	&.show-me {
 		left: 0;
@@ -478,6 +480,7 @@ Homepage
 /**************************
 About Page
 ***************************/	
+.isTouch .page-about { overflow: hidden; }
 .page-about {
 	.cta {
 		.tagline {
@@ -533,6 +536,8 @@ About Page
     padding-bottom: calc(100%/3);
 	float: left;
 	position: relative;
+	opacity: 1;
+	transition: all 0.5s ease;
 
 	.front, .back, .hover-state {
 		height: 100%;
@@ -540,6 +545,26 @@ About Page
 		position: absolute;
 		top: 0;
 		left: 0;
+		transition: all 0.5s ease;
+		-webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+		backface-visibility: hidden;
+
+		div {
+			-webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+   			backface-visibility: hidden;			
+		}
+	}
+
+	.front {
+	    -webkit-transform: rotateY(90deg);
+	    transform: rotateY(90deg);		
+	}
+
+	&.in-view {
+		.front {
+		    -webkit-transform: rotateY(0deg);
+		    transform: rotateY(0deg);				
+		}
 	}
 
 	.hover-state {
@@ -578,6 +603,7 @@ About Page
 
 	&.blank {
 		background: none;
+		opacity: 0;
 		
 		img {
 			display: none;
@@ -591,7 +617,9 @@ About Page
 
 		.hover-state {
 			opacity: 1;
-		}		
+		}
+
+
 	}
 }
 
@@ -729,10 +757,6 @@ About Page
 	.blur-overlay {
 		background-color: #A1E5DA;
 		opacity: 0.5;
-	}
-
-	#about-culture-video-full {
-		left: -100%;
 	}
 
 	.play-reel span {
@@ -1294,7 +1318,8 @@ Blog page
 		    }			
 
 			.blog-header-bg { 
-				display: none; 
+				opacity: 0; 
+				transition: all 0.5s ease;
 
 				&::after {
 				    content: "";
@@ -1368,6 +1393,7 @@ Blog page
 
 				.blog-header-bg {
 					display: block;
+					opacity: 1;
 				}			
 
 				.related-article {
@@ -1386,7 +1412,7 @@ Blog page
 
 			&.collapsed:hover {
 				.blog-header-bg {
-					display: block;
+					opacity: 1;
 				}
 			}			
 		}
@@ -1677,15 +1703,24 @@ Work Page
 	}
 }
 
-#work-menu {
-	background: #fff;
-}
-
 #work-items-window {
 	height: 100%;
 	width: 100%;
 	position: relative;
 	overflow: scroll;
+
+	.nav-arrow-down	{
+		position: absolute;
+		bottom: 60px;
+		right: 10px;
+		z-index: 10;
+	}
+
+	&.scrolled {
+		.nav-arrow-down	{
+			opacity: 0;
+		}
+	}
 }
 
 #explore-work {
@@ -2006,7 +2041,7 @@ Work Page
 		    }
 
 		    .hover {
-		    	display: none;
+		    	opacity: 0;
 		    }
 
 		    &:hover {
@@ -2023,17 +2058,6 @@ Work Page
 		    		color: #fff;
 		    	}
 		    }
-
-		    // &:active {
-			   //  .resting {
-			   //  	display: block;
-			   //  	opacity: 1;
-			   //  }
-
-		    // 	.hover {
-		    // 		display: none;
-		    // 	}			    	
-		    // }
 
 		    p {
 		    	margin: 0;
@@ -2077,6 +2101,24 @@ Work Page
 	    background-repeat: no-repeat;
 	    background-position: center;
 	}	
+}
+
+.noTouch {
+	.work-carousel {
+		.related-works {
+			.related-work {
+			    &:hover {
+				    .resting {
+						opacity: 0;
+				    }
+
+			    	.hover {
+						opacity: 1;
+			    	}
+			    }				
+			}
+		}
+	}
 }	
 
 .work-carousel .close {
@@ -2400,12 +2442,12 @@ Main Menu Styles
 
 	.close-menu {
 		transition: all 0.5s ease; 		
-		width: 63px;
-		height: 63px;
+		width: 47px;
+		height: 47px;
 		padding-top: 9px;
 		position: absolute;
 		bottom: 0;
-		left: -63px;	
+		left: -47px;	
 		font-size: 30px;
 		background: #333;	
 
@@ -2436,7 +2478,7 @@ Main Menu Styles
 	left: auto;
 	right: 0;
 	color: #fff;
-	z-index: 22;
+	z-index: 26;
 
 	.open-menu {
 		background: $ml-dark-red;
@@ -2448,9 +2490,9 @@ Main Menu Styles
 		background: $ml-dark-red;
 		position: absolute;
 	    top: 0;
-	    right: -63px;	
-		width: 63px;
-		height: 63px;	    	
+	    right: -47px;	
+	    width: 47px;
+	    height: 47px;	    	
 	}	
 }
 
@@ -2524,27 +2566,11 @@ Main Menu Styles
 }
 
 .right-menu {
-	z-index: 21;
-
-	a {
-		text-transform: uppercase;
-		letter-spacing: 1.5px;
-	}
-
-	ul {
-		li {
-			&.active {
-				opacity: 1;
-			}
-		}
-	}
-}
-
-.right-menu {
 	position: fixed;
 	left: auto;
 	right: -130%;
 	background: rgba(255,255,255,0.9);
+	font-size: 25px;
 
 	ul {
 		text-align: right;
@@ -2555,9 +2581,15 @@ Main Menu Styles
 	li {
 		a {
 			color: #2E2E2E;
+			text-transform: uppercase;
+			letter-spacing: 1.5px;			
 		}		
 		&.active {
-			a { color: $gold; } 
+			opacity: 1;
+
+			a { 
+				color: $gold; 
+			} 
 		}		
 	}
 }
@@ -2565,6 +2597,10 @@ Main Menu Styles
 .main-menu-open {
 	.main-menu {
 		left: 0%;
+	}
+
+	.right-menu-btn {
+		z-index: 1;
 	}
 }
 

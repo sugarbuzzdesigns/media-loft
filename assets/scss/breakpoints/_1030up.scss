@@ -44,7 +44,6 @@ Right Menus
     height: 70px;
     padding-top: 0;
     z-index: 11;
-    background: transparent;
     display: block;    
 
 	ul {
@@ -276,6 +275,10 @@ About Page
 			margin-bottom: 45px;
 			background: rgba(255,255,255, 0.9);
 			padding: 14px 15px;
+
+			span {
+				font-size: 40px;
+			}
 		}
 
 		p {
@@ -336,20 +339,20 @@ Work Page
 .work-item {
 	width: 25%;
 
-	.carousel-item {
-		.related-works {
+	.work-carousel {
+		.work-copy {
+			padding: 178px 50px 5% 56px;
+			width: 25%;
+		}	
+
+		.work-media {
+			width: 75%;
+		}	
+
+		.carousel-item .related-works {
 		    width: 75%;
-		}
+		}		
 	}
-
-	.work-copy {
-		padding: 178px 50px 5% 56px;
-		width: 25%;
-	}	
-
-	.work-media {
-		width: 75%;
-	}	
 }	
 
 /**************************
@@ -358,6 +361,110 @@ About Page
 div.scrollingHotSpotLeft,
 div.scrollingHotSpotRight {
 	display: block;
+}
+
+/**************************
+Contact page
+***************************/	
+#contact-video {
+	min-width: 100%;
+	opacity: 0;
+}
+
+.page-contact {
+	.video-bg-container {
+		display: block;
+	}
+}
+
+#contact-landing {
+	.hero {
+		background-image: url(../images/768up/backgrounds/contact/contact-map-header.jpg);
+		height: 38%;
+
+		p {
+			font-size: 34px;
+			left: 75px;			
+		}
+	}
+
+	.blur-overlay {
+		height: 100%;
+		opacity: 1;
+	}
+
+	.content {
+		height: 62%;
+		position: relative;
+
+		.general-info {
+			width: 60%;
+			float: right;
+			min-height: 100%;
+			position: relative;
+			overflow: hidden;
+			background: transparent;
+
+			.name-abbrev {
+				position: absolute;
+				top: 50%;
+				left: 60px;
+				-webkit-transform: translateY(-50%);
+				        transform: translateY(-50%);
+				font-size: 80px;
+				letter-spacing: 12px;
+			}
+
+			.clock {
+				position: absolute;
+				top: 25px;
+				left: 25px;
+				width: auto;
+
+				i {
+				    height: 50px;
+				    width: 50px;					
+				}
+			}
+
+			.weather {
+				position: absolute;
+				bottom: 5px;
+				left: 25px;	
+				width: auto;	
+				font-size: 55px;		
+			}
+		}
+
+		.contact-info {
+			padding: 30px 0 0 80px;
+			width: 40%;
+			float: left;
+			min-height: 100%;
+			position: relative;
+
+			.directions {
+				position: relative;
+				font-size: 16px;
+			}
+
+			.directions:before {
+				content: "";
+				height: 38px;
+				width: 30px;
+				display: block;
+				background: url(../images/icons/map.png);
+			    background-size: cover;
+			    position: absolute;
+			    left: -40px;
+			    top: -7px;				
+			}
+		}
+	}
+
+	.social {
+		bottom: 13px;
+	}
 }
 
 
@@ -402,7 +509,7 @@ Services Page
 	background-size: cover;
 
 	.blur-overlay {
-		display: none;
+		opacity: 0;
 
 	    &.show {
 	    	height: 100%;
@@ -445,7 +552,6 @@ Services Page
     top: 50%;
     -webkit-transform: translate3d(0, -50%, 0);
             transform: translate3d(0, -50%, 0);
-    width: 100%;
     margin: 0;	
 	font-size: 25px;
 	padding: 0 20px;

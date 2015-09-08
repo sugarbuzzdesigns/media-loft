@@ -71,7 +71,14 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div class="full-bleed">
 			<img src="" style="display:none;">
 			<div class="cover"></div>
-		</div>		
+		</div>	
+
+		<div class="video-overlay">
+			<video id="about-timeline-video-full">
+				<source src="">
+			</video>
+			<a href="#" class="close-video"><i></i></a>				
+		</div>				
 	</section>
 	<section data-section-name="section-clients" class="tile-container" id="clients">
 		<div class="cta alternate">
@@ -138,8 +145,8 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		<div class="tile employee"></div>
 		<div class="tile employee"></div>
 
-		<div class="tile mobile-empty"></div>
-		<div class="tile mobile-empty"></div>
+		<div class="tile employee mobile-empty"></div>
+		<div class="tile employee mobile-empty"></div>
 		<div class="tile employee"></div>
 		<div class="tile employee"></div>
 		<div class="tile employee"></div>
@@ -247,7 +254,13 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				<a href="#" data-info-id="1975" data-bg-image="1975_Media_Loft_FirstPromo_ScreenGrab.jpg" class="date left-top">
 					<span class="num"></span>
 					<span class="close"></span>
-					<span class="info">That’s a wrap: first promotional sales video for Media Loft.<span>
+					<span class="info">
+						That’s a wrap: first promotional sales video for Media Loft.
+						<span class="play-reel" href="#" data-video-url="https://player.vimeo.com/external/138561152.sd.mp4?s=5509e6eea91e5a1bf370741fb4314028&profile_id=112">
+							<i class="icon-play-btn"></i>
+							<span>Watch Video</span>
+						</span>	
+					<span>
 				</a>		
 				<a href="#" data-info-id="1976" data-bg-image="1976_Munsingwear_blk.jpg" class="date right-bottom">
 					<span class="num"></span>
@@ -428,7 +441,13 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				<a href="#" data-info-id="2009" data-bg-image="2009_Target_Modelless_Show_1.jpg" class="date right-bottom">
 					<span class="num"></span>
 					<span class="close"></span>
-					<span class="info">World’s first 3-D holographic fashion show created by Media Loft for Target plays in NY’s Grand Central Terminal   </span>
+					<span class="info">
+						World’s first 3-D holographic fashion show created by Media Loft for Target plays in NY’s Grand Central Terminal   
+						<span class="play-reel" href="#" data-video-url="https://player.vimeo.com/external/138561153.sd.mp4?s=a7ab17fd51605e70d77f2dad44c1a7fa&profile_id=112">
+							<i class="icon-play-btn"></i>
+							<span>Watch Video</span>
+						</span>						
+					</span>
 				</a>	
 				<a href="#" data-info-id="2011" data-bg-image="2011_CruiseShip.jpg" class="date left-top">
 					<span class="num"></span>
@@ -446,7 +465,13 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				<a href="#" data-info-id="2013" data-bg-image="2013_Polaris_HOF.jpg" class="date right-bottom">
 					<span class="num"></span>
 					<span class="close"></span>
-					<span class="info">Following 28-year partnership, Media Loft elected to Polaris Hall of Fame.</span>
+					<span class="info">
+						Following 28-year partnership, Media Loft elected to Polaris Hall of Fame.
+						<span class="play-reel" href="#" data-video-url="https://player.vimeo.com/external/138561154.sd.mp4?s=fc8bd393106548fca01e4c63fe9227e0&profile_id=112">
+							<i class="icon-play-btn"></i>
+							<span>Watch Video</span>
+						</span>
+					</span>
 				</a>	
 				<a href="#" data-info-id="2014" data-bg-image="2014_InternationalRevenue_option2.jpg" class="date left-top">
 					<span class="num"></span>

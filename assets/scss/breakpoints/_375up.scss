@@ -24,6 +24,11 @@ Main menu
 	.open-menu {
 		padding: 20px 30px 0;
 	}
+
+    .close-menu {
+		height: 63px;
+		width: 63px;
+    }	
 }
 
 .touch .main-menu-open .main-menu {
@@ -33,7 +38,7 @@ Main menu
 }
 
 .main-menu {
-    padding-top: 120px;
+    padding-top: 90px;
 
 	.menu-interior {
 		ul {
@@ -52,8 +57,9 @@ Main menu
     height: 63px;
     font-size: 20px;
 
-    .menu-close {
-
+    .close-menu {
+		height: 63px;
+		width: 63px;
     }	
 
     .open-menu {
@@ -116,4 +122,13 @@ Blog
 		    bottom: 90px;
 		}
 	}	
+}
+
+/**************************
+Work
+***************************/		
+#work-items-window {
+	.nav-arrow-down	{
+		bottom: 80px;
+	}
 }

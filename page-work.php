@@ -2,6 +2,12 @@
 <!-- until we get WP backend, let's loop through the data -->
 <?php include('data/work-data.php'); ?>
 	<div id="work-items-window">
+		<?php if($detect->isMobile() && !$detect->isTablet()) { ?>
+		<div class="nav-arrow-down animate-flicker">
+			<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down-dark.png" alt="Media Loft" />
+			<img src="<?php echo MOBILE_IMG ?>/icons/nav-arrow-down-dark.png" alt="Media Loft" />
+		</div>	
+		<?php } ?>	
 		<div id="work-items" class="work-items">		
 			<?php foreach ($workItems as $workItem) { ?>
 			<?php $companyName = $workItem['company name']; ?>

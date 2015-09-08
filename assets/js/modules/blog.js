@@ -31,7 +31,7 @@ ml.Blog = {};
 				_this.checkUrl(event);
 			});				
 
-			$('.blog-article .header').on('click touchend', function(e){
+			$('.blog-article .header').on('click', function(e){
 				e.preventDefault();
 
 				if (ML_vars.isTouch) {
@@ -173,5 +173,4 @@ ml.Blog = {};
 	$(function(){
 		ml.Blog.init();
 	});
-
 })(jQuery);

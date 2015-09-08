@@ -1,13 +1,21 @@
 #explore-timeline {
   position: absolute;
-  bottom: 75px;
+  bottom: 85px;
   right: 20px;
   font-family: 'KlavikaWebBasicMedium';
   z-index: 20;
 }
 
-#explore-timeline .nav-arrow-right img {
-  transform: rotate(45deg);
+#explore-timeline span {
+  color: #fff;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#explore-timeline .nav-arrow-right {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 #timeline2 {
@@ -25,14 +33,14 @@
 }
 
 #timeline2 .timeline-wrap article {
-  top: 50%;
+  top: 45%;
   transform: translate(-100%, -50%);
   transition: all 1.5s ease;
   opacity: 0.2;
 }
 
 #timeline2.in-view .timeline-wrap article {
-  top: 50%;
+  top: 45%;
   transform: translate(0, -50%);
   opacity: 1;
 }
@@ -71,6 +79,21 @@
   height: 100%;
   z-index: -1;
   overflow: hidden;
+}
+
+#timeline2 .timeline-block .info .play-reel {
+  text-align: center;
+}
+
+#timeline2 .timeline-block .info .icon-play-btn {
+  color: #FF5543;
+  font-size: 40px;
+  display: inline-block;
+  vertical-align: middle;  
+}
+
+#timeline2 .timeline-block .info .icon-play-btn span + span {
+  font-size: 11px;
 }
 
 #timeline2 .timeline-block .info .inner {
@@ -200,11 +223,11 @@
 }
 
 #timeline2 .date.selected .num {
-  opacity: 0;
+  opacity: 1;
 }
 
 #timeline2 .date.selected .close {
-  opacity: 1;
+  /*opacity: 1;*/
 }
 
 #timeline2 .date.selected.left-top {
@@ -227,4 +250,7 @@
   bottom: -30px;
 }
 
-/*# sourceMappingURL=timeline.css.map */
+div.scrollingHotSpotRight,
+div.scrollingHotSpotLeft {
+    min-width: 175px;
+}

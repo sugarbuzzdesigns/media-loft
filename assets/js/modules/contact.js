@@ -38,4 +38,26 @@ ml.Contact = {
 
 $(function(){
 	ml.Contact.init();
+
+	$.simpleWeather({
+		location: 'Minneapolis, MN',
+		woeid: '',
+		unit: 'f',
+		success: function(weather) {
+			html = '<span>'+weather.temp+'<sup>&deg;</sup></span>';
+
+			$(".weather").html(html);
+		},
+			error: function(error) {
+			$(".weather").html('<p>'+error+'</p>');
+		}
+	});	
+
+	if(ML_vars.device === 'desktop'){
+		var contactVideo = $('#contact-video')[0];
+
+		contactVideo.addEventListener('canplay', function(){
+			$(contactVideo).css('opacity', 1);
+		});				
+	}	
 });
