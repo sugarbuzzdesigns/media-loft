@@ -9,7 +9,9 @@
 			this.timelineVideo = $('#timeline2 .video-overlay video');
 
 			this.windowHeight = $(window).height();
-			this.maxTimelineHeight = 700;
+			this.maxTimelineHeight = 600;
+
+			this.maxSquareSideLength = 250;
 
 			this.setSquareSideLength();
 			
@@ -38,7 +40,7 @@
 
 			length = Math.sqrt(Math.pow(winH/1.5, 2)/2);
 
-			this.squareSideLength = length > 325 ? 325 : length - 80;
+			this.squareSideLength = length - 75;
 
 			return Math.sqrt(Math.pow(winH/1.5, 2)/2);
 		},
@@ -211,6 +213,8 @@
 					left: left,
 					zIndex: boxZIndex
 				}).appendTo(container);
+
+				console.log(this.squareSideLength);
 			}		
 		},
 
@@ -283,6 +287,10 @@
 			_this.timelineVideo.attr('src', videoUrl);
 
 			_this.timeline.addClass('play-full-video');
+
+			_this.timelineVideo[0].addEventListener('canplay', function(){
+				console.log('can play it now!');
+			});
 
 			_this.timelineVideo.on('canplay', function(){
 				$(this)[0].play();

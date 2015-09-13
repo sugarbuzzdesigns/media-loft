@@ -55,7 +55,7 @@
 				var random = this.getRanNum(blankTiles.length);
 
 				$(blankTiles[random]).removeClass('blank');
-				console.log($(blankTiles[random]));
+				// console.log($(blankTiles[random]));
 			}
 			return this.container.find('.tile.employee').not('.blank');
 		},

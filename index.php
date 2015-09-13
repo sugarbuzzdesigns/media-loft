@@ -90,6 +90,7 @@
 						<div class="info">
 							<span class="category">staging</span> / <span class="date">8.19.15</span>
 						</div>
+						<div class="full-bleed blog-header-bg" style="background-image:url(<?php echo IMG_DIR; ?>/blog/wygc_Header.jpg);"></div>
 					</a>
 					<a href="#" data-related-article="" class="related-article blank"></a>					
 				</div>					
@@ -136,6 +137,7 @@
 						<div class="info">
 							<span class="category">staging</span> / <span class="date">8.19.15</span>
 						</div>
+						<div class="full-bleed blog-header-bg" style="background-image:url(<?php echo IMG_DIR; ?>/blog/MadishMen_Header.jpg);"></div>
 					</a>
 					<a href="#" data-related-article="" class="related-article blank"></a>
 				</div>					
@@ -182,7 +184,7 @@
 
 		<div id="blog-video-overlay">
 			<video>
-				<source src="https://player.vimeo.com/external/137091838.hd.mp4?s=424d788e4de84c839fdcdae57e1c2e69&profile_id=113">
+				<source src="https://player.vimeo.com/external/138901650.hd.mp4?s=1353202b36e207f5214be8bfff9887d4&profile_id=113">
 			</video>
 			<a href="#" class="close-video"><i></i></a>		
 		</div>		

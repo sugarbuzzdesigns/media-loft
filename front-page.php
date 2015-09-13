@@ -25,7 +25,11 @@
 				<span>bringing brand stories to life worldwide</span>
 			</h2>
 			<a class="play-reel" href="#" data-video-container="home-video-overlay">
-				<i class="ml-play"></i>
+				<div class="video-start small gold animate">
+					<div class="solid"></div>
+					<div></div>
+					<i></i>
+				</div>
 				<span>Play Reel</span>
 			</a>
 		</div>
@@ -64,13 +68,13 @@
 			</div>
 		<?php if(!wp_is_mobile()){ ?>		
 			<div class="video-bg-container">
-				<video id="home-video-loop" autoplay loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
+				<video id="home-video-loop" preload="none" autoplay loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
 					<source src="https://player.vimeo.com/external/136553579.hd.mp4?s=fa481af6256bf87c0fb6764be81ea63e&profile_id=113">
 				</video>
 			</div>
 		<?php } ?>
 		<div class="video-overlay" id="home-video-overlay">
-			<video id="home-video-full" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
+			<video id="home-video-full" preload="none" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
 				<source src="https://player.vimeo.com/external/136554053.hd.mp4?s=86967bad46f8197184041ddb02abda1a&profile_id=113">
 			</video>	
 			<a href="#" class="close-video"><i></i></a>			

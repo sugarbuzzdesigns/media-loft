@@ -105,11 +105,13 @@ ml = {};
 		bindEvents: function(){
 			var _this = this;
 
-			_this.$rightMenuOpen.on('click', function(){
+			_this.$rightMenuOpen.on('click', function(e){
+				e.preventDefault();
 				_this.openRightMenu();
 			});
 
-			_this.$rightMenuClose.on('click', function(){
+			_this.$rightMenuClose.on('click', function(e){
+				e.preventDefault();
 				_this.closeRightMenu();
 			});
 		},
@@ -131,7 +133,20 @@ ml = {};
 	};
 
 	ml.video = {
+		init: function(){
+			this.checkVideoCanPlay();
+		},
+
 		activeVideo: '',
+
+		checkVideoCanPlay: function(){
+			$('video').each(function(i, vid){
+				$(vid).on('canplay', function(){
+					$(this).addClass('canplay');
+					console.log('can play videos');
+				});
+			});
+		},
 
 		pauseActiveVideo: function(){
 			this.activeVideo.pause();
@@ -216,7 +231,7 @@ ml = {};
 		ml.utils.setBreakpoint();
 
 		if(ml.elms.$body.is('.page-work') && ML_vars.device === 'desktop'){
-			ml.Work.resizeWorkPage();
+			ml.Work.resizeWorkPage();			
 		}
 	}, 350);	
 
@@ -224,12 +239,26 @@ ml = {};
 		ml.env.init();
 		ml.mainMenu.init();
 		ml.rightMenu.init();
-		// ml.elms.$win.load(function(){
+		ml.video.init();
+
+		ml.elms.$win.load(function(){
 			ml.elms.$body.addClass('loaded');
-			ml.elms.$loader.delay(200).fadeOut();
-		// });			
+			ml.elms.$loader.fadeOut();
+		});			
+
+		setTimeout(function(){
+			ml.elms.$loader.fadeOut();
+			ml.elms.$body.addClass('loaded');
+		}, 50);
+
 		ml.elms.$win.on('resize', myEfficientFn).resize();
 		ml.elms.$win.on('scroll', myEfficientFn).scroll();
+
+		var url = $.url(window.location);
+		
+		if(url.param('getdevice') === '1'){
+			alert('is touch: ' + ml.env.isTouch + '   env: ' + ML_vars.device);
+		}
 	});
 
 })(jQuery);

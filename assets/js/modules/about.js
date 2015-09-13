@@ -19,9 +19,8 @@ ml.About = {};
 				e.stopPropagation();
 				e.preventDefault();
 
-				console.log('ehylkjklj');
-
 				_this.scrollToSection(this);
+				ml.rightMenu.closeRightMenu();
 			});
 
 			$('#culture .play-reel').on('click', function(e){
@@ -77,7 +76,7 @@ ml.About = {};
 				.siblings()
 				.removeClass('active');
 
-				console.log('scroll down!');
+				// console.log('scroll down!');
 
 			$('body, html').animate({
 				scrollTop: sectionTop
@@ -224,9 +223,9 @@ ml.About = {};
 		var employeeSections = $('#people').waypoint({
 		  handler: function(direction) {
 		  	if (direction === 'up') {
-		  		console.log('out of view up');
+		  		// console.log('out of view up');
 		  	} else {
-		  		console.log('in view down');
+		  		// console.log('in view down');
 		  		$(this.element).addClass('in-view');
 		  	}
 		  },
@@ -236,9 +235,9 @@ ml.About = {};
 		var employeeSection2 = $('#people').waypoint({
 		  handler: function(direction) {
 		  	if (direction === 'down') {
-		  		console.log('out of view down');
+		  		// console.log('out of view down');
 		  	} else {
-		  		console.log('in view up');
+		  		// console.log('in view up');
 		  		$(this.element).addClass('in-view');
 		  	}
 		  },
@@ -272,7 +271,7 @@ ml.About = {};
 		var cultureWaypoint2 = $('#culture').waypoint({
 			handler: function(direction) {
 				if (direction === 'up') {
-					console.log('in from bottom');
+					// console.log('in from bottom');
 				} else {
 					// stop video
 					ml.About.Global.stopCultureVideo();
@@ -300,7 +299,7 @@ ml.About = {};
 				}
 
 				if(direction === 'down'){
-					console.log('down');
+					// console.log('down');
 					if(ml.About.Global.currentIndex === 0){ return }
 					ml.About.Global.currentIndex--;
 
@@ -313,7 +312,7 @@ ml.About = {};
 
 		$('article').swipe({
 			swipe:function(event, direction, distance, duration, fingerCount) {
-				console.log(this);
+				// console.log(this);
 			}
 		});
 	});

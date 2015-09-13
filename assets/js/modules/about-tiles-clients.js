@@ -6,7 +6,7 @@
 			
 			var clients = settings.tileArray;
 
-			console.log(clients);
+			// console.log(clients);
 
 			this.container = $('#clients');
 			this.tileLimit = 8;

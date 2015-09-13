@@ -30,7 +30,7 @@ body:before {
 /**************************
 Main Nav
 ***************************/
-.main-menu {
+.isTouch .main-menu {
 	width: 100%;
 	left: -100%;
 	padding-top: 0;
@@ -108,14 +108,7 @@ Cta & Tagline
 	display: block;
 
 	span {
-		display: inline-block;
-		vertical-align: middle;
-		margin-left: 10px;
-		text-transform: uppercase;
-		font-size: 14px;
-		font-family: 'KlavikaWebBasicMedium';
-		letter-spacing: 3px;
-		color: #575859;
+		display: none;
 	}
 }
 

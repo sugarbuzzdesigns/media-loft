@@ -14,6 +14,8 @@ ml.Contact = {
 
 		this.setClockHours();
 		this.setClockMinutes();
+
+		$('.get-directions-icon').addClass('animate');
 	},
 
 	getCurrentTime: function(){
@@ -28,8 +30,6 @@ ml.Contact = {
 
 	setClockMinutes: function(){
 		var degrees = (360/60) * this.minutes;
-
-		console.log(degrees);
 
 		$('.clock .minutes').rotate(degrees);
 	}

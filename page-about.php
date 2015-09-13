@@ -43,7 +43,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 
 		<?php if(!wp_is_mobile()){ ?> 
 			<div class="video-bg-container">
-				<video id="landing-video" loop style="background-image:url(<?php echo VID_DIR ?>/about/posters/Landing_About_BW.jpg);">
+				<video id="landing-video" autoplay loop style="background-image:url(<?php echo VID_DIR ?>/about/posters/Landing_About_BW.jpg);">
 					<source src="https://player.vimeo.com/external/136884073.hd.mp4?s=d28c568b4bdd7b30fc2e1e9693c34fa7&profile_id=113">
 				</video>
 			</div>
@@ -74,7 +74,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 		</div>	
 
 		<div class="video-overlay">
-			<video id="about-timeline-video-full">
+			<video preload="true" id="about-timeline-video-full">
 				<source src="">
 			</video>
 			<a href="#" class="close-video"><i></i></a>				
@@ -193,6 +193,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 
 			<a class="play-reel" href="#">
 				<i class="ml-play white"></i>
+				<i class="ml-play black"></i>
 				<span>Play Reel</span>
 			</a>
 		</div>		
@@ -231,7 +232,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				</div> 
 				<div>media loft</div>
 				<div class="right-col">
-					<div class="email-link"><a href="mailto:contact@medialoft.com">talk to us</a></div>
+					<div class="email-link"><a href="mailto:contact@medialoft.com">talk to us <i class="fa fa-chevron-right"></i></a></div>
 					<div class="visit-contact"><span>or </span><a href="<?php echo get_site_url(); ?>/contact">visit contact page <i class="fa fa-chevron-right"></i></a></div>
 				</div>	
 			</div>			

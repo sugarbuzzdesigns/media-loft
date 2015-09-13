@@ -2,7 +2,9 @@
 	</div>
 	<div id="full-screen-video"><a href="#" class="close-video"><i></i></a></div>
 
-	<p></p>
+	<div id="warning-message">
+		<p>Please rotate your device</p>
+	</div>
 	<?php
 	   /* Always have wp_footer() just before the closing </body>
 	    * tag of your theme, or you will break many plugins, which

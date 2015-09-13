@@ -20,11 +20,7 @@
 
 #timeline2 {
   background-color: #313131;
-  overflow: hidden;
-}
-
-#timeline2 .ps-scrollbar-x-rail {
-  display: none;
+  overflow-x: scroll;
 }
 
 #timeline2 .timeline-wrap {
@@ -33,21 +29,19 @@
   position: absolute;
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow-x: scroll;
 }
 
 #timeline2 .timeline-wrap article {
   top: 45%;
-  -webkit-transform: translate(-100%, -50%);
-          transform: translate(-100%, -50%);
+  transform: translate(-100%, -50%);
   transition: all 1.5s ease;
   opacity: 0.2;
 }
 
 #timeline2.in-view .timeline-wrap article {
   top: 45%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+  transform: translate(0, -50%);
   opacity: 1;
 }
 
@@ -140,8 +134,8 @@
   width: 24px;
   background-color: #E0E0E0;
   border-radius: 50%;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  overflow: hidden;
 }
 
 #timeline2 .date .close {
@@ -162,14 +156,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   color: #fff;
   opacity: 0;
   display: block;
   font-family: 'futura_ltlight';
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 #timeline2 .date.left-top {
@@ -192,32 +183,38 @@
   bottom: -12px;
 }
 
-#timeline2 .date:hover {
+#timeline2 .date:hover,
+#timeline2 .date.hover {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
 }
 
-#timeline2 .date:hover .num {
+#timeline2 .date:hover .num,
+#timeline2 .date.hover .num {
   opacity: 1;
 }
 
-#timeline2 .date:hover.left-top {
+#timeline2 .date:hover.left-top,
+#timeline2 .date.hover.left-top {
   top: -30px;
   left: -30px;
 }
 
-#timeline2 .date:hover.right-top {
+#timeline2 .date:hover.right-top,
+#timeline2 .date.hover.right-top {
   right: -30px;
   top: -30px;
 }
 
-#timeline2 .date:hover.right-bottom {
+#timeline2 .date:hover.right-bottom,
+#timeline2 .date.hover.right-bottom {
   right: -30px;
   bottom: -30px;
 }
 
-#timeline2 .date:hover.left-bottom {
+#timeline2 .date:hover.left-bottom,
+#timeline2 .date.hover.left-bottom {
   left: -30px;
   bottom: -30px;
 }
@@ -260,3 +257,5 @@ div.scrollingHotSpotRight,
 div.scrollingHotSpotLeft {
   min-width: 175px;
 }
+
+/*# sourceMappingURL=timeline.css.map */

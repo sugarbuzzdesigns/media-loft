@@ -89,7 +89,7 @@
   color: #FF5543;
   font-size: 40px;
   display: inline-block;
-  vertical-align: middle;  
+  vertical-align: middle;
 }
 
 #timeline2 .timeline-block .info .icon-play-btn span + span {
@@ -134,8 +134,8 @@
   width: 24px;
   background-color: #E0E0E0;
   border-radius: 50%;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  overflow: hidden;
 }
 
 #timeline2 .date .close {
@@ -156,14 +156,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   color: #fff;
   opacity: 0;
   display: block;
   font-family: 'futura_ltlight';
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 #timeline2 .date.left-top {
@@ -186,32 +183,38 @@
   bottom: -12px;
 }
 
-#timeline2 .date:hover {
+#timeline2 .date:hover,
+#timeline2 .date.hover {
   background-color: #FF5543;
   height: 60px;
   width: 60px;
 }
 
-#timeline2 .date:hover .num {
+#timeline2 .date:hover .num ,
+#timeline2 .date.hover .num {
   opacity: 1;
 }
 
-#timeline2 .date:hover.left-top {
+#timeline2 .date:hover.left-top,
+#timeline2 .date.hover.left-top {
   top: -30px;
   left: -30px;
 }
 
-#timeline2 .date:hover.right-top {
+#timeline2 .date:hover.right-top,
+#timeline2 .date.hover.right-top {
   right: -30px;
   top: -30px;
 }
 
-#timeline2 .date:hover.right-bottom {
+#timeline2 .date:hover.right-bottom,
+#timeline2 .date.hover.right-bottom {
   right: -30px;
   bottom: -30px;
 }
 
-#timeline2 .date:hover.left-bottom {
+#timeline2 .date:hover.left-bottom,
+#timeline2 .date.hover.left-bottom {
   left: -30px;
   bottom: -30px;
 }
@@ -252,5 +255,5 @@
 
 div.scrollingHotSpotRight,
 div.scrollingHotSpotLeft {
-    min-width: 175px;
+  min-width: 175px;
 }

@@ -47,6 +47,8 @@ Right Menus
     display: block;    
 
 	ul {
+		position: static;
+
 		li {
 		    margin-bottom: 0;
 		    display: block;
@@ -88,36 +90,18 @@ Cta & Tagline
 ***************************/		
 .cta {
 	// width: 270px;
-	// position: absolute;
-	// z-index: 2;
-	// top: 55%;
-	// left: 50%;
-	// -webkit-transform: translate(-50%, -50%);
-	//         transform: translate(-50%, -50%);
 
-	&.centered {
-		// top: 50%;
-		// left: 50%;		
-		// -webkit-transform: translate(-50%, -50%);
-		//         transform: translate(-50%, -50%);	
-  //   	text-align: center;		        
-	}
+	&.centered {}
 
 	.tagline {
-		font-weight: normal;
-		-webkit-animation: down 1s ease forwards;
-		display: inline-block;
 		padding: 14px 15px;
 
 		span {
-			display: inline-block;
 			background: transparent;
 			padding: 0;
 		}
 
-		.category {
-
-		}
+		.category {}
 
 	    &.one-liner {
 
@@ -298,6 +282,18 @@ About Page
 	.full-bleed {
 		display: none;
 	}
+
+	.play-reel span {
+		color: #fff;
+	}	
+
+	.play-reel .black {
+		display: none;
+	}
+
+	.play-reel .white {
+		display: inline-block;
+	}
 }
 
 #landing-video {
@@ -342,15 +338,15 @@ Work Page
 	.work-carousel {
 		.work-copy {
 			padding: 178px 50px 5% 56px;
-			width: 25%;
+			width: calc(100%/3);
 		}	
 
 		.work-media {
-			width: 75%;
+			width: calc(100%/1.5%);
 		}	
 
 		.carousel-item .related-works {
-		    width: 75%;
+		    width: calc(100%/1.5);
 		}		
 	}
 }	
@@ -372,6 +368,8 @@ Contact page
 }
 
 .page-contact {
+	// 630 height break point
+
 	.video-bg-container {
 		display: block;
 	}
@@ -447,18 +445,6 @@ Contact page
 				position: relative;
 				font-size: 16px;
 			}
-
-			.directions:before {
-				content: "";
-				height: 38px;
-				width: 30px;
-				display: block;
-				background: url(../images/icons/map.png);
-			    background-size: cover;
-			    position: absolute;
-			    left: -40px;
-			    top: -7px;				
-			}
 		}
 	}
 
@@ -467,6 +453,13 @@ Contact page
 	}
 }
 
+.get-directions-icon * {
+	display: block;
+}
+
+.directions .get-directions-icon i {
+	display: block;
+}
 
 /**************************
 Services Page
@@ -575,7 +568,7 @@ Services Page
 	}
 	small {
 		display: block;
-		font-size: 11px;
+		font-size: 16px;
 		margin-top: 50px;		
 	}
 

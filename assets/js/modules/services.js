@@ -2,7 +2,7 @@
 	ml.Services = {
 		init: function(){
 			this.buildSlideshow();
-			// this.startSlideshow();
+			this.startSlideshow();
 
 			this.bindEvents();
 		},
@@ -177,9 +177,14 @@
 		},
 
 		startSlideshow: function(){
+			var url = $.url(window.location);
+			if(url.param('quote') === '0'){
+				return;
+			}
+
 			var _this = this;
 
-			setInterval(function(){
+			var quoteInterval = setInterval(function(){
 				var nextToShow = $('blockquote .quote.show').next(),
 					cur = nextToShow.index() + 1;
 					current = $('blockquote .quote.show');

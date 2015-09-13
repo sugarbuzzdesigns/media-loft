@@ -73,7 +73,6 @@ ml.Blog = {};
 				e.preventDefault();
 
 				$('video')[0].pause();
-				$('video').css('width', 0);
 				$('#blog-video-overlay').removeClass('show-me');
 			});			
 		},
@@ -99,7 +98,7 @@ ml.Blog = {};
 		playBlogVideo: function(){
 			$('#blog-video-overlay').addClass('show-me');		
 
-			$('video').css('width', $(window).width());
+			$('video').css('width', $(window).width()); 
 
 			$('video')[0].play();
 
@@ -144,7 +143,7 @@ ml.Blog = {};
 			groupSiblings.hide();
 			$article.siblings().removeClass('show-article').hide();
 
-			$article.addClass('show-article').show();
+			$article.addClass('show-article').removeClass('collapsed').show();
 
 			this.currentArticle = $article;
 
@@ -164,7 +163,7 @@ ml.Blog = {};
 			groupSiblings.show();
 			$article.siblings().show();
 
-			$article.removeClass('show-article');
+			$article.removeClass('show-article').addClass('collapsed');
 
 			this.currentArticle = '';
 		}			

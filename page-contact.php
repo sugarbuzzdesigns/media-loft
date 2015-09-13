@@ -30,7 +30,7 @@
 						<span>615 First Ave NE, Suite 100</span>
 						<span>Minneapolis, MN 55413</span>
 					</p>
-					<a target="_blank" href="https://www.google.com/maps/dir/''/media+loft/data=!4m5!4m4!1m0!1m2!1m1!1s0x52b32d9d5517721b:0x5654a778fb32a43e?sa=X&ved=0CIQBEPUXMA9qFQoTCPH50cLNqccCFUaaHgodrQkEPg" class="directions">Get Directions</a>
+					<a target="_blank" href="https://www.google.com/maps/dir/''/media+loft/data=!4m5!4m4!1m0!1m2!1m1!1s0x52b32d9d5517721b:0x5654a778fb32a43e?sa=X&ved=0CIQBEPUXMA9qFQoTCPH50cLNqccCFUaaHgodrQkEPg" class="directions"><span class="get-directions-icon"><div></div><div></div><i></i></span><span>Get Directions</span></a>
 
 					<div class="social">
 						<a href="https://www.facebook.com/TheMediaLoft"><i class="fa fa-facebook-official"></i></a>

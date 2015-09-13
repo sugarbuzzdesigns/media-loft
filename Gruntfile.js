@@ -99,7 +99,8 @@ module.exports = function(grunt) {
 					style: 'expanded'
 				},
 				files: {                         // Dictionary of files
-					'assets/css/breakpoints.css': 'assets/scss/breakpoints.scss'
+					'assets/css/breakpoints.css': 'assets/scss/breakpoints.scss',
+					'assets/css/timeline.css': 'assets/scss/timeline.scss'
 				}
 			},		
 			dist: {                            // Target
