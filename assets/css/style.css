@@ -5424,6 +5424,11 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     display: none;
   }
 
+  #work-item-stage.show-gfx .carousel-arrow-nav,
+  #work-item-stage.show-gfx .carousel-nav {
+    display: none;
+  }
+
   .page-work .video-bg-container.mobile video {
     height: 100%;
     width: 100%;
@@ -5558,75 +5563,6 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     display: block;
     font-family: 'KlavikaWebBasicMedium';
     text-transform: uppercase;
-  }
-  .work-item .work-details {
-    height: 100%;
-    width: 50%;
-    background: #ef4330;
-    float: left;
-    color: #fff;
-  }
-  .work-item .work-details .category {
-    font-family: 'KlavikaWebBasicRegular';
-    font-size: 13px;
-    -webkit-transition: all none;
-            transition: all none;
-    background: #EA321D;
-    color: #FFAEA5;
-    display: inline-block;
-    padding: 10px;
-    text-transform: uppercase;
-    margin: 0;
-    cursor: pointer;
-  }
-  .work-item .work-details .description {
-    font-size: 14px;
-    line-height: 20px;
-    font-family: 'ProximaNova-Regular';
-  }
-  .work-item .work-details .description p {
-    opacity: 0.74;
-  }
-  .work-item .work-details .description .textNav span {
-    display: inline-block;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    height: 8px;
-    width: 8px;
-    background: #fff;
-    opacity: 0.2;
-    cursor: pointer;
-    margin-right: 15px;
-  }
-  .work-item .work-details .description .textNav span.active {
-    opacity: 1;
-  }
-  .work-item .work-details .description p {
-    display: none;
-  }
-  .work-item .work-details .description p.active {
-    display: block;
-  }
-  .work-item .work-details .company {
-    font-family: 'KlavikaWebBasicLight';
-    font-size: 28px;
-    margin: 13px 0 10px;
-  }
-  .work-item .work-details .title {
-    font-family: 'ProximaNova-Bold';
-    font-size: 13px;
-    opacity: 0.74;
-  }
-  .work-item .work-details .similar {
-    font-size: 28px;
-  }
-  .work-item .work-details .work-title {
-    font-size: 25px;
-  }
-  .work-item .work-details .work-content {
-    font-size: 14px;
-    line-height: 20px;
   }
 
   .work-item.hovering .work-item-bg,
@@ -5837,9 +5773,23 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     font-size: 14px;
     line-height: 20px;
     font-family: 'ProximaNova-Regular';
+    position: relative;
   }
   .work-details .description p {
+    display: none;
+    opacity: 0;
+    -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+  }
+  .work-details .description p.active {
+    display: block;
     opacity: 0.74;
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
   .work-details .description .textNav span {
     display: inline-block;
@@ -5855,12 +5805,6 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .work-details .description .textNav span.active {
     opacity: 1;
-  }
-  .work-details .description p {
-    display: none;
-  }
-  .work-details .description p.active {
-    display: block;
   }
   .work-details .company {
     font-family: 'KlavikaWebBasicLight';

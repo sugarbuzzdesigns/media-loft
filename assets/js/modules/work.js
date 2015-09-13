@@ -49,18 +49,18 @@
 
 			_this.$workCover.on('mouseover', function(){
 				if($(this).parent().is('#show-gfx')){
-					console.log('hide right hot spot');
+					// console.log('hide right hot spot');
 					$('.scrollhotspot.right').hide();
 				} else {
-					console.log('show right hot spot');
+					// console.log('show right hot spot');
 					$('.scrollhotspot.right').show();
 				}
 
 				if($(this).parent().is('#target')){
-					console.log('hide left hot spot');
+					// console.log('hide left hot spot');
 					$('.scrollhotspot.left').hide();
 				} else {
-					console.log('show left hot spot');
+					// console.log('show left hot spot');
 					$('.scrollhotspot.left').show();
 				}				
 			});
@@ -97,7 +97,7 @@
 				e.stopPropagation();
 				e.preventDefault();
 
-				var $item = $(this).closest('.work-item');
+				var $item = _this.$curWorkItem;
 
 				_this.closeWorkItem($item);
 			});			
@@ -499,7 +499,7 @@
 
 				$curCarouselItems.eq(this.carouselIndex).removeClass('show-slide');
 				this.carouselIndex--;
-				// this.showPrevP();
+				this.showPrevNextP('prev');
 			}
 
 			if($navButton.is('.next')){
@@ -508,7 +508,7 @@
 				}
 
 				this.carouselIndex++;
-				// this.showNextP();
+				this.showPrevNextP('next');
 			}	
 
 			$('.carousel-nav .active', $curCarousel).removeClass('active');
@@ -523,28 +523,52 @@
 			}
 		},	
 
-		showNextP: function(){
+		showPrevNextP: function(dir){
 			var desc = this.$workItemStage.find('.description').eq(0);
 			var pToShow = desc.find('p').eq(this.carouselIndex);
 			var pToHide = desc.find('p').eq(this.carouselIndex - 1);
 
-			console.log(pToHide, pToShow);
+			if(this.$workItemStage.find('.carousel-item').length <= 2){
+				return;
+			}
 
-			pToHide.fadeOut();
-			pToShow.fadeIn();
+			if(dir === 'prev'){
+				pToShow = desc.find('p').eq(this.carouselIndex);
+				pToHide = desc.find('p').eq(this.carouselIndex + 1);
+			}
+
+
+			if(pToShow.length > 0){
+				pToShow.addClass('active');
+			} else {
+				return;
+			}
+
+			if(pToHide.length > 0){
+				pToHide.removeClass('active');
+			}	
 		},
 
 		setupDescription: function(){
-			$('.description').each(function(i, elm){
+			var $desc = $('.description');
+
+			$desc.each(function(i, elm){
 				var $this = $(this),
 					$p = $this.find('p'),
-					$nav = $('.textNav', $this);
+					$nav = $('.textNav', $this),
+					$workItem = $this.closest('.work-item'),
+					$slides = $workItem.find('.carousel-item'),
+					numSlides = $slides.length;	
 
-				$p.each(function(){
-					$('<span></span>').appendTo($nav);
-				});
+				if(numSlides <= 2){
+					$desc.addClass('with-nav');
+					$p.each(function(){
+						$('<span></span>').appendTo($nav);
+					});
 
-				$('.textNav span:first', $this).addClass('active');
+					$('.textNav span:first', $this).addClass('active');
+				}
+
 				$('p:first', $this).addClass('active');
 			});
 
