@@ -1561,6 +1561,10 @@ Blog page
 			position: relative;
 			transition: all 0.5s ease;
 
+			strong {
+				color: #86B1AA;
+			}
+
 			.social {
 				text-align: center;
 				margin: 55px 0;
@@ -1978,14 +1982,18 @@ Services Page
 		color: #fff;
 		padding: 0 20px;
 	    position: absolute;
-	    top: 30%;
+	    // top: 30%;
+	    top: 20%;
 	    z-index: 3;
 
 		p {
 			font-family: 'ProximaNova-Regular';
+			// line-height: 21px;
+			// margin: 20px 0 0 0;
+			// font-size: 17px;
 			line-height: 21px;
-			margin: 20px 0 0 0;
-			font-size: 17px;
+			margin: 10px 0 0 0;
+			font-size: 13px;
 		}
 	}	
 
@@ -1995,14 +2003,14 @@ Services Page
 		padding-bottom: 10px;
 		border-bottom: solid 1px #fff;
 		display: inline-block;
-		font-size: 57px;
+		font-size: 45px;
 	}
 
 	.service {
 		text-transform: lowercase;
-		font-size: 33px;
+		font-size: 28px;
 		font-family: 'KlavikaWebBasicLight';
-		margin-top: 20px;
+		margin-top: 10px;
 	}
 
 	&.active {
@@ -2078,6 +2086,7 @@ Services Page
 	    font-size: 20px;
 	    margin-top: -32px;
 	    color: #CBCBB6;
+	    position: relative;
 
 		span {
 			display: inline-block;
@@ -2085,18 +2094,17 @@ Services Page
 		}
 
 		.cur {
-			margin-right: 5px;
 			font-family: 'KlavikaWebBasicRegularItalic';
 		}
 
 		.total {
-			margin-left: 5px;
 			font-family: 'KlavikaWebBasicRegularItalic';
 		}
 
 		.arrow {
 			margin: 0 5px;
 			font-family: 'KlavikaWebBasicRegular';
+			cursor: pointer;
 		}
 	}
 }
@@ -2159,6 +2167,17 @@ Work Page
 		bottom: 60px;
 		right: 10px;
 		z-index: 10;
+
+		img {
+			width: 100%;
+		   	-webkit-animation: flickerAnimationDrama 1s infinite;
+		    animation: flickerAnimationDrama 1s infinite;	
+
+		    &:last-child {
+			   	-webkit-animation: flickerAnimationDramaTwo 1s infinite;
+			    animation: flickerAnimationDramaTwo 1s infinite;	
+		    }		
+		}		
 	}
 }
 
@@ -2363,7 +2382,8 @@ Work Page
 	}
 
     .work-copy {
-    	padding: 150px 45px 5% 45px;
+    	// padding: 150px 45px 5% 45px;
+    	padding: 95px 45px 5% 45px;
     	height: 100%;
     	width: 100%;
     	background: #ef4330;
@@ -2517,21 +2537,21 @@ Work Page
 	    line-height: 20px; 
 	    font-family: 'ProximaNova-Regular';
 	    position: relative;
+	    overflow: hidden;
+
+	    .desc-wrap {
+	    	transition: all 0.5s ease;
+	    }
 
 	    p {
-	    	display: none;
-	    	opacity: 0;
-	    	transform: translate(-50%, 0);
+	    	float: left;
+	    	opacity: 0.74;
 	    	transition: all 0.5s ease;
-
-	    	&.active {
-	    		display: block;
-	    		opacity: 0.74;
-	    		transform: translate(0, 0);
-	    	}
 	    }
 
 	    .textNav {
+	    	clear: both;
+	    	margin-left: 3px;
 
 	    	span {
 	    		display: inline-block;
@@ -2888,6 +2908,34 @@ Cta & Tagline
   100% { opacity:0.3; }
 }
 
+
+
+@-webkit-keyframes flickerAnimationDrama {
+  0%   { opacity:1; }
+  50%  { opacity:0.2; }
+  100% { opacity:1; }
+}
+
+@keyframes flickerAnimationDrama {
+  0%   { opacity:1; }
+  50%  { opacity:0.2; }
+  100% { opacity:1; }
+}
+
+@-webkit-keyframes flickerAnimationDramaTwo {
+  0%   { opacity:0.2; }
+  50%  { opacity:1; }
+  100% { opacity:0.2; }
+}
+
+@keyframes flickerAnimationDramaTwo {
+  0%   { opacity:0.2; }
+  50%  { opacity:1; }
+  100% { opacity:0.2; }
+}
+
+
+
 @-webkit-keyframes datePulse {
 	50% { 
 		height: 30px;
@@ -3125,7 +3173,24 @@ Main Menu Styles
 	}
 }
 
-.main-menu-open {
+.mobile.main-menu-open .main-menu,
+.tablet.main-menu-open .main-menu {
+	left: 0; 
+	
+	.open-menu {
+		transition: all 0.5s ease;
+		bottom: -68px;
+	}
+
+	.close-menu {
+		left: 0;
+		transition: all 0.5s ease;
+	}	
+}
+
+.mobile.main-menu-open,
+.tablet.main-menu-open,
+.desktop.main-menu-open {
 	.main-menu {
 		left: 0%;
 	}
@@ -3133,20 +3198,6 @@ Main Menu Styles
 	.right-menu-btn {
 		z-index: 1;
 	}
-}
-
-.touch .main-menu-open .main-menu {
-	left: 0; 
-	
-	.open-menu {
-		transition: all 0.5s ease;
-		bottom: -50px;
-	}
-
-	.close-menu {
-		left: 0;
-		transition: all 0.5s ease;
-	}	
 }
 
 .right-menu-open {
@@ -3449,6 +3500,7 @@ SVG STYLES
 
 		&.left {
 			left: 0;
+			display: none;
 		}
 
 		&.right {

@@ -1535,13 +1535,13 @@ IScroll.prototype = {
                 newY = 0;
                 break;
             case this.options.keyBindings.left:
-                newX += snap ? -1 : 5 + this.keyAcceleration>>0;
+                newX += snap ? -1 : 25 + this.keyAcceleration>>0;
                 break;
             case this.options.keyBindings.up:
                 newY += snap ? 1 : 5 + this.keyAcceleration>>0;
                 break;
             case this.options.keyBindings.right:
-                newX -= snap ? -1 : 5 + this.keyAcceleration>>0;
+                newX -= snap ? -1 : 25 + this.keyAcceleration>>0;
                 break;
             case this.options.keyBindings.down:
                 newY -= snap ? 1 : 5 + this.keyAcceleration>>0;
@@ -1569,7 +1569,7 @@ IScroll.prototype = {
             this.keyAcceleration = 0;
         }
 
-        this.scrollTo(newX, newY, 0);
+        this.scrollTo(newX, newY, 1500);
 
         this.keyTime = now;
     },

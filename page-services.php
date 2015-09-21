@@ -93,7 +93,7 @@
 					<small>- P.J. O'Rourke</small>
 				</div>													
 			</div>	
-			<nav><span class="arrow"><</span> <span class="cur">1</span><span>/</span><span class="total"></span> <span class="arrow">></span></nav>
+			<nav><span class="arrow prev"><</span> <span class="cur">01</span><span>/</span><span class="total"></span> <span class="arrow next">></span></nav>
 		</blockquote>
 	</section>
 	<section id="services-container">

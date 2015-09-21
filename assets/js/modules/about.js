@@ -309,12 +309,6 @@ ml.About = {};
 				}
 			}
 		});	
-
-		$('article').swipe({
-			swipe:function(event, direction, distance, duration, fingerCount) {
-				// console.log(this);
-			}
-		});
 	});
 
 })(jQuery);

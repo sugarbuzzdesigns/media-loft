@@ -6,14 +6,14 @@
 					<div class="inner">
 						<div class="header-copy">
 							<div class="video-article-headline">
-								<h2 class="title">Same Great Company. All New Brand.</h2>
+								<h2 class="title">Same Great Company.<br>All New Brand.</h2>
 								<div class="video-start play-full-screen" data-video="">
 									<div></div>
 									<div></div>
 								</div>
 							</div>								
 							<div class="info">
-								<span class="category">Design</span> / <span class="date">8.24.15</span>
+								<span class="category">Design</span> / <span class="date">08.24.15</span>
 							</div>
 						</div>	
 					</div>					
@@ -21,6 +21,15 @@
 				</a>	
 				<div class="article-content">
 					<p>It all started with a website redesign. Then we reevaluated and refreshed every aspect of our brand. You may have seen glimpses. From our identity to our lobby, we’ve updated our brand to better reflect who Media Loft is today. (Forty years of success can make you reflective.) We’ve had fun with it, as you will see. We’ve taken the best of who we are and what we do and rolled it into a new site with bigger bolder imagery, full-screen video and history to put it all into context. </p>
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/LogoHistory_Content1.gif" alt="">
+					</div>	
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/LogoHistory_Content2.gif" alt="">
+					</div>	
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/LogoHistory_Content3.gif" alt="">
+					</div>																
 					<div class="social">
 						<!-- http://www.facebook.com/sharer/sharer.php?u=[URL]&title=[TITLE] -->
 						<a class="facebook" data-url="/blog/#/madish-men" data-title="Mad(ish) Men" href=""><i class="fa fa-facebook-official"></i></a>
@@ -37,7 +46,7 @@
 								<h2 class="title">Mad(ish) Men</h2>
 							</div>	
 							<div class="info">
-								<span class="category">staging</span> / <span class="date">08.19.15</span>
+								<span class="category">staging</span> / <span class="date">08.14.15</span>
 							</div>
 						</div>	
 					</div>
@@ -88,7 +97,7 @@
 					<a href="#" data-related-article="who-you-gonna-call" class="related-article blog-article">
 						<h2 class="title">Who You Gonna Call?</h2>
 						<div class="info">
-							<span class="category">staging</span> / <span class="date">8.19.15</span>
+							<span class="category">staging</span> / <span class="date">07.01.15</span>
 						</div>
 						<div class="full-bleed blog-header-bg" style="background-image:url(<?php echo IMG_DIR; ?>/blog/wygc_Header.jpg);"></div>
 					</a>
@@ -103,7 +112,7 @@
 								<h2 class="title">Who You Gonna Call?</h2>
 							</div>
 							<div class="info">
-								<span class="category">staging</span> / <span class="date">8.19.15</span>
+								<span class="category">staging</span> / <span class="date">08.19.15</span>
 							</div>							
 						</div>	
 					</div>
@@ -150,7 +159,7 @@
 								<h2 class="title">10 Tips for a Better PowerPoint Presentation</h2>
 							</div>
 							<div class="info">
-								<span class="category">speaker support</span> / <span class="date">8.19.15</span>
+								<span class="category">speaker support</span> / <span class="date">6.10.15</span>
 							</div>							
 						</div>	
 					</div>

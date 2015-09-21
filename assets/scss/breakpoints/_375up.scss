@@ -38,7 +38,8 @@ Main menu
     }	
 }
 
-.touch .main-menu-open .main-menu {
+.isTouch .mobile .main-menu-open .main-menu,
+.isTouch .tablet .main-menu-open .main-menu {
 	.open-menu {
 		bottom: -68px;
 	}
@@ -148,10 +149,37 @@ Work
 	}
 }
 
+.work-carousel {
+	.work-copy {
+		padding: 150px 45px 5% 45px;
+	}
+}
+
 /**************************
 Services
 ***************************/		
 .landing blockquote .quote {
 	font-size: 28px;
 	line-height: 30px;		
+}
+
+.service-section {
+	.summary {
+		top: 30%;
+
+		p {
+			line-height: 21px;
+			margin: 20px 0 0 0;
+			font-size: 17px;		
+		}
+	}
+
+	.number {
+		font-size: 57px;
+	}
+
+	.service {
+		font-size: 33px;
+		margin-top: 20px;
+	}	
 }

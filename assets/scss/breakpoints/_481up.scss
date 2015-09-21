@@ -30,7 +30,8 @@ body:before {
 /**************************
 Main Nav
 ***************************/
-.isTouch .main-menu {
+.mobile .main-menu,
+.tablet .main-menu {
 	width: 100%;
 	left: -100%;
 	padding-top: 0;
@@ -75,6 +76,10 @@ Main Nav
 		bottom: 0;
 		left: 0;
 	}
+}
+
+.desktop .main-menu {
+	width: 25%;
 }
 
 /**************************

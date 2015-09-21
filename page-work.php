@@ -47,7 +47,9 @@
 										<p class="company"><?php echo $companyName; ?></p>
 										<p class="title"><?php echo $workItem['label']; ?></p>
 										<div class="description">
-											<?php echo $slide['description']; ?>
+											<div class="desc-wrap">
+												<?php echo $slide['description']; ?>
+											</div>	
 											<div class="textNav"></div>
 										</div>
 									</div>	

@@ -1,0 +1,122 @@
+*{ margin: 0; padding: 0; zoom: 1; }
+body{ padding: 0; margin: 0; background: url('../images/background_clouds.jpg') no-repeat; }
+a{ color: #a727a7; }
+
+img{ border: none; }
+
+#header_mobile{ background: url('../images/mobile_nav_back.png') center 20px no-repeat; text-align: center; }
+#header_mobile img{ margin: 5px 0 5px 0; }
+#nav_primary { margin-top: 5px; text-align: center; }
+#nav_primary a{ color: #a727a7; text-decoration: none; margin-right: 14px; font-size: 7px !important; font-weight: bold; }
+#nav_primary a:hover{ color: #000;}
+#nav_primary a.active{ color: #000; }
+
+.nav{ margin: 10px 0px 5px 0px; left: 0;  vertical-align: bottom;}
+	.nav a{  display:inline-block; color: #fff; text-decoration: none; background: #a727a7; padding: 0px 10px; font-weight: bold; font-size: 13px; bottom: 0; vertical-align: bottom;  }
+	.nav a.active{ background: #000;}
+
+/*our work*/
+.primary_player, .primary_player iframe{ width: 100%; }
+.label{ color: #900; font-weight: bold; margin-top: 5px;  }
+.studio_light, .easter_egg{ display: none; }
+.primary_description{ padding: 20px; }
+.thumbnails{ margin: 20px 0;  padding: 20px; border-top: 1px solid #ccc; }
+.tom{ width: 108px; font-size: 11px; float: left; margin: 0 10px 20px 0; }
+.ow_container{ margin: 0 20px; }
+.quad { width: 140px !important; margin: 0 5px 0px 0 !important; height: 125px !important; font-size: 70%;}
+.quad img{ width: 140px; height: 79px;  margin-bottom: 0px; }
+.quad strong, .quad span{ font-size: 12px !important; display: inline !important; width: auto !important; line-height: 12px; text-align: left !important; }
+.quad span{ font-size: 10px !important; }
+.quad strong{ line-height: 18px; width: 100px !important;  }
+.clearL{ display: none !important; }
+.just_video h2{
+	margin: -5px 0 5px 0 !important;
+}
+.just_video .description{
+	margin: 0 0 0 0 !important;
+	font-size: 90% !important;
+}
+.just_video .label{ display: none !important; }
+.just_video .vimeo_video{ margin-left: -5px !important; }
+
+/*work for us*/
+.intro{ margin-top: 10px; }
+.intro, .submissions{ padding: 0 20px; }
+.form_attachements, .lady, .lady_crowd, #result{ display: none; }
+label{ display: block; margin-top: 10px; }
+#submitForm{ margin: -20px 0 20px 0; }
+
+/*contact us*/
+.contact_wrapper{ padding: 20px; }
+.tag{ display: none; }
+.map{ background: url('..//images/map_mobile.png') no-repeat; height: 200px; width: 200px; float: right; margin-top: 25px;  }
+.map a{ margin-top: 200px; display: none;  }
+.contact_wrapper p{ margin: 0 0 15px 0; }
+
+/*privacy policy*/
+.privacy_policy p{ margin-bottom: 10px; }
+.privacy_policy ul{ margin: 0 0 10px 20px; }
+
+/*homepage*/
+.home{ padding: 10px 20px;  }
+	h2{ font-size: 25px !important; line-height: 25px; margin: 10px 0; }
+	h3{ width: 90% !important; font-size: 15px !important; font-weight: normal; display: inline;  }
+	p{ font-size: 9px !important;}
+.spotlight{ display: none; }
+
+/*flashback*/
+.flashback_wrapper, .flashback_wrapper iframe{
+	width: 20%;
+	margin: 0;
+}
+
+.primary_content{
+	background: #fff;
+	-moz-box-shadow: 0px 5px 12px 0 #ccc;
+	-webkit-box-shadow: 0px 5px 12px #ccc;
+	box-shadow: 0px 5px 12px #ccc;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc');
+}
+
+.primary_player, .primary_player iframe{
+	width: 220px;
+	height: 125px;
+	float: left;
+	margin: 5px;
+}
+
+.primary_description{
+	float: left;
+	margin: -150px 0 0 230px;
+	font-size: 80%;
+}
+	.primary_description h2{ margin: 0; }
+
+.thumbnails{
+	clear: left;
+	height: 220px;
+}
+
+	.thumbnails .tom{ margin-top: 0; }
+
+.non_mobile_link{ padding: 0 20px; clear: both; }
+
+/* 450px or less */
+@media screen and (min-width: 0px) and (max-width: 450px) {
+	p{ font-size: 15px !important;}
+	#nav_primary a{ font-size: 9px !important;}
+	#header_mobile a{ font-size: 10px !important; }
+	.map{ width: 100%; margin: 0px; }
+	.nav a{ font-size: 10px;  }
+	.thumbnails{ height: 220px; }
+	.primary_description{ margin: 0px; width: 100%: }
+	.ow_container{ margin: 0 10px; }
+	.just_video .primary_player, just_video .primary_player  iframe{ margin: 0 !important; padding: 0 !important; }
+	.just_video .primary_content{ margin: 0 !important; padding: 0; }
+	.just_video .primary_description{ margin: 0 !important; padding: 0; }
+	.just_video .vimeo_video{ margin-left: 0px !important; }
+}
+
+

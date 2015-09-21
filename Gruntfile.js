@@ -82,8 +82,13 @@ module.exports = function(grunt) {
 		},
 		autoprefixer: {
 			task: {
-				src: ['assets/css/style.css'], 
-				dest: 'assets/css/style.css'
+				files: {
+					'assets/css/style.css': 'assets/css/style.css',
+					'assets/css/timeline.css': 'assets/css/timeline.css'
+				}
+
+				// ['assets/css/style.css'], 
+				// dest: 'assets/css/style.css'
 			},
 			options: {
 				'browsers': ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],

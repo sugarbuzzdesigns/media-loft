@@ -34,13 +34,18 @@
 
 #timeline2 .timeline-wrap article {
   top: 45%;
+  -webkit-transform: translate(-100%, -50%);
+  -ms-transform: translate(-100%, -50%);
   transform: translate(-100%, -50%);
+  -webkit-transition: all 1.5s ease;
   transition: all 1.5s ease;
   opacity: 0.2;
 }
 
 #timeline2.in-view .timeline-wrap article {
   top: 45%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
   opacity: 1;
 }
@@ -67,6 +72,7 @@
   border: solid 1px #ccc;
   position: absolute;
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
@@ -79,6 +85,8 @@
   height: 100%;
   z-index: -1;
   overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 #timeline2 .timeline-block .info .play-reel {
@@ -100,8 +108,10 @@
   width: 70%;
   height: 50%;
   -webkit-transform: rotate(-45deg) translate(-50%, -50%);
+  -ms-transform: rotate(-45deg) translate(-50%, -50%);
   transform: rotate(-45deg) translate(-50%, -50%);
   -webkit-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
   opacity: 0;
   position: absolute;
@@ -117,6 +127,7 @@
 
 #timeline2 .timeline-block .info .inner p {
   color: #444444;
+  margin-top: 0;
 }
 
 #timeline2 .timeline-block .info.show-me {
@@ -134,6 +145,7 @@
   width: 24px;
   background-color: #E0E0E0;
   border-radius: 50%;
+  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   overflow: hidden;
 }
@@ -149,6 +161,7 @@
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
@@ -160,6 +173,8 @@
   opacity: 0;
   display: block;
   font-family: 'futura_ltlight';
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+  -ms-transform: translate(-50%, -50%) rotate(-45deg);
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
@@ -185,7 +200,7 @@
 
 #timeline2 .date:hover,
 #timeline2 .date.hover {
-  background-color: #FF5543;
+  background-color: #EF4330;
   height: 60px;
   width: 60px;
 }
@@ -258,4 +273,43 @@ div.scrollingHotSpotLeft {
   min-width: 175px;
 }
 
-/*# sourceMappingURL=timeline.css.map */
+@media only screen and (min-device-width: 320px) {
+  #timeline2 .timeline-block .info .inner p {
+    font-size: 12px;
+  }
+
+  #timeline2 .timeline-block .info .inner {
+    overflow-y: scroll;
+  }
+}
+/* ----------- iPhone 6 ----------- */
+@media only screen and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
+  #timeline2 .timeline-block .info .inner p {
+    font-size: 12px;
+  }
+}
+/* ----------- iPhone 6+ ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (-webkit-min-device-pixel-ratio: 2) {
+  #timeline2 .timeline-block .info .inner p {
+    font-size: 16px;
+  }
+}
+/*********************
+LARGER MOBILE DEVICES
+*********************/
+@media only screen and (min-width: 481px) {
+  #timeline2 .timeline-block .info .inner p {
+    font-size: 14px;
+  }
+}
+/*********************
+TABLET & SMALLER LAPTOPS
+*********************/
+/*********************
+DESKTOP
+*********************/
+/*********************
+LARGE VIEWING SIZE
+This is for the larger monitors and possibly full screen viewers.
+*********************/

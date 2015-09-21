@@ -112,7 +112,7 @@ function medialoft_scripts() {
 	wp_enqueue_script( 'ml-libraries', get_template_directory_uri() . '/assets/js/libs/libraries.js', array( 'jquery' ), true );
 	wp_enqueue_script( 'medialoft-script', get_template_directory_uri() . '/assets/js/ml.js', array( 'jquery' ), true );
 
-	if(is_front_page()){
+	if(is_front_page() || is_page('home')){
 		wp_enqueue_script( 'home', get_template_directory_uri() . '/assets/js/modules/home.js', array( 'jquery' ), true );		
 	}
 
@@ -209,3 +209,19 @@ function replace_spaces($string) {
     $string = str_replace(" ", "-", $string);
     return $string;
 }
+
+
+// Add specific CSS class by filter
+add_filter( 'body_class', 'my_class_names' );
+function my_class_names( $classes ) {
+	// add 'class-name' to the $classes array
+	if(is_page('home')){
+		$classes[] = 'home';
+	}
+
+	// return the $classes array
+	return $classes;
+}
+
+
+show_admin_bar( false );

@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Video Test</title>
+	<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#videooverlay").stop().animate({top:'-665px'},{queue:false,duration:1000} );
+		});	
+	</script>
+<style type="text/css">
+  
+  
+   	.frame{
+    	position: absolute;
+		z-index: 2;
+	}
+	
+	#video{
+		height: 188px;
+		width: 335px;
+		margin: 0px auto;
+	}
+   	img.loadpic{
+		margin: 10px;
+	}
+    /*---video CSS---*/
+    #videocontainer{
+    	position: relative;
+		overflow: hidden;
+		height: 188px;
+		width: 335px;
+		background: #FFF;
+	}
+	#videooverlay{
+		position: absolute;
+		z-index: 1;
+	}
+	#videoblock{	
+		height: 188px;
+		width: 335px;
+		background: #FFF;
+	}
+	#videoedge{
+		height: 188px;
+		width: 335px;	
+		background: url('/assets/images/slash.png');
+	}
+	
+</style>
+</head>
+
+<body>
+<div id="video">
+
+
+	<div id="videocontainer">
+		<div class="frame">
+			<a href="#"><img src="/assets/images/vid_frame.png"/></a>
+		</div>
+		<div id="videooverlay">
+			<div id="videoblock">&nbsp;</div>
+			<div id="videoedge">&nbsp;</div>
+		</div>
+		<img class="loadpic" src="/assets/images/meetings_big_1.jpg"/>
+	</div>
+</div>
+</body>
+</html>

@@ -183,7 +183,7 @@
 				}
 
 				if(i === 3){
-					left = left - sqRoot;
+					left = Math.floor(left - sqRoot);
 				}
 
 				if(i === 0){
@@ -308,6 +308,8 @@
 
 	$(function(){
 		ml.Timeline.init();
+
+		$('.info .inner').addClass('noSwipe');
 
 		var winWidth = $(window).width();
 

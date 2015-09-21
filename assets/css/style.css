@@ -4943,6 +4943,9 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     -webkit-transition: all 0.5s ease;
             transition: all 0.5s ease;
   }
+  #blog .articles article strong {
+    color: #86B1AA;
+  }
   #blog .articles article .social {
     text-align: center;
     margin: 55px 0;
@@ -5303,14 +5306,14 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     color: #fff;
     padding: 0 20px;
     position: absolute;
-    top: 30%;
+    top: 20%;
     z-index: 3;
   }
   .service-section .summary p {
     font-family: 'ProximaNova-Regular';
     line-height: 21px;
-    margin: 20px 0 0 0;
-    font-size: 17px;
+    margin: 10px 0 0 0;
+    font-size: 13px;
   }
   .service-section .number {
     font-family: 'futura_ltregular';
@@ -5318,13 +5321,13 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     padding-bottom: 10px;
     border-bottom: solid 1px #fff;
     display: inline-block;
-    font-size: 57px;
+    font-size: 45px;
   }
   .service-section .service {
     text-transform: lowercase;
-    font-size: 33px;
+    font-size: 28px;
     font-family: 'KlavikaWebBasicLight';
-    margin-top: 20px;
+    margin-top: 10px;
   }
   .service-section.active {
     opacity: 1;
@@ -5391,22 +5394,22 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     font-size: 20px;
     margin-top: -32px;
     color: #CBCBB6;
+    position: relative;
   }
   .landing blockquote nav span {
     display: inline-block;
     vertical-align: middle;
   }
   .landing blockquote nav .cur {
-    margin-right: 5px;
     font-family: 'KlavikaWebBasicRegularItalic';
   }
   .landing blockquote nav .total {
-    margin-left: 5px;
     font-family: 'KlavikaWebBasicRegularItalic';
   }
   .landing blockquote nav .arrow {
     margin: 0 5px;
     font-family: 'KlavikaWebBasicRegular';
+    cursor: pointer;
   }
 
   .right-menu {
@@ -5456,6 +5459,15 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     bottom: 60px;
     right: 10px;
     z-index: 10;
+  }
+  #work-items-window .nav-arrow-down img {
+    width: 100%;
+    -webkit-animation: flickerAnimationDrama 1s infinite;
+    animation: flickerAnimationDrama 1s infinite;
+  }
+  #work-items-window .nav-arrow-down img:last-child {
+    -webkit-animation: flickerAnimationDramaTwo 1s infinite;
+    animation: flickerAnimationDramaTwo 1s infinite;
   }
 
   #explore-work {
@@ -5638,7 +5650,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     display: block;
   }
   .work-carousel .work-copy {
-    padding: 150px 45px 5% 45px;
+    padding: 95px 45px 5% 45px;
     height: 100%;
     width: 100%;
     background: #ef4330;
@@ -5774,22 +5786,21 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     line-height: 20px;
     font-family: 'ProximaNova-Regular';
     position: relative;
+    overflow: hidden;
   }
-  .work-details .description p {
-    display: none;
-    opacity: 0;
-    -webkit-transform: translate(-50%, 0);
-        -ms-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
+  .work-details .description .desc-wrap {
     -webkit-transition: all 0.5s ease;
             transition: all 0.5s ease;
   }
-  .work-details .description p.active {
-    display: block;
+  .work-details .description p {
+    float: left;
     opacity: 0.74;
-    -webkit-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-            transform: translate(0, 0);
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+  }
+  .work-details .description .textNav {
+    clear: both;
+    margin-left: 3px;
   }
   .work-details .description .textNav span {
     display: inline-block;
@@ -6155,6 +6166,50 @@ the other stylesheets. Remember, keep it light: Speed is Important.
       opacity: 0.3;
     }
   }
+  @-webkit-keyframes flickerAnimationDrama {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes flickerAnimationDrama {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes flickerAnimationDramaTwo {
+    0% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.2;
+    }
+  }
+  @keyframes flickerAnimationDramaTwo {
+    0% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.2;
+    }
+  }
   @-webkit-keyframes datePulse {
     50% {
       height: 30px;
@@ -6381,25 +6436,32 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 }
 @media only screen and (min-device-width: 320px) {
-  .main-menu-open .main-menu {
-    left: 0%;
+  .mobile.main-menu-open .main-menu,
+  .tablet.main-menu-open .main-menu {
+    left: 0;
   }
-  .main-menu-open .right-menu-btn {
-    z-index: 1;
+  .mobile.main-menu-open .main-menu .open-menu,
+  .tablet.main-menu-open .main-menu .open-menu {
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+    bottom: -68px;
+  }
+  .mobile.main-menu-open .main-menu .close-menu,
+  .tablet.main-menu-open .main-menu .close-menu {
+    left: 0;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
   }
 
-  .touch .main-menu-open .main-menu {
-    left: 0;
+  .mobile.main-menu-open .main-menu,
+  .tablet.main-menu-open .main-menu,
+  .desktop.main-menu-open .main-menu {
+    left: 0%;
   }
-  .touch .main-menu-open .main-menu .open-menu {
-    -webkit-transition: all 0.5s ease;
-            transition: all 0.5s ease;
-    bottom: -50px;
-  }
-  .touch .main-menu-open .main-menu .close-menu {
-    left: 0;
-    -webkit-transition: all 0.5s ease;
-            transition: all 0.5s ease;
+  .mobile.main-menu-open .right-menu-btn,
+  .tablet.main-menu-open .right-menu-btn,
+  .desktop.main-menu-open .right-menu-btn {
+    z-index: 1;
   }
 
   .right-menu-open .main-menu {
@@ -6580,6 +6642,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .noTouch .scrollhotspot.left {
     left: 0;
+    display: none;
   }
   .noTouch .scrollhotspot.right {
     right: 0;
@@ -6641,7 +6704,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     width: 63px;
   }
 
-  .touch .main-menu-open .main-menu .open-menu {
+  .isTouch .mobile .main-menu-open .main-menu .open-menu,
+  .isTouch .tablet .main-menu-open .main-menu .open-menu {
     bottom: -68px;
   }
 
@@ -6722,12 +6786,32 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     bottom: 80px;
   }
 
+  .work-carousel .work-copy {
+    padding: 150px 45px 5% 45px;
+  }
+
   /**************************
   Services
   ***************************/
   .landing blockquote .quote {
     font-size: 28px;
     line-height: 30px;
+  }
+
+  .service-section .summary {
+    top: 30%;
+  }
+  .service-section .summary p {
+    line-height: 21px;
+    margin: 20px 0 0 0;
+    font-size: 17px;
+  }
+  .service-section .number {
+    font-size: 57px;
+  }
+  .service-section .service {
+    font-size: 33px;
+    margin-top: 20px;
   }
 }
 /* ----------- iPhone 6+ ----------- */
@@ -6784,7 +6868,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     margin-bottom: 32px;
   }
   .main-menu .menu-interior a {
-    font-size: 38px;
+    font-size: 30px;
   }
 
   .right-menu {
@@ -6856,20 +6940,23 @@ tweeners.
   /**************************
   Main Nav
   ***************************/
-  .isTouch .main-menu {
+  .mobile .main-menu,
+  .tablet .main-menu {
     width: 100%;
     left: -100%;
     padding-top: 0;
     background: #ef4330;
   }
-  .isTouch .main-menu #menu-interior {
+  .mobile .main-menu #menu-interior,
+  .tablet .main-menu #menu-interior {
     width: 100%;
     height: 100%;
     min-width: 210px;
     position: relative;
     background: #ef4330;
   }
-  .isTouch .main-menu ul {
+  .mobile .main-menu ul,
+  .tablet .main-menu ul {
     position: absolute;
     margin-left: 0;
     top: 50%;
@@ -6878,23 +6965,32 @@ tweeners.
         transform: translateY(-50%);
     width: 100%;
   }
-  .isTouch .main-menu ul li {
+  .mobile .main-menu ul li,
+  .tablet .main-menu ul li {
     font-size: 26px;
     margin-bottom: 30px;
   }
-  .isTouch .main-menu ul li:last-child {
+  .mobile .main-menu ul li:last-child,
+  .tablet .main-menu ul li:last-child {
     margin-bottom: 0;
   }
-  .isTouch .main-menu a {
+  .mobile .main-menu a,
+  .tablet .main-menu a {
     color: #fff;
   }
-  .isTouch .main-menu .logo {
+  .mobile .main-menu .logo,
+  .tablet .main-menu .logo {
     z-index: 3;
   }
-  .isTouch .main-menu.open {
+  .mobile .main-menu.open,
+  .tablet .main-menu.open {
     display: block;
     bottom: 0;
     left: 0;
+  }
+
+  .desktop .main-menu {
+    width: 25%;
   }
 
   /**************************
@@ -7129,7 +7225,7 @@ you can add resource intensive styles.
   }
 
   .right-menu {
-    font-size: 38px;
+    font-size: 30px;
     background: #fff;
   }
   .right-menu ul li {
@@ -7154,6 +7250,50 @@ you can add resource intensive styles.
 
   .main-menu-btn {
     font-size: 22px;
+  }
+
+  /**************************
+  Right Menus
+  ***************************/
+  .desktop .right-menu {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: auto;
+    width: auto;
+    height: 70px;
+    padding-top: 0;
+    z-index: 11;
+    display: block;
+  }
+  .desktop .right-menu ul {
+    position: static;
+  }
+  .desktop .right-menu ul li {
+    margin-bottom: 0;
+    display: block;
+    float: left;
+  }
+  .desktop .right-menu ul li a {
+    height: 70px;
+    display: block;
+    padding: 30px 10px 0 45px;
+    text-transform: uppercase;
+    font-size: 13px;
+    background: #fff;
+  }
+  .desktop .right-menu ul li a.two-line {
+    padding-top: 20px;
+  }
+
+  .desktop .right-menu.go-away {
+    bottom: -80px;
+  }
+  .desktop .right-menu a.two-line span {
+    display: block;
+  }
+  .desktop .right-menu a.two-line span + span {
+    margin-left: 0;
   }
 
   /**************************
@@ -8014,10 +8154,13 @@ you can add resource intensive styles.
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
         transform: translateY(-50%);
-    width: 50%;
+    width: 70%;
     margin: 0;
-    font-size: 35px;
     padding: 0 20px;
+  }
+  .landing blockquote .quote {
+    font-size: 38px;
+    line-height: 41px;
   }
   .landing blockquote .quote-mark {
     background: url(../images/icons/quote-mark.png) no-repeat;
@@ -8025,6 +8168,9 @@ you can add resource intensive styles.
     width: 20px;
     background-size: 100%;
     height: 20px;
+  }
+  .landing blockquote nav {
+    margin-top: 0;
   }
   .landing blockquote hr {
     height: 1px;

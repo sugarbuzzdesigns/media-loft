@@ -42,8 +42,6 @@
 					_this.loadService($this);
 				}
 
-				$('#services-menu-btn .open-menu').text($(this).data('menu-text'));
-
 				if(ml.video.activeVideo){
 					ml.video.pauseActiveVideo();
 				}				
@@ -104,7 +102,19 @@
 					$('#services-container').removeClass('show-me');
 					$('#services-landing').removeClass('hide-me');					
 				}
-			});		
+			});	
+
+			$('blockquote nav .arrow').on('click', function(){
+				clearInterval(_this.quoteInterval);
+
+				if($(this).is('.next')){
+					_this.showNextQuote();
+				} else {
+					_this.showPrevQuote();
+				}
+
+				_this.startSlideshow();
+			});
 		},
 
 		loadService: function($menuItem){
@@ -173,7 +183,7 @@
 			
 			$quotes.addClass('animated bounceInRight');
 
-			$('blockquote nav .total').text(numQuotes);
+			$('blockquote nav .total').text('0' + numQuotes);
 		},
 
 		startSlideshow: function(){
@@ -184,23 +194,44 @@
 
 			var _this = this;
 
-			var quoteInterval = setInterval(function(){
-				var nextToShow = $('blockquote .quote.show').next(),
-					cur = nextToShow.index() + 1;
-					current = $('blockquote .quote.show');
-
-				if(current.is('.last')){
-					current.removeClass('show');
-					$('blockquote .quote.first').addClass('show');
-					cur = 1;
-				} else {
-					$('blockquote .quote.show').removeClass('show').next().addClass('show');	
-				}
-
-				$('blockquote nav .cur').text(cur);
-			
+			this.quoteInterval = setInterval(function(){
+				_this.showNextQuote();
 			}, 5000);
-		}
+		},
+
+		showPrevQuote: function(){
+			var $prevToShow = $('blockquote .quote.show').prev(),
+				$showing = $('blockquote .quote.show'),
+				
+				navCurNum = $prevToShow.index() + 1;
+
+			if($showing.is('.first')){
+				$showing.removeClass('show');
+				$('blockquote .quote.last').addClass('show');
+				navCurNum = $('blockquote .quote').length;
+			} else {
+				$('blockquote .quote.show').removeClass('show').prev().addClass('show');	
+			}
+
+			$('blockquote nav .cur').text('0' + navCurNum);			
+		},			
+
+		showNextQuote: function(){
+			var $nextToShow = $('blockquote .quote.show').next(),
+				$showing = $('blockquote .quote.show'),
+				
+				navCurNum = $nextToShow.index() + 1;
+
+			if($showing.is('.last')){
+				$showing.removeClass('show');
+				$('blockquote .quote.first').addClass('show');
+				navCurNum = 1;
+			} else {
+				$('blockquote .quote.show').removeClass('show').next().addClass('show');	
+			}
+
+			$('blockquote nav .cur').text('0' + navCurNum);			
+		}		
 	}
 
 	$(function(){

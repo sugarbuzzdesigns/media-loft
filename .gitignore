@@ -6,3 +6,5 @@
 .DS_Store
 *.sublime-*
 .idea
+.phpintel
+*.zip

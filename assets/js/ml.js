@@ -184,17 +184,17 @@ ml = {};
 		setBreakpoint: function () {
 			this.breakpoint = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
 
-			if(this.breakpoint === 'smartphone'){
-				ml.elms.$body.addClass('smartphone').removeClass('phablet tablet desktop');
+			if(ML_vars.device === 'mobile'){
+				ml.elms.$body.addClass('mobile').removeClass('phablet tablet desktop');
 			}
-			if(this.breakpoint === 'phablet'){
-				ml.elms.$body.addClass('phablet').removeClass('smartphone tablet desktop');
+			if(ML_vars.device === 'phablet'){
+				ml.elms.$body.addClass('phablet').removeClass('mobile tablet desktop');
 			}
-			if(this.breakpoint === 'tablet'){
-				ml.elms.$body.addClass('tablet').removeClass('phablet smartphone desktop');
+			if(ML_vars.device === 'tablet'){
+				ml.elms.$body.addClass('tablet').removeClass('phablet mobile desktop');
 			}
-			if(this.breakpoint === 'desktop'){
-				ml.elms.$body.addClass('desktop').removeClass('phablet tablet smartphone');
+			if(ML_vars.device === 'desktop'){
+				ml.elms.$body.addClass('desktop').removeClass('phablet tablet mobile');
 			}									
 		},
 
