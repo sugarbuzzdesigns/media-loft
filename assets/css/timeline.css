@@ -29,7 +29,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 #timeline2 .timeline-wrap article {
@@ -85,6 +85,7 @@
   height: 100%;
   z-index: -1;
   overflow: hidden;
+  font-family: 'ProximaNova-Regular';
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
