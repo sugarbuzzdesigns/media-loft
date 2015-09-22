@@ -34,7 +34,9 @@
 			}			
 
 			this.buildWorkCarousels();
-			this.setupDescription();
+			if(ML_vars.device === 'mobile'){
+				this.setupDescription();
+			}
 
 			this.bindEvents();
 		},
@@ -263,7 +265,7 @@
 
 				$loopVideo[0].play();
 
-				_this.setupDescCarousel();
+				// _this.setupDescCarousel();
 
 				_this.$workItemStage.animate({
 					left: 0
@@ -276,6 +278,10 @@
 				$('.scrollableArea').css('width', '100%');		
 
 				_this.$workItemStage.addClass($item.attr('id'));		
+
+				$('.work-copy.overlay', _this.$workItemStage).mCustomScrollbar({
+					scrollbarPosition: 'inside'
+				});					
 			} else {
 				_this.setupDescCarouselMobile();
 				$('.nav-arrow-down').fadeIn();
@@ -289,6 +295,8 @@
 		},
 
 		closeWorkItem: function($item){
+			this.hideReadMore();
+
 			if(this.$curWorkItem.data('filterIndex') != this.$workItems.length - 1){
 				$('.nav-arrow-down').fadeIn();
 			} else {
@@ -328,7 +336,8 @@
 				    myScroll.refresh();
 				}, 300);	
 
-				this.$workItemStage.removeClass($item.attr('id'));			
+				this.$workItemStage.removeClass($item.attr('id'));	
+				this.$workItemStage.empty();		
 			}			
 		},
 
@@ -467,6 +476,38 @@
 			});
 
 			_this.bindCarouselNavs();
+
+			if(ML_vars.device != 'mobile'){
+				this.$workItems.each(function(){
+					var $this = $(this);
+
+					var workCopyOverlay = $('.carousel-item:first .work-copy', $this).clone();
+
+					workCopyOverlay.append('<span class="close"><i></i></span>');
+
+					workCopyOverlay.addClass('overlay').appendTo($('.work-carousel .carousel-item:first-child', $this));
+
+					$('.description:first .desc-wrap p:first', $this).after('<span class="readmore">  READ MORE</span>');
+
+					$('.readmore', $this).on('click', function(){
+						_this.showReadMore();
+					});
+
+					workCopyOverlay.find('.close').on('click', function(){
+						_this.hideReadMore();
+					});
+				});
+			}
+		},
+
+		showReadMore: function(){
+			$('body').addClass('readmore-open');
+			this.$workItemStage.addClass('readmore-open');
+		},
+
+		hideReadMore: function(){
+			$('body').removeClass('readmore-open');
+			this.$workItemStage.removeClass('readmore-open');
 		},
 
 		bindCarouselNavs: function(){
@@ -591,8 +632,6 @@
 			var _this = this,
 				$desc = $('.description');
 
-			console.log($desc.width());
-
 			$desc.each(function(i, elm){
 				var $this = $(this),
 					$p = $this.find('p'),
@@ -674,7 +713,11 @@
 			ml.elms.$body.addClass('show-video');
 
 			$fullVideo[0].play();
+			$fullVideo.on('ended', function(){
+				_this.closeFullVideo();
+			});
 			$fullVideo.data('started', true);
+
 		},
 
 		closeFullVideo: function(){
@@ -694,24 +737,24 @@
 				winMinWidth2 = 768,
 				containerWidth;
 
-				if(this.$curWorkItem != null){
-					var $copyWrap = this.$workItemStage.find('.copy-wrap'),
-						copyWrapW = $copyWrap.width(),
-						$desc = $copyWrap.find('.description'),
-						$descWrap = $desc.find('.desc-wrap'),
-						$ps = $desc.find('p'),
-						psLen = $ps.length;
+				// if(this.$curWorkItem != null){
+				// 	var $copyWrap = this.$workItemStage.find('.copy-wrap'),
+				// 		copyWrapW = $copyWrap.width(),
+				// 		$desc = $copyWrap.find('.description'),
+				// 		$descWrap = $desc.find('.desc-wrap'),
+				// 		$ps = $desc.find('p'),
+				// 		psLen = $ps.length;
 
-					$ps.each(function(){
-						$(this).width(copyWrapW);
-					});
+				// 	$ps.each(function(){
+				// 		$(this).width(copyWrapW);
+				// 	});
 
-					$descWrap.width(psLen*copyWrapW);
+				// 	$descWrap.width(psLen*copyWrapW);
 
-					$descWrap.css({
-						marginLeft: -this.pIndex*$desc.width()
-					});
-				}
+				// 	$descWrap.css({
+				// 		marginLeft: -this.pIndex*$desc.width()
+				// 	});
+				// }
 
 				if (winWidth < winMinWidth1) {
 					itemWidth = winWidth/3;

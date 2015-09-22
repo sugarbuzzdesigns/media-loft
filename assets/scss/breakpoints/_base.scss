@@ -2362,16 +2362,16 @@ Work Page
 		    overflow: hidden;
 
 		    &:first-child {
-		    	height: 200%;
+		    	height: 100%;
 
 		    	.work-copy {
 		    		display: block;
-		    		height: 50%;
+		    		height: 100%;
 		    	}
 		    	
 		    	.work-media {
 		    		display: block;
-		    		height: 50%;
+		    		height: 100%;
 
 					.video-bg-container {
 						display: block;
@@ -2512,6 +2512,24 @@ Work Page
 	}	
 }
 
+.mobile .work-carousel {
+	
+	.carousel-items {
+
+		.carousel-item {
+
+		    &:first-child {
+		    	height: 200%;	    
+
+		    	.work-copy, 
+		    	.work-media {
+		    		height: 50%;
+		    	}		    		
+		    }
+		}		
+	}    	
+}
+
 .work-details {
 	height: 100%;
     width: 50%;
@@ -2544,7 +2562,6 @@ Work Page
 	    }
 
 	    p {
-	    	float: left;
 	    	opacity: 0.74;
 	    	transition: all 0.5s ease;
 	    }
@@ -2594,6 +2611,88 @@ Work Page
 	.work-content {
 	    font-size: 14px;
 	    line-height: 20px;    		
+	}
+}
+
+.mobile .work-details {
+	.description {
+		p {
+	    	float: left;
+		}
+	}
+}
+
+.desktop .work-details,
+.tablet .work-details {
+	.description {
+		p {
+			display: none;
+		}
+
+		p:first-child {
+			display: inline;
+		}
+
+		.readmore + p {
+			padding-left: 3px;
+		}		
+
+		.readmore {
+			font-family: 'KlavikaWebBasicMedium';
+			cursor: pointer;
+		}
+	}
+}
+
+#work-item-stage {
+	.work-copy.overlay {
+		overflow: auto;
+		position: absolute; 
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transition: all 0.5s ease;
+		z-index: 0;
+		padding: 0;
+
+		.close {
+			cursor: pointer;
+		}
+
+		.copy-wrap {
+			padding: 178px 50px 78px 25px;
+		}
+
+		.description p {
+			display: inline;
+		}
+	}
+}
+
+#work-item-stage.readmore-open {
+	.work-copy.overlay {
+		opacity: 1;
+		z-index: 10;
+
+		.description p {
+			padding-left: 3px;
+
+			&:first-child {
+				padding-left: 0;
+			}	
+		}
+	}
+}
+
+.readmore-open {
+	#main-logo {
+		top: -100%;
+		left: -100%;
+	}
+
+	.main-menu-btn {
+		left: -100%;
+		bottom: -100%;
 	}
 }
 
@@ -2970,6 +3069,7 @@ Main Menu Styles
 	text-align: center;
 	z-index: 6;	
 	letter-spacing: 0.5px;	
+	transition: all 0.5s ease;
 
 	.close-menu {
 		transition: all 0.5s ease; 		
