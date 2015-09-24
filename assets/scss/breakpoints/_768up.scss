@@ -674,18 +674,18 @@ Work Page
 
 @media screen and ( max-height: 650px ) {
 	#work-item-stage .work-carousel .work-copy {
-		width: 40%;
+		width: 25%;
 	}
 
 	#work-item-stage .work-carousel .work-media,
 	#work-item-stage .work-carousel .carousel-items .carousel-item .related-works {
-		width: 60%;
+		width: 75%;
 	}
 
 	.show-video {
 		#work-item-stage .work-carousel {
 			.work-copy {
-				margin-left: -40%;
+				margin-left: -25%;
 			}
 
 			.work-media {
@@ -970,7 +970,7 @@ Work Page
 	    }	
 
 	    .related-works {
-		    width: calc(100%/1.5);
+		    width: 75%;
 		    float: right;
 		    position: relative;
 
@@ -992,13 +992,13 @@ Work Page
 
 	.work-copy {
 		padding: 178px 50px 5% 25px;
-		width: calc(100%/3);
+		width: 25%;
 		float: left;
 		position: relative;
 	}
 
 	.work-media {
-		width: calc(100%/1.5);
+		width: 75%;
 		height: 100%;
 		float: right;
 		position: relative;
@@ -1032,7 +1032,7 @@ Work Page
 .show-video {
 	.work-carousel {
 		.work-copy {
-			margin-left: calc(-100%/3);
+			margin-left: -25%;
 		}
 
 		.work-media {
@@ -1149,7 +1149,14 @@ Blog page
 					color: #86B1AA;
 					font-size: 38px;
 				    margin: 20px -40px 30px;
-				}				
+				}	
+
+				strong {
+					color: #86B1AA;
+				    font-size: 20px;
+				    margin-bottom: 5px;
+				    display: block;				
+				}							
 
 				p {
 					font-size: 18px;

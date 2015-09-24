@@ -38,9 +38,11 @@
 			var winH = this.windowHeight,
 				length;
 
-			length = Math.sqrt(Math.pow(winH/1.5, 2)/2);
+			length = Math.floor(Math.sqrt(Math.pow(winH/1.5, 2)/2));
 
 			this.squareSideLength = length - 75;
+
+			console.log(this.squareSideLength);
 
 			return Math.sqrt(Math.pow(winH/1.5, 2)/2);
 		},
@@ -214,7 +216,6 @@
 					zIndex: boxZIndex
 				}).appendTo(container);
 
-				console.log(this.squareSideLength);
 			}		
 		},
 
@@ -238,13 +239,21 @@
 		setUpTimeLine: function(){
 			var _this = this;
 
-			var createInfoBox = function(dateInfo, container){
+			var createInfoBox = function(dateInfo, container, i){
 				var infoBox = $('<div class="info"></div>'),
+					infoWrap = $('<div class="info-wrap"></div>'),
 					infoBoxInner = $('<div class="inner"></div>'),
 					// infoBoxDate = $('<h5>'+ dateInfo.date +'</h5>').appendTo(infoBoxInner),
 					infoBoxInfo = $('<p>'+ dateInfo.info +'</p>').appendTo(infoBoxInner);
 
-				infoBoxInner.appendTo(infoBox);
+				infoBoxInner.appendTo(infoWrap);
+				infoWrap.appendTo(infoBox);
+
+				if(i%2 == 0){
+					infoWrap.addClass('in-left');
+				} else {
+					infoWrap.addClass('in-right');
+				}
 
 				infoBox.attr('id', dateInfo.id);
 
@@ -264,7 +273,7 @@
 				}	
 
 				$('.num', $elm).text(date);
-				createInfoBox(dateInfo, container);				
+				createInfoBox(dateInfo, container, i);				
 			});
 		},		
 
@@ -295,6 +304,10 @@
 			_this.timelineVideo.on('canplay', function(){
 				$(this)[0].play();
 				console.log('can play');
+			});
+
+			_this.timelineVideo.on('ended', function(){
+				_this.stopTimelineVideo();
 			});
 		},
 

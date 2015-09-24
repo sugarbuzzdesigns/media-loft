@@ -481,6 +481,10 @@
 				this.$workItems.each(function(){
 					var $this = $(this);
 
+					if($('.carousel-item:first .work-copy .desc-wrap p', $this).length === 1){
+						return;
+					}
+
 					var workCopyOverlay = $('.carousel-item:first .work-copy', $this).clone();
 
 					workCopyOverlay.append('<span class="close"><i></i></span>');
@@ -564,7 +568,7 @@
 
 				$curCarouselItems.eq(this.carouselIndex).removeClass('show-slide');
 				this.carouselIndex--;
-				this.showPrevNextP('prev');
+				// this.showPrevNextP('prev');
 			}
 
 			if($navButton.is('.next')){
@@ -573,7 +577,7 @@
 				}
 
 				this.carouselIndex++;
-				this.showPrevNextP('next');
+				// this.showPrevNextP('next');
 			}	
 
 			$('.carousel-nav .active', $curCarousel).removeClass('active');

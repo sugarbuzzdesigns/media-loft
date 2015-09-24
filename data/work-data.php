@@ -150,7 +150,7 @@
 			'slides' => array(
 					array(
 						'label'=>'Global Sales Meeting Staging',
-						'description'=> "<p>Held in Las Vegas, Singapore and Copenhagen, Dell's Field Readiness Seminars aligned 10,500 members of Dell's global sales organization. For the fifth year in a row,</p><p> Media Loft conceived and executed high-impact live elements plus video and motion graphics to unlock the power of Dell's strategic playbook.</p>",
+						'description'=> "<p>Held in Las Vegas, Singapore and Copenhagen, Dell's Field Readiness Seminars aligned 10,500 members of Dell's global sales organization.</p><p> For the fifth year in a row, Media Loft conceived and executed high-impact live elements plus video and motion graphics to unlock the power of Dell's strategic playbook.</p>",
 						'media'=> array('video','https://player.vimeo.com/external/137254630.hd.mp4?s=7d0a58c6fdaac0c14ee069c3356d9642&profile_id=113','https://player.vimeo.com/external/137254631.hd.mp4?s=266ae13aee25199cd085c1cb38ce2b6e&profile_id=113','Dell_Poster_Mobile.jpg'),
 						'media-mobile'=> array('https://player.vimeo.com/external/137254631.mobile.mp4?s=e472366b5e7ace0bcdf8d76c2e493967&profile_id=116')
 					),
@@ -326,7 +326,7 @@
 			'slides' => array(
 					array(
 						'label'=>'Email Campaign Motion Graphics',
-						'description'=> "<p>Staples Advantage has a rich holiday tradition of sending an interruptive greeting to its business customers. Media Loft developed this custom animated video with a retro aesthetic and warm holiday message.</p><p>The video email was followed with a set of custom giftwrap and tags of a complimentary design.</p>",
+						'description'=> "<p>Staples Advantage has a rich holiday tradition of sending an interruptive greeting to its business customers. Media Loft developed this custom animated video with a retro aesthetic and warm holiday message. The video email was followed with a set of custom giftwrap and tags of a complimentary design.</p>",
 						'media'=> array('video','https://player.vimeo.com/external/137254641.hd.mp4?s=70db6d536276dabbd7359efed5213d7c&profile_id=113','https://player.vimeo.com/external/137254642.hd.mp4?s=709e27fdf53d1a096e53dc76d2d6ec5e&profile_id=113', 'Staples_Poster_Mobile.jpg'),
 						'media-mobile'=> array('https://player.vimeo.com/external/137254642.mobile.mp4?s=0ca56bb48a4432800f69e8c1bb224a93&profile_id=116')
 					)

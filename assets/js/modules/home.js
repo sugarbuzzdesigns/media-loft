@@ -25,8 +25,13 @@
 		},
 
 		playHomeVideo: function(){
+			var _this = this;
+
 			this.$videoOverlay.addClass('show-me');
 			this.$homeFullVideo[0].play();
+			this.$homeFullVideo.on('ended', function(){
+				_this.closeHomeVideo();
+			});
 		},	
 
 		closeHomeVideo: function(){

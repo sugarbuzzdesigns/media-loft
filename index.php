@@ -168,19 +168,30 @@
 				<div class="article-content">
 					<strong>Go Pro</strong>
 					<p>Whenever practical, hire a designer. We know this is a little self-serving; after all, we employ a staff of highly talented PowerPoint designers and producers with years of shared experience. But when you see how quickly, efficiently, and imaginatively they can convert your prose into a compelling end product, you’ll want to insert professional PowerPoint support into every budget.</p>
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/ML_BLOG_ppt_tips_09_2015_large_1.jpg" alt="">
+					</div>	
 
 					<strong>Paint a picture</strong>
 					<p>Preferably something from the Impressionists catalog, because PowerPoint is about leaving impressions.  Favor images over words in your PowerPoint slides. These slides aren’t a substitute for the story you are telling. They should complement your story in a way that is immediately grasped, leaving a strong visual and emotional impression. Be charitable. If you are presenting figures and statistics, think about how much of this data an audience can reasonably be expected to absorb. Not much, right? So think of alternate ways to communicate this info, or edit the numbers down to the most important stats the audience needs to know RIGHT NOW.</p>
-
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/ML_BLOG_ppt_tips_09_2015_large_2.jpg" alt="">
+					</div>	
 					<strong>Polly Doesn’t Want a Cracker</strong>
 					<p>Don’t parrot the words on the slide. Let the audience absorb them while you help them connect the dots between what YOU are saying and what they just read. Every once in awhile you might want to deliberately create a slide that visually contradicts your point. A silly example:  if you say, “We’re putting more backbone into next year’s media buy,” you support that by showing an image of a jellyfish. Audience thinks: oh, yeah, now we’ve got backbone.</p>
-
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/ML_BLOG_ppt_tips_09_2015_large_3.jpg" alt="">
+					</div>	
 					<strong>Nature Abhors a Vacuum, But Audiences Don’t</strong>
 					<p>There are times when it is perfectly okay to rest on a slide of your corporate logo or meeting theme or a hamster eating a tiny cheeseburger. Don’t feel as if every point you want to make needs to be illuminated on the screen. We all have a cognitive threshold and the return on investment when you surpass it is very, very small. (In fact, it’s never a bad idea to think, “What is the one thing I want this audience to remember from my presentation today?”)</p>
-
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/ML_BLOG_ppt_tips_09_2015_large_4.jpg" alt="">
+					</div>	
 					<strong>Edit Your List of 10 Down to 5</strong>
 					<p>Compress, prune, hack, and trim. Abraham Lincoln needed only 272 words in his Gettysburg Address to commemorate the Union cause, yet his speech remains one of the most powerful presentations in American history. Evaluate every slide and every word and think of a way to make it more visually compelling and more pithy. Challenge yourself and your ego. Take solace in knowing that a great presentation is as much about what’s been left out as what’s been left in. </p>
-
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/ML_BLOG_ppt_tips_09_2015_large_5.jpg" alt="">
+					</div>	
 					<div class="social">
 						<!-- http://www.facebook.com/sharer/sharer.php?u=[URL]&title=[TITLE] -->
 						<a class="facebook" data-url="/blog/#/madish-men" data-title="Mad(ish) Men" href=""><i class="fa fa-facebook-official"></i></a>
