@@ -3459,9 +3459,30 @@ SVG STYLES
 				fill-opacity: 0;
 				stroke: rgba(0,0,0,0.2);
 				stroke-width: 0.5;
+				stroke-dasharray: 2000;
+				stroke-dashoffset: 2000;		
 			}    		
 	    }	     	
     }
+}
+
+.loaded .left-svg-container {
+	svg {
+		.light-grey {
+			path, line {
+				-webkit-animation-name: draw;
+				    animation-name: draw;
+				-webkit-animation-duration: 3s;
+				    animation-duration: 3s;
+				-webkit-animation-fill-mode: forwards;
+				    animation-fill-mode: forwards; // Stay on the last frame
+				-webkit-animation-iteration-count: 1; // Stay on the last frame
+				    animation-iteration-count: 1; // Run only once
+				-webkit-animation-timing-function: linear; // Run only once
+				    animation-timing-function: linear;						
+			}
+		}
+	}
 }
 
 // .page-services {

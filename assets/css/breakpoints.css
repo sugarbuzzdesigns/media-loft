@@ -4717,6 +4717,21 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     fill-opacity: 0;
     stroke: rgba(0, 0, 0, 0.2);
     stroke-width: 0.5;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+  }
+
+  .loaded .left-svg-container svg .light-grey path, .loaded .left-svg-container svg .light-grey line {
+    -webkit-animation-name: draw;
+    animation-name: draw;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
   }
 
   @-webkit-keyframes draw {

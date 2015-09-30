@@ -242,14 +242,18 @@ ml = {};
 		ml.video.init();
 
 		ml.elms.$win.load(function(){
-			ml.elms.$body.addClass('loaded');
+			console.log('window loaded');
+			// clearTimeout(onLoadTimeout);
+
 			ml.elms.$loader.fadeOut();
+			ml.elms.$body.addClass('loaded');
 		});			
 
-		setTimeout(function(){
+		var onLoadTimeout = setTimeout(function(){
+			console.log('timeout done');
 			ml.elms.$loader.fadeOut();
 			ml.elms.$body.addClass('loaded');
-		}, 50);
+		}, 500);
 
 		ml.elms.$win.on('resize', myEfficientFn).resize();
 		ml.elms.$win.on('scroll', myEfficientFn).scroll();

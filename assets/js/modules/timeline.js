@@ -154,6 +154,9 @@
 			var cLeft = containerIndex * (sqRoot*3) + 40;
 			var containerWidth = sqRoot*3;
 
+			var translateX = 0;
+			var translateY = 0;
+
 			numBoxes = numBoxes || 4;
 			isLast = isLast || false;
 
@@ -178,14 +181,15 @@
 				var bottom = (sqRoot - this.squareSideLength)/2;
 
 				if(i % 2 === 0 && i != 0){
-					bottom = bottom + sqRoot/2;
-					left = left - (sqRoot/2);
+					// translateX = this.squareSideLength - 1;
+					// translateY = -this.squareSideLength + 1;
 				} else {
-					bottom = bottom;
+					
 				}
 
 				if(i === 3){
-					left = Math.floor(left - sqRoot);
+					translateX = this.squareSideLength - 1;
+					translateY = -this.squareSideLength + 1;	
 				}
 
 				if(i === 0){
@@ -193,14 +197,20 @@
 				}
 
 				if(i === 1){
+					translateX = this.squareSideLength - 1;
+					translateY = -this.squareSideLength + 1;					
 					boxZIndex = 3;
 				}
 
 				if(i === 2){
+					translateX = this.squareSideLength - 1;
+					translateY = (this.squareSideLength - 1) * -2;						
 					boxZIndex = 2;
 				}
 
 				if(i === 3){
+					translateX = (this.squareSideLength - 1) * 2;
+					translateY = (this.squareSideLength - 1) * -2;						
 					boxZIndex = 1;
 				}					
 
@@ -211,8 +221,11 @@
 					width: this.squareSideLength + 'px',
 				}).css({
 					position: 'absolute',
-					bottom: bottom,
-					left: left,
+					bottom: 0,
+					left: '50px',
+				    "-webkit-transform":"rotate(45deg) translate("+ translateX +"px,"+ translateY +"px)",
+				    "-ms-transform":"rotate(45deg) translate("+ translateX +"px,"+ translateY +"px)",
+				    "transform":"rotate(45deg) translate("+ translateX +"px,"+ translateY +"px)",
 					zIndex: boxZIndex
 				}).appendTo(container);
 

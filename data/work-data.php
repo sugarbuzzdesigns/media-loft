@@ -73,35 +73,35 @@
 					)					
 				)
 			),	
-		// array(
-		// 	'company name' => 'Mayo Clinic', 
-		// 	'category' => 'video',
-		// 	'thumb resting' => 'mayo_active_thumbnail.jpg',
-		// 	'thumb hover' => 'mayo_hover_thumbnail.jpg',
-		// 	'label'=>'Serivce Launch Video',
-		// 	'slides' => array(
-		// 			array(
-		// 				'label'=>'Serivce Launch',
-		// 				'description'=> "<p>Mayo Clinic asked Media Loft to create a series of promotional videos showcasing their new Center for Aging, dedicated to improving the quality of life for older adults.</p><p>In a metaphorical style both informative and evocative, these videos provided an overview of the many advances Mayo has achieved.</p>",
-		// 				'media'=> array('video','https://player.vimeo.com/external/137254632.hd.mp4?s=a2bad93f6dd577215b5b33efdf4c95e7&profile_id=113', 'https://player.vimeo.com/external/137306106.hd.mp4?s=3f86c16fbd172fdb3910c0ed70ac6c39&profile_id=113', 'Mayo_Poster_Mobile.jpg'),
-		// 				'media-mobile'=> array('https://player.vimeo.com/external/137306106.mobile.mp4?s=8881fb16a423e70880812a42d25ca235&profile_id=116')
-		// 			)
-		// 		),
-		// 	'related' => array(
-		// 			array(
-		// 				'url' => 'target',
-		// 				'background' => 'Target',
-		// 				'company' => 'Target',
-		// 				'category' => 'video'
-		// 			),
-		// 			array(
-		// 				'url' => 'rzr',
-		// 				'background' => 'RZR',
-		// 				'company' => 'RZR',
-		// 				'category' => 'video'
-		// 			)					
-		// 		)			
-		// 	),	
+		array(
+			'company name' => 'Mayo Clinic', 
+			'category' => 'video',
+			'thumb resting' => 'mayo_active_thumbnail.jpg',
+			'thumb hover' => 'mayo_hover_thumbnail.jpg',
+			'label'=>'Serivce Launch Video',
+			'slides' => array(
+					array(
+						'label'=>'Serivce Launch',
+						'description'=> "<p>Mayo Clinic asked Media Loft to create a series of promotional videos showcasing their new Center for Aging, dedicated to improving the quality of life for older adults.</p><p>In a metaphorical style both informative and evocative, these videos provided an overview of the many advances Mayo has achieved.</p>",
+						'media'=> array('video','https://player.vimeo.com/external/137254632.hd.mp4?s=a2bad93f6dd577215b5b33efdf4c95e7&profile_id=113', 'https://player.vimeo.com/external/137306106.hd.mp4?s=3f86c16fbd172fdb3910c0ed70ac6c39&profile_id=113', 'Mayo_Poster_Mobile.jpg'),
+						'media-mobile'=> array('https://player.vimeo.com/external/137306106.mobile.mp4?s=8881fb16a423e70880812a42d25ca235&profile_id=116')
+					)
+				),
+			'related' => array(
+					array(
+						'url' => 'target',
+						'background' => 'Target',
+						'company' => 'Target',
+						'category' => 'video'
+					),
+					array(
+						'url' => 'rzr',
+						'background' => 'RZR',
+						'company' => 'RZR',
+						'category' => 'video'
+					)					
+				)			
+			),	
 		array(
 			'company name' => 'Indian Motorcycle', 
 			'category' => 'staging',

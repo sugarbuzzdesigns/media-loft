@@ -20,7 +20,7 @@
 
 #timeline2 {
   background-color: #313131;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
 #timeline2 .timeline-wrap {
@@ -128,6 +128,10 @@
   margin-top: 0;
   margin-bottom: 0;
   width: 100%;  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #timeline2 .timeline-block .info {
@@ -308,7 +312,7 @@ div.scrollingHotSpotLeft {
   }
 
   #timeline2 .timeline-block .info .inner {
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
   }
 }

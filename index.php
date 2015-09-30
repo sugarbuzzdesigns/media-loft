@@ -13,7 +13,7 @@
 								</div>
 							</div>								
 							<div class="info">
-								<span class="category">Design</span> / <span class="date">08.24.15</span>
+								<span class="category">Design</span> / <span class="date">09.28.15</span>
 							</div>
 						</div>	
 					</div>					
