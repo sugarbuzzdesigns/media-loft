@@ -351,8 +351,8 @@
 					array(
 						'label'=>'Compilation Reel',
 						'description'=> "<p>It may be lonely at the top. But we can make it decidedly less daunting when your executive speaker is surrounded by visual support this good. Guaranteed to turn talking points into dynamic, powerful, memorable statements.</p>",
-						'media'=> array('video','https://player.vimeo.com/external/137254643.hd.mp4?s=a434865f1d3e4b610c9e307c515cc574&profile_id=113','https://player.vimeo.com/external/137254639.hd.mp4?s=c6b7f92aa5a25bb7cab88a171b32666f&profile_id=113', 'Show_Poster_Mobile.jpg'),
-						'media-mobile'=> array('https://player.vimeo.com/external/137254639.mobile.mp4?s=2df1e0b3e6595c10ae4374138c1527c8&profile_id=116')
+						'media'=> array('video','https://player.vimeo.com/external/141553726.hd.mp4?s=006142f8baa0efb8916d45fa4ecb9cbc&profile_id=113','https://player.vimeo.com/external/141553727.hd.mp4?s=98e7972b197e888775483d9254601a05&profile_id=113', 'Show_Poster_Mobile.jpg'),
+						'media-mobile'=> array('https://player.vimeo.com/external/141553726.mobile.mp4?s=0695e1c8d2832168e4dfcef644105fe9&profile_id=116')
 					)
 				),
 			'related' => array(				
