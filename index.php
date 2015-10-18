@@ -144,7 +144,7 @@
 					<a href="#" data-related-article="madish-men" class="related-article blog-article">
 						<h2 class="title">Mad(ish) Men</h2>
 						<div class="info">
-							<span class="category">staging</span> / <span class="date">8.19.15</span>
+							<span class="category">staging</span> / <span class="date">8.14.15</span>
 						</div>
 						<div class="full-bleed blog-header-bg" style="background-image:url(<?php echo IMG_DIR; ?>/blog/MadishMen_Header.jpg);"></div>
 					</a>
