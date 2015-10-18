@@ -21,13 +21,13 @@
 						'company' => 'RZR',
 						'category' => 'video'
 					)
-					// ,
-					// array(
-					// 	'url' => 'mayo-clinic',
-					// 	'background' => 'Mayo',
-					// 	'company' => 'Mayo Clinic',
-					// 	'category' => 'video'
-					// )					
+					,
+					array(
+						'url' => 'mayo-clinic',
+						'background' => 'Mayo',
+						'company' => 'Mayo Clinic',
+						'category' => 'video'
+					)					
 				)			
 			),
 		array(
@@ -60,12 +60,12 @@
 					)																
 				),
 			'related' => array(
-					// array(
-					// 	'url' => 'mayo-clinic',
-					// 	'background' => 'Mayo',
-					// 	'company' => 'Mayo Clinic',
-					// 	'category' => 'video'
-					// ),
+					array(
+						'url' => 'mayo-clinic',
+						'background' => 'Mayo',
+						'company' => 'Mayo Clinic',
+						'category' => 'video'
+					),
 					array(
 						'url' => 'target',
 						'background' => 'Target',
@@ -74,35 +74,35 @@
 					)					
 				)
 			),	
-		// array(
-		// 	'company name' => 'Mayo Clinic', 
-		// 	'category' => 'video',
-		// 	'thumb resting' => 'mayo_active_thumbnail.jpg',
-		// 	'thumb hover' => 'mayo_hover_thumbnail.jpg',
-		// 	'label'=>'Serivce Launch Video',
-		// 	'slides' => array(
-		// 			array(
-		// 				'label'=>'Serivce Launch',
-		// 				'description'=> "<p>Mayo Clinic asked Media Loft to create a series of promotional videos showcasing their new Center for Aging, dedicated to improving the quality of life for older adults.</p><p>In a metaphorical style both informative and evocative, these videos provided an overview of the many advances Mayo has achieved.</p>",
-		// 				'media'=> array('video','https://player.vimeo.com/external/137254632.hd.mp4?s=a2bad93f6dd577215b5b33efdf4c95e7&profile_id=113', 'https://player.vimeo.com/external/137306106.hd.mp4?s=3f86c16fbd172fdb3910c0ed70ac6c39&profile_id=113', 'Mayo_Poster_Mobile.jpg'),
-		// 				'media-mobile'=> array('https://player.vimeo.com/external/137306106.mobile.mp4?s=8881fb16a423e70880812a42d25ca235&profile_id=116')
-		// 			)
-		// 		),
-		// 	'related' => array(
-		// 			array(
-		// 				'url' => 'target',
-		// 				'background' => 'Target',
-		// 				'company' => 'Target',
-		// 				'category' => 'video'
-		// 			),
-		// 			array(
-		// 				'url' => 'rzr',
-		// 				'background' => 'RZR',
-		// 				'company' => 'RZR',
-		// 				'category' => 'video'
-		// 			)					
-		// 		)			
-		// 	),	
+		array(
+			'company name' => 'Mayo Clinic', 
+			'category' => 'video',
+			'thumb resting' => 'mayo_active_thumbnail.jpg',
+			'thumb hover' => 'mayo_hover_thumbnail.jpg',
+			'label'=>'Serivce Launch Video',
+			'slides' => array(
+					array(
+						'label'=>'Serivce Launch',
+						'description'=> "<p>Mayo Clinic asked Media Loft to create a series of promotional videos showcasing their new Center for Aging, dedicated to improving the quality of life for older adults.</p><p>In a metaphorical style both informative and evocative, these videos provided an overview of the many advances Mayo has achieved.</p>",
+						'media'=> array('video','https://player.vimeo.com/external/137254632.hd.mp4?s=a2bad93f6dd577215b5b33efdf4c95e7&profile_id=113', 'https://player.vimeo.com/external/137306106.hd.mp4?s=3f86c16fbd172fdb3910c0ed70ac6c39&profile_id=113', 'Mayo_Poster_Mobile.jpg'),
+						'media-mobile'=> array('https://player.vimeo.com/external/137306106.mobile.mp4?s=8881fb16a423e70880812a42d25ca235&profile_id=116')
+					)
+				),
+			'related' => array(
+					array(
+						'url' => 'target',
+						'background' => 'Target',
+						'company' => 'Target',
+						'category' => 'video'
+					),
+					array(
+						'url' => 'rzr',
+						'background' => 'RZR',
+						'company' => 'RZR',
+						'category' => 'video'
+					)					
+				)			
+			),	
 		array(
 			'company name' => 'Indian Motorcycle', 
 			'category' => 'staging',
@@ -276,24 +276,24 @@
 
 				)
 			),
-		// array(
-		// 	'company name' => 'Optum', 
-		// 	'category' => 'interactive',
-		// 	'thumb resting' => 'optum_active_thumbnail.jpg',
-		// 	'thumb hover' => 'optum_hover_thumbnail.jpg',
-		// 	'label'=>'Simulcast Event Interactive',
-		// 	'slides' => array(
-		// 			array(
-		// 				'label'=>'Simulcast Event Interactive',
-		// 				'description'=> "<p>To make their annual employee appreciation day especially eventful, Media Loft helped produce a live online simulcast available to all 80,000 Optum employees across the globe.</p><p>Optum executives served as show co-hosts in a \"Today Show\"-style broadcast that included pre-taped video roll-ins, executive interviews and employees celebrating in Australia, India, England and the Philippines.</p>",
-		// 				'media'=> array('video','https://player.vimeo.com/external/137254634.hd.mp4?s=f51450901d6fa0fc86187ed49db1872e&profile_id=113','https://player.vimeo.com/external/138750185.hd.mp4?s=b18e701185d035762416a898a19a5de3&profile_id=113', 'Optum_Poster_Mobile.jpg'),
-		// 				'media-mobile'=> array('https://player.vimeo.com/external/138750185.mobile.mp4?s=1f18f58959cef6d5d21c5e5ec8343107&profile_id=116')
-		// 			)
-		// 		),
-		// 	'related' => array(
+		array(
+			'company name' => 'Optum', 
+			'category' => 'interactive',
+			'thumb resting' => 'optum_active_thumbnail.jpg',
+			'thumb hover' => 'optum_hover_thumbnail.jpg',
+			'label'=>'Simulcast Event Interactive',
+			'slides' => array(
+					array(
+						'label'=>'Simulcast Event Interactive',
+						'description'=> "<p>To make their annual employee appreciation day especially eventful, Media Loft helped produce a live online simulcast available to all 80,000 Optum employees across the globe.</p><p>Optum executives served as show co-hosts in a \"Today Show\"-style broadcast that included pre-taped video roll-ins, executive interviews and employees celebrating in Australia, India, England and the Philippines.</p>",
+						'media'=> array('video','https://player.vimeo.com/external/137254634.hd.mp4?s=f51450901d6fa0fc86187ed49db1872e&profile_id=113','https://player.vimeo.com/external/138750185.hd.mp4?s=b18e701185d035762416a898a19a5de3&profile_id=113', 'Optum_Poster_Mobile.jpg'),
+						'media-mobile'=> array('https://player.vimeo.com/external/138750185.mobile.mp4?s=1f18f58959cef6d5d21c5e5ec8343107&profile_id=116')
+					)
+				),
+			'related' => array(
 				
-		// 		)			
-		// 	),
+				)			
+			),
 		array(
 			'company name' => 'Motion GFX', 
 			'category' => 'motion graphics',
