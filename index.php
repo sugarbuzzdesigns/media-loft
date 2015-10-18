@@ -112,7 +112,7 @@
 								<h2 class="title">Who You Gonna Call?</h2>
 							</div>
 							<div class="info">
-								<span class="category">staging</span> / <span class="date">08.19.15</span>
+								<span class="category">staging</span> / <span class="date">07.01.15</span>
 							</div>							
 						</div>	
 					</div>
