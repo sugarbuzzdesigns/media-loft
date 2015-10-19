@@ -78,7 +78,7 @@
 											<?php } ?>			
 
 											<!-- first frame must match  -->
-											<video loop preload="none" class="work-video work-loop-video" class="work-video">
+											<video loop class="work-video work-loop-video" class="work-video">
 												<source src="<?php echo $slide['media'][1]; ?>">
 											</video>
 																						
