@@ -77,10 +77,13 @@
 											</video>											
 											<?php } ?>			
 
+											<!-- Only show loop if we are NOT in mobile -->
+											<?php if(!$detect->isMobile()) { ?>
 											<!-- first frame must match  -->
-											<video loop preload="none" class="work-video work-loop-video" class="work-video">
+											<video loop class="work-video work-loop-video" class="work-video">
 												<source src="<?php echo $slide['media'][1]; ?>">
 											</video>
+											<?php } ?>
 																						
 											<a href="#" class="close-video"><i></i></a>
 										</div>
