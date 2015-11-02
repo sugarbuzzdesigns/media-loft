@@ -242,7 +242,7 @@
 						'label'=>'Sales Event Staging',
 						'description'=> "<p>For almost four decades Media Loft has been producing Sales Meetings for Polaris. These bi-annual events are an essential tool for launching new products, unveiling new retail initiatives and stoking dealer pride.</p><p>The 60th Anniversary gathering featured a 5,000-seat theater that hosted over 20 new product introductions, a hall of fame induction ceremony, and headline concerts by Big & Rich and Zac Brown Band.</p><p>When not in the theater, dealers got first-hand experience with all the new products through small group walk-arounds, a 150,000 sq. ft. display area and a custom-made demo track. </p>",
 						'media'=> array('video','https://player.vimeo.com/external/137254637.hd.mp4?s=a5bb94fa4991da7ecdb6c871c6e9701c&profile_id=113','https://player.vimeo.com/external/137254636.hd.mp4?s=4db5de5ff4b4144e2ff4654fcc879bdd&profile_id=113', 'Polaris_Poster_Mobile.jpg'),
-						'media-mobile'=> array('https://player.vimeo.com/external/137254636.mobile.mp4?s=d0ec60548591bdb9cc411d80bdec8eff&profile_id=116')
+						'media-mobile'=> array('https://player.vimeo.com/external/137254636.mobile.mp4?s=7c2fd3b4d3e5c15c3d74bcc1471be77b2d7b32b9&profile_id=116')
 					),
 					array(
 						'label'=>'Sales Event Staging',
