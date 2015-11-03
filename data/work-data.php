@@ -11,7 +11,7 @@
 						'label'=>'Online Diversity Campaign Videos',
 						'description'=> '<p>For this series of videos highlighting the diversity of Target team around the US, we had to work fast. So we sent video crews to three cities simultaneously where they captured 35 interviews in just two days.</p><p>With around-the-clock editing and an elegant, original music score, in just seven days we delivered a campaign of, in the words of our client, "flawless, goose bump-inducing" videos.</p>',
 						'media'=> array('video','https://player.vimeo.com/external/137254646.hd.mp4?s=20dbcd1a7114a5c049b84b6d6c9d0d9d&profile_id=113', 'https://player.vimeo.com/external/137254640.hd.mp4?s=9dc7d4ecc33dca5cbe71e89f0e46123e&profile_id=113', 'Target_Poster_Mobile.jpg'),
-						'media-mobile'=> array('https://player.vimeo.com/external/137254628.mobile.mp4?s=6d0488f68a3b5bc6485f2757518868a2&profile_id=116')
+						'media-mobile'=> array('https://player.vimeo.com/external/137254640.mobile.mp4?s=488bd5e7b4c83582205c0ae717789255&profile_id=116')
 					)
 				),
 			'related' => array(
