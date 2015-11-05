@@ -25,6 +25,7 @@
 		},
 
 		playHomeVideo: function(){
+			return;
 			var _this = this;
 
 			this.$videoOverlay.addClass('show-me');

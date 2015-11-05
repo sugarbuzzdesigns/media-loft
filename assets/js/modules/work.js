@@ -1,8 +1,8 @@
-(function($){
+(function IIFE($){
 
 	ml.Work = {
 
-		init: function(){
+		init: function init(){
 			this.$workItemsContainer = $('#work-items');
 			this.$workItems = $('.work-item');
 			this.$workSummary = $('.work-summary');
@@ -41,7 +41,7 @@
 			this.bindEvents();
 		},
 
-		bindEvents: function(){
+		bindEvents: function bindEvents(){
 			var _this = this;
 
 			$.address.change(function(event) {  
@@ -179,7 +179,7 @@
 				}
 			});
 
-			$(document).keydown(function(e){
+			$(document).keydown(function bindKeyDown(e){
 				if(_this.$curWorkItem == null){ return; }
 
 				var curCarouselItem = _this.$curWorkItem.find('.carousel-item')[_this.carouselIndex];
@@ -206,7 +206,7 @@
 			});					
 		},	
 
-		setUpWorkPage: function(){
+		setUpWorkPage: function setUpWorkPage(){
 			var workItemWidth = this.$workItems[0].getBoundingClientRect().width,
 				numWorkItems = this.$workItems.length,
 				workItemsContainerWidth = workItemWidth*numWorkItems;
@@ -242,7 +242,7 @@
 			}, 500);
 		},		
 
-		openWorkItem: function($item){
+		openWorkItem: function openWorkItem($item){
 			console.log('open work item');
 			var _this = this,
 				$loopVideo;
@@ -294,7 +294,7 @@
 			_this.updateUrl($item.attr('id'));
 		},
 
-		closeWorkItem: function($item){
+		closeWorkItem: function closeWorkItem($item){
 			this.hideReadMore();
 
 			if(this.$curWorkItem.data('filterIndex') != this.$workItems.length - 1){
@@ -715,6 +715,8 @@
 			$('.work-full-video', $curWorkItem).show().css('opacity', 1);
 
 			ml.elms.$body.addClass('show-video');
+
+			return;
 
 			$fullVideo[0].play();
 			$fullVideo.on('ended', function(){

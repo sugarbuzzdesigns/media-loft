@@ -239,7 +239,7 @@ ml = {};
 		ml.env.init();
 		ml.mainMenu.init();
 		ml.rightMenu.init();
-		ml.video.init();
+		// ml.video.init();
 
 		ml.elms.$win.load(function(){
 			console.log('window loaded');

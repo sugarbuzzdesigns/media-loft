@@ -68,11 +68,11 @@
 											</div>
 											
 											<?php if(!$detect->isTablet() && !$detect->isMobile()) { ?>
-											<video class="work-video work-full-video" class="work-video">
+											<video preload="none" class="work-video work-full-video" class="work-video">
 												<source data-src="<?php echo $slide['media'][2]; ?>">
 											</video>	
 											<?php } else { ?>	
-											<video class="work-video work-full-video" class="work-video">
+											<video preload="none" class="work-video work-full-video" class="work-video">
 												<source data-src="<?php echo $slide['media-mobile'][0]; ?>">
 											</video>											
 											<?php } ?>			
@@ -80,7 +80,7 @@
 											<!-- Only show loop if we are NOT in mobile -->
 											<?php if(!$detect->isMobile()) { ?>
 											<!-- first frame must match  -->
-											<video loop class="work-video work-loop-video" class="work-video">
+											<video preload="none" loop class="work-video work-loop-video" class="work-video">
 												<source src="<?php echo $slide['media'][1]; ?>">
 											</video>
 											<?php } ?>

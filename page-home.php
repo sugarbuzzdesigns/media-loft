@@ -37,7 +37,8 @@
 			<div class="left-svg-container">	
 				<svg class="scaling-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 					 viewBox="0 0 1287.375 1098.061" enable-background="new 0 0 1287.375 1098.061"
-					 xml:space="preserve">
+					 xml:space="preserve"
+					 preserveAspectRatio="xMinYMid">
 
 				<g id="Layer_1_2_">
 					<g id="Layer_2" display="none">
@@ -68,16 +69,22 @@
 			</div>
 		<?php if(!wp_is_mobile()){ ?>		
 			<div class="video-bg-container">
-				<video id="home-video-loop" preload="none" autoplay loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
+<!-- 				<video id="home-video-loop" preload="none" autoplay loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
 					<source src="https://player.vimeo.com/external/136553579.hd.mp4?s=fa481af6256bf87c0fb6764be81ea63e&profile_id=113">
-				</video>
+				</video> -->
+<!-- 				<video id="example_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup='{"example_option":true}'>
+					<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+					<source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+					<source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+					<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+				</video>	 -->			
 			</div>
 		<?php } ?>
-		<div class="video-overlay" id="home-video-overlay">
+<!-- 		<div class="video-overlay" id="home-video-overlay">
 			<video id="home-video-full" preload="none" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
 				<source src="https://player.vimeo.com/external/139662257.hd.mp4?s=2a54ab9dad1187defbe6567e72b398db&profile_id=113">
 			</video>	
 			<a href="#" class="close-video"><i></i></a>			
-		</div>					
+		</div>	 -->				
 	</section>	
 <?php get_footer(); ?>

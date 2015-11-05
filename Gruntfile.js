@@ -11,13 +11,22 @@ module.exports = function(grunt) {
 				'no-write': false
 			}
 		},
+		concat_css: {
+		    options: {
+		        // Task-specific options go here. 
+		    },
+		    all: {
+		      	src: ['assets/css/css-dependencies.css', 'assets/css/breakpoints.css', 'assets/css/tiles.css', 'assets/css/timeline.css', 'assets/css/animate.css'], 
+		    	dest: 'assets/css/style.css'
+		    }
+		},		
 		concat: {
-			task: {
-				src: ['assets/css/css-dependencies.css', 'assets/css/breakpoints.css'], 
-				dest: 'assets/css/style.css'
+			vendor: {
+				src: ['assets/js/vendor/jquery-ui.js','assets/js/vendor/*.js'],
+				dest: 'assets/js/vendor/vendor.min.js'
 			},
 			options: {
-				'separator': grunt.util.linefeed,
+				'separator': ';\n',
 				'banner': '',
 				'footer': '',
 				'stripBanners': false,
@@ -28,7 +37,7 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			files: ['assets/scss/**/*.scss'], 
+			files: ['assets/scss/**/*.scss', 'assets/js/**/*.js'], 
 			tasks: ['dev']
 		},
 		jshint: {
@@ -48,8 +57,8 @@ module.exports = function(grunt) {
 		},
 		cssmin: {
 			task: {
-				src: ['source'], 
-				dest: 'destination'
+				src: ['assets/css/style.css'], 
+				dest: 'assets/css/style.min.css'
 			},
 			options: {
 				'banner': null,
@@ -59,12 +68,15 @@ module.exports = function(grunt) {
 		},
 		uglify: {
 			task: {
-				src: ['source'], 
-				dest: 'destination'
+				files: {
+					'assets/js/libs/libs.min.js' : 'assets/js/libs/libraries.js',
+					'assets/js/ml.min.js' : 'assets/js/ml.js',
+					'assets/js/modules/work.min.js' : 'assets/js/modules/work.js'
+				}
 			},
 			options: {
-				'mangle': {},
-				'compress': {},
+				'mangle': false,
+				'compress': { unused: false },
 				'beautify': false,
 				'expression': false,
 				'report': 'min',
@@ -91,7 +103,7 @@ module.exports = function(grunt) {
 				// dest: 'assets/css/style.css'
 			},
 			options: {
-				'browsers': ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],
+				'browsers': ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'ie 11', 'ie 10'],
 				'cascade': true,
 				'diff': false,
 				'map': false,
@@ -133,6 +145,7 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-concat-css');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -141,11 +154,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	// grunt.loadNpmTasks('grunt-contrib-compass');	
 
-	// grunt.registerTask('default', ['clean', 'concat', 'watch', 'jshint', 'cssmin', 'uglify', 'autoprefixer', 'sass', 'compass']);
-	grunt.registerTask('build', ['sass:dist', 'concat', 'autoprefixer']);
-	grunt.registerTask('dev', ['sass:dev', 'concat', 'autoprefixer']);
-
-
-
-
+	grunt.registerTask('build', ['sass:dist', 'concat_css', 'concat', 'autoprefixer', 'cssmin', 'uglify']);
 };
