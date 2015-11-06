@@ -8272,6 +8272,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     -ms-transform: translate(0, -50%);
         transform: translate(0, -50%);
     height: 100%;
+    width: 100%;
   }
   .left-svg-container svg {
     position: absolute;
