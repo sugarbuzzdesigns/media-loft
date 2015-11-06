@@ -72,12 +72,12 @@
 <!-- 				<video id="home-video-loop" preload="none" autoplay loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
 					<source src="https://player.vimeo.com/external/136553579.hd.mp4?s=fa481af6256bf87c0fb6764be81ea63e&profile_id=113">
 				</video> -->
-<!-- 				<video id="example_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup='{"example_option":true}'>
+				<video id="example_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup='{"example_option":true}'>
 					<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
 					<source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
 					<source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
 					<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-				</video>	 -->			
+				</video>		
 			</div>
 		<?php } ?>
 <!-- 		<div class="video-overlay" id="home-video-overlay">
