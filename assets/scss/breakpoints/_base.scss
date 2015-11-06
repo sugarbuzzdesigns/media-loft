@@ -700,13 +700,13 @@ FULL BLEED VIDEO
 }
 
 .desktop .video-bg-container video {
-	opacity: 0;
+	opacity: 1;
 	transition: opacity 0.5s ease;
 }
 
-.desktop .video-bg-container video.canplay {
-	opacity: 1;
-}
+// .desktop .video-bg-container video.canplay {
+// 	opacity: 1;
+// }
 
 #full-screen-video {
 	top: 0;

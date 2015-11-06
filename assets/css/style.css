@@ -5840,13 +5840,9 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   .desktop .video-bg-container video {
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: opacity 0.5s ease;
             transition: opacity 0.5s ease;
-  }
-
-  .desktop .video-bg-container video.canplay {
-    opacity: 1;
   }
 
   #full-screen-video {
