@@ -52,12 +52,4 @@ $(function(){
 			$(".weather").html('<p>'+error+'</p>');
 		}
 	});	
-
-	if(ML_vars.device === 'desktop'){
-		var contactVideo = $('#contact-video')[0];
-
-		contactVideo.addEventListener('canplay', function(){
-			$(contactVideo).css('opacity', 1);
-		});				
-	}	
 });
