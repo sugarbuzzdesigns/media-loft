@@ -104,20 +104,21 @@ add_action( 'wp_head', 'medialoft_javascript_detection', 0 );
 function medialoft_scripts() {
 	global $detect;
 
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'jquery-ui.js', get_template_directory_uri() . '/assets/js/vendor/jquery-ui.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'jquery-mousewheel', get_template_directory_uri() . '/assets/js/vendor/jquery-mousewheel.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'jquery-kinetic', get_template_directory_uri() . '/assets/js/vendor/jquery-kinetic.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'jquery-smoothscroll', get_template_directory_uri() . '/assets/js/vendor/jquery-smoothscroll.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'ml-libraries', get_template_directory_uri() . '/assets/js/libs/libraries.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'medialoft-script', get_template_directory_uri() . '/assets/js/ml.js', array( 'jquery' ), true );
+	// wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr.js', array( 'jquery' ), true );
+	// wp_enqueue_script( 'jquery-ui.js', get_template_directory_uri() . '/assets/js/vendor/jquery-ui.js', array( 'jquery' ), true );
+	// wp_enqueue_script( 'jquery-mousewheel', get_template_directory_uri() . '/assets/js/vendor/jquery-mousewheel.js', array( 'jquery' ), true );
+	// wp_enqueue_script( 'jquery-kinetic', get_template_directory_uri() . '/assets/js/vendor/jquery-kinetic.js', array( 'jquery' ), true );
+	// wp_enqueue_script( 'jquery-smoothscroll', get_template_directory_uri() . '/assets/js/vendor/jquery-smoothscroll.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'ml-vendor', get_template_directory_uri() . '/assets/js/vendor/vendor.min.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'ml-libraries', get_template_directory_uri() . '/assets/js/libs/libs.min.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'medialoft-script', get_template_directory_uri() . '/assets/js/ml.min.js', array( 'jquery' ), true );
 
 	if(is_front_page() || is_page('home')){
 		wp_enqueue_script( 'home', get_template_directory_uri() . '/assets/js/modules/home.js', array( 'jquery' ), true );		
 	}
 
 	if(is_page('work')){
-		wp_enqueue_script( 'work', get_template_directory_uri() . '/assets/js/modules/work.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'work', get_template_directory_uri() . '/assets/js/modules/work.min.js', array( 'jquery' ), true );		
 	}
 
 	if(is_page('about')){

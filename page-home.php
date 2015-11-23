@@ -69,15 +69,17 @@
 			</div>
 		<?php if(!wp_is_mobile()){ ?>		
 			<div class="video-bg-container">
-				<video id="home-video-loop" preload="none" autoplay loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
-					<source src="https://player.vimeo.com/external/136553579.hd.mp4?s=fa481af6256bf87c0fb6764be81ea63e&profile_id=113">
+				<video id="home-video-loop" width="auto" height="auto" class="video-js vjs-default-skin" loop autoplay data-setup='{}'>
+					<source src="https://player.vimeo.com/external/136553579.hd.mp4?s=fa481af6256bf87c0fb6764be81ea63e&profile_id=113" type='video/mp4' />
+					<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
 				</video>
 			</div>
 		<?php } ?>
-		<div class="video-overlay" id="home-video-overlay">
-			<video id="home-video-full" preload="none" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
-				<source src="https://player.vimeo.com/external/139662257.hd.mp4?s=2a54ab9dad1187defbe6567e72b398db&profile_id=113">
-			</video>	
+		<div id="home-video-overlay" class="video-overlay">
+			<video id="home-video-full" width="auto" height="auto" class="video-js vjs-default-skin" data-setup='{}'>
+				<source src="https://player.vimeo.com/external/139662257.hd.mp4?s=2a54ab9dad1187defbe6567e72b398db&profile_id=113" type='video/mp4' />
+				<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+			</video>
 			<a href="#" class="close-video"><i></i></a>			
 		</div>					
 	</section>	

@@ -1,4 +1,4 @@
-(function($){
+(function($, globals){
 
 	ml.home = {
 		init: function(){
@@ -6,6 +6,9 @@
 			this.$homeFullVideo = $('#home-video-full');
 
 			this.bindEvents();
+
+			this.bgVideo = videojs('home-video-loop');
+			this.overlayVideo = videojs('home-video-full');
 		},
 		
 		bindEvents: function(){
@@ -28,15 +31,19 @@
 			var _this = this;
 
 			this.$videoOverlay.addClass('show-me');
-			this.$homeFullVideo[0].play();
-			this.$homeFullVideo.on('ended', function(){
+			
+			this.bgVideo.pause();
+			this.overlayVideo.play();
+			this.overlayVideo.on('ended', function(){
 				_this.closeHomeVideo();
 			});
 		},	
 
 		closeHomeVideo: function(){
+			this.bgVideo.play();
+			
 			this.$videoOverlay.removeClass('show-me');
-			this.$homeFullVideo[0].pause();								
+			this.overlayVideo.pause();								
 		}
 			
 	}
@@ -45,4 +52,4 @@
 		ml.home.init();
 	});
 
-})(jQuery);
+})(jQuery, window);
