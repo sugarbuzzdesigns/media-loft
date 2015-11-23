@@ -210,6 +210,7 @@
 				$('blockquote .quote.last').addClass('show');
 				navCurNum = $('blockquote .quote').length;
 			} else {
+				// $('blockquote').height($('blockquote .quote.show').next().height());
 				$('blockquote .quote.show').removeClass('show').prev().addClass('show');	
 			}
 
@@ -227,6 +228,7 @@
 				$('blockquote .quote.first').addClass('show');
 				navCurNum = 1;
 			} else {
+				// $('blockquote').height($('blockquote .quote.show').next().height());
 				$('blockquote .quote.show').removeClass('show').next().addClass('show');	
 			}
 

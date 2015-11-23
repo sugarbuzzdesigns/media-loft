@@ -3,7 +3,7 @@
 var $ = jQuery;
 
 // Declare global namespace for ML object
-ml = {};
+var ml = {};
 
 /**
  * Start Media Loft Object
