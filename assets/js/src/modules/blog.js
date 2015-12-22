@@ -64,7 +64,7 @@ ml.Blog = {};
 				e.preventDefault();
 				e.stopPropagation();
 
-				_this.playBlogVideo();
+				_this.playBlogVideo($(this).data('video'));
 				
 			});
 
@@ -72,7 +72,7 @@ ml.Blog = {};
 			$('.close-video').on('click touchend', function(e){
 				e.preventDefault();
 
-				$('video')[0].pause();
+				_this.overlayVideo.pause();
 				$('#blog-video-overlay').removeClass('show-me');
 			});			
 		},
@@ -83,7 +83,7 @@ ml.Blog = {};
 					title = $(link).data('title');
 
 				if($(link).is('.twitter')){
-					$(link).attr('href', 'http://twitter.com/intent/tweet?status='+ encodeURIComponent(title) + '+' + encodeURIComponent(ML_vars.homes+url));
+					$(link).attr('href', 'http://twitter.com/intent/tweet?status='+ encodeURIComponent(title) + '+' + encodeURIComponent(window.location.protocol + '//' + window.location.host + url));
 				} else {
 					$(link).attr('href', 'http://www.facebook.com/sharer/sharer.php?u=http://ml.dev&title=' + encodeURIComponent(title));
 					$(link).on('click', function(e){
@@ -95,12 +95,19 @@ ml.Blog = {};
 		},
 
 		// TODO Make dynamic
-		playBlogVideo: function(){
-			$('#blog-video-overlay').addClass('show-me');		
+		playBlogVideo: function(videoId){
+			$('#blog-video-overlay').addClass('show-me');	
 
-			$('video').css('width', $(window).width()); 
+			$('#blog-video-overlay video').not('#' + videoId).hide();
 
-			$('video')[0].play();
+			$('#' + videoId).show();
+			$('#' + videoId).find('video').show();
+
+			this.overlayVideo = videojs('#' + videoId, {
+					'controls': true
+				});
+
+			this.overlayVideo.play();
 
 			// $('video').on('canplay', function(){
 			// 	console.log('play me');

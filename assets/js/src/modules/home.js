@@ -3,12 +3,9 @@
 	ml.home = {
 		init: function(){
 			this.$videoOverlay = $('#home-video-overlay');
-			this.$homeFullVideo = $('#home-video-full');
 
 			this.bindEvents();
-
-			this.bgVideo = videojs('home-video-loop');
-			this.overlayVideo = videojs('home-video-full');
+			this.initVideos();
 		},
 		
 		bindEvents: function(){
@@ -27,12 +24,25 @@
 			});									
 		},
 
+		initVideos: function(){
+			if (ML_vars.isMobile != '1') {
+				this.bgVideo = videojs('home-video-loop');
+			} else {
+				console.log('mobile, don\'t init.');
+			}
+
+			this.overlayVideo = videojs('home-video-full');
+		},
+
 		playHomeVideo: function(){
 			var _this = this;
 
 			this.$videoOverlay.addClass('show-me');
 			
-			this.bgVideo.pause();
+			if (this.bgVideo) {
+				this.bgVideo.pause();
+			};
+			
 			this.overlayVideo.play();
 			this.overlayVideo.on('ended', function(){
 				_this.closeHomeVideo();
@@ -40,7 +50,9 @@
 		},	
 
 		closeHomeVideo: function(){
-			this.bgVideo.play();
+			if (this.bgVideo) {
+				this.bgVideo.play();
+			};
 			
 			this.$videoOverlay.removeClass('show-me');
 			this.overlayVideo.pause();								

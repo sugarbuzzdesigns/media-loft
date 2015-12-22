@@ -68,20 +68,17 @@
 											</div>
 											
 											<?php if(!$detect->isTablet() && !$detect->isMobile()) { ?>
-											<video preload="none" class="work-video work-full-video" class="work-video">
-												<source data-src="<?php echo $slide['media'][2]; ?>">
+											<video class="work-video work-full-video video-js vjs-default-skin" data-src="<?php echo $slide['media'][2]; ?>">
 											</video>	
 											<?php } else { ?>	
-											<video preload="none" class="work-video work-full-video" class="work-video">
-												<source data-src="<?php echo $slide['media-mobile'][0]; ?>">
+											<video class="work-video work-full-video video-js vjs-default-skin" data-src="<?php echo $slide['media-mobile'][0]; ?>">
 											</video>											
 											<?php } ?>			
 
 											<!-- Only show loop if we are NOT in mobile -->
 											<?php if(!$detect->isMobile()) { ?>
 											<!-- first frame must match  -->
-											<video preload="none" loop class="work-video work-loop-video" class="work-video">
-												<source src="<?php echo $slide['media'][1]; ?>">
+											<video loop class="work-video work-loop-video video-js vjs-default-skin" class="work-video" data-src="<?php echo $slide['media'][1]; ?>">
 											</video>
 											<?php } ?>
 																						

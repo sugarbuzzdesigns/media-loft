@@ -1,8 +1,16 @@
 <?php get_header(); ?>
 	<section class="landing" id="services-landing">
 		<div class="svg-container white-stroke">
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-				 viewBox="0 0 480 598" enable-background="new 0 0 480 598" xml:space="preserve preserveAspectRatio="xMidYMid slice"">
+			<svg version="1.1" 
+					xmlns="http://www.w3.org/2000/svg" 
+					xmlns:xlink="http://www.w3.org/1999/xlink" 
+					x="0px" 
+					y="0px"
+				 	viewBox="0 0 480 598" 
+				 	enable-background="new 0 0 480 598" 
+				 	xml:space="preserve" 
+				 	preserveAspectRatio="xMidYMid slice">
+				 	
 			<path fill="none" stroke="#4C4B4C" stroke-width="2" stroke-miterlimit="10" d="M117.931,243.926L6.234,355.624
 				c-1.688,1.687-1.688,4.422,0,6.109l229.78,229.78c1.688,1.688,4.422,1.688,6.109,0L354.809,478.83c1.687-1.688,1.687-4.423,0-6.11
 				L122.078,239.99"/>
@@ -42,7 +50,7 @@
 			</svg> -->
 		</div>	
 		<blockquote>
-			<div class="inner">
+<!-- 			<div class="inner">
 				<div class="quote first show">
 					<span class="quote-mark"></span>
 					<hr>
@@ -93,7 +101,63 @@
 					<small>- P.J. O'Rourke</small>
 				</div>													
 			</div>	
-			<nav><span class="arrow prev"><</span> <span class="cur">01</span><span>/</span><span class="total"></span> <span class="arrow next">></span></nav>
+			<nav><span class="arrow prev"><</span> <span class="cur">01</span><span>/</span><span class="total"></span> <span class="arrow next">></span></nav> -->
+			<ul class="bxslider">
+			  <li class="quote">
+					<span class="quote-mark"></span>
+					<hr>
+					<span>Connection is why we're here; it is what gives purpose and meaning to our lives."</span>
+					<small>– Brene Browne</small>			  	
+			  </li>
+			  <li class="quote">
+					<span class="quote-mark"></span>
+					<hr>
+					<span>No good movie is too long and no bad movie</span>
+					<span>is short enough."</span>
+					<small>– Roger Ebert</small>			  	
+			  </li>
+			  <li class="quote">
+					<span class="quote-mark"></span>
+					<hr>
+					<span>Only the prepared speaker deserves to be confident."</span>
+					<small>– Dale Carnegie</small>			  	
+			  </li>
+			  <li class="quote">
+					<span class="quote-mark"></span>
+					<hr>
+					<span>I could never go onstage in denims."</span>
+					<small>– Elton John</small>			  	
+			  </li>
+			  <li class="quote">
+					<span class="quote-mark"></span>
+					<hr>
+					<span>Eloquent speech is not from lip to ear, but rather from heart to heart."</span>
+					<small>- William Jennings Bryan</small>			  	
+			  </li>
+			  <li class="quote">
+					<span class="quote-mark"></span>
+					<hr>
+					<span>The human species thinks in metaphors and learns through stories."</span>
+					<small>- Mary Catherine Bateson</small>			  	
+			  </li>
+			  <li class="quote">
+					<span class="quote-mark"></span>
+					<hr>
+					<span>You want to have butterflies in your stomach, because if you don't, if you walk out onstage complacent, that's not a good thing."</span>
+					<small>- Joan Jett</small>			  	
+			  </li>
+			  <li class="quote">
+					<span class="quote-mark"></span>
+					<hr>
+					<span>Never wear anything that panics the cat."</span>
+					<small>- P.J. O'Rourke</small>			  	
+			  </li>
+			</ul>	
+			<nav class="pager-container">
+				<a href="#" class="pager-prev prev arrow"><</a>
+				<div class="pager-numbers"></div>
+				<a href="#" class="pager-next next arrow">></a>		
+			</nav>	
 		</blockquote>
 	</section>
 	<section id="services-container">
@@ -344,4 +408,202 @@
 		</article>	
 	</section>					
 	<?php include('partials/services-menu.php'); ?>
+
+<style>
+.pager-container {
+	float: right;
+}
+
+a.pager-prev, a.pager-next, .pager-numbers {
+    display: inline-block;
+    text-decoration: none;
+    color: #CBCBB6;
+    font-style: italic;
+}
+/**
+ * bxSlider v4.2.5
+ * Copyright 2013-2015 Steven Wanderski
+ * Written while drinking Belgian ales and listening to jazz
+
+ * Licensed under MIT (http://opensource.org/licenses/MIT)
+ */
+
+/** VARIABLES 
+===================================*/
+/** RESET AND LAYOUT
+===================================*/
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  *zoom: 1;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+.bx-wrapper img {
+  max-width: 100%;
+  display: block;
+}
+.bxslider {
+  margin: 0;
+  padding: 0;
+}
+ul.bxslider {
+  list-style: none;
+}
+ul.bxslider li {
+	font-size: 2em;
+}
+
+.bx-viewport {
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+  transition: height 0.5s;
+}
+/** THEME
+===================================*/
+.bx-wrapper {
+}
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+/* LOADER */
+.bx-wrapper .bx-loading {
+  min-height: 50px;
+  background: url('images/bx_loader.gif') center center no-repeat #ffffff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+/* PAGER */
+.bx-wrapper .bx-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #666;
+  padding-top: 20px;
+}
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background: #666;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active,
+.bx-wrapper .bx-pager.bx-default-pager a:focus {
+  background: #000;
+}
+.bx-wrapper .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+.bx-wrapper .bx-pager-item {
+  font-size: 0;
+  line-height: 0;
+}
+/* DIRECTION CONTROLS (NEXT / PREV) */
+.bx-wrapper .bx-prev {
+  left: 10px;
+  background: url('images/controls.png') no-repeat 0 -32px;
+}
+.bx-wrapper .bx-prev:hover,
+.bx-wrapper .bx-prev:focus {
+  background-position: 0 0;
+}
+.bx-wrapper .bx-next {
+  right: 10px;
+  background: url('images/controls.png') no-repeat -43px -32px;
+}
+.bx-wrapper .bx-next:hover,
+.bx-wrapper .bx-next:focus {
+  background-position: -43px 0;
+}
+.bx-wrapper .bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none;
+}
+/* AUTO CONTROLS (START / STOP) */
+.bx-wrapper .bx-controls-auto {
+  text-align: center;
+}
+.bx-wrapper .bx-controls-auto .bx-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url('images/controls.png') -86px -11px no-repeat;
+  margin: 0 3px;
+}
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active,
+.bx-wrapper .bx-controls-auto .bx-start:focus {
+  background-position: -86px 0;
+}
+.bx-wrapper .bx-controls-auto .bx-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url('images/controls.png') -86px -44px no-repeat;
+  margin: 0 3px;
+}
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active,
+.bx-wrapper .bx-controls-auto .bx-stop:focus {
+  background-position: -86px -33px;
+}
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+  text-align: left;
+  width: 80%;
+}
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+  right: 0;
+  width: 35px;
+}
+/* IMAGE CAPTIONS */
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%;
+}
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px;
+}
+</style>
+
 <?php get_footer(); ?>

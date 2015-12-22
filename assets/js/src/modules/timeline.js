@@ -304,31 +304,54 @@
 
 		openTimelineVideo: function($link){
 			var _this = this,
-				videoUrl = $link.data('video-url');
+				videoUrl = $link.data('video-url'),
+				$video = $('<video id="about-timeline-video-full" width="auto" height="auto" class="video-js vjs-default-skin"></video>'),
+				$timelineVideoSrc = $('<source></source>');
 
-			_this.timelineVideo.attr('src', videoUrl);
+			$timelineVideoSrc.attr('src', videoUrl);
+
+			$timelineVideoSrc.appendTo($video);
+
+			$video.prependTo('#timeline-video-overlay');
 
 			_this.timeline.addClass('play-full-video');
 
-			_this.timelineVideo[0].addEventListener('canplay', function(){
-				console.log('can play it now!');
-			});
+			videojs('about-timeline-video-full', {
+				'autoplay': true,
+				'controls': true
+			}, function(){
+				console.log('timeline video ready');
 
-			_this.timelineVideo.on('canplay', function(){
-				$(this)[0].play();
-				console.log('can play');
-			});
+				_this.timelineVideo = this;
 
-			_this.timelineVideo.on('ended', function(){
-				_this.stopTimelineVideo();
-			});
+				this.play();
+
+				this.on('ended', function(){
+					console.log('close the video');
+
+					_this.stopTimelineVideo();
+				});				
+			});				
+
+			// _this.timelineVideo[0].addEventListener('canplay', function(){
+			// 	console.log('can play it now!');
+			// });
+
+			// _this.timelineVideo.on('canplay', function(){
+			// 	$(this)[0].play();
+			// 	console.log('can play');
+			// });
+
+			// _this.timelineVideo.on('ended', function(){
+			// 	_this.stopTimelineVideo();
+			// });
 		},
 
 		stopTimelineVideo: function(){
 			this.timeline.removeClass('play-full-video');
 
-			this.timelineVideo[0].pause();
-			this.timelineVideo.attr('src', '');
+			this.timelineVideo.pause();
+			this.timelineVideo.dispose();
 		},		
 	}
 

@@ -25,6 +25,12 @@ var ml = {};
 			this.isTouch = (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 			this.tapClick = this.isTouch ? 'touchend' : 'click';
 
+			// Listen for orientation changes
+			window.addEventListener("orientationchange", function() {
+				// Announce the new orientation number
+				$('body').trigger('mlorientationchange');
+			}, false);
+
 			this.setTouchClass();
 			this.setVideoAspectRatioClass();
 
@@ -264,6 +270,8 @@ var ml = {};
 
 			ml.elms.$loader.fadeOut();
 			ml.elms.$body.addClass('loaded');
+
+			ml.elms.$win.trigger('mlLoaded');
 		});			
 
 		var onLoadTimeout = setTimeout(function(){

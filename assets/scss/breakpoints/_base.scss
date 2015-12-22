@@ -35,8 +35,7 @@
     .isTouch .tablet #warning-message { display:none; }
 }
 @media only screen and (orientation:landscape){
-    .isTouch .mobile #warning-message,
-    .isTouch .tablet #warning-message { display:block; }
+    .isTouch .mobile #warning-message { display:block; }
 }
 
 .desktop #warning-message {
@@ -127,12 +126,8 @@ body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html {
 /**************************
 Shrunken desktop screen
 ***************************/		
-.noTouch {
-	.main-menu-btn {
-		.close-menu {
-			display: none;
-		}
-	}
+.noTouch .main-menu-btn .close-menu {
+	display: none;
 }
 
 /**************************
@@ -755,6 +750,10 @@ FULL BLEED VIDEO
 	}
 }
 
+.work-loop-video .vjs-loading-spinner {
+	top: 40%;
+}
+
 .show-video {
 	.work-carousel .close,
 	.menu-btn,
@@ -1372,6 +1371,7 @@ Contact page
 
 			.hours {
 				background-image: url(../images/icons/clock-hours.png);
+				transition: all 1s ease;
 			}
 
 			.minutes {
@@ -1502,7 +1502,7 @@ Blog page
 #blog-video-overlay {
 	left: -100%;
 	top: 0;
-	background: rgba(0,0,0,0.8);
+	background: rgb(0,0,0);
 	overflow: hidden;
 	width: 100%;
     height: 100%;
@@ -1512,6 +1512,8 @@ Blog page
 
 	video {
 		@include center-me;
+		width: 100%;
+		height: auto;
 	}
 
 	&.show-me {
@@ -1893,18 +1895,6 @@ Services Page
 
 				line, path {
 					stroke: rgba(255, 255, 255, 0.5);	
-					stroke-dasharray: 1870;
-					stroke-dashoffset: 1870;
-					-webkit-animation-name: draw;
-					        animation-name: draw;
-					-webkit-animation-duration: 5s;
-					        animation-duration: 5s;
-					-webkit-animation-fill-mode: forwards;
-					        animation-fill-mode: forwards; // Stay on the last frame
-					-webkit-animation-iteration-count: 1; // Stay on the last frame
-					        animation-iteration-count: 1; // Run only once
-					-webkit-animation-timing-function: linear; // Run only once
-					        animation-timing-function: linear;		
 				}	        
 			}
 		}
@@ -1918,9 +1908,38 @@ Services Page
 
 			line, path {
 				stroke: rgba(255, 255, 255, 0.1);	
+			}	        
+		}		
+	}	
+}
+
+.smil #services-landing {
+	.svg-container {
+		line, path {
+			stroke: rgba(255, 255, 255, 0.1);	
+			stroke-dasharray: 1870;
+			stroke-dashoffset: 1870;
+			stroke-width: 0.3;	    	
+			-webkit-animation-name: draw;
+			        animation-name: draw;
+			-webkit-animation-duration: 5s;
+			        animation-duration: 5s;
+			-webkit-animation-fill-mode: forwards;
+			        animation-fill-mode: forwards; // Stay on the last frame
+			-webkit-animation-iteration-count: 1; // Stay on the last frame
+			        animation-iteration-count: 1; // Run only once
+			-webkit-animation-timing-function: linear; // Run only once
+			        animation-timing-function: linear;		
+		}	        
+	}		
+}
+
+.smil #services-container {
+	.show-summary {
+		.svg-container {
+			line, path {
 				stroke-dasharray: 1870;
 				stroke-dashoffset: 1870;
-				stroke-width: 0.3;	    	
 				-webkit-animation-name: draw;
 				        animation-name: draw;
 				-webkit-animation-duration: 5s;
@@ -1932,8 +1951,8 @@ Services Page
 				-webkit-animation-timing-function: linear; // Run only once
 				        animation-timing-function: linear;		
 			}	        
-		}		
-	}	
+		}
+	}
 }
 
 #services-landing {
@@ -2043,6 +2062,7 @@ Services Page
     margin: 0;
 	padding: 0 20px;
 	z-index: 1;
+	transition: height 0.5s ease;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);	
 
@@ -2055,15 +2075,11 @@ Services Page
 	}
 
 	.quote {
-		display: none;
 		font-family: 'KlavikaWebBasicLightItalic';
 		font-size: 20px;
 		line-height: 25px;		
-
-		&.show {
-			display: block;
-		}
 	}
+
 	small {
 		display: block;
 		font-size: 15px;
@@ -2078,6 +2094,7 @@ Services Page
 		border: none;
 		margin: 37px 0 25px 0;
 		opacity: 0.5;
+		text-align: left;
 	}	
 
 	nav {
@@ -3455,15 +3472,19 @@ SVG STYLES
 			path, line {
 				fill-opacity: 0;
 				stroke: rgba(0,0,0,0.2);
-				stroke-width: 0.5;
-				stroke-dasharray: 2000;
-				stroke-dashoffset: 2000;		
+				stroke-width: 0.5;	
 			}    		
 	    }	     	
     }
 }
 
-.loaded .left-svg-container {
+.smil .left-svg-container svg .light-grey path,
+.smil .left-svg-container svg .light-grey line {
+	stroke-dasharray: 2000;
+	stroke-dashoffset: 2000;	
+}
+
+.smil .loaded .left-svg-container {
 	svg {
 		.light-grey {
 			path, line {
@@ -3695,8 +3716,8 @@ e.g. <video class="video-js my-skin-name">
   top: 0;
 }
 .vjs-default-skin .vjs-slider-handle:before {
-  content: "\e009";
-  font-family: VideoJS;
+  content: "\f111";
+  font-family: 'FontAwesome';
   font-size: 1em;
   line-height: 1;
   text-align: center;
@@ -3730,7 +3751,7 @@ The default control bar that is a container for most of the controls.
   height: 3.0em;
   /* background-color-with-alpha */
   background-color: #07141e;
-  background-color: rgba(7, 20, 30, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 /* Show the control bar only once the video has started playing */
 .vjs-default-skin.vjs-has-started .vjs-control-bar {
@@ -3794,7 +3815,7 @@ fonts to show/hide properly.
 }
 /* Font button icons */
 .vjs-default-skin .vjs-control:before {
-  font-family: VideoJS;
+  font-family: 'FontAwesome';
   font-size: 1.5em;
   line-height: 2;
   position: absolute;
@@ -3836,10 +3857,10 @@ fonts to show/hide properly.
   cursor: pointer;
 }
 .vjs-default-skin .vjs-play-control:before {
-  content: "\e001";
+  content: "\f04b";
 }
 .vjs-default-skin.vjs-playing .vjs-play-control:before {
-  content: "\e002";
+  content: "\f04c";
 }
 /* Playback toggle
 --------------------------------------------------------------------------------
@@ -3869,23 +3890,24 @@ fonts to show/hide properly.
 }
 .vjs-default-skin .vjs-mute-control:before,
 .vjs-default-skin .vjs-volume-menu-button:before {
-  content: "\e006";
+  content: "\f028";
 }
 .vjs-default-skin .vjs-mute-control.vjs-vol-0:before,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-0:before {
-  content: "\e003";
+  content: "\f026";
 }
 .vjs-default-skin .vjs-mute-control.vjs-vol-1:before,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-1:before {
-  content: "\e004";
+  content: "\f028";
 }
 .vjs-default-skin .vjs-mute-control.vjs-vol-2:before,
 .vjs-default-skin .vjs-volume-menu-button.vjs-vol-2:before {
-  content: "\e005";
+  content: "\f028";
 }
 .vjs-default-skin .vjs-volume-control {
   width: 5em;
   float: right;
+  margin-right: 20px;
 }
 .vjs-default-skin .vjs-volume-bar {
   width: 5em;
@@ -3900,7 +3922,7 @@ fonts to show/hide properly.
   /* assuming volume starts at 1.0 */
 
   width: 100%;
-  background: #66a8cc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
+  background: #A6322C;
 }
 .vjs-default-skin .vjs-volume-bar .vjs-volume-handle {
   width: 0.5em;
@@ -4007,7 +4029,7 @@ fonts to show/hide properly.
       The -50% left position makes that happen.
   */
 
-  background: #66a8cc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
+  background: #A6322C;
 }
 .vjs-default-skin .vjs-load-progress {
   background: #646464 /* IE8- Fallback */;
@@ -4075,6 +4097,7 @@ fonts to show/hide properly.
   width: 3.8em;
   cursor: pointer;
   float: right;
+  display: none;
 }
 .vjs-default-skin .vjs-fullscreen-control:before {
   content: "\e000";
@@ -4119,6 +4142,7 @@ easily in the skin designer. http://designer.videojs.com/
   -moz-transition: all 0.4s;
   -o-transition: all 0.4s;
   transition: all 0.4s;
+  display: none;
 }
 /* Optionally center */
 .vjs-default-skin.vjs-big-play-centered .vjs-big-play-button {
@@ -4161,7 +4185,7 @@ easily in the skin designer. http://designer.videojs.com/
 }
 .vjs-default-skin .vjs-big-play-button:before {
   content: "\e001";
-  font-family: VideoJS;
+  font-family: 'FontAwesome';
   /* In order to center the play icon vertically we need to set the line height
      to the same as the button height */
 
@@ -4262,8 +4286,8 @@ easily in the skin designer. http://designer.videojs.com/
   animation: none;
 }
 .vjs-default-skin .vjs-loading-spinner:before {
-  content: "\e01e";
-  font-family: VideoJS;
+  content: "\f1ce";
+  font-family: 'FontAwesome';
   position: absolute;
   top: 0;
   left: 0;
@@ -4462,6 +4486,8 @@ control positioning and full window mode. **
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  min-height: 100%;
 }
 /* Playback technology elements expand to the width/height of the containing div
     <video> or <object> */

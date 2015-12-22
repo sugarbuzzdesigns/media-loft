@@ -1,14 +1,12 @@
 module.exports = function(grunt) {
+    // require it at the top and pass in the grunt instance
+    require('time-grunt')(grunt);
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		clean: {
-			task: {
-				src: ['source'], 
-				dest: 'destination'
-			},
-			options: {
-				'force': false,
-				'no-write': false
+			build: {
+				src: ['assets/js/build']
 			}
 		},
 		concat_css: {
@@ -22,8 +20,13 @@ module.exports = function(grunt) {
 		},		
 		concat: {
 			vendor: {
-				src: ['assets/js/vendor/jquery-ui.js','assets/js/vendor/*.js'],
-				dest: 'assets/js/vendor/vendor.min.js'
+				src: ['assets/js/src/vendor/jquery-ui.js',
+				      'assets/js/src/vendor/jquery-kinetic.js',
+					  'assets/js/src/vendor/jquery-mousewheel.js',
+					  'assets/js/src/vendor/jquery-smoothscroll.js',
+					  'assets/js/src/vendor/modernizr.js'
+				],
+				dest: 'assets/js/build/vendor/vendor.min.js'
 			},
 			options: {
 				'separator': ';\n',
@@ -37,8 +40,14 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			files: ['assets/scss/**/*.scss', 'assets/js/**/*.js'], 
-			tasks: ['dev']
+			css: {
+				files: ['assets/scss/**/*.scss'], 
+				tasks: ['css-build']		
+			},
+			js: {
+				files: ['assets/js/src/**/*.js'], 
+				tasks: ['js-build']		
+			}			
 		},
 		jshint: {
 			task: {
@@ -67,11 +76,16 @@ module.exports = function(grunt) {
 			}
 		},
 		uglify: {
-			task: {
+			modules: {
+				files: {		
+					'assets/js/build/ml.min.js' : 'assets/js/src/ml.js',
+					'assets/js/build/modules/home.min.js' : 'assets/js/src/modules/home.js',
+					'assets/js/build/modules/work.min.js' : 'assets/js/src/modules/work.js'
+				}
+			},
+			libs: {
 				files: {
-					'assets/js/libs/libs.min.js' : 'assets/js/libs/libraries.js',
-					'assets/js/ml.min.js' : 'assets/js/ml.js',
-					'assets/js/modules/work.min.js' : 'assets/js/modules/work.js'
+					'assets/js/build/libs/libs.min.js' : 'assets/js/src/libs/libraries.js'				
 				}
 			},
 			options: {
@@ -80,7 +94,7 @@ module.exports = function(grunt) {
 				'beautify': false,
 				'expression': false,
 				'report': 'min',
-				'sourceMap': false,
+				'sourceMap': true,
 				'sourceMapName': undefined,
 				'sourceMapIn': undefined,
 				'sourceMapIncludeSources': false,
@@ -95,12 +109,8 @@ module.exports = function(grunt) {
 		autoprefixer: {
 			task: {
 				files: {
-					'assets/css/style.css': 'assets/css/style.css',
-					'assets/css/timeline.css': 'assets/css/timeline.css'
+					'assets/css/style.css': 'assets/css/style.css'
 				}
-
-				// ['assets/css/style.css'], 
-				// dest: 'assets/css/style.css'
 			},
 			options: {
 				'browsers': ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'ie 11', 'ie 10'],
@@ -116,8 +126,7 @@ module.exports = function(grunt) {
 					style: 'expanded'
 				},
 				files: {                         // Dictionary of files
-					'assets/css/breakpoints.css': 'assets/scss/breakpoints.scss',
-					'assets/css/timeline.css': 'assets/scss/timeline.scss'
+					'assets/css/breakpoints.css': 'assets/scss/breakpoints.scss'
 				}
 			},		
 			dist: {                            // Target
@@ -154,5 +163,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	// grunt.loadNpmTasks('grunt-contrib-compass');	
 
-	grunt.registerTask('build', ['sass:dist', 'concat_css', 'concat', 'autoprefixer', 'cssmin', 'uglify']);
+	grunt.registerTask('css-build', ['sass:dist', 'concat_css', 'autoprefixer', 'cssmin']);
+	grunt.registerTask('js-build', ['clean', 'concat', 'uglify:modules']);
 };

@@ -73,10 +73,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 			<div class="cover"></div>
 		</div>	
 
-		<div class="video-overlay">
-			<video preload="true" id="about-timeline-video-full">
-				<source src="">
-			</video>
+		<div id="timeline-video-overlay" class="video-overlay">
 			<a href="#" class="close-video"><i></i></a>				
 		</div>				
 	</section>
@@ -208,7 +205,7 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 			<div class="blur-overlay show"></div>	
 		<?php } ?>	
 		<div class="video-overlay">
-			<video id="about-culture-video-full" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
+			<video width="auto" height="auto" class="video-js vjs-default-skin" controls data-setup='{}' id="about-culture-video-full" style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/home/posters/What_We_Do_loopBW.jpg);">
 				<source src="https://player.vimeo.com/external/136641924.hd.mp4?s=bd657664d75006514d6ad9e03e56a317&profile_id=113">
 			</video>
 			<a href="#" class="close-video"><i></i></a>				
@@ -349,7 +346,13 @@ $employeeFiles = array_diff($employeeFiles, array('.', '..', '.DS_Store', 'hover
 				<a href="#" data-info-id="1991" data-bg-image="1991_JohnDenver.jpg" class="date right-top">
 					<span class="num"></span>
 					<span class="close"></span>
-					<span class="info">John Denver performs Media Loft-created song for Target’s World Earth Day event for the United Nations</span>
+					<span class="info">
+						John Denver performs Media Loft-created song for Target’s World Earth Day event for the United Nations
+						<span class="play-reel" href="#" data-video-url="https://player.vimeo.com/external/149496627.sd.mp4?s=731b1b2577e6a9773724aade6360ed17d940e1d4&profile_id=112">
+							<i class="icon-play-btn"></i>
+							<span>Watch Video</span>
+						</span>	
+					</span>
 				</a>									
 			</div>
 			<div class="timeline-block top">

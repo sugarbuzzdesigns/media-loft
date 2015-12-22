@@ -1749,8 +1749,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 }
 @media only screen and (min-device-width: 320px) and (orientation: landscape) {
-  .isTouch .mobile #warning-message,
-  .isTouch .tablet #warning-message {
+  .isTouch .mobile #warning-message {
     display: block;
   }
 }
@@ -2394,6 +2393,10 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     display: none;
   }
 
+  .work-loop-video .vjs-loading-spinner {
+    top: 40%;
+  }
+
   .show-video .work-carousel .close,
   .show-video .menu-btn,
   .show-video .logo {
@@ -2882,6 +2885,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .page-contact .general-info .clock .hours {
     background-image: url(../images/icons/clock-hours.png);
+    transition: all 1s ease;
   }
   .page-contact .general-info .clock .minutes {
     background-image: url(../images/icons/clock-minutes.png);
@@ -2981,7 +2985,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   #blog-video-overlay {
     left: -100%;
     top: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: black;
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -2995,6 +2999,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
   }
   #blog-video-overlay.show-me {
     display: block;
@@ -3311,8 +3317,19 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .page-services #services-container .show-summary .svg-container line, .page-services #services-container .show-summary .svg-container path {
     stroke: rgba(255, 255, 255, 0.5);
+  }
+  .page-services #services-landing .svg-container svg {
+    display: block;
+  }
+  .page-services #services-landing .svg-container line, .page-services #services-landing .svg-container path {
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+
+  .smil #services-landing .svg-container line, .smil #services-landing .svg-container path {
+    stroke: rgba(255, 255, 255, 0.1);
     stroke-dasharray: 1870;
     stroke-dashoffset: 1870;
+    stroke-width: 0.3;
     -webkit-animation-name: draw;
     animation-name: draw;
     -webkit-animation-duration: 5s;
@@ -3324,14 +3341,10 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
   }
-  .page-services #services-landing .svg-container svg {
-    display: block;
-  }
-  .page-services #services-landing .svg-container line, .page-services #services-landing .svg-container path {
-    stroke: rgba(255, 255, 255, 0.1);
+
+  .smil #services-container .show-summary .svg-container line, .smil #services-container .show-summary .svg-container path {
     stroke-dasharray: 1870;
     stroke-dashoffset: 1870;
-    stroke-width: 0.3;
     -webkit-animation-name: draw;
     animation-name: draw;
     -webkit-animation-duration: 5s;
@@ -3433,6 +3446,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     margin: 0;
     padding: 0 20px;
     z-index: 1;
+    transition: height 0.5s ease;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
   }
@@ -3444,13 +3458,9 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     height: 25px;
   }
   .landing blockquote .quote {
-    display: none;
     font-family: 'KlavikaWebBasicLightItalic';
     font-size: 20px;
     line-height: 25px;
-  }
-  .landing blockquote .quote.show {
-    display: block;
   }
   .landing blockquote small {
     display: block;
@@ -3465,6 +3475,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     border: none;
     margin: 37px 0 25px 0;
     opacity: 0.5;
+    text-align: left;
   }
   .landing blockquote nav {
     text-align: right;
@@ -4714,11 +4725,15 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     fill-opacity: 0;
     stroke: rgba(0, 0, 0, 0.2);
     stroke-width: 0.5;
+  }
+
+  .smil .left-svg-container svg .light-grey path,
+  .smil .left-svg-container svg .light-grey line {
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
   }
 
-  .loaded .left-svg-container svg .light-grey path, .loaded .left-svg-container svg .light-grey line {
+  .smil .loaded .left-svg-container svg .light-grey path, .smil .loaded .left-svg-container svg .light-grey line {
     -webkit-animation-name: draw;
     animation-name: draw;
     -webkit-animation-duration: 3s;
@@ -4841,8 +4856,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   .vjs-default-skin .vjs-slider-handle:before {
-    content: "\e009";
-    font-family: VideoJS;
+    content: "\f111";
+    font-family: 'FontAwesome';
     font-size: 1em;
     line-height: 1;
     text-align: center;
@@ -4877,7 +4892,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     height: 3.0em;
     /* background-color-with-alpha */
     background-color: #07141e;
-    background-color: rgba(7, 20, 30, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
   }
 
   /* Show the control bar only once the video has started playing */
@@ -4943,7 +4958,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 
   /* Font button icons */
   .vjs-default-skin .vjs-control:before {
-    font-family: VideoJS;
+    font-family: 'FontAwesome';
     font-size: 1.5em;
     line-height: 2;
     position: absolute;
@@ -4989,11 +5004,11 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   .vjs-default-skin .vjs-play-control:before {
-    content: "\e001";
+    content: "\f04b";
   }
 
   .vjs-default-skin.vjs-playing .vjs-play-control:before {
-    content: "\e002";
+    content: "\f04c";
   }
 
   /* Playback toggle
@@ -5027,27 +5042,28 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 
   .vjs-default-skin .vjs-mute-control:before,
   .vjs-default-skin .vjs-volume-menu-button:before {
-    content: "\e006";
+    content: "\f028";
   }
 
   .vjs-default-skin .vjs-mute-control.vjs-vol-0:before,
   .vjs-default-skin .vjs-volume-menu-button.vjs-vol-0:before {
-    content: "\e003";
+    content: "\f026";
   }
 
   .vjs-default-skin .vjs-mute-control.vjs-vol-1:before,
   .vjs-default-skin .vjs-volume-menu-button.vjs-vol-1:before {
-    content: "\e004";
+    content: "\f028";
   }
 
   .vjs-default-skin .vjs-mute-control.vjs-vol-2:before,
   .vjs-default-skin .vjs-volume-menu-button.vjs-vol-2:before {
-    content: "\e005";
+    content: "\f028";
   }
 
   .vjs-default-skin .vjs-volume-control {
     width: 5em;
     float: right;
+    margin-right: 20px;
   }
 
   .vjs-default-skin .vjs-volume-bar {
@@ -5063,7 +5079,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     height: 0.5em;
     /* assuming volume starts at 1.0 */
     width: 100%;
-    background: #66a8cc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
+    background: #A6322C;
   }
 
   .vjs-default-skin .vjs-volume-bar .vjs-volume-handle {
@@ -5176,7 +5192,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
       Also using a paralax effect to make the lines move backwards.
         The -50% left position makes that happen.
     */
-    background: #66a8cc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAP0lEQVQIHWWMAQoAIAgDR/QJ/Ub//04+w7ZICBwcOg5FZi5iBB82AGzixEglJrd4TVK5XUJpskSTEvpdFzX9AB2pGziSQcvAAAAAAElFTkSuQmCC) -50% 0 repeat;
+    background: #A6322C;
   }
 
   .vjs-default-skin .vjs-load-progress {
@@ -5257,6 +5273,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     width: 3.8em;
     cursor: pointer;
     float: right;
+    display: none;
   }
 
   .vjs-default-skin .vjs-fullscreen-control:before {
@@ -5304,6 +5321,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     -moz-transition: all 0.4s;
     -o-transition: all 0.4s;
     transition: all 0.4s;
+    display: none;
   }
 
   /* Optionally center */
@@ -5352,7 +5370,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 
   .vjs-default-skin .vjs-big-play-button:before {
     content: "\e001";
-    font-family: VideoJS;
+    font-family: 'FontAwesome';
     /* In order to center the play icon vertically we need to set the line height
        to the same as the button height */
     line-height: 2.6em;
@@ -5461,8 +5479,8 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
 
   .vjs-default-skin .vjs-loading-spinner:before {
-    content: "\e01e";
-    font-family: VideoJS;
+    content: "\f1ce";
+    font-family: 'FontAwesome';
     position: absolute;
     top: 0;
     left: 0;
@@ -5665,6 +5683,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    min-height: 100%;
   }
 
   /* Playback technology elements expand to the width/height of the containing div
@@ -6612,6 +6631,9 @@ you can add resource intensive styles.
     top: 0;
     left: 0;
   }
+  body.home.tablet .left-svg-container {
+    display: none;
+  }
 
   /**************************
   About Page
@@ -6965,6 +6987,10 @@ you can add resource intensive styles.
   }
 }
 @media only screen and (min-width: 768px) {
+  #work-items-window {
+    background: #313131;
+  }
+
   #work-items-window.item-open .scrollingHotSpotLeft,
   #work-items-window.item-open .scrollingHotSpotRight,
   #work-items-window.item-open .ps-scrollbar-x-rail {
@@ -7045,6 +7071,9 @@ you can add resource intensive styles.
   .work-details .copy-wrap {
     transform: translateX(-100%);
   }
+  .work-details video.work-full-video {
+    opacity: 0;
+  }
   .work-details .work-full-video {
     opacity: 0;
   }
@@ -7060,6 +7089,7 @@ you can add resource intensive styles.
   .work-carousel {
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
   .work-carousel .close {
     width: 50px;
@@ -7173,7 +7203,7 @@ you can add resource intensive styles.
     transform: translate(0, -50%);
   }
   .work-carousel .carousel-item .related-works {
-    width: 75%;
+    width: calc(100%/1.5);
     float: right;
     position: relative;
   }
@@ -7182,26 +7212,26 @@ you can add resource intensive styles.
   }
   .work-carousel .work-copy {
     padding: 178px 50px 5% 25px;
-    width: 25%;
+    width: calc(100%/3);
     float: left;
     position: relative;
   }
   .work-carousel .work-media {
-    width: 75%;
+    width: calc(100%/1.5);
     height: 100%;
     float: right;
     position: relative;
     z-index: 1;
   }
   .work-carousel .work-media .video-bg-container {
-    background-color: #333;
+    background-color: #000;
   }
-  .work-carousel .work-media .video-bg-container video.work-loop-video {
+  .work-carousel .work-media .video-bg-container .work-loop-video video {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     transition: all 0.5s ease;
   }
-  .work-carousel .work-media .video-bg-container.hovered video.work-loop-video {
+  .work-carousel .work-media .video-bg-container.hovered .work-loop-video video {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
@@ -7210,7 +7240,7 @@ you can add resource intensive styles.
   }
 
   .show-video .work-carousel .work-copy {
-    margin-left: -25%;
+    margin-left: calc(-100%/3);
   }
   .show-video .work-carousel .work-media {
     width: 100%;
@@ -7232,6 +7262,24 @@ you can add resource intensive styles.
   .show-video .carousel-nav {
     bottom: -50px;
     right: -100%;
+  }
+
+  .video-scaled #full-screen-video .work-full-video video,
+  .video-scaled .video-bg-container .work-full-video video,
+  .video-scaled #culture.play-full-video #about-culture-video-full video,
+  .video-scaled #about-timeline-video-full video,
+  .video-scaled #home-video-overlay video {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    min-width: 100%;
+    min-height: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-size: cover;
   }
 
   /**************************
@@ -7647,6 +7695,11 @@ you can add resource intensive styles.
   #contact-video {
     min-width: 100%;
     opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .loaded #contact-video {
+    opacity: 1;
   }
 
   .page-contact .video-bg-container {
@@ -7797,17 +7850,8 @@ you can add resource intensive styles.
     z-index: 1;
   }
   .landing blockquote .quote-mark {
-    background: url(../images/icons/quote-mark.png) no-repeat;
-    display: block;
     width: 20px;
-    background-size: 100%;
     height: 20px;
-  }
-  .landing blockquote .quote {
-    display: none;
-  }
-  .landing blockquote .quote.show {
-    display: block;
   }
   .landing blockquote small {
     display: block;

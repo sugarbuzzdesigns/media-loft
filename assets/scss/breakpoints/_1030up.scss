@@ -365,6 +365,11 @@ Contact page
 #contact-video {
 	min-width: 100%;
 	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+.loaded #contact-video {
+	opacity: 1;	
 }
 
 .page-contact {
@@ -552,20 +557,10 @@ Services Page
 	z-index: 1;
 
 	.quote-mark {
-	    background: url(../images/icons/quote-mark.png) no-repeat;
-	    display: block;
 	    width: 20px;
-	    background-size: 100%;
 	    height: 20px;
 	}
 
-	.quote {
-		display: none;
-
-		&.show {
-			display: block;
-		}
-	}
 	small {
 		display: block;
 		font-size: 16px;

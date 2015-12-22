@@ -131,9 +131,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 #timeline2 .timeline-block .info {
@@ -349,3 +347,5 @@ DESKTOP
 LARGE VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.
 *********************/
+
+/*# sourceMappingURL=timeline.css.map */

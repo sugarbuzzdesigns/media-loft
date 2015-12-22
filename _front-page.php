@@ -78,7 +78,7 @@
 		</div>
 		<?php } ?>
 		<div id="home-video-overlay" class="video-overlay">
-			<video id="home-video-full" width="auto" height="auto" class="video-js vjs-default-skin" controls data-setup='{}'>
+			<video id="home-video-full" width="auto" height="auto" class="video-js vjs-default-skin" data-setup='{}'>
 				<source src="https://player.vimeo.com/external/139662257.hd.mp4?s=2a54ab9dad1187defbe6567e72b398db&profile_id=113" type='video/mp4' />
 				<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
 			</video>

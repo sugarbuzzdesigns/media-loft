@@ -145,23 +145,6 @@ FONT FACE (IN YOUR FACE)
 
 }
 
-/* Custom Icon Font
---------------------------------------------------------------------------------
-The control icons are from a custom font. Each icon corresponds to a character
-(e.g. "\e001"). Font icons allow for easy scaling and coloring of icons.
-*/
-@font-face {
-    font-family: 'VideoJS';
-    src: url('../fonts/videojs-webfont.eot');
-    src: url('../fonts/videojs-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/videojs-webfont.woff2') format('woff2'),
-         url('../fonts/videojs-webfont.woff') format('woff'),
-         url('../fonts/videojs-webfont.ttf') format('truetype'),
-         url('../fonts/videojs-webfont.svg#videojsregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 /**************************
 Remove Bold on All Headings
 ***************************/    

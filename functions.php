@@ -109,39 +109,39 @@ function medialoft_scripts() {
 	// wp_enqueue_script( 'jquery-mousewheel', get_template_directory_uri() . '/assets/js/vendor/jquery-mousewheel.js', array( 'jquery' ), true );
 	// wp_enqueue_script( 'jquery-kinetic', get_template_directory_uri() . '/assets/js/vendor/jquery-kinetic.js', array( 'jquery' ), true );
 	// wp_enqueue_script( 'jquery-smoothscroll', get_template_directory_uri() . '/assets/js/vendor/jquery-smoothscroll.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'ml-vendor', get_template_directory_uri() . '/assets/js/vendor/vendor.min.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'ml-libraries', get_template_directory_uri() . '/assets/js/libs/libs.min.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'medialoft-script', get_template_directory_uri() . '/assets/js/ml.min.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'ml-vendor', get_template_directory_uri() . '/assets/js/build/vendor/vendor.min.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'ml-libraries', get_template_directory_uri() . '/assets/js/src/libs/libs.min.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'medialoft-script', get_template_directory_uri() . '/assets/js/build/ml.min.js', array( 'jquery' ), true );
 
 	if(is_front_page() || is_page('home')){
-		wp_enqueue_script( 'home', get_template_directory_uri() . '/assets/js/modules/home.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'home', get_template_directory_uri() . '/assets/js/build/modules/home.min.js', array( 'jquery' ), true );		
 	}
 
 	if(is_page('work')){
-		wp_enqueue_script( 'work', get_template_directory_uri() . '/assets/js/modules/work.min.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'work', get_template_directory_uri() . '/assets/js/src/modules/work.js', array( 'jquery' ), true );		
 	}
 
 	if(is_page('about')){
-		wp_enqueue_script( 'about', get_template_directory_uri() . '/assets/js/modules/about.js', array( 'jquery' ), true );		
-		wp_enqueue_script( 'timeline', get_template_directory_uri() . '/assets/js/modules/timeline.js', array( 'jquery' ), true );		
-		wp_enqueue_script( 'tiles-clients', get_template_directory_uri() . '/assets/js/modules/about-tiles-clients.js', array( 'jquery' ), true );
-		wp_enqueue_script( 'tiles-people', get_template_directory_uri() . '/assets/js/modules/about-tiles-people.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'about', get_template_directory_uri() . '/assets/js/src/modules/about.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'timeline', get_template_directory_uri() . '/assets/js/src/modules/timeline.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'tiles-clients', get_template_directory_uri() . '/assets/js/src/modules/about-tiles-clients.js', array( 'jquery' ), true );
+		wp_enqueue_script( 'tiles-people', get_template_directory_uri() . '/assets/js/src/modules/about-tiles-people.js', array( 'jquery' ), true );		
 	}	
 
 	if(is_page('contact')){
-		wp_enqueue_script( 'contact', get_template_directory_uri() . '/assets/js/modules/contact.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'contact', get_template_directory_uri() . '/assets/js/src/modules/contact.js', array( 'jquery' ), true );		
 	}	
 
 	if(is_page('services')){
-		wp_enqueue_script( 'services', get_template_directory_uri() . '/assets/js/modules/services.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'services', get_template_directory_uri() . '/assets/js/src/modules/services.js', array( 'jquery' ), true );		
 	}		
 
 	if(is_home()){
-		wp_enqueue_script( 'blog', get_template_directory_uri() . '/assets/js/modules/blog.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'blog', get_template_directory_uri() . '/assets/js/src/modules/blog.js', array( 'jquery' ), true );		
 	}
 
 	if(is_page('test')){
-		wp_enqueue_script( 'test', get_template_directory_uri() . '/assets/js/modules/test.js', array( 'jquery' ), true );		
+		wp_enqueue_script( 'test', get_template_directory_uri() . '/assets/js/src/modules/test.js', array( 'jquery' ), true );		
 	}		
 
 	$dataToBePassed = array(

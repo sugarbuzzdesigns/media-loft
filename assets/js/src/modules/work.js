@@ -1,8 +1,195 @@
+/*!
+ * tap.js
+ * Copyright (c) 2015 Alex Gibson 
+ * https://github.com/alexgibson/tap.js/
+ * Released under MIT license
+ */
+
+/* global define, module */
+(function (global, factory) {
+    'use strict';
+    if (typeof define === 'function' && define.amd) {
+        define(function () {
+            return (global.Tap = factory(global, global.document));
+        });
+    } else if (typeof exports === 'object') {
+        module.exports = factory(global, global.document);
+    } else {
+        global.Tap = factory(global, global.document);
+    }
+}(typeof window !== 'undefined' ? window : this, function (window, document) {
+    'use strict';
+
+    function Tap(el) {
+        this.el = typeof el === 'object' ? el : document.getElementById(el);
+        this.moved = false; //flags if the finger has moved
+        this.startX = 0; //starting x coordinate
+        this.startY = 0; //starting y coordinate
+        this.hasTouchEventOccured = false; //flag touch event
+        this.el.addEventListener('touchstart', this, false);
+        this.el.addEventListener('mousedown', this, false);
+    }
+
+    // return true if left click is in the event, handle many browsers
+    Tap.prototype.leftButton = function(event) {
+        // modern & preferred:  MSIE>=9, Firefox(all)
+        if ('buttons' in event) {
+           // https://developer.mozilla.org/docs/Web/API/MouseEvent/buttons
+           return event.buttons === 1;
+        } else {
+           return 'which' in event ?
+               // 'which' is well defined (and doesn't exist on MSIE<=8)
+               // https://developer.mozilla.org/docs/Web/API/MouseEvent/which
+               event.which === 1 :
+               // for MSIE<=8 button is 1=left (0 on all other browsers)
+               // https://developer.mozilla.org/docs/Web/API/MouseEvent/button
+               event.button === 1;
+        }
+        return false;
+    };
+
+    Tap.prototype.start = function(e) {
+        if (e.type === 'touchstart') {
+
+            this.hasTouchEventOccured = true;
+            this.el.addEventListener('touchmove', this, false);
+            this.el.addEventListener('touchend', this, false);
+            this.el.addEventListener('touchcancel', this, false);
+
+        } else if (e.type === 'mousedown' && this.leftButton(e)) {
+
+            this.el.addEventListener('mousemove', this, false);
+            this.el.addEventListener('mouseup', this, false);
+        }
+
+        this.moved = false;
+        this.startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+        this.startY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+    };
+
+    Tap.prototype.move = function(e) {
+        //if finger moves more than 10px flag to cancel
+        var x = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+        var y = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+        if (Math.abs(x - this.startX) > 10 || Math.abs(y - this.startY) > 10) {
+            this.moved = true;
+        }
+    };
+
+    Tap.prototype.end = function(e) {
+        var evt;
+
+        this.el.removeEventListener('touchmove', this, false);
+        this.el.removeEventListener('touchend', this, false);
+        this.el.removeEventListener('touchcancel', this, false);
+        this.el.removeEventListener('mouseup', this, false);
+        this.el.removeEventListener('mousemove', this, false);
+
+        if (!this.moved) {
+            //create custom event
+            try {
+                evt = new window.CustomEvent('tap', {
+                    bubbles: true,
+                    cancelable: true
+                });
+            } catch (e) {
+                evt = document.createEvent('Event');
+                evt.initEvent('tap', true, true);
+            }
+
+            //prevent touchend from propagating to any parent
+            //nodes that may have a tap.js listener attached
+            e.stopPropagation();
+
+            // dispatchEvent returns false if any handler calls preventDefault,
+            if (!e.target.dispatchEvent(evt)) {
+                // in which case we want to prevent clicks from firing.
+                e.preventDefault();
+            }
+        }
+    };
+
+    Tap.prototype.cancel = function() {
+        this.hasTouchEventOccured = false;
+        this.moved = false;
+        this.startX = 0;
+        this.startY = 0;
+    };
+
+    Tap.prototype.destroy = function() {
+        this.el.removeEventListener('touchstart', this, false);
+        this.el.removeEventListener('touchmove', this, false);
+        this.el.removeEventListener('touchend', this, false);
+        this.el.removeEventListener('touchcancel', this, false);
+        this.el.removeEventListener('mousedown', this, false);
+        this.el.removeEventListener('mouseup', this, false);
+        this.el.removeEventListener('mousemove', this, false);
+    };
+
+    Tap.prototype.handleEvent = function(e) {
+        switch (e.type) {
+            case 'touchstart': this.start(e); break;
+            case 'touchmove': this.move(e); break;
+            case 'touchend': this.end(e); break;
+            case 'touchcancel': this.cancel(e); break;
+            case 'mousedown': this.start(e); break;
+            case 'mouseup': this.end(e); break;
+            case 'mousemove': this.move(e); break;
+        }
+    };
+
+    return Tap;
+}));
+
+/*!
+ * jQuery special event "tap" using tap.js
+ * Released under MIT license
+ */
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        define(['jquery', 'tap'], factory);
+    } else if (typeof exports === 'object') {
+        module.exports = factory(require('jquery'), require('tap'));
+    } else {
+        factory(jQuery, Tap);
+    }
+}(function ($, Tap) {
+    'use strict';
+
+    $.event.special.tap = (function () {
+
+        // Fallback to click events in old IE
+        if (!document.addEventListener) return { bindType: 'click', delegateType: 'click' };
+
+        var dataKey = 'tap.js';
+
+        return {
+            setup: function () {
+                $.data(this, dataKey, new Tap(this));
+
+                return false;
+            },
+            teardown: function () {
+                var tap = $.data(this, dataKey);
+                if (tap && tap.destroy) {
+                    tap.destroy();
+                    $.removeData(this, dataKey);
+                }
+
+                return false;
+            }
+        };
+    }());
+}));
+
+
+
+
 (function IIFE($){
 
 	ml.Work = {
 
-		init: function init(){
+		init: function(){
 			this.$workItemsContainer = $('#work-items');
 			this.$workItems = $('.work-item');
 			this.$workSummary = $('.work-summary');
@@ -13,6 +200,7 @@
 			this.$relatedWork = $('.related-work');
 			this.$workItemStage = $('#work-item-stage');
 			this.$curWorkItem = null;
+			this.openOnLoad = true;
 
 			this.pIndex = 0;
 
@@ -22,7 +210,8 @@
 
 			this.workItemsContainerWidth = 0;
 
-			this.currentVideo = null;
+			this.currentFullVideo = null;
+			this.currentLoopVideo = null;
 
 			this.numWorkItems = this.$workItems.length;
 
@@ -41,7 +230,7 @@
 			this.bindEvents();
 		},
 
-		bindEvents: function bindEvents(){
+		bindEvents: function(){
 			var _this = this;
 
 			$.address.change(function(event) {  
@@ -68,11 +257,14 @@
 					$('.scrollhotspot.left').show();
 				}				
 			});
-
-			_this.$workCover.on('click', function(){
+			
+			_this.$workCover.on('click, tap', function(){
+				console.log('from work cover click');
 				_this.openWorkItem($(this).parent());
 				$(this).parent().removeClass('active');
 			});
+
+
 
 			$('.nav-arrow-down').on('click', function(){
 			  	if(!_this.$workItemsWin.is('.item-open')){
@@ -107,14 +299,14 @@
 			});			
 
 			$('.work-media .video-bg-container .play-full-screen').mouseover(function(){
-				console.log('mouseover');
+				// console.log('mouseover');
 				$(this).closest('.video-bg-container').addClass('hovered');
 			});			
 
 			/*
 			Video Event Bindings
 			 */		
-			$('.video-bg-container').on('click', function(){
+			$('.work-loop-video, .play-full-screen').on('click', function(){
 				_this.playFullVideo($(this));
 			});	
 
@@ -185,14 +377,14 @@
 				var curCarouselItem = _this.$curWorkItem.find('.carousel-item')[_this.carouselIndex];
 
 			    if (e.keyCode == 37) { 
-					console.log( "left pressed" );
+					// console.log( "left pressed" );
 					_this.navigateCarouselPrevNext($('#work-item-stage .carousel-arrow-nav .prev'));
 
 					return false;
 			    }
 
 			    if (e.keyCode == 39) { 
-			       	console.log( "right pressed" );
+			       	// console.log( "right pressed" );
 					_this.navigateCarouselPrevNext($('#work-item-stage .carousel-arrow-nav .next'));
 
 			       	return false;
@@ -206,7 +398,7 @@
 			});					
 		},	
 
-		setUpWorkPage: function setUpWorkPage(){
+		setUpWorkPage: function(){
 			var workItemWidth = this.$workItems[0].getBoundingClientRect().width,
 				numWorkItems = this.$workItems.length,
 				workItemsContainerWidth = workItemWidth*numWorkItems;
@@ -242,10 +434,13 @@
 			}, 500);
 		},		
 
-		openWorkItem: function openWorkItem($item){
+		openWorkItem: function($item){
+			this.openOnLoad = false;
 			console.log('open work item');
 			var _this = this,
-				$loopVideo;
+				$loopVideo,
+				$loopVideoSrc,
+				loopVideoSrc;
 
 			// $('.nav-arrow-down').fadeOut();
 
@@ -261,11 +456,36 @@
 					.clone(true, true)
 					.appendTo('#work-item-stage');
 
-				$loopVideo = _this.$workItemStage.find('.work-loop-video');
+				if(ML_vars.device != 'tablet'){
+					$loopVideo = _this.$workItemStage.find('.work-loop-video');
+					$loopVideoSrc = $('<source></source>');
+					loopVideoSrc = $loopVideo.data('src');
 
-				$loopVideo[0].play();
+					$loopVideoSrc.attr('src', loopVideoSrc);
 
-				// _this.setupDescCarousel();
+					$loopVideoSrc.appendTo($loopVideo);
+
+					$loopVideo
+						.css({
+							opacity: 0,
+							transition: 'opacity 0.5s ease'
+						})
+						.attr('id', 'loop-work-video');
+
+					videojs('loop-work-video', {
+						'autoplay': true
+					}, function(){
+						console.log('loop ready');
+
+						_this.currentLoopVideo = this;
+
+						$('#loop-work-video').css({
+							opacity: 1,
+							transition: 'opacity 0.5s ease'
+						});
+						$loopVideo.css({opacity: 1});
+					});		
+				}				
 
 				_this.$workItemStage.animate({
 					left: 0
@@ -294,7 +514,7 @@
 			_this.updateUrl($item.attr('id'));
 		},
 
-		closeWorkItem: function closeWorkItem($item){
+		closeWorkItem: function($item){
 			this.hideReadMore();
 
 			if(this.$curWorkItem.data('filterIndex') != this.$workItems.length - 1){
@@ -313,6 +533,7 @@
 			this.resetUrl();
 
 			ml.rightMenu.$rightMenu.removeClass('go-away');
+			ml.rightMenu.$rightMenuBtn.removeClass('go-away');
 
 			this.$curWorkItem = null;
 			this.carouselIndex = 0;
@@ -338,6 +559,14 @@
 
 				this.$workItemStage.removeClass($item.attr('id'));	
 				this.$workItemStage.empty();		
+				
+				if (_this.currentLoopVideo != null) {
+					_this.currentLoopVideo.dispose();
+				};
+				
+				if (_this.currentFullVideo != null) {
+					_this.currentFullVideo.dispose();
+				};	
 			}			
 		},
 
@@ -696,42 +925,59 @@
 			$ps.width(descW);
 		},		
 
-		playFullVideo: function($videoContainer){
+		playFullVideo: function(){
 			var _this = this,
-				$playBtn = $videoContainer.find('.video-start'),
-				$fullVideo = $videoContainer.parent().find('.work-full-video'),
-				$curWorkItem = $('#' + ml.Work.curWorkItem),
-				videoSrc = $('source', $fullVideo).data('src');
+				$fullVideo = $('#work-item-stage').find('.work-full-video'),
+				$videoSource = $('<source></source>'),
+				videoSrc = $fullVideo.data('src');
 
 				if(!$fullVideo.data('started')){
-					$fullVideo.attr('src', videoSrc);
+					$videoSource.attr('src', videoSrc);
+					$videoSource.appendTo($fullVideo);
 				}
+				
+				// $loopVideo = _this.$workItemStage.find('.work-loop-video');
+				// $loopVideoSrc = $loopVideo.find('source');
+				// loopVideoSrc = $loopVideoSrc.data('src');
+
+				// $loopVideoSrc.attr('src', loopVideoSrc);
+
+				// if(ML_vars.device != 'tablet'){
+				// 	$loopVideo[0].play();
+				// }				
 
 			$fullVideo.show();	
 
-			_this.currentVideo = $fullVideo[0];
+			$fullVideo
+				.css('opacity', 0)
+				.attr('id', 'featured-work-video');
 
-			$('.work-loop-video', $curWorkItem).css('opacity', 0); 
-			$('.work-full-video', $curWorkItem).show().css('opacity', 1);
+			$('#work-item-stage .work-full-video').show().css('opacity', 1);
 
 			ml.elms.$body.addClass('show-video');
 
-			return;
+			if(!$fullVideo.data('started')){
+				videojs('featured-work-video', {
+					'autoplay': true,
+					'controls': true
+				}, function(){
+					_this.currentFullVideo = this;
 
-			$fullVideo[0].play();
-			$fullVideo.on('ended', function(){
-				_this.closeFullVideo();
-			});
-			$fullVideo.data('started', true);
+					this.on('ended', function(){
+						_this.closeFullVideo();
+					});
+				});			
+			}
 
+			_this.currentFullVideo.play();
+			$fullVideo.attr('data-started', true);
 		},
 
 		closeFullVideo: function(){
-			console.log('close video');
-			this.currentVideo.pause();
-			
-			$(this.currentVideo).fadeOut();
-			
+			this.currentFullVideo.pause();
+
+			$('#work-item-stage .work-full-video').fadeOut();
+						
 			ml.elms.$body.removeClass('show-video');
 		},
 
@@ -803,8 +1049,11 @@
 				return;
 			} else {
 				workId = _this.currentPath.replace('/', '');
-				_this.openWorkItem($('#'+ workId));
-				_this.scrollToItem($('#'+ workId));
+				if(this.openOnLoad){
+					console.log('from checkURL');
+					_this.openWorkItem($('#'+ workId));
+					_this.scrollToItem($('#'+ workId));
+				}	
 			}
 		},
 
@@ -878,11 +1127,13 @@
 
 			ml.Work.resetUrl();
 
-			if(ML_vars.device === 'desktop'){
+			if(ML_vars.device === 'desktop' || ML_vars.device === 'tablet'){
+				var numToShow = ml.env.winWidth >= 768 ? 3 : 4;
+
 				this.workItemsWidth = ml.Work.numWorkItems * ml.Work.workItemWidth;
 
-				if(ml.Work.numWorkItems < 4 && this.filterCat != 'all'){
-					this.workItemsWidth = ml.Work.workItemWidth*4;
+				if(ml.Work.numWorkItems < numToShow && this.filterCat != 'all'){
+					this.workItemsWidth = ml.Work.workItemWidth*numToShow;
 				}				
 				
 				$('#work-items').css('width', this.workItemsWidth);	
@@ -921,7 +1172,7 @@
 				scrollbars: 'custom',
 				scrollY: false,
 				interactiveScrollbars: true,
-				click: true,
+				click: false,
 				keyBindings: {
 					left: 37,
     				right: 39
@@ -944,8 +1195,6 @@
 				rightInterval = setInterval(function(){
 					myScroll.scrollBy(-10, 0, 0);
 
-					console.log(myScroll.x);
-
 					if(Math.abs(myScroll.x) >= Math.abs(myScroll.maxScrollX)){
 						clearInterval(rightInterval);
 					}					
@@ -953,7 +1202,7 @@
 			});
 		
 			$('.scrollhotspot.right').on('mouseout', function(e){
-				console.log('cleat the int');
+				// console.log('cleat the int');
 				clearInterval(rightInterval);
 			});	
 
@@ -974,7 +1223,7 @@
 			});
 		
 			$('.scrollhotspot.left').on('mouseout', function(e){
-				console.log('cleat the int');
+				// console.log('cleat the int');
 				clearInterval(leftInterval);
 			});
 		}	

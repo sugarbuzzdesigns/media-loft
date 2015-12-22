@@ -20,14 +20,13 @@
 						'background' => 'RZR',
 						'company' => 'RZR',
 						'category' => 'video'
-					)
-					// ,
-					// array(
-					// 	'url' => 'mayo-clinic',
-					// 	'background' => 'Mayo',
-					// 	'company' => 'Mayo Clinic',
-					// 	'category' => 'video'
-					// )					
+					),
+					array(
+						'url' => 'international-paper',
+						'background' => 'IP',
+						'company' => 'International Paper',
+						'category' => 'video'
+					)				
 				)			
 			),
 		array(
@@ -60,12 +59,12 @@
 					)																
 				),
 			'related' => array(
-					// array(
-					// 	'url' => 'mayo-clinic',
-					// 	'background' => 'Mayo',
-					// 	'company' => 'Mayo Clinic',
-					// 	'category' => 'video'
-					// ),
+					array(
+						'url' => 'international-paper',
+						'background' => 'IP',
+						'company' => 'International Paper',
+						'category' => 'video'
+					),
 					array(
 						'url' => 'target',
 						'background' => 'Target',
@@ -74,6 +73,35 @@
 					)					
 				)
 			),	
+		array(
+			'company name' => 'International Paper', 
+			'category' => 'video',
+			'thumb resting' => 'international_thumbnail_active.jpg',
+			'thumb hover' => 'international_thumbnail_hover.jpg',
+			'label'=>'Brand Anthem Video',
+			'slides' => array(
+					array(
+						'label'=>'Brand Anthem Video',
+						'description'=> "<p>International Paper is a global leader in packaging and paper with manufacturing operations worldwide. They wanted this video to address IP's core company values including employee safety, sustainability and operational excellence – the things they refer to as \"The IP Way.\" </p><p>Media Loft proposed telling this story through the eyes of a single employee. Following phone interviews with several worthy candidates, a manager at their Mansfield, Louisiana paper mill was selected as the spokesman. After two days of filming him and his dedicated team of co-workers, we knew we’d found the perfect subject to convey the heart, the soul and the mission of the IP organization.</p>",
+						'media'=> array('video','https://player.vimeo.com/external/148401817.hd.mp4?s=0eaff334e186482c18cb9b40f012e587e3eb678e&profile_id=113', 'https://player.vimeo.com/external/148401816.hd.mp4?s=a83341038e5653a1dba1e107972aa81b114dd526&profile_id=113', 'IP_Poster_Mobile.jpg'),
+						'media-mobile'=> array('https://player.vimeo.com/external/148401816.sd.mp4?s=b470365fa1a9b0a472f1b33b989e1d981ef2b562&profile_id=112')
+					)
+				),
+			'related' => array(
+					array(
+						'url' => 'target',
+						'background' => 'Target',
+						'company' => 'Target',
+						'category' => 'video'
+					),
+					array(
+						'url' => 'rzr',
+						'background' => 'RZR',
+						'company' => 'RZR',
+						'category' => 'video'
+					)					
+				)			
+			),
 		// array(
 		// 	'company name' => 'Mayo Clinic', 
 		// 	'category' => 'video',
@@ -276,24 +304,24 @@
 
 				)
 			),
-		// array(
-		// 	'company name' => 'Optum', 
-		// 	'category' => 'interactive',
-		// 	'thumb resting' => 'optum_active_thumbnail.jpg',
-		// 	'thumb hover' => 'optum_hover_thumbnail.jpg',
-		// 	'label'=>'Simulcast Event Interactive',
-		// 	'slides' => array(
-		// 			array(
-		// 				'label'=>'Simulcast Event Interactive',
-		// 				'description'=> "<p>To make their annual employee appreciation day especially eventful, Media Loft helped produce a live online simulcast available to all 80,000 Optum employees across the globe.</p><p>Optum executives served as show co-hosts in a \"Today Show\"-style broadcast that included pre-taped video roll-ins, executive interviews and employees celebrating in Australia, India, England and the Philippines.</p>",
-		// 				'media'=> array('video','https://player.vimeo.com/external/137254634.hd.mp4?s=f51450901d6fa0fc86187ed49db1872e&profile_id=113','https://player.vimeo.com/external/138750185.hd.mp4?s=b18e701185d035762416a898a19a5de3&profile_id=113', 'Optum_Poster_Mobile.jpg'),
-		// 				'media-mobile'=> array('https://player.vimeo.com/external/138750185.mobile.mp4?s=1f18f58959cef6d5d21c5e5ec8343107&profile_id=116')
-		// 			)
-		// 		),
-		// 	'related' => array(
+		array(
+			'company name' => 'Optum', 
+			'category' => 'interactive',
+			'thumb resting' => 'optum_active_thumbnail.jpg',
+			'thumb hover' => 'optum_hover_thumbnail.jpg',
+			'label'=>'Simulcast Event Interactive',
+			'slides' => array(
+					array(
+						'label'=>'Simulcast Event Interactive',
+						'description'=> "<p>To make their annual employee appreciation day especially eventful, Media Loft helped produce a live online simulcast available to all 80,000 Optum employees across the globe.</p><p>Optum executives served as show co-hosts in a \"Today Show\"-style broadcast that included pre-taped video roll-ins, executive interviews and employees celebrating in Australia, India, England and the Philippines.</p>",
+						'media'=> array('video','https://player.vimeo.com/external/137254634.hd.mp4?s=f51450901d6fa0fc86187ed49db1872e&profile_id=113','https://player.vimeo.com/external/138750185.hd.mp4?s=b18e701185d035762416a898a19a5de3&profile_id=113', 'Optum_Poster_Mobile.jpg'),
+						'media-mobile'=> array('https://player.vimeo.com/external/138750185.mobile.mp4?s=1f18f58959cef6d5d21c5e5ec8343107&profile_id=116')
+					)
+				),
+			'related' => array(
 				
-		// 		)			
-		// 	),
+				)			
+			),
 		array(
 			'company name' => 'Motion GFX', 
 			'category' => 'motion graphics',
@@ -305,7 +333,7 @@
 						'label'=>'Compilation Reel',
 						'description'=> "<p>Big and bold? Check. Sleek and sophisticated? Can do. Retro with a hint of rogue? That too. In fact, we’ve got more animation styles than Pixar has pixels.</p><p>And we’re ready to bring them to a screen near you.</p>",
 						'media'=> array('video','https://player.vimeo.com/external/137254629.hd.mp4?s=f8c44b7cf63ed5c0c97ab07b9f421aec&profile_id=113', 'https://player.vimeo.com/external/137254633.hd.mp4?s=a45b1287c98a8815e73afef32ff0b531&profile_id=113', 'Motion_Poster_Mobile.png'),
-						'media-mobile'=> array('https://player.vimeo.com/external/137254632.mobile.mp4?s=de1f18ac08ec29c692d25c02c2c26ee5&profile_id=116')
+						'media-mobile'=> array('https://player.vimeo.com/external/137254633.mobile.mp4?s=230ce829f252d3c701b9bb4db131f3f4&profile_id=116')
 					)
 				),
 			'related' => array(
