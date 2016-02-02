@@ -2341,6 +2341,12 @@ the other stylesheets. Remember, keep it light: Speed is Important.
     display: none;
   }
 
+  .page-services .video-bg-container .video-js {
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+  }
+
   .desktop .video-bg-container video {
     opacity: 1;
     transition: opacity 0.5s ease;
@@ -2959,6 +2965,12 @@ the other stylesheets. Remember, keep it light: Speed is Important.
   }
   .page-contact.loaded .hero p {
     margin-left: 0;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-height: 695px) {
+  #contact-landing .hero p {
+    left: 135px;
+    top: 93px;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 320px) {
@@ -6960,11 +6972,25 @@ you can add resource intensive styles.
     width: 100% !important;
   }
 }
-@media only screen and (min-width: 768px) and (max-height: 650px) {
+@media only screen and (min-width: 768px) and (max-height: 675px) {
   #work-item-stage .work-carousel .work-copy {
-    width: 25%;
+    padding-top: 148px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-height: 580px) {
+  #work-item-stage .work-carousel .work-copy {
+    padding-top: 138px;
   }
 
+  .work-details .company {
+    margin: 8px 0 0;
+  }
+
+  .work-details .description {
+    line-height: 20px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-height: 650px) {
   #work-item-stage .work-carousel .work-media,
   #work-item-stage .work-carousel .carousel-items .carousel-item .related-works {
     width: 75%;
@@ -7080,7 +7106,13 @@ you can add resource intensive styles.
   .work-details .video-start {
     z-index: 1;
   }
-
+}
+@media only screen and (min-width: 768px) and (max-height: 600px) {
+  .work-details .description {
+    line-height: 20px;
+  }
+}
+@media only screen and (min-width: 768px) {
   .copy-wrap.slidein {
     transition: all 0.5s ease 0.2s;
     transform: translateX(0);
@@ -7264,6 +7296,21 @@ you can add resource intensive styles.
     right: -100%;
   }
 
+  /**************************
+  Contact Page
+  ***************************/
+  #contact-landing .hero p {
+    top: 60%;
+    left: 78px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-height: 695px) {
+  #contact-landing .hero p {
+    left: 135px;
+    top: 102px;
+  }
+}
+@media only screen and (min-width: 768px) {
   .video-scaled #full-screen-video .work-full-video video,
   .video-scaled .video-bg-container .work-full-video video,
   .video-scaled #culture.play-full-video #about-culture-video-full video,
@@ -7770,7 +7817,14 @@ you can add resource intensive styles.
   #contact-landing .social {
     bottom: 13px;
   }
-
+}
+@media only screen and (min-width: 1030px) and (max-height: 695px) {
+  #contact-landing .hero p {
+    left: 135px;
+    top: 93px;
+  }
+}
+@media only screen and (min-width: 1030px) {
   .get-directions-icon * {
     display: block;
   }

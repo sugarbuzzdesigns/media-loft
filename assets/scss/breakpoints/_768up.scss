@@ -678,11 +678,27 @@ Work Page
 	}		
 }
 
-@media screen and ( max-height: 650px ) {
+@media screen and ( max-height: 675px ) {
 	#work-item-stage .work-carousel .work-copy {
-		width: 25%;
+		padding-top: 148px;
+	}
+}
+
+@media screen and ( max-height: 580px ) {
+	#work-item-stage .work-carousel .work-copy {
+		padding-top: 138px;
 	}
 
+	.work-details .company {
+		margin: 8px 0 0;
+	}
+
+	.work-details .description {
+		line-height: 20px;
+	}
+}
+
+@media screen and ( max-height: 650px ) {
 	#work-item-stage .work-carousel .work-media,
 	#work-item-stage .work-carousel .carousel-items .carousel-item .related-works {
 		width: 75%;
@@ -827,6 +843,12 @@ Work Page
 
 	.video-start {
 		z-index: 1;
+	}
+}
+
+@media screen and ( max-height: 600px ) {
+	.work-details .description {
+		line-height: 20px;
 	}
 }
 
@@ -1078,6 +1100,22 @@ Work Page
 		right: -100%;
 	}	
 }
+
+/**************************
+Contact Page
+***************************/
+#contact-landing .hero p {
+	top: 60%;
+	left: 78px;
+}
+
+@media screen and ( max-height: 695px ) {
+	#contact-landing .hero p {
+		left: 135px;
+		top: 102px;
+	}
+}
+
 
 .video-scaled #full-screen-video .work-full-video video, 
 .video-scaled .video-bg-container .work-full-video video,

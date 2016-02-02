@@ -458,6 +458,19 @@ Contact page
 	}
 }
 
+@media screen and ( max-height: 695px ) {
+	#contact-landing .hero p {
+		left: 135px;
+		top: 93px;
+	}
+}
+
+@media screen and ( max-height: 715px ) {
+	#contact-landing .hero p {
+		// left: 135px;
+	}
+}
+
 .get-directions-icon * {
 	display: block;
 }

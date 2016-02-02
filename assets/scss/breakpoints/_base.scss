@@ -694,6 +694,12 @@ FULL BLEED VIDEO
 	display: none;
 }
 
+.page-services .video-bg-container .video-js {
+	min-width: 100%;
+	min-height: 100%;
+	background-size: cover;
+}
+
 .desktop .video-bg-container video {
 	opacity: 1;
 	transition: opacity 0.5s ease;
@@ -1469,6 +1475,13 @@ Contact page
 		.hero p {
 			margin-left: 0;
 		}
+	}
+}
+
+@media screen and ( max-height: 695px ) {
+	#contact-landing .hero p {
+		left: 135px;
+		top: 93px;
 	}
 }
 

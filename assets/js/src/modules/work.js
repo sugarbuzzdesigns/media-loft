@@ -442,8 +442,6 @@
 				$loopVideoSrc,
 				loopVideoSrc;
 
-			// $('.nav-arrow-down').fadeOut();
-
 			$item.siblings().removeClass('open');
 			$item.addClass('open');
 			_this.$workItemsWin.addClass('item-open');
@@ -935,6 +933,8 @@
 					$videoSource.attr('src', videoSrc);
 					$videoSource.appendTo($fullVideo);
 				}
+
+				console.log('play full video');
 				
 				// $loopVideo = _this.$workItemStage.find('.work-loop-video');
 				// $loopVideoSrc = $loopVideo.find('source');

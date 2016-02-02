@@ -20,7 +20,14 @@ ml.About = {};
 			var _this = this;
 
 			$('body').on('mlorientationchange', function(){
-				console.log(_this.currentSection);
+				var sectionId = _this.currentSection.attr('id'),
+					$navLink = $('a[href="#'+ sectionId +'"]');
+
+				if(sectionId === 'timeline2'){
+					$navLink = $('a[href="#timeline"]');
+				}
+
+				_this.scrollToSection($navLink[0]);
 			});
 
 			$('#about-menu li').on('click', function(e){
@@ -79,6 +86,8 @@ ml.About = {};
 				dataSection = $menuItem.data('section-name'),
 				$section = $(dataSection),
 				sectionTop = $section.offset().top;
+
+				console.log($menuItem);
 
 			$menuItem
 				.addClass('active')
@@ -290,15 +299,19 @@ ml.About = {};
 			offset: '-80%'
 		});		
 	
-		$("section").snapPoint({ 
-		    scrollDelay: 200,       // Amount of time the visitor has to scroll before the snap point kicks in (ms)
-		    scrollSpeed: 200,        // Length of smooth scroll's animation (ms)
-		    outerTopOffset: ($(window).height() * 0.40),    // Number of pixels for the downward vertical offset (relative to the top of your snapping container)
-		    innerTopOffset: ($(window).height() * 0.40)      // Number of pixels for the upward vertical offset (relative to the top of your snapping container)
-		});	
+		if(!ML_vars.isTouch){
+			$("section").snapPoint({ 
+			    scrollDelay: 200,       // Amount of time the visitor has to scroll before the snap point kicks in (ms)
+			    scrollSpeed: 200,        // Length of smooth scroll's animation (ms)
+			    outerTopOffset: ($(window).height() * 0.40),    // Number of pixels for the downward vertical offset (relative to the top of your snapping container)
+			    innerTopOffset: ($(window).height() * 0.40)      // Number of pixels for the upward vertical offset (relative to the top of your snapping container)
+			});	
+		}
 
 		$('body, article').swipe({
 			swipe:function(event, direction, distance, duration, fingerCount) {
+				console.log(ml.env.winHeight);
+
 				if(direction === 'up'){
 					if(ml.About.Global.currentIndex === ml.About.Global.sectionsCount-1){ return }
 					ml.About.Global.currentIndex++;

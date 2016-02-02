@@ -11,6 +11,28 @@ define('IMG_DIR', get_bloginfo('template_directory') . '/assets/images');
 
 define('MOBILE_IMG', get_bloginfo('template_directory') . '/assets/images/mobile');
 
+
+/**
+ * Get the bootstrap!
+ */
+if ( file_exists(  __DIR__ . '/cmb2/init.php' ) ) {
+  require_once  __DIR__ . '/cmb2/init.php';
+} elseif ( file_exists(  __DIR__ . '/CMB2/init.php' ) ) {
+  require_once  __DIR__ . '/CMB2/init.php';
+}
+
+if (is_admin()){
+	function my_remove_meta_boxes() {
+		remove_meta_box('slugdiv', 'case_study', 'normal');
+	}
+
+	add_action( 'admin_menu', 'my_remove_meta_boxes' );
+
+	require_once('includes/custom_post_types.php');
+	require_once('includes/cmb2_boxes.php');
+}
+
+
 /**
  * Includes
  */
@@ -163,6 +185,13 @@ function medialoft_styles(){
 }
 
 add_action( 'wp_enqueue_scripts', 'medialoft_styles' );
+
+function load_admin_styles() {
+	wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/assets/css/ml-admin-style.css', '1.0.0' );
+} 
+
+add_action( 'admin_print_styles', 'load_admin_styles' );
+
 /**
  * Detct device
  */
@@ -226,3 +255,160 @@ function my_class_names( $classes ) {
 
 
 show_admin_bar( false );
+
+
+function replace_howdy($wp_admin_bar){
+	$my_account = $wp_admin_bar->get_node('my-account');
+	$newtitle = str_replace('Howdy,', 'Welcome,', $my_account->title);
+	$wp_admin_bar->add_node(array(
+		'id' => 'my-account',
+		'title' => $newtitle,
+	));
+	}
+
+add_filter('admin_bar_menu', 'replace_howdy', 25);
+
+add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
+
+function remove_wp_logo( $wp_admin_bar ) {
+	$wp_admin_bar->remove_node( 'wp-logo' );
+	$wp_admin_bar->remove_node( 'comments' );	
+}
+
+function edit_admin_menus() {
+    global $menu;
+     
+    $menu[5][0] = 'Blog Posts'; // Change Posts to Recipes
+}
+
+function remove_page_fields() {
+	remove_meta_box( 'categorydiv' , 'case_study' , 'normal' ); //removes comments status
+	remove_meta_box( 'tagsdiv-post_tag' , 'case_study' , 'normal' ); //removes comments
+
+	remove_meta_box( 'pageparentdiv' , 'page' , 'normal' ); //removes comments	
+	remove_meta_box( 'postimagediv' , 'page' , 'normal' ); //removes comments status
+
+	remove_submenu_page( 'edit.php?post_type=case_study', 'edit-tags.php?taxonomy=category&amp;post_type=case_study' );	
+	remove_submenu_page( 'edit.php?post_type=case_study', 'edit-tags.php?taxonomy=post_tag&amp;post_type=case_study' );
+}
+add_action( 'admin_menu' , 'remove_page_fields' );
+add_action( 'admin_menu', 'edit_admin_menus' );
+
+function custom_menu_page_removing() {
+    remove_menu_page( 'themes.php' );
+    remove_menu_page( 'upload.php' );
+	// remove_menu_page( 'edit.php?post_type=page' ); 
+	remove_menu_page( 'edit-comments.php' ); 
+	// remove_menu_page( 'plugins.php' );                //Plugins
+  	remove_menu_page( 'users.php' );                  //Users
+  	remove_menu_page( 'tools.php' );                  //Tools
+  	remove_menu_page( 'options-general.php' );        //Settings	
+}
+add_action( 'admin_menu', 'custom_menu_page_removing' );
+
+// disable content editor for page template
+function wpcs_disable_content_editor() {
+	$contactId = get_id_by_slug('contact');
+
+	if(isset($_GET['post'])){
+    	$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] || null;
+
+	    if( !isset( $post_id ) || $post_id != $contactId ) return;		
+	}
+
+    remove_post_type_support( 'page', 'editor' );
+}
+add_action( 'admin_init', 'wpcs_disable_content_editor' );
+
+
+// remove unwanted dashboard widgets for relevant users
+function wptutsplus_remove_dashboard_widgets() {
+    $user = wp_get_current_user();
+    
+	remove_action('welcome_panel', 'wp_welcome_panel');
+
+    remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );
+    remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+    remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
+    remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
+    remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+    remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+    remove_meta_box( 'dashboard_secondary', 'dashboard', 'side' );
+}
+add_action( 'wp_dashboard_setup', 'wptutsplus_remove_dashboard_widgets' );
+
+// add new dashboard widgets
+function wptutsplus_add_dashboard_widgets() {
+	$user = wp_get_current_user();
+
+	$user_name = $user->user_nicename;
+
+    wp_add_dashboard_widget( 'wptutsplus_dashboard_welcome', 'Welcome ' . $user_name, 'wptutsplus_add_welcome_widget' );
+}
+function wptutsplus_add_welcome_widget(){ ?> <?php }
+ 
+add_action( 'wp_dashboard_setup', 'wptutsplus_add_dashboard_widgets' );
+
+
+
+
+// Usage:
+// get_id_by_slug('any-page-slug');
+
+function get_id_by_slug($page_slug) {
+	$page = get_page_by_path($page_slug);
+	if ($page) {
+		return $page->ID;
+	} else {
+		return null;
+	}
+}
+
+
+function jp_exclude_pages_from_admin($query) {
+
+$pagesToExclude = array(
+	get_id_by_slug('blog'),
+	get_id_by_slug('about'),
+	get_id_by_slug('home'),
+	get_id_by_slug('services'),
+	get_id_by_slug('work')
+);
+
+?>
+
+<script>
+	console.log('<?php echo $pageID; ?>');
+</script>
+
+<?php 
+ 
+	if ( ! is_admin() )
+		return $query;
+ 
+	global $pagenow, $post_type;
+ 
+	if ( !current_user_can( 'administrator' ) && $pagenow == 'edit.php' && $post_type == 'page' )
+		$query->query_vars['post__not_in'] = $pagesToExclude; // Enter your page IDs here
+}
+
+add_filter( 'parse_query', 'jp_exclude_pages_from_admin' );
+
+
+
+add_action('login_head', 'ml_custom_login_logo');
+function ml_custom_login_logo() {
+    echo '<style type="text/css">
+    h1 a { background-image:url('.get_stylesheet_directory_uri().'/assets/images/mobile/logos/ML_Logo_@2x.png) !important; background-size: 100% !important;height: 100px !important; width: 311px !important; margin-bottom: 0 !important; padding-bottom: 0 !important; }
+    .login form { margin-top: 10px !important; }
+	.wp-core-ui .button.button-primary {
+	    background: #DC4034;
+	    border-color: #D23B2F;
+	    text-shadow:none;
+	}    
+	.wp-core-ui .button.button-primary:hover {
+		background: #CA3024;
+		border-color: #D23B2F;
+	}
+    </style>';
+}

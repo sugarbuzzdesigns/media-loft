@@ -1,0 +1,57 @@
+/*ml-admin-style.css*/
+
+.metabox-holder .postbox>h3, .metabox-holder .stuffbox>h3, .metabox-holder h2.hndle, .metabox-holder h3.hndle {
+	padding: 10px 0 0 0;
+}
+
+.wp-menu-image.dashicons-before.dashicons-dashboard:before {
+    background: url('http://ml.dev/wp-content/themes/medialoft/assets/images/mobile/logos/Logo_Red_@2x.png');
+    background-size: cover;
+    z-index: 100000;
+    background-position: 0 0;
+    height: 20px;
+    width: 40px;
+    display: block;
+    content: "";
+    background-size: cover;
+    position: relative;
+    top: 4px;
+    left: -24px;
+    padding: 0;
+}
+
+#adminmenuwrap #adminmenu .wp-not-current-submenu .wp-submenu {
+	background: #ea5340;
+}
+
+#adminmenuwrap #adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
+	border-right-color: #ea5340;	
+}
+
+#adminmenuwrap #adminmenu a:hover,
+#adminmenuwrap #adminmenu li.menu-top>a:focus,
+#adminmenuwrap #adminmenu li:hover div.wp-menu-image:before,
+#collapse-menu:hover,
+#collapse-menu:hover #collapse-button div:after {
+	color: #ea5340;
+}
+
+#adminmenuwrap #adminmenu .wp-submenu a:hover {
+	opacity: 0.7;
+	color: #fff;
+	cursor: pointer;
+}
+
+#adminmenu li a:focus div.wp-menu-image:before, 
+#adminmenu li.opensub div.wp-menu-image:before, 
+#adminmenu li:hover div.wp-menu-image:before {
+	color: #ea5340;
+}
+
+#adminmenuwrap #adminmenu li.menu-top:hover,
+#adminmenuwrap #adminmenu li.opensub>a.menu-top,
+#adminmenuwrap #adminmenu li>a.menu-top:focus {
+    position: relative;
+    background-color: #191e23;
+    color: #ea5340;
+}	

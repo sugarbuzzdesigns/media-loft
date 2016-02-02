@@ -32,76 +32,8 @@
 			<line fill="none" stroke="#4C4B4C" stroke-width="2" stroke-miterlimit="10" x1="358.263" y1="138.523" x2="358.263" y2="5.912"/>
 			<line fill="none" stroke="#4C4B4C" stroke-width="2" stroke-miterlimit="10" x1="124.435" y1="138.521" x2="123.968" y2="5.75"/>
 			</svg>		
-<!-- 			<svg version="1.1" id="shape-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-		 		viewBox="0 0 473.25 589.75" enable-background="new 0 0 473.25 589.75" xml:space="preserve">
-			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M420.667,288.398l49.592-49.592
-				c1.687-1.687,1.687-4.422,0-6.109L240.479,2.916c-1.688-1.687-4.424-1.687-6.11,0L121.684,115.601c-1.687,1.687-1.687,4.422,0,6.109
-				l166.259,166.26"/>
-			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M115.135,454.645c1.687,1.687,4.422,1.687,6.109,0
-				l229.781-229.782c1.688-1.687,1.688-4.422,0-6.109L238.342,106.069c-1.688-1.687-4.424-1.687-6.11,0L2.45,335.85
-				c-1.687,1.688-1.687,4.422,0,6.109L115.135,454.645z"/>
-			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M65.96,405.469L2.839,468.59
-				c-1.687,1.687-1.687,4.422,0,6.109l112.684,112.685c1.687,1.687,4.423,1.687,6.11,0l299.01-299.01"/>
-			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M301.849,407.168l47.451,47.451
-				c1.687,1.687,4.423,1.687,6.11,0l112.684-112.685c1.688-1.687,1.688-4.423,0-6.11L351.027,218.758"/>
-			<path fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" d="M235.699,473.316l114.066,114.067
-				c1.688,1.688,4.422,1.688,6.109,0l109.818-109.761c1.687-1.688,3.277-4.213,2.865-9.033l0.8-129.685"/>
-			<line fill="none" stroke="#4C4B4C" stroke-width="0.5" stroke-miterlimit="10" x1="1.186" y1="338.904" x2="1.573" y2="471.645"/>
-			</svg> -->
 		</div>	
 		<blockquote>
-<!-- 			<div class="inner">
-				<div class="quote first show">
-					<span class="quote-mark"></span>
-					<hr>
-					<span>Connection is why we're here; it is what gives purpose and meaning to our lives."</span>
-					<small>– Brene Browne</small>
-				</div>	
-				<div class="quote">
-					<span class="quote-mark"></span>
-					<hr>
-					<span>No good movie is too long and no bad movie</span>
-					<span>is short enough."</span>
-					<small>– Roger Ebert</small>
-				</div>	
-				<div class="quote">
-					<span class="quote-mark"></span>
-					<hr>
-					<span>Only the prepared speaker deserves to be confident."</span>
-					<small>– Dale Carnegie</small>
-				</div>	
-				<div class="quote">
-					<span class="quote-mark"></span>
-					<hr>
-					<span>I could never go onstage in denims."</span>
-					<small>– Elton John</small>
-				</div>					
-				<div class="quote">
-					<span class="quote-mark"></span>
-					<hr>
-					<span>Eloquent speech is not from lip to ear, but rather from heart to heart."</span>
-					<small>- William Jennings Bryan</small>
-				</div>													
-				<div class="quote">
-					<span class="quote-mark"></span>
-					<hr>
-					<span>The human species thinks in metaphors and learns through stories."</span>
-					<small>- Mary Catherine Bateson</small>
-				</div>	
-				<div class="quote">
-					<span class="quote-mark"></span>
-					<hr>
-					<span>You want to have butterflies in your stomach, because if you don't, if you walk out onstage complacent, that's not a good thing."</span>
-					<small>- Joan Jett</small>
-				</div>	
-				<div class="quote last">
-					<span class="quote-mark"></span>
-					<hr>
-					<span>Never wear anything that panics the cat."</span>
-					<small>- P.J. O'Rourke</small>
-				</div>													
-			</div>	
-			<nav><span class="arrow prev"><</span> <span class="cur">01</span><span>/</span><span class="total"></span> <span class="arrow next">></span></nav> -->
 			<ul class="bxslider">
 			  <li class="quote">
 					<span class="quote-mark"></span>
@@ -169,8 +101,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="staging-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Staging_BW.jpg);">
-						<source src="https://player.vimeo.com/external/137640251.hd.mp4?s=d687eac0921c6ac5b1773c8733d811a2&profile_id=113">
+					<video class="video-js vjs-default-skin" id="staging-video" loop poster="<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Staging_BW.jpg" data-src="https://player.vimeo.com/external/137640251.hd.mp4?s=d687eac0921c6ac5b1773c8733d811a2&profile_id=113">
+						<source>
 					</video>
 				</div>
 			<?php } ?>	
@@ -208,8 +140,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="video-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Video_BW.jpg);">
-						<source src="https://player.vimeo.com/external/137640256.hd.mp4?s=6c4ffd5cb8c5da4bff0e3ed8db7808dc&profile_id=113">
+					<video class="video-js vjs-default-skin" id="video-video" loop poster="<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Video_BW.jpg" data-src="https://player.vimeo.com/external/137640256.hd.mp4?s=6c4ffd5cb8c5da4bff0e3ed8db7808dc&profile_id=113">
+						<source>
 					</video>
 				</div>
 			<?php } ?>
@@ -241,8 +173,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="design-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Design_BW.jpg);">
-						<source src="https://player.vimeo.com/external/137640249.hd.mp4?s=f43f8d8a9e24222d55afa85e7578b339&profile_id=113">
+					<video class="video-js vjs-default-skin" id="design-video" loop poster="<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Design_BW.jpg" data-src="https://player.vimeo.com/external/137640249.hd.mp4?s=f43f8d8a9e24222d55afa85e7578b339&profile_id=113">
+						<source>
 					</video>
 				</div>
 			<?php } ?>
@@ -271,8 +203,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="motion-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Motion_BW.jpg);">
-						<source src="https://player.vimeo.com/external/137640252.hd.mp4?s=2f50c2d787ec6f984ae0d3b7952ee9f5&profile_id=113">
+					<video class="video-js vjs-default-skin" id="motion-video" loop poster="<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Motion_BW.jpg" data-src="https://player.vimeo.com/external/137640252.hd.mp4?s=2f50c2d787ec6f984ae0d3b7952ee9f5&profile_id=113">
+						<source>
 					</video>
 				</div>
 			<?php } ?>
@@ -304,8 +236,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="talent-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Talent_BW.jpg);">
-						<source src="https://player.vimeo.com/external/137640248.hd.mp4?s=6baad63f5f10e2062fefd1f3a8b6b2e4&profile_id=113">
+					<video class="video-js vjs-default-skin" id="talent-video" loop poster="<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Talent_BW.jpg" data-src="https://player.vimeo.com/external/137640248.hd.mp4?s=6baad63f5f10e2062fefd1f3a8b6b2e4&profile_id=113">
+						<source>
 					</video>
 				</div>
 			<?php } ?>
@@ -335,8 +267,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="support-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Support_BW.jpg);">
-						<source src="https://player.vimeo.com/external/137640250.hd.mp4?s=7ac0c0e82c256fc53819b295076b080c&profile_id=113">
+					<video class="video-js vjs-default-skin" id="support-video" loop poster="<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Support_BW.jpg" data-src="https://player.vimeo.com/external/137640250.hd.mp4?s=7ac0c0e82c256fc53819b295076b080c&profile_id=113">
+						<source>
 					</video>
 				</div>
 			<?php } ?>
@@ -379,8 +311,8 @@
 			</div>
 			<?php if(!wp_is_mobile()){ ?>
 				<div class="video-bg-container">
-					<video id="interactive-video" loop style="background-image:url(<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Interactive_BW.jpg);">
-						<source src="https://player.vimeo.com/external/137640253.hd.mp4?s=35284b47ee564a182282da6459e38798&profile_id=113">
+					<video class="video-js vjs-default-skin" id="interactive-video" loop poster="<?php bloginfo('template_directory'); ?>/assets/videos/services/posters/Ambient_Interactive_BW.jpg" data-src="https://player.vimeo.com/external/137640253.hd.mp4?s=35284b47ee564a182282da6459e38798&profile_id=113">
+						<source>
 					</video>
 				</div>
 			<?php } ?>
@@ -473,7 +405,7 @@ ul.bxslider li {
 /* LOADER */
 .bx-wrapper .bx-loading {
   min-height: 50px;
-  background: url('images/bx_loader.gif') center center no-repeat #ffffff;
+  background: center center no-repeat #ffffff;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -520,7 +452,7 @@ ul.bxslider li {
 /* DIRECTION CONTROLS (NEXT / PREV) */
 .bx-wrapper .bx-prev {
   left: 10px;
-  background: url('images/controls.png') no-repeat 0 -32px;
+  background: no-repeat 0 -32px;
 }
 .bx-wrapper .bx-prev:hover,
 .bx-wrapper .bx-prev:focus {
@@ -528,7 +460,7 @@ ul.bxslider li {
 }
 .bx-wrapper .bx-next {
   right: 10px;
-  background: url('images/controls.png') no-repeat -43px -32px;
+  background: no-repeat -43px -32px;
 }
 .bx-wrapper .bx-next:hover,
 .bx-wrapper .bx-next:focus {
@@ -557,7 +489,7 @@ ul.bxslider li {
   width: 10px;
   height: 11px;
   outline: 0;
-  background: url('images/controls.png') -86px -11px no-repeat;
+  background: -86px -11px no-repeat;
   margin: 0 3px;
 }
 .bx-wrapper .bx-controls-auto .bx-start:hover,
@@ -571,7 +503,7 @@ ul.bxslider li {
   width: 9px;
   height: 11px;
   outline: 0;
-  background: url('images/controls.png') -86px -44px no-repeat;
+  background: -86px -44px no-repeat;
   margin: 0 3px;
 }
 .bx-wrapper .bx-controls-auto .bx-stop:hover,

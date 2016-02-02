@@ -156,17 +156,21 @@
 				$servicesContainer = $('#services-container'),
 				containerTop = $servicesContainer.offset().top,
 				$video = $('video', $sectionToLoad),
+				videoId = $video.attr('id'),
+				$src = $video.find('source'),
+				srcURL = $video.data('src'),
 				hasVideo = $video.length > 0 ? true : false;
+				
+				$src.attr('src', srcURL);
 
-				if(hasVideo){
-					if(this.activeVideo){
-						ml.video.pauseActiveVideo();
-					}
-					
-					ml.video.playVideo($video[0]);
-					ml.video.activeVideo = $video[0];
+				console.log($video);
 
-					console.log('playe the video');
+				if($video.length){
+					videojs(videoId, {
+						'autoplay': true
+					}, function(){
+						console.log('video ready');
+					});		
 				}
 
 			// hide current section if showing

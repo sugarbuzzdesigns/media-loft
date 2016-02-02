@@ -1,6 +1,55 @@
 <?php get_header(); ?>	
 	<section id="blog">
 		<div class="articles group">
+			<article id="pop-goes-the-greeting" class="collapsed blog-article no-related-articles">
+				<a class="header" href="#" class="header">
+					<div class="inner">
+						<div class="header-copy">
+							<div class="video-article-headline">
+								<h2 class="title">Pop Goes the Greeting.</h2>
+								<div class="video-start play-full-screen" data-video="pop-goes-the-greeting-video">
+									<div></div>
+									<div></div>
+								</div>
+							</div>								
+							<div class="info">
+								<span class="category">Staging</span> / <span class="date">01.12.16</span>
+							</div>
+						</div>	
+					</div>					
+					<div class="full-bleed blog-header-bg" style="background-image:url(<?php echo IMG_DIR; ?>/blog/PopUpCard_header.jpg);"></div>
+				</a>	
+				<div class="article-content">
+					<p>This year's holiday greeting from Media Loft featured a laser-cut, handmade pop-up corporate stage complete with executive speakers, panel discussion, videographer, production crew and conference attendees. (Now if stage setup and teardown were only this easy...)</p>															
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/PopUpCard_content1.jpg" alt="">
+					</div>		
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/PopUpCard_content2.jpg" alt="">
+					</div>	
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/PopUpCard_content3.jpg" alt="">
+					</div>	
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/PopUpCard_content4.jpg" alt="">
+					</div>	
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/PopUpCard_content5.jpg" alt="">
+					</div>	
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/PopUpCard_content6.jpg" alt="">
+					</div>	
+					<div class="blog-entry-img">
+						<img src="<?php echo IMG_DIR; ?>/blog/PopUpCard_content7.jpg" alt="">
+					</div>																																		
+					<div class="social">
+						<!-- http://www.facebook.com/sharer/sharer.php?u=[URL]&title=[TITLE] -->
+						<a class="facebook" data-url="/blog/#/pop-goes-the-greeting" data-title="Pop Goes the Greeting" href=""><i class="fa fa-facebook-official"></i></a>
+						<!-- http://twitter.com/intent/tweet?status=[TITLE]+[URL] -->
+						<a class="twitter" data-url="/blog/#/pop-goes-the-greeting" data-title="Pop Goes the Greeting" href=""><i class="fa fa-twitter"></i></a>
+					</div>
+				</div>					
+			</article>	
 			<article id="dog-days" class="collapsed blog-article no-related-articles">
 				<a class="header" href="#" class="header">
 					<div class="inner">
@@ -28,7 +77,7 @@
 						<a class="twitter" data-url="/blog/#/dog-days" data-title="Dog Days" href=""><i class="fa fa-twitter"></i></a>
 					</div>
 				</div>					
-			</article>			
+			</article>
 			<article id="same-great-companyall-new-brand" class="collapsed blog-article no-related-articles">
 				<a class="header" href="#" class="header">
 					<div class="inner">
@@ -232,6 +281,9 @@
 		</div>	
 
 		<div id="blog-video-overlay" class="video-overlay">
+			<video id="pop-goes-the-greeting-video" width="auto" height="auto" class="video-js vjs-default-skin" controls data-setup='{}'>
+				<source src="https://player.vimeo.com/external/151596404.hd.mp4?s=6c6645b6751a158b17e2a4b28410d52497bdcf5f&profile_id=113">
+			</video>		
 			<video id="same-great-company-video" width="auto" height="auto" class="video-js vjs-default-skin" controls data-setup='{}'>
 				<source src="https://player.vimeo.com/external/138901650.hd.mp4?s=1353202b36e207f5214be8bfff9887d4&profile_id=113">
 			</video>

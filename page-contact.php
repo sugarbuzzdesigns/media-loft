@@ -1,3 +1,14 @@
+<?php while ( have_posts() ) : the_post(); 
+// get all our backend details and set them to vars we can use in the page
+    $email = get_post_meta( get_the_ID(), 'medialoft_email-address', true );
+    $phone = get_post_meta( get_the_ID(), 'medialoft_phone-number', true );
+    $address1 = get_post_meta( get_the_ID(), 'medialoft_address-1', true );
+    $address2 = get_post_meta( get_the_ID(), 'medialoft_address-2', true );
+    $directionsLink = get_post_meta( get_the_ID(), 'medialoft_directions', true );
+
+endwhile; // end of the loop. ?>
+
+
 <?php get_header(); ?>
 	<section id="contact-landing">
 		<div class="hero">
@@ -24,13 +35,13 @@
 			<div class="contact-info">
 				<div class="inner">
 					<h3>General Inquires</h3>
-					<a class="email" href="mailto:info@medialoft.com">info@medialoft.com</a>
-					<a class="tel" href="tel:+16123751086">612.375.1086</a>
+					<a class="email" href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+					<a class="tel" href="tel:+16123751086"><?php echo $phone; ?></a>
 					<p class="address">
-						<span>615 First Ave NE, Suite 100</span>
-						<span>Minneapolis, MN 55413</span>
+						<span><?php echo $address1; ?></span>
+						<span><?php echo $address2; ?></span>
 					</p>
-					<a target="_blank" href="https://www.google.com/maps/dir/''/media+loft/data=!4m5!4m4!1m0!1m2!1m1!1s0x52b32d9d5517721b:0x5654a778fb32a43e?sa=X&ved=0CIQBEPUXMA9qFQoTCPH50cLNqccCFUaaHgodrQkEPg" class="directions"><span class="get-directions-icon"><div></div><div></div><i></i></span><span>Get Directions</span></a>
+					<a target="_blank" href="<?php echo $directionsLink; ?>" class="directions"><span class="get-directions-icon"><div></div><div></div><i></i></span><span>Get Directions</span></a>
 
 					<div class="social">
 						<a href="https://www.facebook.com/TheMediaLoft"><i class="fa fa-facebook-official"></i></a>

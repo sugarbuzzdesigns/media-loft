@@ -20,6 +20,8 @@ var ml = {};
 
 	ml.env = {
 		init: function(){
+			var _this = this;
+
 			this.winHeight = ml.elms.$win.height();
 			this.winWidth = ml.elms.$win.width();
 			this.isTouch = (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
@@ -29,6 +31,9 @@ var ml = {};
 			window.addEventListener("orientationchange", function() {
 				// Announce the new orientation number
 				$('body').trigger('mlorientationchange');
+				
+				_this.winHeight = ml.elms.$win.height();
+				_this.winWidth = ml.elms.$win.width();
 			}, false);
 
 			this.setTouchClass();
@@ -262,7 +267,7 @@ var ml = {};
 		ml.env.init();
 		ml.mainMenu.init();
 		ml.rightMenu.init();
-		// ml.video.init();
+		ml.video.init();
 
 		ml.elms.$win.load(function(){
 			console.log('window loaded');
@@ -279,6 +284,10 @@ var ml = {};
 			ml.elms.$loader.fadeOut();
 			ml.elms.$body.addClass('loaded');
 		}, 500);
+
+		ml.elms.$win.on('resize', function(){
+			console.log('resize');
+		});
 
 		ml.elms.$win.on('resize', myEfficientFn).resize();
 		ml.elms.$win.on('scroll', myEfficientFn).scroll();

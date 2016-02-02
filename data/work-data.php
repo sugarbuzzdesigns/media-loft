@@ -332,8 +332,8 @@
 					array(
 						'label'=>'Compilation Reel',
 						'description'=> "<p>Big and bold? Check. Sleek and sophisticated? Can do. Retro with a hint of rogue? That too. In fact, we’ve got more animation styles than Pixar has pixels.</p><p>And we’re ready to bring them to a screen near you.</p>",
-						'media'=> array('video','https://player.vimeo.com/external/137254629.hd.mp4?s=f8c44b7cf63ed5c0c97ab07b9f421aec&profile_id=113', 'https://player.vimeo.com/external/137254633.hd.mp4?s=a45b1287c98a8815e73afef32ff0b531&profile_id=113', 'Motion_Poster_Mobile.png'),
-						'media-mobile'=> array('https://player.vimeo.com/external/137254633.mobile.mp4?s=230ce829f252d3c701b9bb4db131f3f4&profile_id=116')
+						'media'=> array('video','https://player.vimeo.com/external/137254629.hd.mp4?s=f8c44b7cf63ed5c0c97ab07b9f421aec&profile_id=113', '	https://player.vimeo.com/external/150935977.hd.mp4?s=e65acb22ee75efe9fc8fbd012f9ab494bdc5db69&profile_id=113', 'Motion_Poster_Mobile.png'),
+						'media-mobile'=> array('https://player.vimeo.com/external/150935977.sd.mp4?s=bfbb644fc25d06d2dfa72419cb1a42cec6739867&profile_id=112')
 					)
 				),
 			'related' => array(
@@ -380,8 +380,8 @@
 					array(
 						'label'=>'Compilation Reel',
 						'description'=> "<p>It may be lonely at the top. But we can make it decidedly less daunting when your executive speaker is surrounded by visual support this good. Guaranteed to turn talking points into dynamic, powerful, memorable statements.</p>",
-						'media'=> array('video','https://player.vimeo.com/external/141553726.hd.mp4?s=006142f8baa0efb8916d45fa4ecb9cbc&profile_id=113','https://player.vimeo.com/external/142585804.hd.mp4?s=e2a685421d9c169bf25eec9d456a04c9&profile_id=113', 'Show_Poster_Mobile.jpg'),
-						'media-mobile'=> array('https://player.vimeo.com/external/142585804.mobile.mp4?s=a01da3cb71493e40772ff8ed07c743b7&profile_id=116')
+						'media'=> array('video','https://player.vimeo.com/external/141553726.hd.mp4?s=006142f8baa0efb8916d45fa4ecb9cbc&profile_id=113','https://player.vimeo.com/external/153402271.hd.mp4?s=1292420692dc784e379bd1a6645401ed711da058&profile_id=113', 'Show_Poster_Mobile.jpg'),
+						'media-mobile'=> array('https://player.vimeo.com/external/153402271.sd.mp4?s=f4e74ad88097fb63bcb84e37fc1bcf5ccca96fcf&profile_id=112')
 					)
 				),
 			'related' => array(				
