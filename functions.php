@@ -23,7 +23,7 @@ if ( file_exists(  __DIR__ . '/cmb2/init.php' ) ) {
 
 if (is_admin()){
 	function my_remove_meta_boxes() {
-		remove_meta_box('slugdiv', 'case_study', 'normal');
+		// remove_meta_box('slugdiv', 'case_study', 'normal');
 	}
 
 	add_action( 'admin_menu', 'my_remove_meta_boxes' );
@@ -164,7 +164,7 @@ function medialoft_scripts() {
 
 	if(is_page('test')){
 		wp_enqueue_script( 'test', get_template_directory_uri() . '/assets/js/src/modules/test.js', array( 'jquery' ), true );		
-	}		
+	}	
 
 	$dataToBePassed = array(
 	    'home'      => get_stylesheet_directory_uri(),
@@ -285,13 +285,13 @@ function remove_page_fields() {
 	remove_meta_box( 'categorydiv' , 'case_study' , 'normal' ); //removes comments status
 	remove_meta_box( 'tagsdiv-post_tag' , 'case_study' , 'normal' ); //removes comments
 
-	remove_meta_box( 'pageparentdiv' , 'page' , 'normal' ); //removes comments	
+	// remove_meta_box( 'pageparentdiv' , 'page' , 'normal' ); //removes comments	
 	remove_meta_box( 'postimagediv' , 'page' , 'normal' ); //removes comments status
 
 	remove_submenu_page( 'edit.php?post_type=case_study', 'edit-tags.php?taxonomy=category&amp;post_type=case_study' );	
 	remove_submenu_page( 'edit.php?post_type=case_study', 'edit-tags.php?taxonomy=post_tag&amp;post_type=case_study' );
 }
-add_action( 'admin_menu' , 'remove_page_fields' );
+// add_action( 'admin_menu' , 'remove_page_fields' );
 add_action( 'admin_menu', 'edit_admin_menus' );
 
 function custom_menu_page_removing() {
@@ -313,13 +313,25 @@ function wpcs_disable_content_editor() {
 	if(isset($_GET['post'])){
     	$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] || null;
 
-	    if( !isset( $post_id ) || $post_id != $contactId ) return;		
+	    // if( !isset( $post_id ) || $post_id != $contactId ) return;		
 	}
-
+?>
+	<script>
+		console.log('<?php echo $post_id; ?>');
+	</script>
+<?php 
     remove_post_type_support( 'page', 'editor' );
 }
-add_action( 'admin_init', 'wpcs_disable_content_editor' );
+// add_action( 'admin_init', 'wpcs_disable_content_editor' );
+function show_post_id_in_edit(){
+	if(isset($_GET['post'])){
+    	$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] || null;
+    }
 
+	
+}
+
+add_action( 'admin_menu', 'show_post_id_in_edit' );
 
 // remove unwanted dashboard widgets for relevant users
 function wptutsplus_remove_dashboard_widgets() {
@@ -377,10 +389,6 @@ $pagesToExclude = array(
 
 ?>
 
-<script>
-	console.log('<?php echo $pageID; ?>');
-</script>
-
 <?php 
  
 	if ( ! is_admin() )
@@ -392,7 +400,7 @@ $pagesToExclude = array(
 		$query->query_vars['post__not_in'] = $pagesToExclude; // Enter your page IDs here
 }
 
-add_filter( 'parse_query', 'jp_exclude_pages_from_admin' );
+// add_filter( 'parse_query', 'jp_exclude_pages_from_admin' );
 
 
 
@@ -411,4 +419,47 @@ function ml_custom_login_logo() {
 		border-color: #D23B2F;
 	}
     </style>';
+}
+
+
+// Add Shortcode
+function add_videos( $atts ) {
+
+	// Attributes
+	extract( shortcode_atts(
+		array(
+			'ids' => '',
+		), $atts )
+	);
+
+	ob_start();
+	$query = new WP_Query( array(
+        'post_type' => 'video',
+        'posts_per_page' => -1,
+        'order' => 'ASC',
+        'orderby' => 'title',
+        'post__in' => explode(',', $ids)
+    ));
+    if ( $query->have_posts() ) { ?>
+        <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+			<?php get_template_part('partials/content/loop-video-gallery'); ?> 
+        <?php endwhile; wp_reset_postdata(); ?>
+    <?php $myvariable = ob_get_clean();
+    
+    return $myvariable;	
+	}
+
+}
+add_shortcode( 'gallery_videos', 'add_videos' );
+
+function seoUrl($string) {
+    //Lower case everything
+    $string = strtolower($string);
+    //Make alphanumeric (removes all other characters)
+    $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
+    //Clean up multiple dashes or whitespaces
+    $string = preg_replace("/[\s-]+/", " ", $string);
+    //Convert whitespaces and underscore to dash
+    $string = preg_replace("/[\s_]/", "-", $string);
+    return $string;
 }
