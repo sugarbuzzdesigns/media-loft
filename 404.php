@@ -1,6 +1,9 @@
-<?php get_header(); ?>
+<?php get_header('404'); ?>
 
 			<div id="content">
+				<a class="logo" href="<?php echo get_site_url(); ?>/">
+					<img src="<?php bloginfo('template_directory'); ?>/assets/images/mobile/logos/ML_Logo_@2x.png" alt="Media Loft" />
+				</a>
 
 				<div id="inner-content" class="wrap cf">
 
@@ -40,4 +43,4 @@
 
 			</div>
 
-<?php get_footer(); ?>
+<?php get_footer('404'); ?>

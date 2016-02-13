@@ -28,22 +28,22 @@ function cmb2_case_study_metaboxes() {
     ) );
 
     // Regular text field
-    $cmb_copy->add_field( array(
-        'name'       => __( 'Category', 'cmb2' ),
-        'desc'       => __( 'Video, Staging, Interactive, etc.', 'cmb2' ),
-        'id'         => $prefix . 'category-text',
-        'type'       => 'text',
-        'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
-        // 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
-        // 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
-        // 'on_front'        => false, // Optionally designate a field to wp-admin only
-        // 'repeatable'      => true,
-    ));
+    // $cmb_copy->add_field( array(
+    //     'name'       => __( 'Category', 'cmb2' ),
+    //     'desc'       => __( 'Video, Staging, Interactive, etc.', 'cmb2' ),
+    //     'id'         => $prefix . 'category-text',
+    //     'type'       => 'text',
+    //     'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
+    //     // 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
+    //     // 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
+    //     // 'on_front'        => false, // Optionally designate a field to wp-admin only
+    //     // 'repeatable'      => true,
+    // ));
 
     $cmb_copy->add_field( array(
         'name'       => __( 'Description Title', 'cmb2' ),
         'desc'       => __( 'Title that shows below the company name when a case study is opened.', 'cmb2' ),
-        'id'         => $prefix . 'desc-title-text',
+        'id'         => $prefix . '_desc-title-text',
         'type'       => 'text',
         'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
         // 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
@@ -55,7 +55,7 @@ function cmb2_case_study_metaboxes() {
     $cmb_copy->add_field( array(
         'name'       => __( 'Full Description', 'cmb2' ),
         'desc'       => __( 'Full Description of the case study that shows when a case study is opened.', 'cmb2' ),
-        'id'         => $prefix . 'desc-text',
+        'id'         => $prefix . '_desc-text',
         'type'       => 'textarea',
         'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
         // 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
@@ -165,7 +165,7 @@ function cmb2_case_study_metaboxes() {
         'description' => __( 'Generates reusable form entries', 'cmb2' ),
         // 'repeatable'  => false, // use false if you want non-repeatable group
         'options'     => array(
-            'group_title'   => __( 'Image {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+            'group_title'   => __( 'SS Image {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
             'add_button'    => __( 'Add Another Image', 'cmb2' ),
             'remove_button' => __( 'Remove Image', 'cmb2' ),
             'sortable'      => true, // beta
@@ -174,47 +174,52 @@ function cmb2_case_study_metaboxes() {
     ) );    
 
     $cmb_ss_images->add_group_field( $group_field_id, array(
-        'name' => 'Entry Title',
+        'name' => 'Select an Image',
         'id'   => 'title',
-        'type' => 'text',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+            'add_upload_file_text' => 'Add SS Image' // Change upload button text. Default: "Add or Upload File"
+        ),
         // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
     ) );    
 
-	$cmb_ss_images->add_field( array(
-	    'name'    => 'Image 1',
-	    'desc'    => 'Upload an image that will be added to the case study slideshow.',
-	    'id'      => 'case-study-ss-image-1',
-	    'type'    => 'file',
-	    // Optional:
-	    'options' => array(
-	        'url' => false, // Hide the text input for the url
-	        'add_upload_file_text' => 'Add Slideshow Image' // Change upload button text. Default: "Add or Upload File"
-	    ),
-	));		
+	// $cmb_ss_images->add_field( array(
+	//     'name'    => 'Image 1',
+	//     'desc'    => 'Upload an image that will be added to the case study slideshow.',
+	//     'id'      => 'case-study-ss-image-1',
+	//     'type'    => 'file',
+	//     // Optional:
+	//     'options' => array(
+	//         'url' => false, // Hide the text input for the url
+	//         'add_upload_file_text' => 'Add Slideshow Image' // Change upload button text. Default: "Add or Upload File"
+	//     ),
+	// ));		
 
-	$cmb_ss_images->add_field( array(
-	    'name'    => 'Image 2',
-	    'desc'    => 'Upload an image that will be added to the case study slideshow.',
-	    'id'      => 'case-study-ss-image-2',
-	    'type'    => 'file',
-	    // Optional:
-	    'options' => array(
-	        'url' => false, // Hide the text input for the url
-	        'add_upload_file_text' => 'Add Slideshow Image' // Change upload button text. Default: "Add or Upload File"
-	    ),
-	));		
+	// $cmb_ss_images->add_field( array(
+	//     'name'    => 'Image 2',
+	//     'desc'    => 'Upload an image that will be added to the case study slideshow.',
+	//     'id'      => 'case-study-ss-image-2',
+	//     'type'    => 'file',
+	//     // Optional:
+	//     'options' => array(
+	//         'url' => false, // Hide the text input for the url
+	//         'add_upload_file_text' => 'Add Slideshow Image' // Change upload button text. Default: "Add or Upload File"
+	//     ),
+	// ));		
 
-	$cmb_ss_images->add_field( array(
-	    'name'    => 'Image 3',
-	    'desc'    => 'Upload an image that will be added to the case study slideshow.',
-	    'id'      => 'case-study-ss-image-3',
-	    'type'    => 'file',
-	    // Optional:
-	    'options' => array(
-	        'url' => false, // Hide the text input for the url
-	        'add_upload_file_text' => 'Add Slideshow Image' // Change upload button text. Default: "Add or Upload File"
-	    ),
-	));			
+	// $cmb_ss_images->add_field( array(
+	//     'name'    => 'Image 3',
+	//     'desc'    => 'Upload an image that will be added to the case study slideshow.',
+	//     'id'      => 'case-study-ss-image-3',
+	//     'type'    => 'file',
+	//     // Optional:
+	//     'options' => array(
+	//         'url' => false, // Hide the text input for the url
+	//         'add_upload_file_text' => 'Add Slideshow Image' // Change upload button text. Default: "Add or Upload File"
+	//     ),
+	// ));			
 }
 
 function cmb2_page_specific_metaboxes(){

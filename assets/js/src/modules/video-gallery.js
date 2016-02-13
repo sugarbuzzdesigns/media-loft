@@ -80,6 +80,10 @@ var ml = ml || {};
 				console.log(_this.currentPath);			
 			});
 
+			ml.elms.$win.on('resize-done', function(){
+				console.log('resize done');
+			});
+
 			_this.$galleryItems.on('click', function(e){
 				e.preventDefault();
 

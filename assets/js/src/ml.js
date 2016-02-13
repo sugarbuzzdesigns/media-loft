@@ -253,7 +253,7 @@ var ml = {};
 		} 		
 	};
 
-	var myEfficientFn = ml.utils.debounce(function() {
+	var resizeDebounce = ml.utils.debounce(function() {
 		ml.utils.setBreakpoint();
 		ml.env.winWidth = ml.elms.$win.width();
 		ml.env.setVideoAspectRatioClass();
@@ -261,6 +261,8 @@ var ml = {};
 		if(ml.elms.$body.is('.page-work') && ML_vars.device === 'desktop'){
 			ml.Work.resizeWorkPage();			
 		}
+
+		ml.elms.$win.trigger('resize-done');
 	}, 350);	
 
 	$(function(){
@@ -289,8 +291,8 @@ var ml = {};
 			console.log('resize');
 		});
 
-		ml.elms.$win.on('resize', myEfficientFn).resize();
-		ml.elms.$win.on('scroll', myEfficientFn).scroll();
+		ml.elms.$win.on('resize', resizeDebounce).resize();
+		// ml.elms.$win.on('scroll', scrollDebounce).scroll();
 
 		var url = $.url(window.location);
 		
