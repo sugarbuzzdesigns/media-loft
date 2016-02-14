@@ -17,7 +17,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<?php include('partials/loader.php'); ?>
+	<!-- <?php include('partials/gallery-loader.php'); ?> -->
 	<div class="wrap<?php if(!$post->post_parent){ echo ' toc'; }?>	">
 		<a id="video-gallery-main-logo" class="video-gallery-logo" href="<?php echo get_site_url(); ?>/">
 			<img src="<?php bloginfo('template_directory'); ?>/assets/images/logos/ML_Logo_video_gallery_bw.png" alt="Media Loft" />

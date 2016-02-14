@@ -20,10 +20,21 @@ var ml = {};
 
 	ml.env = {
 		init: function(){
+			var _this = this;
+
 			this.winHeight = ml.elms.$win.height();
 			this.winWidth = ml.elms.$win.width();
 			this.isTouch = (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
 			this.tapClick = this.isTouch ? 'touchend' : 'click';
+
+			// Listen for orientation changes
+			window.addEventListener("orientationchange", function() {
+				// Announce the new orientation number
+				$('body').trigger('mlorientationchange');
+				
+				_this.winHeight = ml.elms.$win.height();
+				_this.winWidth = ml.elms.$win.width();
+			}, false);
 
 			this.setTouchClass();
 			this.setVideoAspectRatioClass();
@@ -242,7 +253,7 @@ var ml = {};
 		} 		
 	};
 
-	var myEfficientFn = ml.utils.debounce(function() {
+	var resizeDebounce = ml.utils.debounce(function() {
 		ml.utils.setBreakpoint();
 		ml.env.winWidth = ml.elms.$win.width();
 		ml.env.setVideoAspectRatioClass();
@@ -250,13 +261,15 @@ var ml = {};
 		if(ml.elms.$body.is('.page-work') && ML_vars.device === 'desktop'){
 			ml.Work.resizeWorkPage();			
 		}
+
+		ml.elms.$win.trigger('resize-done');
 	}, 350);	
 
 	$(function(){
 		ml.env.init();
 		ml.mainMenu.init();
 		ml.rightMenu.init();
-		// ml.video.init();
+		ml.video.init();
 
 		ml.elms.$win.load(function(){
 			console.log('window loaded');
@@ -264,6 +277,8 @@ var ml = {};
 
 			ml.elms.$loader.fadeOut();
 			ml.elms.$body.addClass('loaded');
+
+			ml.elms.$win.trigger('mlLoaded');
 		});			
 
 		var onLoadTimeout = setTimeout(function(){
@@ -272,8 +287,12 @@ var ml = {};
 			ml.elms.$body.addClass('loaded');
 		}, 500);
 
-		ml.elms.$win.on('resize', myEfficientFn).resize();
-		ml.elms.$win.on('scroll', myEfficientFn).scroll();
+		ml.elms.$win.on('resize', function(){
+			console.log('resize');
+		});
+
+		ml.elms.$win.on('resize', resizeDebounce).resize();
+		// ml.elms.$win.on('scroll', scrollDebounce).scroll();
 
 		var url = $.url(window.location);
 		

@@ -17,7 +17,115 @@ body .wrap {
 	min-height: 100%;
 }
 
-.fadeIn {
+/**************************
+  Loader
+***************************/
+#gallery-loader {
+	background: #ef4330;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1000;
+}
+#gallery-loader .inner {
+	height: 50%;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
+}
+#gallery-loader .inner svg {
+	width: 200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
+}
+#gallery-loader .inner svg .left {
+	stroke: #fff;
+	fill-opacity: 0;
+	stroke-width: 1;
+	stroke-dasharray: 540;
+	stroke-dashoffset: 540;
+	-webkit-animation-name: draw;
+	animation-name: draw;
+	-webkit-animation-duration: 2s;
+	animation-duration: 2s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+}
+#gallery-loader .inner svg .right {
+	stroke: #fff;
+	fill-opacity: 0;
+	stroke-width: 1;
+	stroke-dasharray: 1100;
+	stroke-dashoffset: 1100;
+	-webkit-animation-name: draw;
+	animation-name: draw;
+	-webkit-animation-duration: 2s;
+	animation-duration: 2s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+}
+
+#gallery-loader p {
+	text-align: center;
+	margin: 0;
+	-webkit-animation-name: fadeOutIn;
+	animation-name: fadeOutIn;	
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;	
+}
+
+@-webkit-keyframes fadeOutIn {
+  0% {
+    opacity: 1;	
+  }
+  50% {
+	opacity: 0.5
+  }
+  100% {
+	opacity: 1;
+  }
+}
+
+@keyframes fadeOutIn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+	opacity: 0.5
+  }
+  100% {
+	opacity: 1;
+  }
+}
+
+.galleryFadeIn {
+	transition: all 0.5s ease;
 	opacity: 1 !important;
 }
 
@@ -53,6 +161,10 @@ body .wrap {
 /* Main Gallery */
 .gallery {
 	padding: 180px 20px 0 20px;
+}
+
+.gallery.loaded #gallery-loader {
+	display: none;
 }
 
 /* Main Title of Gallery */
@@ -108,6 +220,7 @@ h1.gallery-header span {
 	padding-bottom: 56.25%;
 	position: relative;
 	margin-bottom: 30px;
+	transition: height 0.5s;
 }
 
 .video-wrap .video-js {
@@ -316,6 +429,12 @@ h1.gallery-header span {
 	color: #ea5340;
 }
 
+/* Desktop Size 2 */
+@media handheld, only screen and (max-width: 1045px) {
+	.gallery-overlay .copy .col + .col .content {
+		padding-right: 50px;
+	}
+}
 
 /* Mobile Styles */
 @media handheld, only screen and (max-width: 767px) {

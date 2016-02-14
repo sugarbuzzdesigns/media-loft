@@ -41,6 +41,7 @@ var ml = ml || {};
 			// gallery element that has been clicked to open 
 			// in the overly
 			this.$currentVideo = null;
+			this.overlayVideoPlaying = false;
 
 			// video JS instance for current video
 			this.curVideoJs = null;
@@ -67,6 +68,10 @@ var ml = ml || {};
 		checkGalleryCount: function(){
 			if(typeof oneGalleryVideo != 'undefined' && oneGalleryVideo){
 				this.openVideoInOverlay(this.$galleryItems.eq(0));
+
+				// When we have a single video, let's show 
+				// a loader and remove it when it's all done showing.
+				// this.closeLoadingScreen();				
 			}
 		},
 
@@ -81,7 +86,7 @@ var ml = ml || {};
 			});
 
 			ml.elms.$win.on('resize-done', function(){
-				console.log('resize done');
+				_this.setVideoHeight();
 			});
 
 			_this.$galleryItems.on('click', function(e){
@@ -157,25 +162,45 @@ var ml = ml || {};
 		closeVideoInOverlay: function(){
 			var _this = this;
 
-			_this.$body.removeClass('overlay-open');
-			
-			_this.currentVideoData = {};
-			
-			_this.$galleryOverlay.fadeOut(500, function(){
-				// _this.$galleryOverlayTrans.animate({opacity: 0}, 200);
-				_this.$videoGallery.show();
-				_this.$scrollElm.scrollTop(_this.curScrollPos);
+			// if here
+			if(this.overlayVideoPlaying){
+				console.log('stop video and return to open state');
+				stopAndCloseOverlayVideo();
+			} else {
+				console.log('close open item completely');
+				closeWholeOverlay();
+			}
 
-				_this.$videoGallery.animate({
-					opacity: 1
+			function stopAndCloseOverlayVideo(){
+				_this.curVideoJs.pause();
+
+				_this.overlayVideoPlaying = false;
+				_this.setVideoHeight();
+			}
+
+			function closeWholeOverlay(){
+				_this.$body.removeClass('overlay-open');
+				
+				_this.currentVideoData = {};
+				
+				_this.$galleryOverlay.fadeOut(500, function(){
+					// _this.$galleryOverlayTrans.animate({opacity: 0}, 200);
+					_this.$videoGallery.show();
+					_this.$scrollElm.scrollTop(_this.curScrollPos);
+
+					_this.$videoGallery.animate({
+						opacity: 1
+					});
 				});
-			});
 
-			// this.$galleryOverlayTrans.delay(250).animate({opacity: 1}, 200);
+				// this.$galleryOverlayTrans.delay(250).animate({opacity: 1}, 200);
 
-			_this.$videoStartBtn.removeClass('animate');
+				_this.$videoStartBtn.removeClass('animate');
 
-			_this.resetOverlay();
+				_this.resetOverlay();				
+			}	
+
+
 		},
 
 		populateOverlay: function(galleryItem){
@@ -212,13 +237,27 @@ var ml = ml || {};
 				winHeight = this.$win.outerHeight(),
 				videoHeight = winHeight - (copyHeight + navHeight);
 
-			this.$galleryOverlayVideoWrap.height(videoHeight);
+			if(this.overlayVideoPlaying){
+				this.$galleryOverlayVideoWrap.height(winHeight);
+				console.log('go full height');
+			} else {
+				this.$galleryOverlayVideoWrap.height(videoHeight);
+			}
+		},
+
+		resizePage: function(){
+
 		},
 
 		showOverlayElements: function(){
-			this.$galleryNav.addClass('fadeIn');
-			this.$galleryOverlayItemWrap.addClass('fadeIn');
+			this.$galleryNav.addClass('galleryFadeIn');
+			this.$galleryOverlayItemWrap.addClass('galleryFadeIn');
 		},
+
+		hideOverlayElements: function(){
+			this.$galleryNav.removeClass('galleryFadeIn');
+			this.$galleryOverlayItemWrap.removeClass('galleryFadeIn');
+		},		
 
 		dePopulateOverlay: function(){
 			this.$overlayVideo.remove();
@@ -244,11 +283,15 @@ var ml = ml || {};
 				'controls': true
 			}, function(){
 				_this.curVideoJs = this;
+				console.log('init video: ', _this.curVideoJs.pause);
 			});	
 		},
 
 		playOverlayVideo: function(){
+			this.overlayVideoPlaying = true;
+
 			this.$galleryOverlay.addClass('play-video');
+			this.$galleryOverlayVideoWrap.css({height: this.$win.outerHeight()});
 			
 			this.curVideoJs.play();
 		},
@@ -256,23 +299,28 @@ var ml = ml || {};
 		navigateGalleryOverlay: function(dir){
 			var _this = this, videoId, $galleryItemToShow;
 
+			this.hideOverlayElements();
+
 			if(dir === 'next'){
 				// do next stuff
 				if(this.currentVideoData.galleryIndex + 1 > this.numberOfGalleryItems){
-					
-					console.log('go from the top');
-					console.log($galleryItemToShow = this.getGalleryItemByIndex(1));
+					$galleryItemToShow = this.getGalleryItemByIndex(1);
 				} else {
-					console.log($galleryItemToShow = this.getGalleryItemByIndex(this.currentVideoData.galleryIndex + 1));
+					$galleryItemToShow = this.getGalleryItemByIndex(this.currentVideoData.galleryIndex + 1);
 				}
 			} else {
 				// do prev stuff
 				if (this.currentVideoData.galleryIndex - 1 === 0) {
-					console.log('go from the end');
-					console.log($galleryItemToShow = this.getGalleryItemByIndex(this.numberOfGalleryItems));					
+					$galleryItemToShow = this.getGalleryItemByIndex(this.numberOfGalleryItems);
 				} else {
-					console.log($galleryItemToShow = this.getGalleryItemByIndex(this.currentVideoData.galleryIndex - 1));	
+					$galleryItemToShow = this.getGalleryItemByIndex(this.currentVideoData.galleryIndex - 1);
 				}
+			}
+
+			if(this.overlayVideoPlaying){
+				_this.curVideoJs.pause();
+				_this.overlayVideoPlaying = false;
+				_this.setVideoHeight();
 			}
 
 			this.$galleryOverlayItemWrap.animate({
@@ -281,11 +329,12 @@ var ml = ml || {};
 				_this.resetOverlay();
 				_this.populateOverlay($galleryItemToShow);
 				_this.updateUrl(_this.currentVideoData.deepLink);
+				_this.showOverlayElements();
 			});			
 
-			this.$galleryOverlayItemWrap.delay(250).animate({
-				opacity: 1
-			});
+			// this.$galleryOverlayItemWrap.delay(250).animate({
+			// 	opacity: 1
+			// });
 		},
 
 		getGalleryItemByIndex: function(index){
@@ -296,6 +345,10 @@ var ml = ml || {};
 			this.resetUrl();
 			this.curVideoJs.dispose();
 			this.$galleryOverlay.removeClass('play-video');
+		},
+
+		closeLoadingScreen: function(){
+			$('#gallery-loader').fadeOut();
 		},
 
 		updateUrl: function(deepLink){
